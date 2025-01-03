@@ -16,6 +16,7 @@ namespace Game
         public static Vector2 MoveVector;
 
         public static event Action RollPerformed;
+        public static event Action ShootPerformed;
 
         private void OnActionTriggered(InputAction.CallbackContext ctx)
         {
@@ -26,6 +27,9 @@ namespace Game
                     break;
                 case "Roll" when ctx.started:
                     RollPerformed?.Invoke();
+                    break;
+                case "Shoot" when ctx.started:
+                    ShootPerformed?.Invoke();
                     break;
             }
         }

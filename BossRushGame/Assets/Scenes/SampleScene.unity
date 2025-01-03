@@ -403,7 +403,7 @@ Transform:
   m_GameObject: {fileID: 588402764}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.1875, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -758,6 +758,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 588402765}
+  bulletForce: 80
+  bulletPrefab: {fileID: 6164953699006023503, guid: 21eff3360774f244f86680cfc8f3ea9d, type: 3}
 --- !u!1 &1656009013
 GameObject:
   m_ObjectHideFlags: 0

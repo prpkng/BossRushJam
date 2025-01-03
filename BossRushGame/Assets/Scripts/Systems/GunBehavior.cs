@@ -6,9 +6,12 @@ namespace Game
     {
         [SerializeField] private Transform muzzleTransform;
 
-        public void SpawnBullet(GameObject bulletPrefab, float forceMultiplier = 1)
+        public void FireBullet(GameObject bulletPrefab, float bulletForce, float forceMultiplier = 1)
         {
+            var bullet = Instantiate(bulletPrefab, muzzleTransform.position, transform.rotation);
 
+            bullet.GetComponent<Rigidbody2D>().linearVelocity =
+                bulletForce * forceMultiplier * bullet.transform.right;
         }
     }
 }

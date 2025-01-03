@@ -6,8 +6,15 @@ namespace Game.Player
 
     public class PlayerGun : GunBehavior
     {
+        [Header("Properties")]
+        public float bulletForce;
+
+        [Header("References")]
+        [SerializeField] private GameObject bulletPrefab;
+
         private new Camera camera;
         private SpriteRenderer spriteRenderer;
+
         private void Awake()
         {
             camera = Camera.main;
@@ -24,6 +31,20 @@ namespace Game.Player
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
             spriteRenderer.flipY = lookDirection.x < 0;
+        }
+
+        private void OnEnable()
+        {
+            InputManager.ShootPerformed += PlayerShoot;
+        }
+        private void OnDestroy()
+        {
+            InputManager.ShootPerformed -= PlayerShoot;
+        }
+
+        private void PlayerShoot()
+        {
+            FireBullet(bulletPrefab, bulletForce);
         }
     }
 }
