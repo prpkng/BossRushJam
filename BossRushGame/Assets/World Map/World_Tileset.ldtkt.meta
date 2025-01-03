@@ -1,0 +1,4216 @@
+fileFormatVersion: 2
+guid: 7dab3e8f618f7754b843f47f04c06fad
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: f3268c876daf4890b6af6cd462063137, type: 3}
+  _reimportOnDependencyChange: 1
+  _pixelsPerUnit: 16
+  _overrideTexture: {instanceID: 0}
+  _sprites:
+  - name: World_Tileset_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 201
+      width: 16
+      height: 16
+    spriteID: 0dc1c5b93a9c0f848a7a84f59ccc6580
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 201
+      width: 16
+      height: 16
+    spriteID: 0e07c2d1258cea64381f67faefe8be91
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 201
+      width: 16
+      height: 16
+    spriteID: b0da20fe701ffc249a84b8ad293e5400
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 201
+      width: 16
+      height: 16
+    spriteID: a4e0005ccc2d7004586d4dc5d2a14c6e
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 201
+      width: 16
+      height: 16
+    spriteID: 894ba14a0a2ab9249bfa4fc56615df8e
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 201
+      width: 16
+      height: 16
+    spriteID: 573a72f3e91dd5449864764c328d3d47
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 201
+      width: 16
+      height: 16
+    spriteID: 79cea71b5e44fac4185933d44903d2fc
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 201
+      width: 16
+      height: 16
+    spriteID: a6416461981b04642aedbb9cfd07a999
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 201
+      width: 16
+      height: 16
+    spriteID: ccff965d24fa24743b87e9b9a0417658
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 201
+      width: 16
+      height: 16
+    spriteID: 40eefc3674978ff47a66fcc464c0a928
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 201
+      width: 16
+      height: 16
+    spriteID: 91f2936347480214e86b36444fe4b407
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 201
+      width: 16
+      height: 16
+    spriteID: f0ef3d7da8bda9a45852786af2cc5fe4
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 201
+      width: 16
+      height: 16
+    spriteID: cab1d9ebf15fb364da5ece8267e35cf6
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 201
+      width: 16
+      height: 16
+    spriteID: e979fd9d205b28141b0653a202f9a60b
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_14
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 201
+      width: 16
+      height: 16
+    spriteID: d6048bf07d20c674fa445d2d588ead76
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_15
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 201
+      width: 16
+      height: 16
+    spriteID: fa86d78b11e55594fa661ce81824f9d6
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_16
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 201
+      width: 16
+      height: 16
+    spriteID: e74212d5f44f9ec49b5de6e4897b1e04
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_17
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 201
+      width: 16
+      height: 16
+    spriteID: 6c22a80e462922d4f9600d4b7c702721
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_18
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 201
+      width: 16
+      height: 16
+    spriteID: 6509393d9c8bbad45934b30945faa7a5
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_19
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 201
+      width: 2
+      height: 16
+    spriteID: f4eaaf9ac97c7da4383fb1c926b2ac5d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_20
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 0122a1eea8083f14690421519376cd6b
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_21
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 042759706bb131f49b0492a71909343f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_22
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 73c1e6aef4cdc154288beb3805bebd3f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_23
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 9f124d0e70b92e24f84d7a741a87f576
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_24
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 6611e5c6c1ede54498c61b48b3bb1384
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_25
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 5754ab09ed084bb40aab42a53d19ec6d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_26
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 834d62092405725488e727b291b1ba99
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_27
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 81289375978d35948aaaa4b677327b91
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_28
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 6e03b0ae3d7cfd54a98500a669de1732
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_29
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 76594963616fe5f47abb27d1227e0888
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_30
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 1d814f68ab7e5e24796c42f6a62f8ba3
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_31
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 185
+      width: 16
+      height: 16
+    spriteID: ac168ab75635f0f41b3021ce264be275
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_32
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 185
+      width: 16
+      height: 16
+    spriteID: ca6e6df65ed8f33459a65718021ef400
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_33
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 8f1a338dcc6d88e4a905b2b9c2e0d2eb
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_34
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 181b2875b813c9c47aa63cf2900aa8cc
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_35
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 185
+      width: 16
+      height: 16
+    spriteID: b8db2cc372599d443aeed7e69226ec4e
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_36
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 185
+      width: 16
+      height: 16
+    spriteID: f5a88c3f3640b2345abe2d295c77271c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_37
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 185
+      width: 16
+      height: 16
+    spriteID: ea59831782911564faa1cc676b06961e
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_38
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 185
+      width: 16
+      height: 16
+    spriteID: 71f1a826f8dd00a459ed896cfe8a9322
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_39
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 185
+      width: 2
+      height: 16
+    spriteID: b61b14249af84ee449c74b3c251cf8f7
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_40
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 0bdeda4213193eb49b130d0e1586c793
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_41
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 0dff3d320e9bbcb48a09913297ad40e6
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_42
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 59379e3cf19165049b0eccce3e11cf59
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_43
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 169
+      width: 16
+      height: 16
+    spriteID: e392543bea472a445b6a33af96aa67c8
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_44
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 2b4114c4d7c898848b11d31cf6ef3508
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_45
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 169
+      width: 16
+      height: 16
+    spriteID: f9ebe78db11281d47a0f4af185b5be69
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_46
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 9405118e35fc3ef419a3ad80e2d13947
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_47
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 169
+      width: 16
+      height: 16
+    spriteID: e3e7ff4ff7163ed4696cfb1a01776a82
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_48
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 078ec5fa1f299574aa68202bbf32c6bc
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_49
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 37e568e2a793a234f8b0d851627ad74d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_50
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 169
+      width: 16
+      height: 16
+    spriteID: a32d9ace19b372f4da23c6497a75780f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_51
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 4cefad2fad4db644583cf017c8a52a4a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_52
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 3bed99986ad680746b81ed4b5df23966
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_53
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 169
+      width: 16
+      height: 16
+    spriteID: b58182ba8dd0813468279d9ce2b804b1
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_54
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 169
+      width: 16
+      height: 16
+    spriteID: ccb7bcd20a6dc8f4c9fdf2f822fe10f9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_55
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 4c11dbc4b91a7b44098e2766432cde70
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_56
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 32f334ba7bf1d63498aa5e5d5772613e
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_57
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 2c8f818507f734445b324ff762ce7461
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_58
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 169
+      width: 16
+      height: 16
+    spriteID: 0ae4af880b0b8ee448d907d9e5d71252
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_59
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 169
+      width: 2
+      height: 16
+    spriteID: b6e218474840aae4badf989dbb1a4a44
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_60
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 153
+      width: 16
+      height: 16
+    spriteID: 8c0b363706ac6e34e95a3a4f440497e1
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_61
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 153
+      width: 16
+      height: 16
+    spriteID: 90e2c3d612f167b4ea7d28a1c92a6cbd
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_62
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 153
+      width: 16
+      height: 16
+    spriteID: 6aa75d716295697459751858a95080e8
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_63
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 153
+      width: 16
+      height: 16
+    spriteID: fbd7b928289791a4ebd34174b6ee08e8
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_64
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 153
+      width: 16
+      height: 16
+    spriteID: a411edc36b580254a857edc10e4d8890
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_65
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 153
+      width: 16
+      height: 16
+    spriteID: fc8c01a776c209a4b9054ddf6122225f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_66
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 153
+      width: 16
+      height: 16
+    spriteID: 31cb0a47257a3224faa53fb92247e0d8
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_67
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 153
+      width: 16
+      height: 16
+    spriteID: aad4da2e86f6ba747824fd8c858f183d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_68
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 153
+      width: 16
+      height: 16
+    spriteID: 798906a92bc42b54d9f95a56b15bf358
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_69
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 153
+      width: 16
+      height: 16
+    spriteID: f1a39b48265b5084b9c2ed587013ecce
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_70
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 153
+      width: 16
+      height: 16
+    spriteID: f547c0358dad3134d8666e2c8a44a79a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_71
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 153
+      width: 16
+      height: 16
+    spriteID: a53118ed4e4c2e5478bb0fa4f9a81bc5
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_72
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 153
+      width: 16
+      height: 16
+    spriteID: 5da2a771f95ece443ad99cd6d69ff7d7
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_73
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 153
+      width: 16
+      height: 16
+    spriteID: dbc8b936fe488e9408cf400d8ef1a309
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_74
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 153
+      width: 16
+      height: 16
+    spriteID: db7206ec7a327bb4494036b57e62107f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_75
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 153
+      width: 16
+      height: 16
+    spriteID: 50316530e4e28504687f644368395a2e
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_76
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 153
+      width: 16
+      height: 16
+    spriteID: a52fdbcd1ed220c418847890a26870b1
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_77
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 153
+      width: 16
+      height: 16
+    spriteID: 31b1da28a24515d479f9329e80179447
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_78
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 153
+      width: 16
+      height: 16
+    spriteID: 203c35a059d79724d9d33448abae0f70
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_79
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 153
+      width: 2
+      height: 16
+    spriteID: 12eba8e5ac6bc9c40b860d38f1436e35
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_80
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 0762bd18f7603424e81e344ca5f2a008
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_81
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 137
+      width: 16
+      height: 16
+    spriteID: ce69dec110a36ad4a97a91752e53b2a2
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_82
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 70cdabbafbee68d43833d18c1eae6270
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_83
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 93306aac5a63f0a46a557723425e399b
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_84
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 75de25a73f634894dad529106f4f2fb0
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_85
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 137
+      width: 16
+      height: 16
+    spriteID: fa0ab593f2637bf4b8fbe0f9eee6f112
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_86
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 137
+      width: 16
+      height: 16
+    spriteID: ff5204c9af6a2d147898e1a25fa8cbff
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_87
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 1c0bc027c6e12e342a2533869037ecf6
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_88
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 137
+      width: 16
+      height: 16
+    spriteID: f2820c2cae3c104479dd24ee2f69c004
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_89
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 137
+      width: 16
+      height: 16
+    spriteID: eeec13e0b5feaec4d940f5bb2e689d75
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_90
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 137
+      width: 16
+      height: 16
+    spriteID: edd3bf2c35912ca4e9eceff8a4a4de31
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_91
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 5ea8f4859af19fd4d9ef54792361307a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_92
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 137
+      width: 16
+      height: 16
+    spriteID: e086557b3dd6bc048a76812d72dbf02f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_93
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 137
+      width: 16
+      height: 16
+    spriteID: af27f7f9d4b27aa4e94d461c0d686807
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_94
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 008c0927ecf35444a836e42361d5d7f8
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_95
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 78667d50774d86a4da5641051c403f8f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_96
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 00dd1e9813877aa459c6a332f14c2d1f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_97
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 5b571cb051b9e2349971372e126e08e5
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_98
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 137
+      width: 16
+      height: 16
+    spriteID: 27e8c70023fb8bb4081e1404043a406f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_99
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 137
+      width: 2
+      height: 16
+    spriteID: 18832946514f5fe43a3c661af5b5324d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_100
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 121
+      width: 16
+      height: 16
+    spriteID: a3fe0935920d2cb41991d68224f1a72f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_101
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 121
+      width: 16
+      height: 16
+    spriteID: cf7fd7fdb909bb84193cd6ce54059b31
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_102
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 3783ceaf337df67409bf5e0b7a9b9e79
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_103
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 824dad80c83757b49b4e61798e3ae35a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_104
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 747f7040025d83347a6cc4aa39583326
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_105
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 0cb39d32d42480346a33176248c97fd5
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_106
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 4cd0735717b6fc34b91146f0192bbd77
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_107
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 4db500ac2e715524e9c75e98f5f5a1a0
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_108
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 121
+      width: 16
+      height: 16
+    spriteID: fd53c337ea6b79f42a56e7316c7dde63
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_109
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 86c0c915008fae74bbcc301da579ec8f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_110
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 0f6dce5ba5f7d3844929b354ef254733
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_111
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 6cdbdb5f967833446a03aca1bb839c46
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_112
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 121
+      width: 16
+      height: 16
+    spriteID: c90598bf0ec02294ba4f15345cf99abf
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_113
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 121
+      width: 16
+      height: 16
+    spriteID: ef295d49b3afd2a4db12a7c192576d8a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_114
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 1f1857cc34109104b9d4adee3a65edec
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_115
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 1b45ced06aad282488e691ef1ae72c19
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_116
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 121
+      width: 16
+      height: 16
+    spriteID: dcfc3fe174c1223458d8cfd50ac17443
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_117
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 52b8661bd660c6747a8c6657b100bc79
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_118
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 121
+      width: 16
+      height: 16
+    spriteID: 44724ba2e73802a4ea1bba055a3a16c2
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_119
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 121
+      width: 2
+      height: 16
+    spriteID: ff1ca40c125fbb441876df95be0da8e4
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_120
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 94cf3f060d6dcaf4abaf5c049fb78f14
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_121
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 3386ce20fed012348a8a8efe8bafe1f4
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_122
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 3411fd00abb6ddd479805dc674683278
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_123
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 56b0ed9b2e56d5741868c81efa7f4ddc
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_124
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 01cdd09dc4da28c48be91415d55a0063
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_125
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 3107f5b6f98c7504094560527f1f8dd9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_126
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 41b1a80c5adb88a4da0f98b879ad49e6
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_127
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 105
+      width: 16
+      height: 16
+    spriteID: b4447916cb4a68046a78c15ba230142e
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_128
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 105
+      width: 16
+      height: 16
+    spriteID: a95510beb38ceef4f875a0891f568258
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_129
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 046dc924be418bd49b23e06e456ab986
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_130
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 105
+      width: 16
+      height: 16
+    spriteID: f69f6c64afe1c1148a9db712ecaea6f3
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_131
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 9ee3af0dc0de8b04c9257d5b8750d04c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_132
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 105
+      width: 16
+      height: 16
+    spriteID: bec25dc92356d0348a3adee383077661
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_133
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 1797a0cc808fbd9439cdc7eca88a9498
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_134
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 56fc296591654a04f915802c424ccac7
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_135
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 9f543a6904d3603418a264b149c9ee81
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_136
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 22ceedd8eef6c3f4193936c586a6ea85
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_137
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 105
+      width: 16
+      height: 16
+    spriteID: ae65bbfd97b9a484b917c877b442645b
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_138
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 105
+      width: 16
+      height: 16
+    spriteID: 2d9feeb3a6e42f749874d8da775af83e
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_139
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 105
+      width: 2
+      height: 16
+    spriteID: 34954fb7cf3274f448fce7c411275ea3
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_140
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 89
+      width: 16
+      height: 16
+    spriteID: fd77eae554007464480bc8ed8029ab48
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_141
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 89
+      width: 16
+      height: 16
+    spriteID: 20dfcfcf6c5f6f54bbf75b92cc03b985
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_142
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 89
+      width: 16
+      height: 16
+    spriteID: 2b2cc06a1ae3be447b6d44387398f5e9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_143
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 89
+      width: 16
+      height: 16
+    spriteID: e788bc7ca1c83c741b2779c49a558c84
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_144
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 89
+      width: 16
+      height: 16
+    spriteID: 114420dae708e1247a52e6ad6a28e0da
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_145
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 89
+      width: 16
+      height: 16
+    spriteID: fb66207d625e91a4e8dbd858c30d66d2
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_146
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 89
+      width: 16
+      height: 16
+    spriteID: d3c4ce33e0d89d7419e099b90664c5d0
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_147
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 89
+      width: 16
+      height: 16
+    spriteID: 9a58c4165c774e643bd632b32aaa9baf
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_148
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 89
+      width: 16
+      height: 16
+    spriteID: 402df9916eeae3e42b091fe1fa74381a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_149
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 89
+      width: 16
+      height: 16
+    spriteID: e43a7b58c48a6bb4cb64fb4599c2169d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_150
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 89
+      width: 16
+      height: 16
+    spriteID: e2015031e47d463418ad01b6a049201f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_151
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 89
+      width: 16
+      height: 16
+    spriteID: 6ef74a5264b6035459f203302956445f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_152
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 89
+      width: 16
+      height: 16
+    spriteID: 87eb8e302751e584b940fe865223b12d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_153
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 89
+      width: 16
+      height: 16
+    spriteID: ff72fa0df580a7b4f97786b0e8b30903
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_154
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 89
+      width: 16
+      height: 16
+    spriteID: 6230bcc138a434e4a8ca35c7cc8da2c6
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_155
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 89
+      width: 16
+      height: 16
+    spriteID: 9a23cb0cb236e7547abe0afe849ee66c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_156
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 89
+      width: 16
+      height: 16
+    spriteID: ba8d097b6abebe642a4bbe315808bc4f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_157
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 89
+      width: 16
+      height: 16
+    spriteID: aa0ba9e7393d73a4abb8bed509e27f06
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_158
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 89
+      width: 16
+      height: 16
+    spriteID: e3dd5375d5c5e234a98a19d6fe6b0483
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_159
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 89
+      width: 2
+      height: 16
+    spriteID: d147871b2faeaa34fbcc300c173fe72b
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_160
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 73
+      width: 16
+      height: 16
+    spriteID: c6d710821ae952b4186f56f4bff44884
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_161
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 73
+      width: 16
+      height: 16
+    spriteID: ea408bcaf1fe24947a1caf280ce42abb
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_162
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 3d430170aff3b05479d11a37a956b52f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_163
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 786ef26b3b9bb614dadcdabf65495e45
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_164
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 2ea3af6430ebc154b981b60e8bdd8ce0
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_165
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 24dd544640e0c2043a0cb2548e7404f8
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_166
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 73
+      width: 16
+      height: 16
+    spriteID: b0773179f22e2d74796931e0eeb5e7aa
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_167
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 121161481cd734449a45aec38cf13db9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_168
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 73
+      width: 16
+      height: 16
+    spriteID: aa7f68339d9bfdb4dabe9910d36c0295
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_169
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 01bfd5d75a74e7c428010fb101cc2a90
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_170
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 2bec82ca4a84d464d8cacb83e74fd5f7
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_171
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 86bde52a87e654a4f8fb8e138e0eb6ec
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_172
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 73
+      width: 16
+      height: 16
+    spriteID: e30fa6ba5b5fc2848a5b9e0b2f8f1242
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_173
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 3823bb5b7b0225247b747d0f8b269aaf
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_174
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 1c6623e199d55f345819cefc9ec1d68d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_175
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 2b4db1077af6cd043bf96510bbe0cc6d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_176
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 73
+      width: 16
+      height: 16
+    spriteID: f84487ab4b0acda499838a7be85a5499
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_177
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 73
+      width: 16
+      height: 16
+    spriteID: 7b003988f9069c1479edc787b03305af
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_178
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 73
+      width: 16
+      height: 16
+    spriteID: c94555e20e948894694575eb50dd6ad0
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_179
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 73
+      width: 2
+      height: 16
+    spriteID: c40781db8083e904a8fa0512d443574b
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_180
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 57
+      width: 16
+      height: 16
+    spriteID: f156214e00481a847881d972bd28f4d1
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_181
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 53a0e80a8df7fee42a5c5d26cf98a3e4
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_182
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 57
+      width: 16
+      height: 16
+    spriteID: fda9e2d5cf48c674ba8fbd675aced190
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_183
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 57
+      width: 16
+      height: 16
+    spriteID: ae4a8624b9acc194585ba763e58c9772
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_184
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 47cbaa432f7013545b8f9628aa06f5b5
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_185
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 57
+      width: 16
+      height: 16
+    spriteID: cd827a7bf7f6c7348b80197f77cbf8fb
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_186
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 58389bcd6998bf94c82db6525ab421ec
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_187
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 57
+      width: 16
+      height: 16
+    spriteID: f3d8a6f41230d6e4a86331a7fae112ee
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_188
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 4a189b5f665509d4cb3d0101b635614a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_189
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 57
+      width: 16
+      height: 16
+    spriteID: aa1bd5aa9750b8142bec6d530d7c6e97
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_190
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 728230e73c6f34a45b72806e69600923
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_191
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 57
+      width: 16
+      height: 16
+    spriteID: a024efc5ec325824cb807bdeae52aacb
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_192
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 6aad78ce9f59aca468bdde6bd3cf2b9a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_193
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 5948e84d5e6f1e845983e95ef2d22eda
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_194
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 5a3b50c480f3c184ba79a66d7109bcb3
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_195
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 88ba95c0962899c4eb97b6dd996f0b6a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_196
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 4c8fa3d53ec8aa64bb9f7c216f49c750
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_197
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 8ce2bcc7227760c499079bb557477c53
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_198
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 57
+      width: 16
+      height: 16
+    spriteID: 51b8e025cec7ae64f9e031aad293e896
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_199
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 57
+      width: 2
+      height: 16
+    spriteID: bb204f4b029037b4292ac30391d2e74c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_200
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 1d6e3ce2265e0304e87f7379dcde1173
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_201
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 41
+      width: 16
+      height: 16
+    spriteID: daac51520127d5349a4278fee04b520c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_202
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 41
+      width: 16
+      height: 16
+    spriteID: df374694cee03f1438f3187384c288c3
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_203
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 41
+      width: 16
+      height: 16
+    spriteID: ac1e917d2939ec24bbb6bc53a1aaee71
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_204
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 41
+      width: 16
+      height: 16
+    spriteID: f0d7a8742dc09d64dafeba5dc570f6b2
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_205
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 4e112156b67571b48869932948629930
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_206
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 3fbd343bcd4ed6b45860f8f8d22ad5c9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_207
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 48abc57b487621246a79a16362758c57
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_208
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 891b19a9f0851da48a340c83b4360b7f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_209
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 41
+      width: 16
+      height: 16
+    spriteID: d9103837e65bbb349a78429bdc04ca3d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_210
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 9bd5cfb75dc11c94d9c4d4d722aa83b9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_211
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 07b7758170b386342ad156d9e2b3ac50
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_212
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 41
+      width: 16
+      height: 16
+    spriteID: f3fe0fddc5296c0459565208d2928e66
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_213
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 3ab8d018a9f137746b139eedebaf8f22
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_214
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 9ef0e2c8472d6d341941b313871d7485
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_215
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 41
+      width: 16
+      height: 16
+    spriteID: d93bf55a4e511f046a856ff5c1a55fc1
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_216
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 738cc1477a4e4454dbfc1d9ea6f9b81b
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_217
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 41
+      width: 16
+      height: 16
+    spriteID: 4b596d0c34d7ce648b711c3713748a88
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_218
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 41
+      width: 16
+      height: 16
+    spriteID: e3c8a648cd4e18043aa447cac69d9a11
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_219
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 41
+      width: 2
+      height: 16
+    spriteID: c176d8e259db22549aa64b87b673a651
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_220
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 25
+      width: 16
+      height: 16
+    spriteID: c6a9823ac39f4994fbd9ea9f3c9c4c92
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_221
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 25
+      width: 16
+      height: 16
+    spriteID: ff962cc18a7fead499d86d57ac850dd9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_222
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 3c98e0278d12fb64d9d882c7353384d0
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_223
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 26bb63c87733ab74fa2c1789ffa9008a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_224
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 699c64c08f2444944b9bdfee918f2641
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_225
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 25
+      width: 16
+      height: 16
+    spriteID: a97d34d852433ba4bb761cfeb8904cff
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_226
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 25
+      width: 16
+      height: 16
+    spriteID: d53ec998e3c48d2478f3a024062dc7af
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_227
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 9e87bd9b523b1f645967bd2fec84f125
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_228
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 25
+      width: 16
+      height: 16
+    spriteID: ca418657a4be96e4dbec60255a7c8be3
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_229
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 25
+      width: 16
+      height: 16
+    spriteID: c3ca5cd649ad6fd46acab0100f08664c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_230
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 5983a797a22957b418d560645afda9e4
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_231
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 25
+      width: 16
+      height: 16
+    spriteID: dbddebf5992543c4daead9f40a12b82d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_232
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 9cc5f8350f87d8e4ca5aa0ec7c326d4c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_233
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 47fafac40cd3b73429b88fa467192fc4
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_234
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 4bfab51c617e5c741ac87e776e4aa80f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_235
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 9b5f1a05e8d8400488a125b73158bdf2
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_236
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 9089d9489f5e5d341b9b14b11cd9ac9a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_237
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 73742070a2f0cf64a90d69a693612a18
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_238
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 25
+      width: 16
+      height: 16
+    spriteID: 197d99c8f6b336049a0da8070cb2535c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_239
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 25
+      width: 2
+      height: 16
+    spriteID: c9f39f9bebee39e4da3e12c8ce3f0124
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_240
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 9
+      width: 16
+      height: 16
+    spriteID: 9e9bdc01247d37d43b5b496acb10a2aa
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_241
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 9
+      width: 16
+      height: 16
+    spriteID: 35764cca1a908b74f8bbaf52f5c1d712
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_242
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 9
+      width: 16
+      height: 16
+    spriteID: af316c0b514f3674fbe3bc47403c37a5
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_243
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 9
+      width: 16
+      height: 16
+    spriteID: 8befc86415f891844a4f62c543e1ebeb
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_244
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 9
+      width: 16
+      height: 16
+    spriteID: bdc90872aebeaa542a826311b1d87bb2
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_245
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 9
+      width: 16
+      height: 16
+    spriteID: 14634ae578c470a44a9be98c266b2728
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_246
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 9
+      width: 16
+      height: 16
+    spriteID: 174f71a9f3da487419ec53f3f4475dcf
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_247
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 9
+      width: 16
+      height: 16
+    spriteID: 89bdd773e87bfeb4f9c7658ff6e9f957
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_248
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 9
+      width: 16
+      height: 16
+    spriteID: a2abf707ea8ce7946ac471b2b2143ce0
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_249
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 9
+      width: 16
+      height: 16
+    spriteID: fc0ecc7e818efae478d40bebcba8a724
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_250
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 9
+      width: 16
+      height: 16
+    spriteID: 687f26e470f5887438bc087d75813444
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_251
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 9
+      width: 16
+      height: 16
+    spriteID: d2697f5fde895f54bb5262775a5cdf9c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_252
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 9
+      width: 16
+      height: 16
+    spriteID: cbddc5db2be2b4448aa382e18e4388db
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_253
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 9
+      width: 16
+      height: 16
+    spriteID: c81f908280310474b9a7883cc7462b08
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_254
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 9
+      width: 16
+      height: 16
+    spriteID: f4cfd48a60e3c994fa164d0093e70588
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_255
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 9
+      width: 16
+      height: 16
+    spriteID: e3b40d4c7e2530445b67511f35e00c04
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_256
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 9
+      width: 16
+      height: 16
+    spriteID: eae3d49c26174e2498c3b292f1f00004
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_257
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 9
+      width: 16
+      height: 16
+    spriteID: a4fe0eb801f91ab4fb2bd91996e7e988
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_258
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 9
+      width: 16
+      height: 16
+    spriteID: e676982b7ba81584582e24724a982c99
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_259
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 9
+      width: 2
+      height: 16
+    spriteID: a4d72650d67007446ab2a9f730a57315
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_260
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 16
+      height: 9
+    spriteID: dd7951c9ea3fe7a44988f82d3b301750
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_261
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 0
+      width: 16
+      height: 9
+    spriteID: f34588c1218d23246ba25ce54db944b0
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_262
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 0
+      width: 16
+      height: 9
+    spriteID: adcd0f1f25f87064d96de311f07a56c9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_263
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 0
+      width: 16
+      height: 9
+    spriteID: 59801867e19fc6f47b62646d4705c4c6
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_264
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 0
+      width: 16
+      height: 9
+    spriteID: d0b078ecf7cea194c9ddbf88d5368d89
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_265
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 0
+      width: 16
+      height: 9
+    spriteID: 062bb1e3374d4264a9fca50b1b50fbd0
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_266
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 0
+      width: 16
+      height: 9
+    spriteID: 56aab1fc562e186409eab50d0b29f410
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_267
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 0
+      width: 16
+      height: 9
+    spriteID: 4498ea928fc339147aa0a0b7b6414484
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_268
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 0
+      width: 16
+      height: 9
+    spriteID: fae4abbb54bdae54f8178b3d06bb9b4d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_269
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 0
+      width: 16
+      height: 9
+    spriteID: b45467effb4c23846a1ca19b414737b9
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_270
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 0
+      width: 16
+      height: 9
+    spriteID: b2dd86598bb695f40a822b9f0b558184
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_271
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 0
+      width: 16
+      height: 9
+    spriteID: 76338a002b30d8a49a90da9b7e146897
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_272
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 0
+      width: 16
+      height: 9
+    spriteID: 434b8cbd8ba55cb4ca760cb057003c76
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_273
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 0
+      width: 16
+      height: 9
+    spriteID: abe128207db7fa5428c6746d01fc463f
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_274
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 224
+      y: 0
+      width: 16
+      height: 9
+    spriteID: 2dcdb254ff6bfa4428bd6ca05399411d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_275
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 0
+      width: 16
+      height: 9
+    spriteID: dd7858f1a96750f48b9f5df52c166fb4
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_276
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 0
+      width: 16
+      height: 9
+    spriteID: f7a450589f8bac648a10ca72faf7bb01
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_277
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 0
+      width: 16
+      height: 9
+    spriteID: de5bd50eaa5932547a323817e1180504
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_278
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 288
+      y: 0
+      width: 16
+      height: 9
+    spriteID: d999c88fc52315e49b0ceca95406d392
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: World_Tileset_279
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 0
+      width: 2
+      height: 9
+    spriteID: 4a42bafca39de8346991f9cafa4082b5
+    spriteOutline: []
+    tessellationDetail: 0
+  _secondaryTextures: []
+  _artifacts: {instanceID: 0}

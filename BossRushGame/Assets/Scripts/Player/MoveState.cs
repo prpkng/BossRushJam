@@ -15,7 +15,7 @@ namespace Game.Player.States
 
         public override void FixedTick(float delta)
         {
-            var moveInput = InputManager.moveVector;
+            var moveInput = InputManager.MoveVector;
             var targetSpeed = moveInput * playerManager.movementSpeed;
             var speedDiff = targetSpeed - playerManager.rb.linearVelocity;
             var accelRate = Mathf.Abs(moveInput.sqrMagnitude) < Mathf.Epsilon

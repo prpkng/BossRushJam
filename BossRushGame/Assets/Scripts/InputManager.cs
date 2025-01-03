@@ -13,15 +13,19 @@ namespace Game
             playerInputComponent.onActionTriggered += OnActionTriggered;
         }
 
-        public static Vector2 moveVector;
+        public static Vector2 MoveVector;
+
+        public static event Action RollPerformed;
 
         private void OnActionTriggered(InputAction.CallbackContext ctx)
         {
             switch (ctx.action.name)
             {
                 case "Move":
-                    print(ctx.ReadValue<Vector2>());
-                    moveVector = ctx.ReadValue<Vector2>();
+                    MoveVector = ctx.ReadValue<Vector2>();
+                    break;
+                case "Roll" when ctx.started:
+                    RollPerformed?.Invoke();
                     break;
             }
         }

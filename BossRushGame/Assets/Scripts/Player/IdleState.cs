@@ -12,7 +12,7 @@ namespace Game.Player.States
 
         public override void FixedTick(float delta)
         {
-            var moveInput = InputManager.moveVector;
+            var moveInput = InputManager.MoveVector;
             if (moveInput.sqrMagnitude > 0)
                 parent.SetState(new MoveState());
         }
