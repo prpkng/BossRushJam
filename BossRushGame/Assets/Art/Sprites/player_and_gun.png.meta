@@ -146,6 +146,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: player_and_gun_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16eec372db5b01442bdf8f408ef7f4bd
+      internalID: -59270830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -162,6 +184,7 @@ TextureImporter:
     nameFileIdTable:
       player_and_gun_0: -3073642048532534918
       player_and_gun_1: 647449040695905826
+      player_and_gun_2: -59270830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

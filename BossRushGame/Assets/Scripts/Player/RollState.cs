@@ -2,7 +2,7 @@ using System;
 using Cysharp.Threading.Tasks;
 using FSM;
 using UnityEngine;
-
+using DG.Tweening;
 namespace Game.Player.States
 {
     public class RollState : State
@@ -16,8 +16,15 @@ namespace Game.Player.States
 
             rollDirection = InputManager.MoveVector.normalized;
 
-            await UniTask.WaitForSeconds(playerManager.rollDuration);
+            int flipValue = rollDirection.x > 0 || rollDirection.y > 0 ? -1 : 1;
 
+            playerManager.playerSprite.transform.DORotate(
+                360f * flipValue * Vector3.forward,
+                playerManager.rollDuration,
+                RotateMode.WorldAxisAdd
+            );
+
+            await UniTask.WaitForSeconds(playerManager.rollDuration);
 
             if (Mathf.Abs(playerManager.rb.linearVelocity.sqrMagnitude) < Mathf.Epsilon)
                 parent.SetState(new IdleState());

@@ -17,6 +17,7 @@ namespace Game.Player
         public float rollSpeed = 12;
 
         [Header("References")]
+        public SpriteRenderer playerSprite;
         [System.NonSerialized] public Rigidbody2D rb;
         [System.NonSerialized] public StateMachine stateMachine;
 
