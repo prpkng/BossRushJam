@@ -18,6 +18,7 @@ namespace Game.Player.States
 
             int flipValue = rollDirection.x > 0 || rollDirection.y > 0 ? -1 : 1;
 
+            playerManager.playerSprite.transform.DOKill(true);
             playerManager.playerSprite.transform.DORotate(
                 360f * flipValue * Vector3.forward,
                 playerManager.rollDuration,
@@ -26,10 +27,15 @@ namespace Game.Player.States
 
             await UniTask.WaitForSeconds(playerManager.rollDuration);
 
-            if (Mathf.Abs(playerManager.rb.linearVelocity.sqrMagnitude) < Mathf.Epsilon)
+            if (playerManager.rb.linearVelocity.sqrMagnitude < Mathf.Epsilon)
                 parent.SetState(new IdleState());
             else
                 parent.SetState(new MoveState());
+
+
+            await UniTask.WaitForSeconds(playerManager.rollCooldown);
+
+            playerManager.canRoll = true;
         }
 
         public override void FixedTick(float delta)

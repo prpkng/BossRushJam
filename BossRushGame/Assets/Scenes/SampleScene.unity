@@ -299,7 +299,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 34
+  field of view: 75
   orthographic: 1
   orthographic size: 8
   m_Depth: -1
@@ -352,7 +352,7 @@ MonoBehaviour:
   UpdateMethod: 2
   BlendUpdateMethod: 1
   LensModeOverride:
-    Enabled: 0
+    Enabled: 1
     DefaultMode: 2
   DefaultBlend:
     Style: 1
@@ -801,12 +801,12 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 34
+    FieldOfView: 75
     OrthographicSize: 8
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
-    ModeOverride: 0
+    ModeOverride: 1
     PhysicalProperties:
       GateFit: 2
       SensorSize: {x: 21.946, y: 16.002}
@@ -1047,6 +1047,7 @@ MonoBehaviour:
   deceleration: 0.8
   rollDuration: 0.2
   rollSpeed: 24
+  rollCooldown: 0.15
   playerSprite: {fileID: 1656460885}
 --- !u!114 &1747786418
 MonoBehaviour:

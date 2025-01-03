@@ -15,11 +15,15 @@ namespace Game.Player
         public float deceleration;
         public float rollDuration = .5f;
         public float rollSpeed = 12;
+        public float rollCooldown = 0.5f;
 
         [Header("References")]
         public SpriteRenderer playerSprite;
         [System.NonSerialized] public Rigidbody2D rb;
         [System.NonSerialized] public StateMachine stateMachine;
+
+
+        [System.NonSerialized] public bool canRoll = true;
 
         private void Awake()
         {
@@ -39,8 +43,13 @@ namespace Game.Player
 
         private void OnRollPerformed()
         {
-            print("Roll button pressed");
+            if (!canRoll)
+                return;
+            if (InputManager.MoveVector.sqrMagnitude <= Mathf.Epsilon)
+                return;
+
             stateMachine.SetState(new RollState());
+            canRoll = false;
         }
 
     }
