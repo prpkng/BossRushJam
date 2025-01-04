@@ -27,20 +27,20 @@ namespace Game.Bosses.Snooker
 
         public IEnumerator ShotWhiteBall(CoState<string, string> state)
         {
-            float nextStep = 0;
+            float _nextStep = 0;
             var player = GameManager.Instance.Player.transform;
 
             Vector2 dir = player.position - whiteBall.transform.position;
             dir.Normalize();
+            poolStick.DOMove(whiteBall.position - dir * 1.5f, 1f);
+            poolStick.DORotate(Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f)
+            .SetEase(Ease.OutCubic);
+            _nextStep += 0.9f;
+            yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
 
-            poolStick.DOMove(whiteBall.position - dir * 1.5f, 1f).SetEase(Ease.OutCubic);
-            poolStick.DORotate(Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 1f)
-                        .SetEase(Ease.OutCubic);
-            nextStep += 0.9f;
-            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
-            nextStep += shotAnticipationSecs;
-            while (state.timer.Elapsed < nextStep)
+            _nextStep += shotAnticipationSecs;
+            while (state.timer.Elapsed < _nextStep)
             {
                 dir = player.transform.position - whiteBall.transform.position;
                 dir.Normalize();
@@ -48,27 +48,20 @@ namespace Game.Bosses.Snooker
 
                 poolStick.transform.position = whiteBall.position - dir * 1.6f;
 
-                Debug.DrawLine(
-                    whiteBall.transform.position,
-                    whiteBall.transform.position + (Vector3)dir * 5,
-                    Color.magenta
-                );
                 yield return null;
             }
 
-            nextStep += 0.5f;
+            _nextStep += 0.55f;
             poolStick.DOMove(whiteBall.position - dir * 3, 0.5f).SetEase(Ease.OutCubic);
-            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
+            yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
 
-            nextStep += 0.1f;
+            _nextStep += 0.1f;
             poolStick.DOMove(whiteBall.position - dir * 1.45f, 0.1f).SetEase(Ease.Linear);
-            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
+            yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
 
             whiteBall.AddForce(dir * shotForce, ForceMode2D.Impulse);
-            poolStick.DOKill(true);
-            // poolStick.DORotate(Vector3.forward * -90, 1.5f).SetEase(Ease.InOutCubic);
-            poolStick.DOMove(transform.position + Vector3.right * 1, 1.5f).SetEase(Ease.InOutCubic);
-
+            poolStick.DORotate(Vector3.forward * -90, 1.5f).SetEase(Ease.OutSine);
+            poolStick.DOMove(transform.position + Vector3.right, 1.5f).SetEase(Ease.OutSine);
 
             fsm.StateCanExit();
         }
@@ -82,7 +75,8 @@ namespace Game.Bosses.Snooker
             fsm.AddState(ShotWhiteBallState, new CoState(
                 this,
                 ShotWhiteBall,
-                needsExitTime: true
+                needsExitTime: true,
+                loop: false
             ));
 
             fsm.AddTransition(
