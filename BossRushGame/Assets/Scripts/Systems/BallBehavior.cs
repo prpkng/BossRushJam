@@ -11,7 +11,7 @@ namespace Game.Systems
             rb = GetComponent<Rigidbody2D>();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             transform.right = rb.linearVelocity.normalized;
         }

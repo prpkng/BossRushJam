@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 1589028013109860002}
   bulletForce: 60
+  fireRate: 4.5
   bulletPrefab: {fileID: 6164953699006023503, guid: 21eff3360774f244f86680cfc8f3ea9d, type: 3}
 --- !u!1 &5808911518066118462
 GameObject:
