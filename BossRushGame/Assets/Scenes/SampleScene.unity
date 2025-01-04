@@ -1213,6 +1213,8 @@ MonoBehaviour:
   positionComposer: {fileID: 940324885}
   focusUpScreenY: 0.2
   focusDuration: 1
+  defaultZoom: 1.5
+  zoomOutZoom: 1.35
 --- !u!114 &940324889
 MonoBehaviour:
   m_ObjectHideFlags: 0

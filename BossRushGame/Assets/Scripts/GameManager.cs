@@ -15,6 +15,13 @@ namespace Game
 
         [SerializeField] private GameObject bossUIControllerPrefab;
 
+
+        public float RenderTextureZoom
+        {
+            get => ScreenRenderTexture.transform.localScale.x;
+            set => ScreenRenderTexture.transform.localScale = Vector2.one * value;
+        }
+
         public void CreateBossBar()
         {
             var obj = Instantiate(bossUIControllerPrefab);
