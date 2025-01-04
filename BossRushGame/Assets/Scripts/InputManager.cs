@@ -1,10 +1,11 @@
 using System;
+using Pixelplacement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Game
 {
-    public class InputManager : MonoBehaviour
+    public class InputManager : Singleton<InputManager>
     {
         [SerializeField] private PlayerInput playerInputComponent;
 

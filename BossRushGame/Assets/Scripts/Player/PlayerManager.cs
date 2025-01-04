@@ -1,10 +1,10 @@
-using FSM;
 using Game.Player.States;
 using UnityEngine;
+using UnityHFSM;
 
 namespace Game.Player
 {
-    public class PlayerManager : MonoBehaviour
+    public partial class PlayerManager : MonoBehaviour
     {
         [Header("Player Properties")]
         public float movementSpeed;
@@ -20,16 +20,42 @@ namespace Game.Player
         [Header("References")]
         public SpriteRenderer playerSprite;
         [System.NonSerialized] public Rigidbody2D rb;
-        [System.NonSerialized] public StateMachine stateMachine;
 
+        private StateMachine fsm;
 
         [System.NonSerialized] public bool canRoll = true;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            stateMachine = GetComponent<StateMachine>();
             GameManager.Instance.Player = this;
+        }
+
+        private void Start()
+        {
+            fsm = new StateMachine();
+            fsm.AddState(
+                "Idle",
+                onLogic: state => rb.linearVelocity -= rb.linearVelocity * deceleration
+            );
+            fsm.AddState("Move", onLogic: state =>
+            {
+                var moveInput = InputManager.MoveVector;
+                var targetSpeed = moveInput * movementSpeed;
+                var speedDiff = targetSpeed - rb.linearVelocity;
+
+                rb.linearVelocity += speedDiff * acceleration;
+            });
+
+            fsm.AddState("Roll", new RollState(this));
+            fsm.AddTransition("Roll", "Move", _ => InputManager.MoveVector.sqrMagnitude > Mathf.Epsilon);
+            fsm.AddTransition("Roll", "Idle", _ => InputManager.MoveVector.sqrMagnitude <= Mathf.Epsilon);
+
+            fsm.AddTwoWayTransition("Idle", "Move", _ => InputManager.MoveVector.sqrMagnitude > Mathf.Epsilon);
+
+            fsm.AddTriggerTransitionFromAny("Roll", new TransitionBase("", "Roll"));
+
+            fsm.Init();
         }
 
         private void OnEnable()
@@ -49,8 +75,14 @@ namespace Game.Player
             if (InputManager.MoveVector.sqrMagnitude <= Mathf.Epsilon)
                 return;
 
-            stateMachine.SetState(new RollState());
+            // fsm.SetState(new RollState());
+            fsm.Trigger("Roll");
             canRoll = false;
+        }
+
+        private void FixedUpdate()
+        {
+            fsm.OnLogic();
         }
 
     }
