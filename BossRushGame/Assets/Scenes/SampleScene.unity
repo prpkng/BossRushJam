@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 221593645}
   - component: {fileID: 221593644}
   - component: {fileID: 221593643}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: White Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,16 +1000,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487836083093872292, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
+      propertyPath: orthographic size
+      value: 6.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487836083093872292, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.0022988506
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7487836083093872292, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99870634
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487836083093872292, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.99310344
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1268,6 +1272,10 @@ PrefabInstance:
       propertyPath: whiteBall
       value: 
       objectReference: {fileID: 221593643}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: ballStopLinearDrag
+      value: 1.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7330559444157686007, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.07

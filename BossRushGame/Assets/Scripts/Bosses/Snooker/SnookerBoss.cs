@@ -14,6 +14,8 @@ namespace Game.Bosses.Snooker
         [Header("Shot White Ball")]
         public float shotForce = 25;
         public float shotAnticipationSecs = 2f;
+        public float ballBouceTime = 5f;
+        public float ballStopLinearDrag = 0.25f;
 
         [Header("References")]
         public Rigidbody2D whiteBall;
@@ -63,6 +65,15 @@ namespace Game.Bosses.Snooker
             poolStick.DORotate(Vector3.forward * -90, 1.5f).SetEase(Ease.OutSine);
             poolStick.DOMove(transform.position + Vector3.right, 1.5f).SetEase(Ease.OutSine);
 
+
+            _nextStep += ballBouceTime;
+            yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
+
+            whiteBall.linearDamping = ballStopLinearDrag;
+            _nextStep += 2f;
+            yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
+
+            whiteBall.linearDamping = 0;
             fsm.StateCanExit();
         }
 
@@ -70,7 +81,6 @@ namespace Game.Bosses.Snooker
         {
             fsm = new StateMachine();
             fsm.AddState(IdleCooldownState, onEnter: _ => whiteBall.linearVelocity = Vector2.zero);
-            fsm.AddState(AttackCooldownState);
 
             fsm.AddState(ShotWhiteBallState, new CoState(
                 this,
@@ -87,15 +97,7 @@ namespace Game.Bosses.Snooker
                 )
             );
 
-            fsm.AddTransition(
-                new TransitionAfter(
-                    AttackCooldownState,
-                    IdleCooldownState,
-                    4
-                )
-            );
-
-            fsm.AddTransition(ShotWhiteBallState, AttackCooldownState);
+            fsm.AddTransition(ShotWhiteBallState, IdleCooldownState);
 
             fsm.Init();
         }
