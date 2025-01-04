@@ -1,7 +1,6 @@
 using System.Collections;
 using Game.Systems;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Game.Player
 {
@@ -38,8 +37,7 @@ namespace Game.Player
             }
             else
             {
-                _lastPointVector =
-                camera.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position;
+                _lastPointVector = (Vector3)InputManager.MousePosition - transform.position;
             }
             return _lastPointVector.normalized;
         }

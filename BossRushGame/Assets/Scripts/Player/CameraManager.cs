@@ -7,6 +7,8 @@ namespace Game.Player
 
     public class CameraManager : Singleton<CameraManager>
     {
+        public static Vector2 currentScreenOffset;
+
         public CinemachinePositionComposer positionComposer;
 
         public float focusUpScreenY = 0.1f;
@@ -32,6 +34,11 @@ namespace Game.Player
                 0,
                 focusDuration
             ).SetTarget(this);
+        }
+
+        private void Update()
+        {
+            currentScreenOffset = positionComposer.Composition.ScreenPosition;
         }
     }
 }

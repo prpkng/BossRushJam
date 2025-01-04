@@ -5,9 +5,11 @@ namespace Game
     using Game.Systems;
     using Pixelplacement;
     using UnityEngine;
+    using UnityEngine.UI;
 
     public class GameManager : Singleton<GameManager>
     {
+        public Transform ScreenRenderTexture;
         public PlayerManager Player;
         public Maybe<BossBarController> BossBarController;
 
