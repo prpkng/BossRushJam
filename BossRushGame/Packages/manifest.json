@@ -45,7 +45,8 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "com.cammin.ldtkunity": "6.6.2"
+    "com.cammin.ldtkunity": "6.6.2",
+    "com.inspiaaa.unityhfsm": "2.1.0"
   },
   "scopedRegistries": [
     {
@@ -53,7 +54,8 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.cammin.ldtkunity",
-        "com.cysharp.unitask"
+        "com.cysharp.unitask",
+        "com.inspiaaa.unityhfsm"
       ]
     }
   ]

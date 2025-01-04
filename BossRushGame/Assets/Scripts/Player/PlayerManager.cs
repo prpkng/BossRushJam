@@ -29,6 +29,7 @@ namespace Game.Player
         {
             rb = GetComponent<Rigidbody2D>();
             stateMachine = GetComponent<StateMachine>();
+            GameManager.Instance.Player = this;
         }
 
         private void OnEnable()
