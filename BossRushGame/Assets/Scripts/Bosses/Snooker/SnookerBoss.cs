@@ -1,19 +1,23 @@
 namespace Game.Bosses.Snooker
 {
     using System.Collections;
+    using DG.Tweening;
     using UnityEngine;
     using UnityHFSM;
 
     public class SnookerBoss : MonoBehaviour
     {
+        [Header("Main Idle")]
         public float idleWaitTimeMin = 4;
         public float idleWaitTimeMax = 6;
 
+        [Header("Shot White Ball")]
+        public float shotForce = 25;
+        public float shotAnticipationSecs = 2f;
+
+        [Header("References")]
         public Rigidbody2D whiteBall;
         public Transform poolStick;
-
-        public float shotForce = 25;
-
 
         private StateMachine fsm;
 
@@ -23,13 +27,27 @@ namespace Game.Bosses.Snooker
 
         public IEnumerator ShotWhiteBall(CoState<string, string> state)
         {
-            print("TriggerShoot");
-            Vector2 dir = Vector2.zero;
+            float nextStep = 0;
+            var player = GameManager.Instance.Player.transform;
 
-            while (state.timer.Elapsed < 1f)
+            Vector2 dir = player.position - whiteBall.transform.position;
+            dir.Normalize();
+
+            poolStick.DOMove(whiteBall.position - dir * 1.5f, 1f).SetEase(Ease.OutCubic);
+            poolStick.DORotate(Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 1f)
+                        .SetEase(Ease.OutCubic);
+            nextStep += 0.9f;
+            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
+
+            nextStep += shotAnticipationSecs;
+            while (state.timer.Elapsed < nextStep)
             {
-                dir = GameManager.Instance.Player.transform.position - whiteBall.transform.position;
+                dir = player.transform.position - whiteBall.transform.position;
                 dir.Normalize();
+                poolStick.right = dir;
+
+                poolStick.transform.position = whiteBall.position - dir * 1.6f;
+
                 Debug.DrawLine(
                     whiteBall.transform.position,
                     whiteBall.transform.position + (Vector3)dir * 5,
@@ -37,9 +55,20 @@ namespace Game.Bosses.Snooker
                 );
                 yield return null;
             }
-            yield return new WaitWhile(() => state.timer.Elapsed < 1.5f);
+
+            nextStep += 0.5f;
+            poolStick.DOMove(whiteBall.position - dir * 3, 0.5f).SetEase(Ease.OutCubic);
+            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
+
+            nextStep += 0.1f;
+            poolStick.DOMove(whiteBall.position - dir * 1.45f, 0.1f).SetEase(Ease.Linear);
+            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
             whiteBall.AddForce(dir * shotForce, ForceMode2D.Impulse);
+            poolStick.DOKill(true);
+            // poolStick.DORotate(Vector3.forward * -90, 1.5f).SetEase(Ease.InOutCubic);
+            poolStick.DOMove(transform.position + Vector3.right * 1, 1.5f).SetEase(Ease.InOutCubic);
+
 
             fsm.StateCanExit();
         }
