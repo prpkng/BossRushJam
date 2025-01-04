@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 77934239}
   - component: {fileID: 77934238}
   - component: {fileID: 77934237}
+  - component: {fileID: 77934241}
   m_Layer: 8
   m_Name: Red Ball (2)
   m_TagString: Untagged
@@ -161,7 +162,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -175,7 +176,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: dcfdb9e376d8a5544b8aa3dd88b19608, type: 2}
+  m_Material: {fileID: 6200000, guid: 16d714c19678ba345b44d39ca05e08aa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -200,7 +201,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 1.5
 --- !u!212 &77934239
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -245,7 +246,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca1cb763bb6e4464ca696139bdfa0b81, type: 3}
   m_Color: {r: 0.8207547, g: 0.12001601, b: 0.12001601, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -266,11 +267,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.07, y: -4.5, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &77934241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77934236}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f798270e9c75274da4fd85af0a82e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &221593642
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +296,7 @@ GameObject:
   - component: {fileID: 221593645}
   - component: {fileID: 221593644}
   - component: {fileID: 221593643}
+  - component: {fileID: 221593647}
   m_Layer: 8
   m_Name: White Ball
   m_TagString: Untagged
@@ -313,7 +327,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -352,7 +366,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 1.5
 --- !u!212 &221593645
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -397,7 +411,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca1cb763bb6e4464ca696139bdfa0b81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -418,11 +432,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.29, y: 0.65, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &221593647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221593642}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f798270e9c75274da4fd85af0a82e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &270438998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7330559444157686007, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
@@ -644,6 +670,7 @@ GameObject:
   - component: {fileID: 708253212}
   - component: {fileID: 708253211}
   - component: {fileID: 708253210}
+  - component: {fileID: 708253214}
   m_Layer: 8
   m_Name: Red Ball
   m_TagString: Untagged
@@ -674,7 +701,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -688,7 +715,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: dcfdb9e376d8a5544b8aa3dd88b19608, type: 2}
+  m_Material: {fileID: 6200000, guid: 16d714c19678ba345b44d39ca05e08aa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -713,7 +740,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 1.5
 --- !u!212 &708253212
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -758,7 +785,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca1cb763bb6e4464ca696139bdfa0b81, type: 3}
   m_Color: {r: 0.8207547, g: 0.12001601, b: 0.12001601, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -779,11 +806,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.39, y: 0.87, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &708253214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708253209}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f798270e9c75274da4fd85af0a82e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &881232000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,6 +1206,7 @@ GameObject:
   - component: {fileID: 1484706461}
   - component: {fileID: 1484706460}
   - component: {fileID: 1484706459}
+  - component: {fileID: 1484706463}
   m_Layer: 8
   m_Name: Red Ball (3)
   m_TagString: Untagged
@@ -1197,7 +1237,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -1211,7 +1251,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: dcfdb9e376d8a5544b8aa3dd88b19608, type: 2}
+  m_Material: {fileID: 6200000, guid: 16d714c19678ba345b44d39ca05e08aa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1236,7 +1276,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 1.5
 --- !u!212 &1484706461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1281,7 +1321,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca1cb763bb6e4464ca696139bdfa0b81, type: 3}
   m_Color: {r: 0.8207547, g: 0.12001601, b: 0.12001601, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1302,11 +1342,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.41, y: 4.63, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1484706463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484706458}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f798270e9c75274da4fd85af0a82e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1525902538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,6 +1526,7 @@ GameObject:
   - component: {fileID: 1672649783}
   - component: {fileID: 1672649782}
   - component: {fileID: 1672649781}
+  - component: {fileID: 1672649785}
   m_Layer: 8
   m_Name: Red Ball (1)
   m_TagString: Untagged
@@ -1504,7 +1557,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -1518,7 +1571,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: dcfdb9e376d8a5544b8aa3dd88b19608, type: 2}
+  m_Material: {fileID: 6200000, guid: 16d714c19678ba345b44d39ca05e08aa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1543,7 +1596,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 1.5
 --- !u!212 &1672649783
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1588,7 +1641,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca1cb763bb6e4464ca696139bdfa0b81, type: 3}
   m_Color: {r: 0.8207547, g: 0.12001601, b: 0.12001601, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1609,11 +1662,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.15, y: -4.28, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672649785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672649780}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f798270e9c75274da4fd85af0a82e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1747786414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
@@ -1753,7 +1818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7487836083093872292, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: orthographic size
-      value: 6.75
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 7487836083093872292, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
