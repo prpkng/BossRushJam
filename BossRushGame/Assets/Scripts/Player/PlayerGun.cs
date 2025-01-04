@@ -9,8 +9,8 @@ namespace Game.Player
     public class PlayerGun : GunBehavior
     {
         [Header("Properties")]
+        public float bulletDamage;
         public float bulletForce;
-
         [Tooltip("Bullet per Second")]
         public float fireRate = 3;
         [Header("References")]

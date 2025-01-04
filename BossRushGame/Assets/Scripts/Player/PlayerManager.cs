@@ -1,4 +1,5 @@
 using Game.Player.States;
+using Game.Systems;
 using UnityEngine;
 using UnityHFSM;
 
@@ -20,6 +21,8 @@ namespace Game.Player
         [Header("References")]
         public SpriteRenderer playerSprite;
         [System.NonSerialized] public Rigidbody2D rb;
+        public PlayerGun activeGun;
+
 
         private StateMachine fsm;
 
