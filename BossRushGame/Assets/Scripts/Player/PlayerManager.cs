@@ -72,7 +72,7 @@ namespace Game.Player
             
             fsm.AddTwoWayTransition("Idle", "Move", _ => InputManager.MoveVector.sqrMagnitude > Mathf.Epsilon);
 
-            fsm.AddTriggerTransitionFromAny("Roll", new TransitionBase("", "Roll"));
+            fsm.AddTriggerTransitionFromAny("Roll", new TransitionBase("", "Roll", forceInstantly: true));
             fsm.AddTriggerTransitionFromAny("Hit", new TransitionBase("", "Hit"));
             fsm.Init();
         }
