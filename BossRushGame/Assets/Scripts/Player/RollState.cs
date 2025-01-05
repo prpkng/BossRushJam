@@ -1,8 +1,8 @@
 using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using DG.Tweening;
 using System.Collections;
+using PrimeTween;
 using UnityHFSM;
 
 namespace Game.Player.States
@@ -20,7 +20,7 @@ namespace Game.Player.States
             timer = new Timer();
         }
 
-
+        private Tween rollTween;
         public override void OnEnter()
         {
             timer.Reset();
@@ -28,11 +28,14 @@ namespace Game.Player.States
 
             int flipValue = rollDirection.x > 0 || rollDirection.y > 0 ? -1 : 1;
 
-            playerManager.playerSprite.transform.DOKill(true);
-            playerManager.playerSprite.transform.DORotate(
-                360f * flipValue * Vector3.forward,
+            rollTween.Stop();
+            playerManager.playerSprite.transform.rotation = Quaternion.identity;
+
+            rollTween = Tween.Custom(
+                0f,
+                360f * flipValue,
                 playerManager.rollDuration,
-                RotateMode.WorldAxisAdd
+                f => playerManager.playerSprite.transform.eulerAngles = Vector3.forward * f
             );
         }
 
@@ -44,48 +47,9 @@ namespace Game.Player.States
             fsm.StateCanExit();
         }
 
-        public override async void OnExit()
+        public override void OnExit()
         {
-            await UniTask.WaitForSeconds(playerManager.rollCooldown);
-            playerManager.canRoll = true;
+            Tween.Delay(playerManager.rollCooldown, () => playerManager.canRoll = true);
         }
     }
-    // public class RollState : State
-    // {
-    //     private PlayerManager playerManager;
-    //     public Vector2 rollDirection;
-
-    //     public override async void OnEnter()
-    //     {
-    //         if (!playerManager) playerManager = parent.GetComponent<PlayerManager>();
-
-    //         rollDirection = InputManager.MoveVector.normalized;
-
-    //         int flipValue = rollDirection.x > 0 || rollDirection.y > 0 ? -1 : 1;
-
-    //         playerManager.playerSprite.transform.DOKill(true);
-    //         playerManager.playerSprite.transform.DORotate(
-    //             360f * flipValue * Vector3.forward,
-    //             playerManager.rollDuration,
-    //             RotateMode.WorldAxisAdd
-    //         );
-
-    //         await UniTask.WaitForSeconds(playerManager.rollDuration);
-
-    //         if (playerManager.rb.linearVelocity.sqrMagnitude < Mathf.Epsilon)
-    //             parent.SetState(new IdleState());
-    //         else
-    //             parent.SetState(new MoveState());
-
-
-    //         await UniTask.WaitForSeconds(playerManager.rollCooldown);
-
-    //         playerManager.canRoll = true;
-    //     }
-
-    //     public override void FixedTick(float delta)
-    //     {
-    //         playerManager.rb.linearVelocity = rollDirection * playerManager.rollSpeed;
-    //     }
-    // }
 }

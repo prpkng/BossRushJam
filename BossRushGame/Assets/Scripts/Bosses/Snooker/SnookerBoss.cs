@@ -1,8 +1,9 @@
+using PrimeTween;
+
 namespace Game.Bosses.Snooker
 {
     using System.Collections;
-    using DG.Tweening;
-    using Game.Player;
+    using Player;
     using UnityEngine;
     using UnityHFSM;
 
@@ -42,12 +43,11 @@ namespace Game.Bosses.Snooker
             Vector2 dir = player.position - whiteBall.transform.position;
             dir.Normalize();
 
-            poolStick.DOMove(whiteBall.position - dir * 1.6f, 1f);
-            poolStick.DORotate(Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f)
-                .SetEase(Ease.OutCubic);
-            poolStickHand.DOMove(whiteBall.position - dir * (1.6f + poolHandDistance), 1f);
-            poolStickHand.DORotate(Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f)
-                .SetEase(Ease.OutCubic);
+            Tween.Position(poolStick, whiteBall.position - dir * 1.6f, 1, Ease.OutCubic);
+            Tween.Rotation(poolStick, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
+            
+            Tween.Position(poolStickHand, whiteBall.position - dir * (1.6f + poolHandDistance), 1f);
+            Tween.Rotation(poolStickHand, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
 
             _nextStep += 0.9f;
             yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
@@ -68,11 +68,11 @@ namespace Game.Bosses.Snooker
             }
 
             _nextStep += 0.55f;
-            poolStick.DOMove(whiteBall.position - dir * 3, 0.5f).SetEase(Ease.OutCubic);
+            Tween.Position(poolStick, whiteBall.position - dir * 3, 0.5f, Ease.OutCubic);
             yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
 
             _nextStep += 0.1f;
-            poolStick.DOMove(whiteBall.position - dir * 1.45f, 0.1f).SetEase(Ease.Linear);
+            Tween.Position(poolStick, whiteBall.position - dir * 1.45f, 0.1f, Ease.Linear);
             yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
 
             whiteBall.linearDamping = 0;
@@ -80,11 +80,11 @@ namespace Game.Bosses.Snooker
                 ball.linearDamping = 0;
             whiteBall.linearVelocity = dir * shotForce;
 
-            poolStick.DORotate(Vector3.forward * -90, 1.5f).SetEase(Ease.OutSine);
-            poolStick.DOMove(transform.position + Vector3.right, 1.5f).SetEase(Ease.OutSine);
+            Tween.Rotation(poolStick, Vector3.forward * -90, 1.5f, Ease.OutSine);
+            Tween.Position(poolStick, transform.position + Vector3.right, 1.5f, Ease.OutSine);
 
-            poolStickHand.DOMove(transform.position, 1.5f).SetEase(Ease.OutSine);
-            poolStickHand.DORotate(Vector3.forward * -90, 1.5f).SetEase(Ease.OutSine);
+            Tween.Position(poolStickHand, transform.position, 1.5f, Ease.OutSine);
+            Tween.Rotation(poolStickHand, Vector3.forward * -90, 1.5f, Ease.OutSine);
 
 
             _nextStep += ballBouceTime;

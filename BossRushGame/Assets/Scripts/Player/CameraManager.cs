@@ -1,11 +1,11 @@
+using Pixelplacement;
+using PrimeTween;
+using Unity.Cinemachine;
+using UnityEngine;
+using Tween = PrimeTween.Tween;
+
 namespace Game.Player
 {
-    using DG.Tweening;
-    using Tween = Pixelplacement.Tween;
-    using Pixelplacement;
-    using Unity.Cinemachine;
-    using UnityEngine;
-    using Pixelplacement.TweenSystem;
 
     public class CameraManager : Singleton<CameraManager>
     {
@@ -13,58 +13,47 @@ namespace Game.Player
 
         public CinemachinePositionComposer positionComposer;
 
+        public TweenSettings<float> focusUpTween;
+        public TweenSettings<float> focusDownTween;
+        
         public float focusUpScreenY = 0.1f;
         public float focusDuration = 1f;
 
         public float defaultZoom = 1.5f;
         public float zoomOutZoom = 1.35f;
 
-
-        private void Awake()
-        {
-
-        }
-
-        private TweenBase _scaleTween;
+        private Tween _scaleTween;
         public void FocusUp()
         {
-            this.DOKill();
-            DOTween.To(
-                () => positionComposer.Composition.ScreenPosition.y,
-                f => positionComposer.Composition.ScreenPosition = new Vector2(positionComposer.Composition.ScreenPosition.x, f),
-                focusUpScreenY,
-                focusDuration
-            ).SetTarget(this);
+            Tween.Custom(
+                focusUpTween,
+                f => positionComposer.Composition.ScreenPosition =
+                    new Vector2(positionComposer.Composition.ScreenPosition.x, f)
+            );
 
-            _scaleTween?.Stop();
-            _scaleTween = Tween.Value(
+            _scaleTween.Stop();
+            _scaleTween = Tween.Custom(
                 GameManager.Instance.RenderTextureZoom,
                 zoomOutZoom,
-                f => GameManager.Instance.RenderTextureZoom = f,
                 focusDuration,
-                0f,
-                Tween.EaseOut
+                f => GameManager.Instance.RenderTextureZoom = f
             );
         }
 
         public void ResetFocus()
         {
-            this.DOKill();
-            DOTween.To(
-                () => positionComposer.Composition.ScreenPosition.y,
-                f => positionComposer.Composition.ScreenPosition = new Vector2(positionComposer.Composition.ScreenPosition.x, f),
-                0,
-                focusDuration
-            ).SetTarget(this);
-
-            _scaleTween?.Stop();
-            _scaleTween = Tween.Value(
+            Tween.Custom(
+                focusDownTween,
+                f => positionComposer.Composition.ScreenPosition =
+                    new Vector2(positionComposer.Composition.ScreenPosition.x, f)
+            );
+            
+            _scaleTween.Stop();
+            _scaleTween = Tween.Custom(
                 GameManager.Instance.RenderTextureZoom,
                 defaultZoom,
-                f => GameManager.Instance.RenderTextureZoom = f,
                 focusDuration,
-                0f,
-                Tween.EaseOut
+                f => GameManager.Instance.RenderTextureZoom = f
             );
         }
 
