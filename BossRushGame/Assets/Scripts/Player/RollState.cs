@@ -20,23 +20,13 @@ namespace Game.Player.States
             timer = new Timer();
         }
 
-        private Tween rollTween;
         public override void OnEnter()
         {
             timer.Reset();
             rollDirection = InputManager.MoveVector.normalized;
-
-            var flipValue = rollDirection.x > 0 || rollDirection.y > 0 ? -1 : 1;
-
-            rollTween.Stop();
-            playerManager.playerSprite.transform.rotation = Quaternion.identity;
-
-            rollTween = Tween.Custom(
-                0f,
-                360f * flipValue,
-                playerManager.rollDuration,
-                f => playerManager.playerSprite.transform.eulerAngles = Vector3.forward * f
-            );
+            
+            playerManager.activeGun.gameObject.SetActive(false);
+            playerManager.playerSprite.transform.localScale = new Vector2(rollDirection.x < 0 ? -1 : 1, 1);
             
             playerManager.playerHitbox.SetInvulnerable(playerManager.rollInvulnerabilityDuration);
         }
@@ -51,6 +41,7 @@ namespace Game.Player.States
 
         public override void OnExit()
         {
+            playerManager.activeGun.gameObject.SetActive(true);
             Tween.Delay(playerManager.rollCooldown, () => playerManager.canRoll = true);
         }
     }

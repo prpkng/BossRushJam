@@ -25,6 +25,7 @@ namespace Game.Player
         [Space] public float knockbackDuration = .25f;
         [Header("References")]
         public SpriteRenderer playerSprite;
+        public Animator playerAnimations;
         public PlayerHitbox playerHitbox;
         public PlayerGun activeGun;
 
@@ -46,16 +47,20 @@ namespace Game.Player
             fsm = new StateMachine();
             fsm.AddState(
                 "Idle",
+                onEnter: _ => playerAnimations.Play("Idle"),
                 onLogic: state => rb.linearVelocity -= rb.linearVelocity * deceleration
             );
-            fsm.AddState("Move", onLogic: state =>
-            {
-                var moveInput = InputManager.MoveVector;
-                var targetSpeed = moveInput * movementSpeed;
-                var speedDiff = targetSpeed - rb.linearVelocity;
-
-                rb.linearVelocity += speedDiff * acceleration;
-            });
+            fsm.AddState("Move", 
+                onEnter: _ => playerAnimations.Play("Run"), 
+                onLogic: state =>
+                {
+                    var moveInput = InputManager.MoveVector;
+                    var targetSpeed = moveInput * movementSpeed;
+                    var speedDiff = targetSpeed - rb.linearVelocity;
+    
+                    rb.linearVelocity += speedDiff * acceleration;
+                }
+            );
 
             fsm.AddState("Roll", new RollState(this));
             fsm.AddTransition("Roll", "Move", _ => InputManager.MoveVector.sqrMagnitude > Mathf.Epsilon);
@@ -95,6 +100,7 @@ namespace Game.Player
                 return;
 
             // fsm.SetState(new RollState());
+            playerAnimations.Play("Roll");
             fsm.Trigger("Roll");
             canRoll = false;
         }

@@ -14,9 +14,9 @@ namespace Game.Player
         public float fireRate = 3;
         [Header("References")]
         [SerializeField] private GameObject bulletPrefab;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
         private new Camera camera;
-        private SpriteRenderer spriteRenderer;
 
         private bool _isHoldingFire;
         private float _fireRateCounter;
@@ -24,7 +24,6 @@ namespace Game.Player
         private void Awake()
         {
             camera = Camera.main;
-            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private Vector2 _lastPointVector;
@@ -42,6 +41,7 @@ namespace Game.Player
             return _lastPointVector.normalized;
         }
 
+        private Vector3 _temp;
         private void Update()
         {
             var lookDirection = GetPointVector();
@@ -50,6 +50,10 @@ namespace Game.Player
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
             spriteRenderer.flipY = lookDirection.x < 0;
+            
+            _temp = GameManager.Instance.Player.playerSprite.transform.localScale;
+            _temp.x = lookDirection.x < 0 ? -1 : 1;
+            GameManager.Instance.Player.playerSprite.transform.localScale = _temp;
 
 
             _fireRateCounter -= Time.deltaTime;

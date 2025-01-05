@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7884185129377218234}
   - component: {fileID: 1699282273547824243}
   - component: {fileID: 4665269087842319559}
+  - component: {fileID: 8865910855119579362}
   - component: {fileID: 3927040312767950894}
   - component: {fileID: 4314800621817340686}
   m_Layer: 0
@@ -122,6 +123,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8865910855119579362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303165611683896656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0544e7b14d134a1449e61175446cfb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ApplyAfter: 3
+  Tilt: 0
+  Pan: 0
+  Dutch: 0
+  ZoomScale: 1
+  FollowAttachment: 1
+  LookAtAttachment: 1
 --- !u!114 &3927040312767950894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +168,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dontDestroyOnLoad: 0
   positionComposer: {fileID: 1699282273547824243}
-  focusUpScreenY: 0.2
-  focusDuration: 1
+  recomposer: {fileID: 8865910855119579362}
+  focusUpTween:
+    startFromCurrent: 0
+    startValue: 0
+    endValue: 0.2
+    settings:
+      duration: 1
+      ease: 6
+      customEase:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycles: 1
+      cycleMode: 0
+      startDelay: 0
+      endDelay: 0
+      useUnscaledTime: 0
+      useFixedUpdate: 0
+  focusDownTween:
+    startFromCurrent: 0
+    startValue: 0.2
+    endValue: 0
+    settings:
+      duration: 1
+      ease: 6
+      customEase:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycles: 1
+      cycleMode: 0
+      startDelay: 0
+      endDelay: 0
+      useUnscaledTime: 0
+      useFixedUpdate: 0
+  zoomDuration: 1
   defaultZoom: 1.5
   zoomOutZoom: 1.35

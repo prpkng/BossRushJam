@@ -165,7 +165,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: ca1cb763bb6e4464ca696139bdfa0b81, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.110137045, b: 0.110137045, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -185,7 +185,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: dcfdb9e376d8a5544b8aa3dd88b19608, type: 2}
+  m_Material: {fileID: 6200000, guid: 16d714c19678ba345b44d39ca05e08aa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -250,6 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f798270e9c75274da4fd85af0a82e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageSpeedThreshold: 2
+  damageSpeedThreshold: -1
   hazardousLayer: 8
   safeLayer: 0
