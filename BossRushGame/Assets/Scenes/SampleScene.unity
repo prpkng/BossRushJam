@@ -1684,6 +1684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1327762645425910652, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: poolStick
       value: 
