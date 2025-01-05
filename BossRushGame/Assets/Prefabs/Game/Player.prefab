@@ -82,9 +82,13 @@ MonoBehaviour:
   acceleration: 0.8
   deceleration: 0.8
   rollDuration: 0.2
+  rollInvulnerabilityDuration: 0.25
   rollSpeed: 24
   rollCooldown: 0.15
+  damageInvulnerabilityDuration: 2
+  knockbackDuration: 0.1
   playerSprite: {fileID: 891031283193840369}
+  playerHitbox: {fileID: 2212418656940548027}
   activeGun: {fileID: 2550022098616655586}
 --- !u!58 &2760835209528523545
 CircleCollider2D:
@@ -134,9 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237daf41d4c540dd816ee8a75a9302d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 3
+  totalHealth: 200
   damageMultiplier: 1
-  currentHealth: 0
+  currentHealth: 4
 --- !u!1 &843537091462712187
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00356b3c6bb41f68b2df7700ea8127f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitboxCollider: {fileID: 7610919338681936906}
   playerHealth: {fileID: 6698519441522588061}
   weakHitShake:
     strength: {x: 0, y: 0, z: 0}
@@ -560,7 +565,7 @@ MonoBehaviour:
     useUnscaledTime: 0
     useFixedUpdate: 0
   strongHitShake:
-    strength: {x: 2, y: 2, z: 0}
+    strength: {x: 4, y: 4, z: 0}
     duration: 0.5
     frequency: 15
     enableFalloff: 1

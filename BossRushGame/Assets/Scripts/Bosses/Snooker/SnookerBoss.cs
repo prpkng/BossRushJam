@@ -14,9 +14,12 @@ namespace Game.Bosses.Snooker
         public float idleWaitTimeMax = 6;
 
         [Header("Shot White Ball")]
+        public float shotBallWaitTime = 5f;
+
+        public float whiteBallStopThreshold = 1f;
+        [Space]
         public float shotForce = 25;
         public float shotAnticipationSecs = 2f;
-        public float ballBouceTime = 5f;
         public float ballStopLinearDrag = 0.25f;
         public float redBallStopLinearDrag = 0.1f;
 
@@ -35,9 +38,9 @@ namespace Game.Bosses.Snooker
         private const string AttackCooldownState = "AttackCooldown";
         private const string ShotWhiteBallState = "ShotWhiteBall";
 
-        public IEnumerator ShotWhiteBall(CoState<string, string> state)
+        private IEnumerator ShotWhiteBall(CoState<string, string> state)
         {
-            float _nextStep = 0;
+            float nextStep = 0;
             var player = GameManager.Instance.Player.transform;
 
             Vector2 dir = player.position - whiteBall.transform.position;
@@ -49,12 +52,12 @@ namespace Game.Bosses.Snooker
             Tween.Position(poolStickHand, whiteBall.position - dir * (1.6f + poolHandDistance), 1f);
             Tween.Rotation(poolStickHand, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
 
-            _nextStep += 0.9f;
-            yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
+            nextStep += 0.9f;
+            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
 
-            _nextStep += shotAnticipationSecs;
-            while (state.timer.Elapsed < _nextStep)
+            nextStep += shotAnticipationSecs;
+            while (state.timer.Elapsed < nextStep)
             {
                 dir = player.transform.position - whiteBall.transform.position;
                 dir.Normalize();
@@ -67,13 +70,13 @@ namespace Game.Bosses.Snooker
                 yield return null;
             }
 
-            _nextStep += 0.55f;
+            nextStep += 0.55f;
             Tween.Position(poolStick, whiteBall.position - dir * 3, 0.5f, Ease.OutCubic);
-            yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
+            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
-            _nextStep += 0.1f;
+            nextStep += 0.1f;
             Tween.Position(poolStick, whiteBall.position - dir * 1.45f, 0.1f, Ease.Linear);
-            yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
+            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
             whiteBall.linearDamping = 0;
             foreach (var ball in redBalls)
@@ -87,11 +90,11 @@ namespace Game.Bosses.Snooker
             Tween.Rotation(poolStickHand, Vector3.forward * -90, 1.5f, Ease.OutSine);
 
 
-            _nextStep += ballBouceTime;
-            yield return new WaitWhile(() => state.timer.Elapsed < _nextStep);
+            nextStep += shotBallWaitTime;
+            yield return new WaitWhile(() => state.timer.Elapsed < nextStep && whiteBall.linearVelocity.magnitude > whiteBallStopThreshold);
 
-            _nextStep += 2f;
-            while (state.timer.Elapsed < _nextStep)
+            nextStep += 2f;
+            while (state.timer.Elapsed < nextStep)
             {
                 whiteBall.linearDamping += ballStopLinearDrag * Time.fixedDeltaTime;
                 foreach (var ball in redBalls)
@@ -99,7 +102,6 @@ namespace Game.Bosses.Snooker
                 yield return new WaitForFixedUpdate();
             }
 
-            // whiteBall.linearDamping = 30;
             fsm.StateCanExit();
         }
 

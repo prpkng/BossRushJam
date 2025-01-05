@@ -424,22 +424,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.5
---- !u!114 &607495366 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-  m_PrefabInstance: {fileID: 6847132131701263847}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00356b3c6bb41f68b2df7700ea8127f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &607495367 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 7610919338681936906, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-  m_PrefabInstance: {fileID: 6847132131701263847}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &615301397
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,93 +821,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!1 &1525902538
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1525902539}
-  - component: {fileID: 1525902540}
-  m_Layer: 0
-  m_Name: Poolstick
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1525902539
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525902538}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.42, y: 10.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1525902540
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525902538}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3bdb020156a87c47a180dd82158c269, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 10, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1648320378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,18 +1595,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: hitboxCollider
-      value: 
-      objectReference: {fileID: 607495367}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: strongHitShake.strength.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: strongHitShake.strength.y
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1750,26 +1635,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6698519441522588061, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: totalHealth
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6822615971887044637, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: playerHitbox
-      value: 
-      objectReference: {fileID: 607495366}
-    - target: {fileID: 6822615971887044637, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: knockbackDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6822615971887044637, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: rollInvulnerabilityDuration
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6822615971887044637, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: damageInvulnerabilityDuration
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1787,14 +1652,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 1327762645425910652, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: poolStick
-      value: 
-      objectReference: {fileID: 1525902539}
     - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: whiteBall
       value: 
@@ -1869,7 +1726,6 @@ SceneRoots:
   - {fileID: 2519907706094016184}
   - {fileID: 274596365}
   - {fileID: 53812211}
-  - {fileID: 1525902539}
   - {fileID: 749503205}
   - {fileID: 1997601892}
   - {fileID: 4908356062515166315}
