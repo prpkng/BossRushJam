@@ -26,7 +26,7 @@ namespace Game.Player.States
             timer.Reset();
             rollDirection = InputManager.MoveVector.normalized;
 
-            int flipValue = rollDirection.x > 0 || rollDirection.y > 0 ? -1 : 1;
+            var flipValue = rollDirection.x > 0 || rollDirection.y > 0 ? -1 : 1;
 
             rollTween.Stop();
             playerManager.playerSprite.transform.rotation = Quaternion.identity;
@@ -37,6 +37,8 @@ namespace Game.Player.States
                 playerManager.rollDuration,
                 f => playerManager.playerSprite.transform.eulerAngles = Vector3.forward * f
             );
+            
+            playerManager.playerHitbox.SetInvulnerable(playerManager.rollInvulnerabilityDuration);
         }
 
         public override void OnLogic()

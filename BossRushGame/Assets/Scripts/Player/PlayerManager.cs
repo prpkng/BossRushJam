@@ -14,18 +14,22 @@ namespace Game.Player
         public float acceleration;
         [Range(0, 1)]
         public float deceleration;
+        
         public float rollDuration = .5f;
+        public float rollInvulnerabilityDuration = .35f;
         public float rollSpeed = 12;
         public float rollCooldown = 0.5f;
 
+        public float damageInvulnerabilityDuration = .4f;
         [Header("References")]
         public SpriteRenderer playerSprite;
-        [System.NonSerialized] public Rigidbody2D rb;
+        public PlayerHitbox playerHitbox;
         public PlayerGun activeGun;
 
 
         private StateMachine fsm;
 
+        [System.NonSerialized] public Rigidbody2D rb;
         [System.NonSerialized] public bool canRoll = true;
 
         private void Awake()
@@ -81,6 +85,12 @@ namespace Game.Player
             // fsm.SetState(new RollState());
             fsm.Trigger("Roll");
             canRoll = false;
+        }
+
+        public void OnDamage(Vector2 knockback)
+        {
+            playerHitbox.SetInvulnerable(damageInvulnerabilityDuration);
+            fsm.Trigger("Damage");
         }
 
         private void FixedUpdate()

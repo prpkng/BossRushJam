@@ -416,6 +416,22 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.5
+--- !u!114 &607495366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+  m_PrefabInstance: {fileID: 6847132131701263847}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00356b3c6bb41f68b2df7700ea8127f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &607495367 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7610919338681936906, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+  m_PrefabInstance: {fileID: 6847132131701263847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &615301397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,44 +1679,16 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: weakHitShake.cycles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: strongHitShake.cycles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: weakHitShake.duration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: weakHitShake.frequency
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: strongHitShake.duration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: strongHitShake.frequency
-      value: 15
-      objectReference: {fileID: 0}
+      propertyPath: hitboxCollider
+      value: 
+      objectReference: {fileID: 607495367}
     - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: strongHitShake.strength.x
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: strongHitShake.strength.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: strongHitShake.falloffEase
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: strongHitShake.enableFalloff
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1741,6 +1729,18 @@ PrefabInstance:
     - target: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822615971887044637, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: playerHitbox
+      value: 
+      objectReference: {fileID: 607495366}
+    - target: {fileID: 6822615971887044637, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: rollInvulnerabilityDuration
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822615971887044637, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: damageInvulnerabilityDuration
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
