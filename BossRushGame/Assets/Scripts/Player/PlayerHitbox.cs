@@ -16,8 +16,9 @@ namespace Game.Player
         public void HitPlayer(int damage, Vector2? knockbackVector = null, bool strong = true) 
         {
             playerHealth.ApplyDamage(damage);
+            print($"kbv: {knockbackVector}");
             GameManager.Instance.Player.OnDamage(knockbackVector ?? Vector2.zero);
-            
+                
             CameraManager.Instance.ShakeCamera(strong ? strongHitShake : weakHitShake);
         }
 

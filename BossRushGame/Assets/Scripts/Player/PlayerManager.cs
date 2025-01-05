@@ -19,14 +19,17 @@ namespace Game.Player
         public float rollInvulnerabilityDuration = .35f;
         public float rollSpeed = 12;
         public float rollCooldown = 0.5f;
-
+        [Space]
         public float damageInvulnerabilityDuration = .4f;
+
+        [Space] public float knockbackDuration = .25f;
         [Header("References")]
         public SpriteRenderer playerSprite;
         public PlayerHitbox playerHitbox;
         public PlayerGun activeGun;
 
 
+        private Vector2 _currentKnockbackVector;
         private StateMachine fsm;
 
         [System.NonSerialized] public Rigidbody2D rb;
@@ -58,10 +61,19 @@ namespace Game.Player
             fsm.AddTransition("Roll", "Move", _ => InputManager.MoveVector.sqrMagnitude > Mathf.Epsilon);
             fsm.AddTransition("Roll", "Idle", _ => InputManager.MoveVector.sqrMagnitude <= Mathf.Epsilon);
 
+            fsm.AddState(
+                "Hit",
+                onLogic: _ => rb.linearVelocity = _currentKnockbackVector,
+                canExit: state => state.timer.Elapsed > knockbackDuration, 
+                needsExitTime: true
+            );
+            fsm.AddTransition("Hit", "Idle", _ => InputManager.MoveVector.sqrMagnitude <= Mathf.Epsilon);
+            fsm.AddTransition("Hit", "Move", _ => InputManager.MoveVector.sqrMagnitude > Mathf.Epsilon);
+            
             fsm.AddTwoWayTransition("Idle", "Move", _ => InputManager.MoveVector.sqrMagnitude > Mathf.Epsilon);
 
             fsm.AddTriggerTransitionFromAny("Roll", new TransitionBase("", "Roll"));
-
+            fsm.AddTriggerTransitionFromAny("Hit", new TransitionBase("", "Hit"));
             fsm.Init();
         }
 
@@ -90,7 +102,8 @@ namespace Game.Player
         public void OnDamage(Vector2 knockback)
         {
             playerHitbox.SetInvulnerable(damageInvulnerabilityDuration);
-            fsm.Trigger("Damage");
+            fsm.Trigger("Hit");
+            _currentKnockbackVector = knockback;
         }
 
         private void FixedUpdate()
