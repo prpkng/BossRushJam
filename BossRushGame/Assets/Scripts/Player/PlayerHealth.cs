@@ -1,5 +1,6 @@
 using Game.Systems;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.Player
 {
@@ -9,6 +10,7 @@ namespace Game.Player
         {
             print("PLAYER DEAD!!");
             base.OnDeath();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
