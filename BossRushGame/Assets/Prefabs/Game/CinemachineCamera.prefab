@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7884185129377218234}
   - component: {fileID: 1699282273547824243}
   - component: {fileID: 4665269087842319559}
+  - component: {fileID: 3927040312767950894}
+  - component: {fileID: 4314800621817340686}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -120,3 +122,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3927040312767950894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303165611683896656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55938fb1577dd4ad3af7e994048c86f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4314800621817340686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303165611683896656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91660ab91d542c4a9288c6cdce238b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
+  positionComposer: {fileID: 1699282273547824243}
+  focusUpScreenY: 0.2
+  focusDuration: 1
+  defaultZoom: 1.5
+  zoomOutZoom: 1.35

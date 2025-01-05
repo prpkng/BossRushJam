@@ -21,7 +21,7 @@ namespace Game.Bosses.Snooker
 
         [Header("Visual")]
         public float poolHandDistance = 3f;
-
+        
         [Header("References")]
         public Rigidbody2D whiteBall;
         public Rigidbody2D[] redBalls;
@@ -78,7 +78,7 @@ namespace Game.Bosses.Snooker
             whiteBall.linearDamping = 0;
             foreach (var ball in redBalls)
                 ball.linearDamping = 0;
-            whiteBall.AddForce(dir * shotForce, ForceMode2D.Impulse);
+            whiteBall.linearVelocity = dir * shotForce;
 
             poolStick.DORotate(Vector3.forward * -90, 1.5f).SetEase(Ease.OutSine);
             poolStick.DOMove(transform.position + Vector3.right, 1.5f).SetEase(Ease.OutSine);
