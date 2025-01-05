@@ -66,7 +66,7 @@ namespace Game.Player
         {
             InputManager.ShootPerformed += OnPlayerFire;
         }
-        private void OnDestroy()
+        private void OnDisable()
         {
             InputManager.ShootPerformed -= OnPlayerFire;
         }
