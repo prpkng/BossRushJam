@@ -25,7 +25,10 @@ namespace Game.Player
         private Tween _invulnerableTween;
         public void SetInvulnerable(float duration)
         {
-            _invulnerableTween.Complete();
+
+            if (_invulnerableTween.isAlive)
+                duration += _invulnerableTween.duration - _invulnerableTween.elapsedTime;
+            _invulnerableTween.Stop();
             
             hitboxCollider.enabled = false;
             _invulnerableTween = Tween.Delay(duration, () => hitboxCollider.enabled = true);
