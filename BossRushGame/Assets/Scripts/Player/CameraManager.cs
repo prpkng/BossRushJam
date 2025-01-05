@@ -12,13 +12,14 @@ namespace Game.Player
         public static Vector2 currentScreenOffset;
 
         public CinemachinePositionComposer positionComposer;
+        public CinemachineRecomposer recomposer;
 
+        [Header("Focus Settings")]
+        
         public TweenSettings<float> focusUpTween;
         public TweenSettings<float> focusDownTween;
         
-        public float focusUpScreenY = 0.1f;
-        public float focusDuration = 1f;
-
+        public float zoomDuration = 1f;
         public float defaultZoom = 1.5f;
         public float zoomOutZoom = 1.35f;
 
@@ -35,11 +36,10 @@ namespace Game.Player
             _scaleTween = Tween.Custom(
                 GameManager.Instance.RenderTextureZoom,
                 zoomOutZoom,
-                focusDuration,
+                zoomDuration,
                 f => GameManager.Instance.RenderTextureZoom = f
             );
         }
-
         public void ResetFocus()
         {
             Tween.Custom(
@@ -52,11 +52,20 @@ namespace Game.Player
             _scaleTween = Tween.Custom(
                 GameManager.Instance.RenderTextureZoom,
                 defaultZoom,
-                focusDuration,
+                zoomDuration,
                 f => GameManager.Instance.RenderTextureZoom = f
             );
         }
 
+        public void ShakeCamera(ShakeSettings shakeSettings)
+        {
+            Tween.ShakeCustom(this, Vector3.zero, shakeSettings, (self, vector3) =>
+            {
+                self.recomposer.Pan = vector3.x;
+                self.recomposer.Tilt = vector3.y;
+            });
+        }
+        
         private void Update()
         {
             currentScreenOffset = positionComposer.Composition.ScreenPosition;

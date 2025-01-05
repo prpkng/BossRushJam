@@ -1,4 +1,5 @@
 using System;
+using PrimeTween;
 using UnityEngine;
 
 namespace Game.Player
@@ -6,11 +7,13 @@ namespace Game.Player
     public class PlayerHitbox : MonoBehaviour
     {
         [SerializeField] private PlayerHealth playerHealth;
-
-        private void OnTriggerEnter2D(Collider2D other)
+        [SerializeField] private ShakeSettings weakHitShake;
+        [SerializeField] private ShakeSettings strongHitShake;
+        public void HitPlayer(int damage, bool strong = true) 
         {
-            print($"Trigger entered: {other}");
-            playerHealth.ApplyDamage(1);
+            playerHealth.ApplyDamage(damage);
+            
+            CameraManager.Instance.ShakeCamera(strong ? strongHitShake : weakHitShake);
         }
     }
 }
