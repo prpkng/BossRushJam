@@ -29,7 +29,9 @@ namespace Game.Bosses.Snooker
 
         public float otherBallsStopLinearDrag = 0.1f;
 
-        [Header("Visual")] public float poolHandDistance = 3f;
+        [Header("Visual")] 
+        public float poolHandDistance = 3f;
+        public float stickHandDistance = 8f;
 
         [Header("References")] public Rigidbody2D[] availableBalls;
         public Transform poolStick;
@@ -142,16 +144,22 @@ namespace Game.Bosses.Snooker
             Tween.Position(poolStick, _currentBall.position - dir * 1.6f, 1, Ease.OutCubic);
             Tween.Rotation(poolStick, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
 
-            // Move pool hand too
+            // Move pool hands too
             Tween.Position(leftHandTransform, _currentBall.position - dir * (1.6f + poolHandDistance), 1f);
             Tween.Rotation(leftHandTransform, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * -Vector3.forward, 0.9f,
                 Ease.OutCubic);
+            Tween.Position(rightHandTransform, _currentBall.position - dir * (1.6f + stickHandDistance), 1f);
+            Tween.Rotation(rightHandTransform, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f,
+                Ease.OutCubic);
             
+            // Set hand sprites
             leftHand.SetHand(HandType.PoolHand);
+            rightHand.SetHand(HandType.HoldingStick);
 
             nextStep += 0.9f;
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
+            //Aim poolstick to selected ball
             nextStep += shotAnticipationSecs;
             while (state.timer.Elapsed < nextStep)
             {
@@ -159,50 +167,72 @@ namespace Game.Bosses.Snooker
                 dir.Normalize();
                 poolStick.right = dir;
                 leftHandTransform.right = -dir;
+                rightHandTransform.right = dir;
 
                 poolStick.transform.position = _currentBall.position - dir * 1.6f;
                 leftHandTransform.transform.position = _currentBall.position - dir * (1.6f + poolHandDistance);
+                rightHandTransform.transform.position = _currentBall.position - dir * (1.6f + stickHandDistance);
 
                 yield return null;
             }
 
+            // Start pulling stick back
             nextStep += 0.25f;
             Tween.Position(poolStick, _currentBall.position - dir * 3, 0.5f, Ease.OutCubic);
+            Tween.Position(rightHandTransform, rightHandTransform.position - (Vector3)dir * 3, 0.5f, Ease.OutCubic);
+            
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
+            rightHandTransform.SetParent(poolStick);
+
+            // Shake the stick and hands during the pulling
             nextStep += 0.35f;
             Tween.ShakeLocalRotation(poolStick, Vector3.forward * 2.5f, .35f, 15f);
+            
             Tween.ShakeLocalRotation(leftHandTransform, Vector3.forward * 5f, .35f, 15f);
             Tween.ShakeLocalPosition(leftHandTransform, Vector3.one * .15f, .35f, 25f);
+            
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
+            // Push the stick
             nextStep += 0.1f;
             Tween.Position(poolStick, _currentBall.position - dir * 1.45f, 0.1f, Ease.Linear);
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
+            
 
+            // Reset all balls' linear damping (were set during the last loop)
             foreach (var ball in availableBalls)
                 if (ball)
                     ball.linearDamping = 0;
 
+            // Apply velocity to the selected ball
             _currentBall.linearVelocity = dir * shotForce;
             
+            // Apply the knockback tween to the pool stick and hands
             Tween.Position(poolStick, poolStick.position - (Vector3)dir, .5f, Ease.OutCubic);
             Tween.Position(leftHandTransform, leftHandTransform.position - (Vector3)dir, .5f, Ease.OutCubic);
 
             yield return new WaitForSeconds(0.5f);
+            rightHandTransform.SetParent(transform);
 
+            // Return the stick and hands to the rest position
             Tween.Rotation(poolStick, Vector3.forward * -90, 1.5f, Ease.OutSine);
             Tween.Position(poolStick, transform.position + Vector3.right, 1.5f, Ease.OutSine);
 
-            Tween.Position(leftHandTransform, transform.position, 1.5f, Ease.InOutQuad);
+            Tween.Position(leftHandTransform, transform.position + Vector3.left * 2f, 1.5f, Ease.InOutQuad);
             Tween.Rotation(leftHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine);
+            Tween.Position(rightHandTransform, transform.position + Vector3.right * 3, 1.5f, Ease.InOutQuad);
+            Tween.Rotation(rightHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine);
 
             leftHand.SetHand(HandType.Idle);
+            
+            // Wait until all balls are still or the wait time elapsed
             nextStep += shotBallWaitTime;
             yield return new WaitWhile(() =>
                 state.timer.Elapsed < nextStep && _currentBall.linearVelocity.magnitude > whiteBallStopThreshold);
 
+            
+            // During two seconds, start reducing all balls' linear damping
             nextStep += 2f;
-
             var otherBalls = availableBalls.Where(b => b != _currentBall).ToArray();
             while (state.timer.Elapsed < nextStep)
             {

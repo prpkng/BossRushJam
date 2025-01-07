@@ -33,7 +33,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 16
@@ -79,7 +79,7 @@ ScriptedImporter:
     defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
-    spritePadding: 0
+    spritePadding: 6
     generateModelPrefab: 1
     generateAnimationClips: 0
     addSortingGroup: 1
@@ -92,13 +92,13 @@ ScriptedImporter:
     defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
-    spritePadding: 0
+    spritePadding: 6
     generateModelPrefab: 1
     generateAnimationClips: 0
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638718068171554715
+  platformSettingsDirtyTick: 638718083750861595
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -125,16 +125,16 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Frame_0
     originalName: 
-    pivot: {x: 0.4888889, y: 0.54545456}
+    pivot: {x: 0.4901961, y: 0.53846157}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
-      y: 54
-      width: 45
-      height: 33
+      y: 60
+      width: 51
+      height: 39
     spriteID: 0447d9fc17f04944fbaa411b7576f13e
     spriteBone: []
     spriteOutline: []
@@ -143,10 +143,10 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: -6, y: 40}
+    uvTransform: {x: -6, y: 46}
   - name: Frame_1
     originalName: 
-    pivot: {x: 0.65909094, y: 0.5714286}
+    pivot: {x: 0.64, y: 0.5625}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -154,8 +154,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 44
-      height: 42
+      width: 50
+      height: 48
     spriteID: c659966b1f9e99244b56b0a93c2b1b36
     spriteBone: []
     spriteOutline: []
