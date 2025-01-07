@@ -112,8 +112,8 @@ MonoBehaviour:
   ballStopLinearDrag: 1.75
   redBallStopLinearDrag: 0.1
   poolHandDistance: 3
-  whiteBall: {fileID: 0}
-  redBalls:
+  availableBalls:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

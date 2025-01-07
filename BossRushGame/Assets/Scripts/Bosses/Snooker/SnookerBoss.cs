@@ -1,3 +1,5 @@
+using System.Linq;
+using Game.Systems;
 using PrimeTween;
 
 namespace Game.Bosses.Snooker
@@ -27,8 +29,7 @@ namespace Game.Bosses.Snooker
         public float poolHandDistance = 3f;
         
         [Header("References")]
-        public Rigidbody2D whiteBall;
-        public Rigidbody2D[] redBalls;
+        public Rigidbody2D[] availableBalls;
         public Transform poolStick;
         public Transform poolStickHand;
 
@@ -40,16 +41,18 @@ namespace Game.Bosses.Snooker
 
         private IEnumerator ShotWhiteBall(CoState<string, string> state)
         {
+            availableBalls = availableBalls.Where(b => b != null).ToArray();
+            var currentBall = availableBalls.ChooseRandom();
             float nextStep = 0;
             var player = GameManager.Instance.Player.transform;
 
-            Vector2 dir = player.position - whiteBall.transform.position;
+            Vector2 dir = player.position - currentBall.transform.position;
             dir.Normalize();
 
-            Tween.Position(poolStick, whiteBall.position - dir * 1.6f, 1, Ease.OutCubic);
+            Tween.Position(poolStick, currentBall.position - dir * 1.6f, 1, Ease.OutCubic);
             Tween.Rotation(poolStick, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
             
-            Tween.Position(poolStickHand, whiteBall.position - dir * (1.6f + poolHandDistance), 1f);
+            Tween.Position(poolStickHand, currentBall.position - dir * (1.6f + poolHandDistance), 1f);
             Tween.Rotation(poolStickHand, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
 
             nextStep += 0.9f;
@@ -59,29 +62,28 @@ namespace Game.Bosses.Snooker
             nextStep += shotAnticipationSecs;
             while (state.timer.Elapsed < nextStep)
             {
-                dir = player.transform.position - whiteBall.transform.position;
+                dir = player.transform.position - currentBall.transform.position;
                 dir.Normalize();
                 poolStick.right = dir;
                 poolStickHand.right = dir;
 
-                poolStick.transform.position = whiteBall.position - dir * 1.6f;
-                poolStickHand.transform.position = whiteBall.position - dir * (1.6f + poolHandDistance);
+                poolStick.transform.position = currentBall.position - dir * 1.6f;
+                poolStickHand.transform.position = currentBall.position - dir * (1.6f + poolHandDistance);
 
                 yield return null;
             }
 
             nextStep += 0.55f;
-            Tween.Position(poolStick, whiteBall.position - dir * 3, 0.5f, Ease.OutCubic);
+            Tween.Position(poolStick, currentBall.position - dir * 3, 0.5f, Ease.OutCubic);
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
             nextStep += 0.1f;
-            Tween.Position(poolStick, whiteBall.position - dir * 1.45f, 0.1f, Ease.Linear);
+            Tween.Position(poolStick, currentBall.position - dir * 1.45f, 0.1f, Ease.Linear);
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
-            whiteBall.linearDamping = 0;
-            foreach (var ball in redBalls)
+            foreach (var ball in availableBalls)
                 ball.linearDamping = 0;
-            whiteBall.linearVelocity = dir * shotForce;
+            currentBall.linearVelocity = dir * shotForce;
 
             Tween.Rotation(poolStick, Vector3.forward * -90, 1.5f, Ease.OutSine);
             Tween.Position(poolStick, transform.position + Vector3.right, 1.5f, Ease.OutSine);
@@ -91,13 +93,15 @@ namespace Game.Bosses.Snooker
 
 
             nextStep += shotBallWaitTime;
-            yield return new WaitWhile(() => state.timer.Elapsed < nextStep && whiteBall.linearVelocity.magnitude > whiteBallStopThreshold);
+            yield return new WaitWhile(() => state.timer.Elapsed < nextStep && currentBall.linearVelocity.magnitude > whiteBallStopThreshold);
 
             nextStep += 2f;
+            
+            var otherBalls = availableBalls.Where(b => b != currentBall);
             while (state.timer.Elapsed < nextStep)
             {
-                whiteBall.linearDamping += ballStopLinearDrag * Time.fixedDeltaTime;
-                foreach (var ball in redBalls)
+                currentBall.linearDamping += ballStopLinearDrag * Time.fixedDeltaTime;
+                foreach (var ball in otherBalls)
                     ball.linearDamping += redBallStopLinearDrag * Time.fixedDeltaTime;
                 yield return new WaitForFixedUpdate();
             }

@@ -99,7 +99,6 @@ namespace Game.Player
             if (InputManager.MoveVector.sqrMagnitude <= Mathf.Epsilon)
                 return;
 
-            // fsm.SetState(new RollState());
             playerAnimations.Play("Roll");
             fsm.Trigger("Roll");
             canRoll = false;

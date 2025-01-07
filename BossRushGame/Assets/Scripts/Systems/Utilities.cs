@@ -7,7 +7,7 @@ namespace Game.Systems
 {
     public static class Utilities
     {
-        public static T Choose<T>(ICollection<T> collection) =>
+        public static T ChooseRandom<T>(this ICollection<T> collection) =>
             collection.ElementAt(Random.Range(0, collection.Count));   
     }
     public struct Maybe<T> where T : class

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Bosses.Snooker
 {
-    public class BallHazard : Hazard
+    public class SnookerBallHazard : Hazard
     {
         [SerializeField] private Rigidbody2D ballRb;
         [SerializeField] private float knockbackVelocityThreshold;
@@ -14,7 +14,7 @@ namespace Game.Bosses.Snooker
                 return base.CalculateKnockback(player);
             
             var normalizedVelocity = ballRb.linearVelocity.normalized;
-            return Utilities.Choose(new[] {Vector2.Perpendicular(normalizedVelocity), -Vector2.Perpendicular(normalizedVelocity)});
+            return Utilities.ChooseRandom(new[] {Vector2.Perpendicular(normalizedVelocity), -Vector2.Perpendicular(normalizedVelocity)});
         }
     }
 }

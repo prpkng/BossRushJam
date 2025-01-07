@@ -15,7 +15,8 @@ namespace Game.Player
         [Header("References")]
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private SpriteRenderer spriteRenderer;
-
+        [SerializeField] private Animator gunAnimator;
+        
         private new Camera camera;
 
         private bool _isHoldingFire;
@@ -64,10 +65,12 @@ namespace Game.Player
 
         private void OnEnable()
         {
+            OnPlayerFire(false);
             InputManager.ShootPerformed += OnPlayerFire;
         }
         private void OnDisable()
         {
+            OnPlayerFire(false);
             InputManager.ShootPerformed -= OnPlayerFire;
         }
 
@@ -82,6 +85,8 @@ namespace Game.Player
         {
             FireBullet(bulletPrefab, bulletForce);
             _fireRateCounter = 1f / fireRate;
+            
+            gunAnimator.SetTrigger("Shot");
         }
 
     }

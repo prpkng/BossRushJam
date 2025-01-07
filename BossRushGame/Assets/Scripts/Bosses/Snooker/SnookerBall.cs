@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game.Bosses.Snooker
 {
@@ -8,12 +9,14 @@ namespace Game.Bosses.Snooker
         [SerializeField] private float damageSpeedThreshold = 5f;
         [SerializeField] private int hazardousLayer;
         [SerializeField] private int safeLayer;
+        [SerializeField] private SpriteRenderer ballSprite;
         
         private Rigidbody2D _rb;
         
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            ballSprite.color = Random.ColorHSV(0, 1, 1, 1, 1, 1, 1, 1);
         }
 
         private void FixedUpdate()

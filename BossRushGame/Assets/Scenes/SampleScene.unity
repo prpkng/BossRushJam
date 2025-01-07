@@ -127,13 +127,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4299385746948494696, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
-      propertyPath: damageSpeedThreshold
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 4317147210184284824, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
       propertyPath: m_Name
-      value: Red Ball
+      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 6678563305826895738, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,13 +194,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4299385746948494696, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
-      propertyPath: damageSpeedThreshold
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 4317147210184284824, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
       propertyPath: m_Name
-      value: Red Ball
+      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 6678563305826895738, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -625,7 +617,7 @@ Transform:
   m_GameObject: {fileID: 881232000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.64, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -815,7 +807,7 @@ Transform:
   m_GameObject: {fileID: 1648320378}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58, y: -7.27, z: 0}
+  m_LocalPosition: {x: 0, y: -7.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -888,7 +880,7 @@ Transform:
   m_GameObject: {fileID: 1918460225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58, y: 6.9, z: 0}
+  m_LocalPosition: {x: 0, y: 6.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1026,13 +1018,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4299385746948494696, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
-      propertyPath: damageSpeedThreshold
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 4317147210184284824, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
       propertyPath: m_Name
-      value: Red Ball
+      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 6678563305826895738, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1205,25 +1193,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4299385746948494696, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
-      propertyPath: damageSpeedThreshold
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 4317147210184284824, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
       propertyPath: m_Name
-      value: White Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 6552616302069010064, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6552616302069010064, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6552616302069010064, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 6678563305826895738, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1480,6 +1452,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5330725205355641858, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cd5b23c5233192a4c992a284b213121f, type: 2}
+    - target: {fileID: 7761257644252193070, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1513,6 +1493,22 @@ PrefabInstance:
       propertyPath: 'redBalls.Array.data[2]'
       value: 
       objectReference: {fileID: 100901287}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: 'availableBalls.Array.data[0]'
+      value: 
+      objectReference: {fileID: 221593643}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: 'availableBalls.Array.data[1]'
+      value: 
+      objectReference: {fileID: 708253210}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: 'availableBalls.Array.data[2]'
+      value: 
+      objectReference: {fileID: 329462258}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: 'availableBalls.Array.data[3]'
+      value: 
+      objectReference: {fileID: 100901287}
     - target: {fileID: 7063005310955102695, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.9855556
@@ -1535,7 +1531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7330559444157686007, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330559444157686007, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: m_LocalPosition.y
