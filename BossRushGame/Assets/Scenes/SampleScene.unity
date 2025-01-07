@@ -1484,6 +1484,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2550022098616655586, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: bulletSpreadMax
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

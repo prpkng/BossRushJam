@@ -13,6 +13,9 @@ namespace Game.Player
         public float bulletForce;
         
         [Tooltip("Bullet per Second")] public float fireRate = 3;
+        public float bulletSpreadMin = 1f;
+        public float bulletSpreadMax = 1f;
+        
 
         [Header("Visual")] 
         
@@ -90,7 +93,10 @@ namespace Game.Player
         private Tween _recoilTween;
         private void TriggerShoot()
         {
-            FireBullet(bulletPrefab, bulletForce);
+            var direction = transform.right;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            angle += Random.Range(bulletSpreadMin, bulletSpreadMax) * (Random.value > .5f ? -1 : 1);
+            FireBullet(bulletPrefab, Utilities.FromDegrees(angle), bulletForce);
             _fireRateCounter = 1f / fireRate;
             
             gunAnimator.SetTrigger("Shot");

@@ -6,12 +6,13 @@ namespace Game.Systems
     {
         [SerializeField] private Transform muzzleTransform;
 
-        public void FireBullet(GameObject bulletPrefab, float bulletForce, float forceMultiplier = 1)
+        public void FireBullet(GameObject bulletPrefab, Vector2 direction, float bulletForce, float forceMultiplier = 1)
         {
             var bullet = Instantiate(bulletPrefab, muzzleTransform.position, transform.rotation);
 
-            bullet.GetComponent<Rigidbody2D>().linearVelocity =
-                bulletForce * forceMultiplier * bullet.transform.right;
+            var rb = bullet.GetComponent<Rigidbody2D>();
+            rb.linearVelocity = bulletForce * forceMultiplier * direction;
+            bullet.transform.right = rb.linearVelocity.normalized;
         }
     }
 }
