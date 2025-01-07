@@ -528,6 +528,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerGun
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: aad81a3a8d3f76645b9c51ffc7afcf5a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cd5b23c5233192a4c992a284b213121f, type: 2}
+    - target: {fileID: 3626916397498700004, guid: aad81a3a8d3f76645b9c51ffc7afcf5a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: aad81a3a8d3f76645b9c51ffc7afcf5a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.1875

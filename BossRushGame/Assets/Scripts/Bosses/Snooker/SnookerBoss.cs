@@ -33,8 +33,10 @@ namespace Game.Bosses.Snooker
 
         [Header("References")] public Rigidbody2D[] availableBalls;
         public Transform poolStick;
-        public Transform rightHand;
-        public Transform leftHand;
+        public Transform rightHandTransform;
+        public PoolHand rightHand;
+        public Transform leftHandTransform;
+        public PoolHand leftHand;
 
         private StateMachine fsm;
         private Rigidbody2D _currentBall;
@@ -110,21 +112,21 @@ namespace Game.Bosses.Snooker
 
         private IEnumerator IdleStateCoroutineY()
         {
-            _idleSineSequenceY = Sequence.Create(Tween.LocalPositionY(leftHand, idleSineTweenY));
-            _idleSineSequenceY.Group(Tween.LocalPositionY(rightHand, idleSineTweenY));
+            _idleSineSequenceY = Sequence.Create(Tween.LocalPositionY(leftHandTransform, idleSineTweenY));
+            _idleSineSequenceY.Group(Tween.LocalPositionY(rightHandTransform, idleSineTweenY));
             yield return _idleSineSequenceY.ToYieldInstruction();
-            _idleSineSequenceY = Sequence.Create(Tween.LocalPositionY(leftHand, idleSineTweenY.WithDirection(false)));
-            _idleSineSequenceY.Group(Tween.LocalPositionY(rightHand, idleSineTweenY.WithDirection(false)));
+            _idleSineSequenceY = Sequence.Create(Tween.LocalPositionY(leftHandTransform, idleSineTweenY.WithDirection(false)));
+            _idleSineSequenceY.Group(Tween.LocalPositionY(rightHandTransform, idleSineTweenY.WithDirection(false)));
             yield return _idleSineSequenceY.ToYieldInstruction();
         }
         private Sequence _idleSineSequenceX;
         private IEnumerator IdleStateCoroutineX()
         {
-            _idleSineSequenceX = Sequence.Create(Tween.LocalPositionX(leftHand, leftIdleSineTweenX));
-            _idleSineSequenceX.Group(Tween.LocalPositionX(rightHand, rightIdleSineTweenX));
+            _idleSineSequenceX = Sequence.Create(Tween.LocalPositionX(leftHandTransform, leftIdleSineTweenX));
+            _idleSineSequenceX.Group(Tween.LocalPositionX(rightHandTransform, rightIdleSineTweenX));
             yield return _idleSineSequenceX.ToYieldInstruction();
-            _idleSineSequenceX = Sequence.Create(Tween.LocalPositionX(leftHand, leftIdleSineTweenX.WithDirection(false)));
-            _idleSineSequenceX.Group(Tween.LocalPositionX(rightHand, rightIdleSineTweenX.WithDirection(false)));
+            _idleSineSequenceX = Sequence.Create(Tween.LocalPositionX(leftHandTransform, leftIdleSineTweenX.WithDirection(false)));
+            _idleSineSequenceX.Group(Tween.LocalPositionX(rightHandTransform, rightIdleSineTweenX.WithDirection(false)));
             yield return _idleSineSequenceX.ToYieldInstruction();
         }
 
@@ -141,9 +143,11 @@ namespace Game.Bosses.Snooker
             Tween.Rotation(poolStick, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
 
             // Move pool hand too
-            Tween.Position(leftHand, _currentBall.position - dir * (1.6f + poolHandDistance), 1f);
-            Tween.Rotation(leftHand, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f,
+            Tween.Position(leftHandTransform, _currentBall.position - dir * (1.6f + poolHandDistance), 1f);
+            Tween.Rotation(leftHandTransform, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * -Vector3.forward, 0.9f,
                 Ease.OutCubic);
+            
+            leftHand.SetHand(HandType.PoolHand);
 
             nextStep += 0.9f;
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
@@ -154,16 +158,21 @@ namespace Game.Bosses.Snooker
                 dir = player.transform.position - _currentBall.transform.position;
                 dir.Normalize();
                 poolStick.right = dir;
-                leftHand.right = dir;
+                leftHandTransform.right = -dir;
 
                 poolStick.transform.position = _currentBall.position - dir * 1.6f;
-                leftHand.transform.position = _currentBall.position - dir * (1.6f + poolHandDistance);
+                leftHandTransform.transform.position = _currentBall.position - dir * (1.6f + poolHandDistance);
 
                 yield return null;
             }
 
-            nextStep += 0.55f;
+            nextStep += 0.25f;
             Tween.Position(poolStick, _currentBall.position - dir * 3, 0.5f, Ease.OutCubic);
+            yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
+            nextStep += 0.35f;
+            Tween.ShakeLocalRotation(poolStick, Vector3.forward * 2.5f, .35f, 15f);
+            Tween.ShakeLocalRotation(leftHandTransform, Vector3.forward * 5f, .35f, 15f);
+            Tween.ShakeLocalPosition(leftHandTransform, Vector3.one * .15f, .35f, 25f);
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
             nextStep += 0.1f;
@@ -175,14 +184,19 @@ namespace Game.Bosses.Snooker
                     ball.linearDamping = 0;
 
             _currentBall.linearVelocity = dir * shotForce;
+            
+            Tween.Position(poolStick, poolStick.position - (Vector3)dir, .5f, Ease.OutCubic);
+            Tween.Position(leftHandTransform, leftHandTransform.position - (Vector3)dir, .5f, Ease.OutCubic);
+
+            yield return new WaitForSeconds(0.5f);
 
             Tween.Rotation(poolStick, Vector3.forward * -90, 1.5f, Ease.OutSine);
             Tween.Position(poolStick, transform.position + Vector3.right, 1.5f, Ease.OutSine);
 
-            Tween.Position(leftHand, transform.position, 1.5f, Ease.OutSine);
-            Tween.Rotation(leftHand, Vector3.forward * -90, 1.5f, Ease.OutSine);
+            Tween.Position(leftHandTransform, transform.position, 1.5f, Ease.InOutQuad);
+            Tween.Rotation(leftHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine);
 
-
+            leftHand.SetHand(HandType.Idle);
             nextStep += shotBallWaitTime;
             yield return new WaitWhile(() =>
                 state.timer.Elapsed < nextStep && _currentBall.linearVelocity.magnitude > whiteBallStopThreshold);
