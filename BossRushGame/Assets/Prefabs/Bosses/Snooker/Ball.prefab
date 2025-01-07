@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ada6b1498a643de9bed226dc9b36e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 12
+  totalHealth: 30
   damageMultiplier: 1
   currentHealth: 0
 --- !u!1 &7790696192106517560
