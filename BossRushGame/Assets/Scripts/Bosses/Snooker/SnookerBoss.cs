@@ -20,17 +20,17 @@ namespace Game.Bosses.Snooker
         public TweenSettings<float> leftIdleSineTweenX;
 
         [Header("Shot White Ball")] public float shotBallWaitTime = 5f;
-
         public float whiteBallStopThreshold = 1f;
         [Space] public float shotForce = 25;
         public float shotAnticipationSecs = 2f;
-
         public float currentBallStopLinearDrag = 1.75f;
-
         public float otherBallsStopLinearDrag = 0.1f;
 
-        [Header("Visual")] 
-        public float poolHandDistance = 3f;
+        [Header("Freak Out")] public float freakOutWaitTime = 5f;
+
+        [Header("Stomp State")] public float poolStickStompDistance = 5f;
+
+        [Header("Visual")] public float poolHandDistance = 3f;
         public float stickHandDistance = 8f;
 
         [Header("References")] public Rigidbody2D[] availableBalls;
@@ -45,9 +45,10 @@ namespace Game.Bosses.Snooker
 
         // State names
         private const string IdleCooldownState = "IdleCooldown";
-        private const string AttackCooldownState = "AttackCooldown";
+        private const string FreakOutState = "FreakOut";
         private const string ShotBallState = "ShotBall";
         private const string SearchForBallsState = "SearchForBalls";
+        private const string StompPlayerState = "StompPlayer";
 
         private void Start()
         {
@@ -56,17 +57,17 @@ namespace Game.Bosses.Snooker
             // IDLE COOLDOWN STATE
             fsm.AddState(
                 IdleCooldownState,
-                new ParallelStates( 
+                new ParallelStates(
                     new CoState(this, IdleStateCoroutineX),
                     new CoState(this, IdleStateCoroutineY),
                     new State(
-                    onEnter: _ => { CameraManager.Instance.FocusUp(); },
-                    onExit: _ =>
-                    {
-                        CameraManager.Instance.ResetFocus(); 
-                        _idleSineSequenceX.Stop();
-                        _idleSineSequenceY.Stop();
-                    })
+                        onEnter: _ => { CameraManager.Instance.FocusUp(); },
+                        onExit: _ =>
+                        {
+                            CameraManager.Instance.ResetFocus();
+                            _idleSineSequenceX.Stop();
+                            _idleSineSequenceY.Stop();
+                        })
                 )
             );
             fsm.AddTransition(
@@ -81,10 +82,14 @@ namespace Game.Bosses.Snooker
             fsm.AddState(SearchForBallsState, onEnter: _ =>
             {
                 availableBalls = availableBalls.Where(b => b != null).ToArray();
+
+                if (!availableBalls.Any()) return;
+
                 _currentBall = availableBalls.ChooseRandom();
                 print($"Chosen a random ball of all available: {_currentBall}");
             }, isGhostState: true);
-            fsm.AddTransition(SearchForBallsState, ShotBallState);
+            fsm.AddTransition(SearchForBallsState, ShotBallState, _ => availableBalls.Any());
+            fsm.AddTransition(SearchForBallsState, FreakOutState, _ => !availableBalls.Any());
 
             // SHOT BALL STATE
             fsm.AddState(
@@ -98,17 +103,47 @@ namespace Game.Bosses.Snooker
                         loop: false
                     ),
                     new State(onLogic: state =>
-                    {
-                        if (_currentBall) return;
-                        print("The main ball was destroyed, trying again");
-                        fsm.RequestStateChange(SearchForBallsState, true);
-                    })
+                        {
+                            if (_currentBall) return;
+                            print("The main ball was destroyed, trying again");
+                            fsm.RequestStateChange(SearchForBallsState, true);
+                        },
+                        onExit: _ => rightHandTransform.SetParent(transform)
+                    )
                 )
             );
             fsm.AddTransition(ShotBallState, IdleCooldownState);
 
+            // FREAK OUT STATE
+            fsm.AddState(
+                FreakOutState,
+                new ParallelStates(
+                    new CoState(this, IdleStateCoroutineX),
+                    new CoState(this, IdleStateCoroutineY),
+                    new State(
+                        onEnter: _ => { CameraManager.Instance.FocusUp(); },
+                        onExit: _ =>
+                        {
+                            CameraManager.Instance.ResetFocus();
+                            _idleSineSequenceX.Stop();
+                            _idleSineSequenceY.Stop();
+                        })
+                )
+            );
+            fsm.AddTransition(
+                new TransitionAfter(
+                    FreakOutState,
+                    StompPlayerState,
+                    freakOutWaitTime)
+            );
+
+            fsm.AddState(StompPlayerState, new CoState(this, StompPlayerCoroutine));
+
             fsm.Init();
         }
+
+
+        #region < == IDLE STATE == >
 
         private Sequence _idleSineSequenceY;
 
@@ -117,20 +152,29 @@ namespace Game.Bosses.Snooker
             _idleSineSequenceY = Sequence.Create(Tween.LocalPositionY(leftHandTransform, idleSineTweenY));
             _idleSineSequenceY.Group(Tween.LocalPositionY(rightHandTransform, idleSineTweenY));
             yield return _idleSineSequenceY.ToYieldInstruction();
-            _idleSineSequenceY = Sequence.Create(Tween.LocalPositionY(leftHandTransform, idleSineTweenY.WithDirection(false)));
+            _idleSineSequenceY =
+                Sequence.Create(Tween.LocalPositionY(leftHandTransform, idleSineTweenY.WithDirection(false)));
             _idleSineSequenceY.Group(Tween.LocalPositionY(rightHandTransform, idleSineTweenY.WithDirection(false)));
             yield return _idleSineSequenceY.ToYieldInstruction();
         }
+
         private Sequence _idleSineSequenceX;
+
         private IEnumerator IdleStateCoroutineX()
         {
             _idleSineSequenceX = Sequence.Create(Tween.LocalPositionX(leftHandTransform, leftIdleSineTweenX));
             _idleSineSequenceX.Group(Tween.LocalPositionX(rightHandTransform, rightIdleSineTweenX));
             yield return _idleSineSequenceX.ToYieldInstruction();
-            _idleSineSequenceX = Sequence.Create(Tween.LocalPositionX(leftHandTransform, leftIdleSineTweenX.WithDirection(false)));
-            _idleSineSequenceX.Group(Tween.LocalPositionX(rightHandTransform, rightIdleSineTweenX.WithDirection(false)));
+            _idleSineSequenceX =
+                Sequence.Create(Tween.LocalPositionX(leftHandTransform, leftIdleSineTweenX.WithDirection(false)));
+            _idleSineSequenceX.Group(Tween.LocalPositionX(rightHandTransform,
+                rightIdleSineTweenX.WithDirection(false)));
             yield return _idleSineSequenceX.ToYieldInstruction();
         }
+
+        #endregion
+
+        #region < == SHOT WHITE BALL STATE == >
 
         private IEnumerator ShotWhiteBallCoroutine(CoState<string, string> state)
         {
@@ -151,7 +195,7 @@ namespace Game.Bosses.Snooker
             Tween.Position(rightHandTransform, _currentBall.position - dir * (1.6f + stickHandDistance), 1f);
             Tween.Rotation(rightHandTransform, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f,
                 Ease.OutCubic);
-            
+
             // Set hand sprites
             leftHand.SetHand(HandType.PoolHand);
             rightHand.SetHand(HandType.HoldingStick);
@@ -180,24 +224,24 @@ namespace Game.Bosses.Snooker
             nextStep += 0.25f;
             Tween.Position(poolStick, _currentBall.position - dir * 3, 0.5f, Ease.OutCubic);
             Tween.Position(rightHandTransform, rightHandTransform.position - (Vector3)dir * 3, 0.5f, Ease.OutCubic);
-            
+
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
             rightHandTransform.SetParent(poolStick);
 
             // Shake the stick and hands during the pulling
             nextStep += 0.35f;
             Tween.ShakeLocalRotation(poolStick, Vector3.forward * 2.5f, .35f, 15f);
-            
+
             Tween.ShakeLocalRotation(leftHandTransform, Vector3.forward * 5f, .35f, 15f);
             Tween.ShakeLocalPosition(leftHandTransform, Vector3.one * .15f, .35f, 25f);
-            
+
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
             // Push the stick
             nextStep += 0.1f;
             Tween.Position(poolStick, _currentBall.position - dir * 1.45f, 0.1f, Ease.Linear);
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
-            
+
 
             // Reset all balls' linear damping (were set during the last loop)
             foreach (var ball in availableBalls)
@@ -206,7 +250,7 @@ namespace Game.Bosses.Snooker
 
             // Apply velocity to the selected ball
             _currentBall.linearVelocity = dir * shotForce;
-            
+
             // Apply the knockback tween to the pool stick and hands
             Tween.Position(poolStick, poolStick.position - (Vector3)dir, .5f, Ease.OutCubic);
             Tween.Position(leftHandTransform, leftHandTransform.position - (Vector3)dir, .5f, Ease.OutCubic);
@@ -224,13 +268,13 @@ namespace Game.Bosses.Snooker
             Tween.Rotation(rightHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine);
 
             leftHand.SetHand(HandType.Idle);
-            
+
             // Wait until all balls are still or the wait time elapsed
             nextStep += shotBallWaitTime;
             yield return new WaitWhile(() =>
                 state.timer.Elapsed < nextStep && _currentBall.linearVelocity.magnitude > whiteBallStopThreshold);
 
-            
+
             // During two seconds, start reducing all balls' linear damping
             nextStep += 2f;
             var otherBalls = availableBalls.Where(b => b != _currentBall).ToArray();
@@ -245,6 +289,27 @@ namespace Game.Bosses.Snooker
 
             fsm.StateCanExit();
         }
+
+        #endregion
+
+        #region <== STOMP PLAYER STATE == >
+
+        private IEnumerator StompPlayerCoroutine(CoState<string, string> state)
+        {
+            var playerTransform = GameManager.Instance.Player.transform;
+
+            float nextStep = 0f;
+            nextStep += 2f;
+
+            while (state.timer.Elapsed < nextStep)
+            {
+                poolStick.position = playerTransform.position + Vector3.up * poolStickStompDistance;
+                poolStick.right = Vector3.down;
+                yield return null;
+            }
+        }
+
+        #endregion
 
         private void FixedUpdate()
         {
