@@ -1,5 +1,6 @@
 using System.Collections;
 using Game.Systems;
+using PrimeTween;
 using UnityEngine;
 
 namespace Game.Player
@@ -10,8 +11,13 @@ namespace Game.Player
         [Header("Properties")]
         public float bulletDamage;
         public float bulletForce;
-        [Tooltip("Bullet per Second")]
-        public float fireRate = 3;
+        
+        [Tooltip("Bullet per Second")] public float fireRate = 3;
+
+        [Header("Visual")] 
+        
+        [SerializeField] private TweenSettings<float> gunRecoilSettings;
+        
         [Header("References")]
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -81,12 +87,16 @@ namespace Game.Player
                 TriggerShoot();
         }
 
+        private Tween _recoilTween;
         private void TriggerShoot()
         {
             FireBullet(bulletPrefab, bulletForce);
             _fireRateCounter = 1f / fireRate;
             
             gunAnimator.SetTrigger("Shot");
+            
+            _recoilTween.Complete();
+            _recoilTween = Tween.LocalPositionX(gunAnimator.transform, gunRecoilSettings);
         }
 
     }

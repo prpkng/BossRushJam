@@ -192,6 +192,25 @@ MonoBehaviour:
   bulletDamage: 2
   bulletForce: 60
   fireRate: 4.5
+  gunRecoilSettings:
+    startFromCurrent: 0
+    startValue: 0.0625
+    endValue: 0.1875
+    settings:
+      duration: 0.25
+      ease: 6
+      customEase:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycles: 1
+      cycleMode: 0
+      startDelay: 0
+      endDelay: 0
+      useUnscaledTime: 0
+      useFixedUpdate: 0
   bulletPrefab: {fileID: 6164953699006023503, guid: 21eff3360774f244f86680cfc8f3ea9d, type: 3}
   spriteRenderer: {fileID: 7761257644252193070}
   gunAnimator: {fileID: 5330725205355641858}
