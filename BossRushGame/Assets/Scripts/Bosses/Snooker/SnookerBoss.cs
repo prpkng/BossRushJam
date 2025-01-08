@@ -15,7 +15,10 @@ namespace Game.Bosses.Snooker
     {
         [Header("Common")] public float vulnerableDefense;
         public float attackingDefense;
-
+        public int initialBallCount = 3;
+        public Vector2 minBallPos;
+        public Vector2 maxBallPos;
+        
         [Header("Idle Cooldown")] public float idleWaitTime = 4;
 
         public TweenSettings<float> idleSineTweenY;
@@ -49,7 +52,9 @@ namespace Game.Bosses.Snooker
         [Header("Visual")] public float poolHandDistance = 3f;
         public float stickHandDistance = 8f;
 
-        [Header("References")] public BossHealth health;
+        [Header("References")] 
+        public GameObject ballPrefab;
+        public BossHealth health;
         public Rigidbody2D[] availableBalls;
         public Transform poolStick;
         public Transform leftHandTransform;
@@ -59,6 +64,8 @@ namespace Game.Bosses.Snooker
 
         private StateMachine fsm;
         private Rigidbody2D _currentBall;
+        
+        private int _currentBallCount;
 
         // State names
         private const string IdleCooldownState = "IdleCooldown";
@@ -66,9 +73,11 @@ namespace Game.Bosses.Snooker
         private const string ShotBallState = "ShotBall";
         private const string SearchForBallsState = "SearchForBalls";
         private const string StompPlayerState = "StompPlayer";
+        private const string PopulateBallsState = "PopulateBallsState";
 
         private void Start()
         {
+            _currentBallCount = initialBallCount;
             fsm = new StateMachine();
 
             // IDLE COOLDOWN STATE
@@ -165,8 +174,28 @@ namespace Game.Bosses.Snooker
 
             // STOMP PLAYER STATE
             fsm.AddState(StompPlayerState, new CoState(this, StompPlayerCoroutine, needsExitTime: true));
-            fsm.AddTransition(StompPlayerState, IdleCooldownState);
+            fsm.AddTransition(StompPlayerState, PopulateBallsState);
 
+            
+            // POPULATE BALLS STATE
+            // TODO: Improve random ball position select (It can sometimes spawn over other balls or even the player!!)
+            // TODO: Animate hands bringing the balls (This gonna take some hard work)
+            // TODO: Make it so it only keeps the existing balls, and add the needed ones
+            fsm.AddState(PopulateBallsState, onEnter: _ =>
+            {
+                for (int i = 0; i < _currentBallCount; i++)
+                {
+                    var pos = new Vector2(
+                        Random.Range(minBallPos.x, maxBallPos.x),
+                        Random.Range(minBallPos.y, maxBallPos.y));
+                    var ball = Instantiate(ballPrefab, pos, Quaternion.identity);
+                    availableBalls = availableBalls.Append(ball.GetComponent<Rigidbody2D>()).ToArray();
+                }
+            });
+            fsm.AddTransition(PopulateBallsState, IdleCooldownState);
+
+            fsm.SetStartState(PopulateBallsState);
+            
             fsm.Init();
         }
 
