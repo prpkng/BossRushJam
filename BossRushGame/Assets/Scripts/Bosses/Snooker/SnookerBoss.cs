@@ -12,8 +12,11 @@ namespace Game.Bosses.Snooker
 
     public class SnookerBoss : MonoBehaviour
     {
-        [Header("Idle Cooldown")] public float idleWaitTimeMin = 4;
-        public float idleWaitTimeMax = 6;
+        [Header("Common")] public float vulnerableDefense;
+        public float attackingDefense;
+
+        [Header("Idle Cooldown")] 
+        public float idleWaitTime = 4;
 
         public TweenSettings<float> idleSineTweenY;
         public TweenSettings<float> rightIdleSineTweenX;
@@ -33,12 +36,13 @@ namespace Game.Bosses.Snooker
         [Header("Visual")] public float poolHandDistance = 3f;
         public float stickHandDistance = 8f;
 
-        [Header("References")] public Rigidbody2D[] availableBalls;
+        [Header("References")] public BossHealth health;
+        public Rigidbody2D[] availableBalls;
         public Transform poolStick;
-        public Transform rightHandTransform;
-        public PoolHand rightHand;
         public Transform leftHandTransform;
         public PoolHand leftHand;
+        public Transform rightHandTransform;
+        public PoolHand rightHand;
 
         private StateMachine fsm;
         private Rigidbody2D _currentBall;
@@ -61,7 +65,11 @@ namespace Game.Bosses.Snooker
                     new CoState(this, IdleStateCoroutineX),
                     new CoState(this, IdleStateCoroutineY),
                     new State(
-                        onEnter: _ => { CameraManager.Instance.FocusUp(); },
+                        onEnter: _ =>
+                        {
+                            CameraManager.Instance.FocusUp();
+                            health.Defense = vulnerableDefense;
+                        },
                         onExit: _ =>
                         {
                             CameraManager.Instance.ResetFocus();
@@ -71,10 +79,10 @@ namespace Game.Bosses.Snooker
                 )
             );
             fsm.AddTransition(
-                new TransitionAfterDynamic(
+                new TransitionAfter(
                     IdleCooldownState,
                     SearchForBallsState,
-                    s => Random.Range(idleWaitTimeMin, idleWaitTimeMax)
+                    idleWaitTime
                 )
             );
 
@@ -102,7 +110,8 @@ namespace Game.Bosses.Snooker
                         needsExitTime: true,
                         loop: false
                     ),
-                    new State(onLogic: state =>
+                    new State(
+                        onLogic: state =>
                         {
                             if (_currentBall) return;
                             print("The main ball was destroyed, trying again");
@@ -137,6 +146,7 @@ namespace Game.Bosses.Snooker
                     freakOutWaitTime)
             );
 
+            // STOMP PLAYER STATE
             fsm.AddState(StompPlayerState, new CoState(this, StompPlayerCoroutine));
 
             fsm.Init();
@@ -149,12 +159,12 @@ namespace Game.Bosses.Snooker
 
         private IEnumerator IdleStateCoroutineY()
         {
-            _idleSineSequenceY = Sequence.Create(Tween.LocalPositionY(leftHandTransform, idleSineTweenY));
-            _idleSineSequenceY.Group(Tween.LocalPositionY(rightHandTransform, idleSineTweenY));
+            _idleSineSequenceY = Sequence.Create(Tween.LocalPositionY(rightHandTransform, idleSineTweenY));
+            _idleSineSequenceY.Group(Tween.LocalPositionY(leftHandTransform, idleSineTweenY));
             yield return _idleSineSequenceY.ToYieldInstruction();
             _idleSineSequenceY =
-                Sequence.Create(Tween.LocalPositionY(leftHandTransform, idleSineTweenY.WithDirection(false)));
-            _idleSineSequenceY.Group(Tween.LocalPositionY(rightHandTransform, idleSineTweenY.WithDirection(false)));
+                Sequence.Create(Tween.LocalPositionY(rightHandTransform, idleSineTweenY.WithDirection(false)));
+            _idleSineSequenceY.Group(Tween.LocalPositionY(leftHandTransform, idleSineTweenY.WithDirection(false)));
             yield return _idleSineSequenceY.ToYieldInstruction();
         }
 
@@ -162,12 +172,12 @@ namespace Game.Bosses.Snooker
 
         private IEnumerator IdleStateCoroutineX()
         {
-            _idleSineSequenceX = Sequence.Create(Tween.LocalPositionX(leftHandTransform, leftIdleSineTweenX));
-            _idleSineSequenceX.Group(Tween.LocalPositionX(rightHandTransform, rightIdleSineTweenX));
+            _idleSineSequenceX = Sequence.Create(Tween.LocalPositionX(rightHandTransform, leftIdleSineTweenX));
+            _idleSineSequenceX.Group(Tween.LocalPositionX(leftHandTransform, rightIdleSineTweenX));
             yield return _idleSineSequenceX.ToYieldInstruction();
             _idleSineSequenceX =
-                Sequence.Create(Tween.LocalPositionX(leftHandTransform, leftIdleSineTweenX.WithDirection(false)));
-            _idleSineSequenceX.Group(Tween.LocalPositionX(rightHandTransform,
+                Sequence.Create(Tween.LocalPositionX(rightHandTransform, leftIdleSineTweenX.WithDirection(false)));
+            _idleSineSequenceX.Group(Tween.LocalPositionX(leftHandTransform,
                 rightIdleSineTweenX.WithDirection(false)));
             yield return _idleSineSequenceX.ToYieldInstruction();
         }
@@ -178,6 +188,7 @@ namespace Game.Bosses.Snooker
 
         private IEnumerator ShotWhiteBallCoroutine(CoState<string, string> state)
         {
+            health.Defense = vulnerableDefense;
             float nextStep = 0;
             var player = GameManager.Instance.Player.transform;
 
@@ -188,10 +199,11 @@ namespace Game.Bosses.Snooker
             Tween.Position(poolStick, _currentBall.position - dir * 1.6f, 1, Ease.OutCubic);
             Tween.Rotation(poolStick, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
 
-            // Move pool hands too
+            // Move left hand to under the stick
             Tween.Position(leftHandTransform, _currentBall.position - dir * (1.6f + poolHandDistance), 1f);
             Tween.Rotation(leftHandTransform, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * -Vector3.forward, 0.9f,
                 Ease.OutCubic);
+            // Move right hand to hold the stick
             Tween.Position(rightHandTransform, _currentBall.position - dir * (1.6f + stickHandDistance), 1f);
             Tween.Rotation(rightHandTransform, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f,
                 Ease.OutCubic);
@@ -203,15 +215,15 @@ namespace Game.Bosses.Snooker
             nextStep += 0.9f;
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
-            //Aim poolstick to selected ball
+            //Aim pool stick to selected ball
             nextStep += shotAnticipationSecs;
             while (state.timer.Elapsed < nextStep)
             {
                 dir = player.transform.position - _currentBall.transform.position;
                 dir.Normalize();
                 poolStick.right = dir;
-                leftHandTransform.right = -dir;
-                rightHandTransform.right = dir;
+                leftHandTransform.right = dir;
+                rightHandTransform.right = -dir;
 
                 poolStick.transform.position = _currentBall.position - dir * 1.6f;
                 leftHandTransform.transform.position = _currentBall.position - dir * (1.6f + poolHandDistance);
@@ -222,11 +234,10 @@ namespace Game.Bosses.Snooker
 
             // Start pulling stick back
             nextStep += 0.25f;
+            rightHandTransform.SetParent(poolStick);
             Tween.Position(poolStick, _currentBall.position - dir * 3, 0.5f, Ease.OutCubic);
-            Tween.Position(rightHandTransform, rightHandTransform.position - (Vector3)dir * 3, 0.5f, Ease.OutCubic);
 
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
-            rightHandTransform.SetParent(poolStick);
 
             // Shake the stick and hands during the pulling
             nextStep += 0.35f;
@@ -253,7 +264,8 @@ namespace Game.Bosses.Snooker
 
             // Apply the knockback tween to the pool stick and hands
             Tween.Position(poolStick, poolStick.position - (Vector3)dir, .5f, Ease.OutCubic);
-            Tween.Position(leftHandTransform, leftHandTransform.position - (Vector3)dir, .5f, Ease.OutCubic);
+            Tween.Position(rightHandTransform, rightHandTransform.position - (Vector3)dir, .5f, Ease.OutCubic);
+            health.Defense = attackingDefense;
 
             yield return new WaitForSeconds(0.5f);
             rightHandTransform.SetParent(transform);
@@ -262,17 +274,18 @@ namespace Game.Bosses.Snooker
             Tween.Rotation(poolStick, Vector3.forward * -90, 1.5f, Ease.OutSine);
             Tween.Position(poolStick, transform.position + Vector3.right, 1.5f, Ease.OutSine);
 
-            Tween.Position(leftHandTransform, transform.position + Vector3.left * 2f, 1.5f, Ease.InOutQuad);
-            Tween.Rotation(leftHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine);
-            Tween.Position(rightHandTransform, transform.position + Vector3.right * 3, 1.5f, Ease.InOutQuad);
+            Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1.5f, Ease.InOutQuad);
             Tween.Rotation(rightHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine);
+            Tween.Position(leftHandTransform, transform.position + Vector3.right * 3, 1.5f, Ease.InOutQuad);
+            Tween.Rotation(leftHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine);
 
+            rightHand.SetHand(HandType.Idle);
             leftHand.SetHand(HandType.Idle);
 
             // Wait until all balls are still or the wait time elapsed
             nextStep += shotBallWaitTime;
             yield return new WaitWhile(() =>
-                state.timer.Elapsed < nextStep && _currentBall.linearVelocity.magnitude > whiteBallStopThreshold);
+                state.timer.Elapsed < nextStep && _currentBall?.linearVelocity.magnitude > whiteBallStopThreshold);
 
 
             // During two seconds, start reducing all balls' linear damping

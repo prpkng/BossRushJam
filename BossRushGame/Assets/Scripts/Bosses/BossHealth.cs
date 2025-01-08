@@ -5,6 +5,11 @@ namespace Game.Bosses
 
     public class BossHealth : HealthBehavior
     {
+        public float Defense
+        {
+            set => damageMultiplier = 1f / value;
+        }
+
         private void Awake()
         {
             GameManager.Instance.CreateBossBar();
