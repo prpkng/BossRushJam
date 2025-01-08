@@ -168,7 +168,7 @@ Transform:
   m_GameObject: {fileID: 843537091462712187}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1875, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -189,9 +189,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 1589028013109860002}
-  bulletDamage: 2
+  bulletDamage: 10
   bulletForce: 60
   fireRate: 4.5
+  bulletSpreadMin: 1
+  bulletSpreadMax: 1
   gunRecoilSettings:
     startFromCurrent: 0
     startValue: 0.0625
@@ -240,7 +242,7 @@ Transform:
   m_GameObject: {fileID: 6834589067673517211}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.625, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -359,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 8650056742510175277}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -445,9 +447,9 @@ MonoBehaviour:
     useUnscaledTime: 0
     useFixedUpdate: 0
   strongHitShake:
-    strength: {x: 4, y: 4, z: 0}
+    strength: {x: 4, y: 4, z: 4}
     duration: 0.5
-    frequency: 15
+    frequency: 20
     enableFalloff: 1
     falloffEase: 3
     strengthOverTime:
@@ -481,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: a24e5f3bd2defe54d8ba6a52db8051f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.375
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: a24e5f3bd2defe54d8ba6a52db8051f9, type: 3}
       propertyPath: m_LocalPosition.z

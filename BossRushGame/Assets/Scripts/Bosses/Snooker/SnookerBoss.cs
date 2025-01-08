@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Linq;
 using Game.Systems;
 using PrimeTween;
@@ -15,8 +16,7 @@ namespace Game.Bosses.Snooker
         [Header("Common")] public float vulnerableDefense;
         public float attackingDefense;
 
-        [Header("Idle Cooldown")] 
-        public float idleWaitTime = 4;
+        [Header("Idle Cooldown")] public float idleWaitTime = 4;
 
         public TweenSettings<float> idleSineTweenY;
         public TweenSettings<float> rightIdleSineTweenX;
@@ -31,7 +31,20 @@ namespace Game.Bosses.Snooker
 
         [Header("Freak Out")] public float freakOutWaitTime = 5f;
 
-        [Header("Stomp State")] public float poolStickStompDistance = 5f;
+        [Header("Stomp State")] public Transform poolStickShadow;
+        public GameObject stompHitbox;
+        public float poolStickStompDistance = 5f;
+        public float poolStickLeftHandDistance = 4f;
+        public float poolStickRightHandDistance = 2f;
+        public float stickFollowDelay = .75f;
+
+        public ShakeSettings preStompShake;
+        public ShakeSettings stickStuckShake;
+        public ShakeSettings stompCameraShake;
+
+        public float stompHoverTime = .5f;
+        public int stompCountMin = 3;
+        public int stompCountMax = 6;
 
         [Header("Visual")] public float poolHandDistance = 3f;
         public float stickHandDistance = 8f;
@@ -117,8 +130,12 @@ namespace Game.Bosses.Snooker
                             print("The main ball was destroyed, trying again");
                             fsm.RequestStateChange(SearchForBallsState, true);
                         },
-                        onExit: _ => rightHandTransform.SetParent(transform)
-                    )
+                        onExit: _ =>
+                        {
+                            rightHandTransform.SetParent(transform);
+                            leftHand.SetHand(HandType.Idle);
+                            rightHand.SetHand(HandType.Idle);
+                        })
                 )
             );
             fsm.AddTransition(ShotBallState, IdleCooldownState);
@@ -147,7 +164,8 @@ namespace Game.Bosses.Snooker
             );
 
             // STOMP PLAYER STATE
-            fsm.AddState(StompPlayerState, new CoState(this, StompPlayerCoroutine));
+            fsm.AddState(StompPlayerState, new CoState(this, StompPlayerCoroutine, needsExitTime: true));
+            fsm.AddTransition(StompPlayerState, IdleCooldownState);
 
             fsm.Init();
         }
@@ -219,7 +237,7 @@ namespace Game.Bosses.Snooker
             nextStep += shotAnticipationSecs;
             while (state.timer.Elapsed < nextStep)
             {
-                dir = player.transform.position - _currentBall.transform.position;
+                dir = player.position - _currentBall.transform.position;
                 dir.Normalize();
                 poolStick.right = dir;
                 leftHandTransform.right = dir;
@@ -307,19 +325,71 @@ namespace Game.Bosses.Snooker
 
         #region <== STOMP PLAYER STATE == >
 
+        private IEnumerator AttemptStompPlayer(Transform playerTransform)
+        {
+            int stompCount = Random.Range(stompCountMin, stompCountMax);
+                for (int i = stompCount; i >= 0; i--)
+                {
+                    float time = Time.time;
+                    poolStick.right = Vector3.down;
+                    leftHandTransform.SetParent(transform);
+                    rightHandTransform.SetParent(transform);
+                    while (Time.time < time + stompHoverTime)
+                    {
+                        poolStick.position = Vector3.Lerp(poolStick.position,
+                            playerTransform.position + Vector3.up * poolStickStompDistance, stickFollowDelay);
+                        poolStickShadow.position = Vector3.Lerp(poolStickShadow.position, playerTransform.position,
+                            stickFollowDelay);
+                        leftHandTransform.position = Vector3.Lerp(leftHandTransform.position,
+                            playerTransform.position + Vector3.up * poolStickLeftHandDistance, stickFollowDelay);
+                        rightHandTransform.position = Vector3.Lerp(rightHandTransform.position,
+                            playerTransform.position + Vector3.up * poolStickRightHandDistance, stickFollowDelay);
+                        yield return null;
+                    }
+
+                    leftHandTransform.SetParent(poolStick);
+                    rightHandTransform.SetParent(poolStick);
+
+                    yield return new WaitForSeconds(.05f);
+                    Tween.ShakeLocalPosition(poolStick, preStompShake);
+                    yield return new WaitForSeconds(.1f);
+                    poolStickShadow.position = poolStick.position + Vector3.down * poolStickStompDistance;
+                    yield return Tween
+                        .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, .1f, Ease.InSine)
+                        .ToYieldInstruction();
+                    stompHitbox.transform.position = poolStick.position;
+                    CameraManager.Instance.ShakeCamera(stompCameraShake);
+                    stompHitbox.SetActive(true);
+                    // Yield 3 frames
+                    for (int j = 0; j < 3; j++) yield return null;
+                    stompHitbox.SetActive(false);
+
+                    yield return new WaitForSeconds(.3f);
+
+                    if (i > 0)
+                    {
+                        Tween.PositionY(poolStick, poolStick.position.y + poolStickStompDistance, .35f, Ease.OutCubic);
+                    }
+                    else
+                    {
+                        yield return Tween.ShakeLocalRotation(poolStick, stickStuckShake).ToYieldInstruction();
+                        CameraManager.Instance.ShakeCamera(stompCameraShake);
+                        yield return Tween
+                            .PositionY(poolStick, poolStick.position.y + poolStickStompDistance, .5f, Ease.OutCubic)
+                            .ToYieldInstruction();
+                    }
+                }
+        }
         private IEnumerator StompPlayerCoroutine(CoState<string, string> state)
         {
             var playerTransform = GameManager.Instance.Player.transform;
-
-            float nextStep = 0f;
-            nextStep += 2f;
-
-            while (state.timer.Elapsed < nextStep)
+            poolStickShadow.gameObject.SetActive(true);
+            for (int i = 0; i < 3; i++)
             {
-                poolStick.position = playerTransform.position + Vector3.up * poolStickStompDistance;
-                poolStick.right = Vector3.down;
-                yield return null;
+                yield return AttemptStompPlayer(playerTransform);
             }
+            poolStickShadow.gameObject.SetActive(false);
+            state.fsm.StateCanExit();
         }
 
         #endregion

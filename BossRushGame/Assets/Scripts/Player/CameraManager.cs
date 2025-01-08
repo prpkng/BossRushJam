@@ -57,12 +57,15 @@ namespace Game.Player
             );
         }
 
+        private Tween _shakePosTween;
         public void ShakeCamera(ShakeSettings shakeSettings)
         {
-            Tween.ShakeCustom(this, Vector3.zero, shakeSettings, (self, vector3) =>
+            _shakePosTween.Complete();
+            _shakePosTween = Tween.ShakeCustom(this, Vector3.zero, shakeSettings, (self, vector3) =>
             {
                 self.recomposer.Pan = vector3.x;
                 self.recomposer.Tilt = vector3.y;
+                self.recomposer.Dutch = vector3.z;
             });
         }
         
