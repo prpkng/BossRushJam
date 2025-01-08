@@ -152,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6256105100087054785}
   - component: {fileID: 2550022098616655586}
+  - component: {fileID: 1724089306782002645}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -213,9 +214,41 @@ MonoBehaviour:
       endDelay: 0
       useUnscaledTime: 0
       useFixedUpdate: 0
+  fireEventEmitter: {fileID: 1724089306782002645}
   bulletPrefab: {fileID: 6164953699006023503, guid: 21eff3360774f244f86680cfc8f3ea9d, type: 3}
   spriteRenderer: {fileID: 7761257644252193070}
   gunAnimator: {fileID: 5330725205355641858}
+--- !u!114 &1724089306782002645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843537091462712187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &6834589067673517211
 GameObject:
   m_ObjectHideFlags: 0

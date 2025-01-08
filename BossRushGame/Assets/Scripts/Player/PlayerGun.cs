@@ -20,8 +20,9 @@ namespace Game.Player
         [Header("Visual")] 
         
         [SerializeField] private TweenSettings<float> gunRecoilSettings;
-        
-        [Header("References")]
+
+        [Header("References")] 
+        [SerializeField] private FMODUnity.StudioEventEmitter fireEventEmitter;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Animator gunAnimator;
@@ -100,6 +101,7 @@ namespace Game.Player
             _fireRateCounter = 1f / fireRate;
             
             gunAnimator.SetTrigger("Shot");
+            fireEventEmitter.Play();
             
             _recoilTween.Complete();
             _recoilTween = Tween.LocalPositionX(gunAnimator.transform, gunRecoilSettings);
