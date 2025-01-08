@@ -47,6 +47,7 @@ namespace Game
 
         public static event Action RollPerformed;
         public static event Action<bool> ShootPerformed;
+        public static bool isHoldingShoot;
 
         public static bool isUsingGamepad;
 
@@ -67,9 +68,11 @@ namespace Game
                     break;
                 case "Shoot" when ctx.started:
                     ShootPerformed?.Invoke(true);
+                    isHoldingShoot = true;
                     break;
                 case "Shoot" when ctx.canceled:
                     ShootPerformed?.Invoke(false);
+                    isHoldingShoot = false;
                     break;
             }
         }

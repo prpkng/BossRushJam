@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 6
   damageMultiplier: 1
-  currentHealth: 4
+  currentHealth: 6
 --- !u!1 &843537091462712187
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 1589028013109860002}
-  bulletDamage: 10
+  bulletDamage: 2
   bulletForce: 60
   fireRate: 4.5
   bulletSpreadMin: 1

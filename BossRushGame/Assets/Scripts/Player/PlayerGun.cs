@@ -74,7 +74,7 @@ namespace Game.Player
 
         private void OnEnable()
         {
-            OnPlayerFire(false);
+            OnPlayerFire(InputManager.isHoldingShoot);
             InputManager.ShootPerformed += OnPlayerFire;
         }
         private void OnDisable()

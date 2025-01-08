@@ -418,6 +418,23 @@ namespace Game.Bosses.Snooker
                 yield return AttemptStompPlayer(playerTransform);
             }
             poolStickShadow.gameObject.SetActive(false);
+            leftHandTransform.SetParent(transform);
+            rightHandTransform.SetParent(transform);
+            
+            var sequence = Sequence.Create(Tween.Rotation(poolStick, Vector3.forward * -90, 1.5f, Ease.OutSine));
+            // Return the stick and hands to the rest position
+            sequence.Group(Tween.Position(poolStick, transform.position + Vector3.right, 1.5f, Ease.OutSine));
+
+            sequence.Group(Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1.5f, Ease.InOutQuad));
+            sequence.Group(Tween.Rotation(rightHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine));
+            sequence.Group(Tween.Position(leftHandTransform, transform.position + Vector3.right * 3, 1.5f, Ease.InOutQuad));
+            sequence.Group(Tween.Rotation(leftHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine));
+
+            rightHand.SetHand(HandType.Idle);
+            leftHand.SetHand(HandType.Idle);
+
+            yield return sequence.ToYieldInstruction();
+            
             state.fsm.StateCanExit();
         }
 
