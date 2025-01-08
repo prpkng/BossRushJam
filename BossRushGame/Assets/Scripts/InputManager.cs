@@ -3,6 +3,7 @@ using Game.Player;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Game
@@ -17,6 +18,12 @@ namespace Game
         {
             mainCamera = Camera.main;
             playerInputComponent.onActionTriggered += OnActionTriggered;
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public static Vector2 MousePosition
