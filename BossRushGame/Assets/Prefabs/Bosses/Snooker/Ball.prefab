@@ -574,6 +574,7 @@ MonoBehaviour:
   - 288
   - 17
   - 165
+  - 0
   ballSpeedMulti: 0.65
   ballSpeedPow: 0.75
 --- !u!114 &4753292431069373674
