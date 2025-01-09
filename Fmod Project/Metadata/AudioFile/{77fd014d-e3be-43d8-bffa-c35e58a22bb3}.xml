@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{77fd014d-e3be-43d8-bffa-c35e58a22bb3}">
+		<property name="assetPath">
+			<value>SFX_ShotGun-007.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.2770748299319728</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c620fda0-caf0-4f6a-9b30-678d7c082555}</destination>
+		</relationship>
+	</object>
+</objects>
