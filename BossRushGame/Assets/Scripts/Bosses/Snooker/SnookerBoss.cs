@@ -257,7 +257,9 @@ namespace Game.Bosses.Snooker
 
             // Set hand sprites
             leftHand.SetHand(HandType.PoolHand);
+            leftHand.SetOrder(0);
             rightHand.SetHand(HandType.HoldingStick);
+            rightHand.SetOrder(0);
 
             nextStep += 0.9f;
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
@@ -411,6 +413,12 @@ namespace Game.Bosses.Snooker
         }
         private IEnumerator StompPlayerCoroutine(CoState<string, string> state)
         {
+            leftHand.SetHand(HandType.HoldingStomp);
+            rightHand.SetHand(HandType.HoldingStomp);
+            rightHand.SetOrder(5);
+            leftHand.SetOrder(5);
+            leftHandTransform.right = Vector3.left;
+            rightHandTransform.right = Vector3.left;
             var playerTransform = GameManager.Instance.Player.transform;
             poolStickShadow.gameObject.SetActive(true);
             for (int i = 0; i < 3; i++)
@@ -418,6 +426,8 @@ namespace Game.Bosses.Snooker
                 yield return AttemptStompPlayer(playerTransform);
             }
             poolStickShadow.gameObject.SetActive(false);
+            leftHand.SetHand(HandType.Idle);
+            rightHand.SetHand(HandType.Idle);
             leftHandTransform.SetParent(transform);
             rightHandTransform.SetParent(transform);
             
