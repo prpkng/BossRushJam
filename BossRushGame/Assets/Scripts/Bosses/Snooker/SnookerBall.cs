@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Game.Systems;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Game.Bosses.Snooker
@@ -15,7 +14,7 @@ namespace Game.Bosses.Snooker
         [SerializeField] private int safeLayer;
         [SerializeField] private SpriteRenderer ballSprite;
         [SerializeField] private Animator ballAnimator;
-        [SerializeField] private AnimatorController[] possibleBallAnimations;
+        [SerializeField] private RuntimeAnimatorController[] possibleBallAnimations;
         [SerializeField] private float[] possibleHues;
         [SerializeField] private float ballSpeedMulti = 0.25f;
         [SerializeField] private float ballSpeedPow = 1.1f;
