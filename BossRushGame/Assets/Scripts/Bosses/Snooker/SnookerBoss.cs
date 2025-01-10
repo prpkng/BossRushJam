@@ -259,7 +259,7 @@ namespace Game.Bosses.Snooker
             leftHand.SetHand(HandType.PoolHand);
             leftHand.SetOrder(0);
             rightHand.SetHand(HandType.HoldingStick);
-            rightHand.SetOrder(0);
+            rightHand.SetOrder(5);
 
             nextStep += 0.9f;
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);

@@ -9,6 +9,7 @@ namespace Game.Bosses.Snooker
     {
         private static readonly List<float> PickedHues = new();
         
+        [SerializeField] private bool faceDirection = false;
         [SerializeField] private float damageSpeedThreshold = 5f;
         [SerializeField] private int hazardousLayer;
         [SerializeField] private int safeLayer;
@@ -43,7 +44,7 @@ namespace Game.Bosses.Snooker
         private void FixedUpdate()
         {
             ballAnimator.speed = Mathf.Pow(_rb.linearVelocity.magnitude * ballSpeedMulti, ballSpeedPow);
-            transform.right = _rb.linearVelocity.normalized;
+            if (faceDirection) transform.right = _rb.linearVelocity.normalized;
 
             gameObject.layer = _rb.linearVelocity.magnitude > damageSpeedThreshold ? hazardousLayer : safeLayer;
         }

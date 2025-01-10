@@ -560,6 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f798270e9c75274da4fd85af0a82e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faceDirection: 1
   damageSpeedThreshold: -1
   hazardousLayer: 8
   safeLayer: 0
