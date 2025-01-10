@@ -1235,8 +1235,8 @@ MonoBehaviour:
       Data4: 618793812
     Path: event:/MUS/MUS_Gameplay
   Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 0
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
