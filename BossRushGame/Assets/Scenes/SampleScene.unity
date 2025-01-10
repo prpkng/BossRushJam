@@ -1191,8 +1191,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1692029673}
+  - component: {fileID: 1692029674}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,6 +1214,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692029674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692029672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1465519335
+      Data2: 1324698245
+      Data3: 935233215
+      Data4: 618793812
+    Path: event:/MUS/MUS_Gameplay
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &1747786414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
@@ -1801,6 +1833,22 @@ PrefabInstance:
     - target: {fileID: 527443938548100427, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: soundAttenuationTween.startValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: soundAttenuationTween.settings.ease
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: soundAttenuationTween.settings.cycles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      propertyPath: soundAttenuationTween.settings.duration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: m_LocalPosition.x
