@@ -183,7 +183,11 @@ namespace Game.Bosses.Snooker
             // TODO: Make it so it only keeps the existing balls, and add the needed ones
             fsm.AddState(PopulateBallsState, onEnter: _ =>
             {
-                for (int i = 0; i < _currentBallCount; i++)
+                var availableBallCount = availableBalls.Count(b => b);
+                print($"There are {availableBallCount} available balls");
+                print($"And the ball count is {_currentBallCount}");
+                print($"So, we're adding {_currentBallCount - availableBallCount} balls");
+                for (var i = 0; i < _currentBallCount - availableBallCount; i++)
                 {
                     var pos = new Vector2(
                         Random.Range(minBallPos.x, maxBallPos.x),
@@ -199,7 +203,13 @@ namespace Game.Bosses.Snooker
             fsm.Init();
         }
 
-
+        public void IncreaseBallCount()
+        {
+            _currentBallCount++;
+            fsm.RequestStateChange(PopulateBallsState, true);
+        }
+        
+        
         #region < == IDLE STATE == >
 
         private Sequence _idleSineSequenceY;

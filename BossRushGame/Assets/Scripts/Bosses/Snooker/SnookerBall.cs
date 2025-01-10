@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Systems;
@@ -47,6 +48,14 @@ namespace Game.Bosses.Snooker
             if (faceDirection) transform.right = _rb.linearVelocity.normalized;
 
             gameObject.layer = _rb.linearVelocity.magnitude > damageSpeedThreshold ? hazardousLayer : safeLayer;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("PocketTrigger"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

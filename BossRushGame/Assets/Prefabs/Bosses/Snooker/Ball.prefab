@@ -163,7 +163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 8599435295976819527, guid: 754def3f4699aff44ab95a1862b22bee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -590,9 +590,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ada6b1498a643de9bed226dc9b36e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 30
+  totalHealth: 80
   damageMultiplier: 1
   currentHealth: 0
+  onThreeQuartersHealth:
+    m_PersistentCalls:
+      m_Calls: []
+  onHalfHealth:
+    m_PersistentCalls:
+      m_Calls: []
+  onQuarterHealth:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7790696192106517560
 GameObject:
   m_ObjectHideFlags: 0
