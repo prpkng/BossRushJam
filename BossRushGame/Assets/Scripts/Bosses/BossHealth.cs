@@ -11,6 +11,7 @@ namespace Game.Bosses
         public UnityEvent onThreeQuartersHealth;
         public UnityEvent onHalfHealth;
         public UnityEvent onQuarterHealth;
+        
         public float Defense
         {
             set => damageMultiplier = 1f / value;

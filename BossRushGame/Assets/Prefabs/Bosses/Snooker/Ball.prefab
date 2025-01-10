@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1687155812382764744}
   - component: {fileID: 5217732039239008545}
   - component: {fileID: 7648826604262153229}
+  - component: {fileID: 3910404290296996611}
   m_Layer: 0
   m_Name: LineBall
   m_TagString: Untagged
@@ -163,7 +164,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 42
   m_Sprite: {fileID: 8599435295976819527, guid: 754def3f4699aff44ab95a1862b22bee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -197,6 +198,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3910404290296996611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910654109737338541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af4b624027942f3b77864d73206dc29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.05
 --- !u!1 &2427404718308408667
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,15 +607,6 @@ MonoBehaviour:
   totalHealth: 80
   damageMultiplier: 1
   currentHealth: 0
-  onThreeQuartersHealth:
-    m_PersistentCalls:
-      m_Calls: []
-  onHalfHealth:
-    m_PersistentCalls:
-      m_Calls: []
-  onQuarterHealth:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7790696192106517560
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bed875cad0e47faa9330e935ff45e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSprite: {fileID: 0}
+  ballSprite: {fileID: 1687155812382764744}
+  flash: {fileID: 3910404290296996611}
   shotShakeSettings:
     strength: {x: 0.05, y: 0.05, z: 0}
     duration: 0.1
@@ -704,6 +710,6 @@ MonoBehaviour:
     useUnscaledTime: 0
     useFixedUpdate: 0
   rb: {fileID: 4565283947866118565}
-  knockbackForce: 50
+  knockbackForce: 75
   healthBarSprite: {fileID: 8391911156746577644}
   health: {fileID: 4753292431069373674}

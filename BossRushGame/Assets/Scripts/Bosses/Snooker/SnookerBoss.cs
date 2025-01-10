@@ -267,7 +267,7 @@ namespace Game.Bosses.Snooker
 
             // Set hand sprites
             leftHand.SetHand(HandType.PoolHand);
-            leftHand.SetOrder(0);
+            leftHand.SetOrder(3);
             rightHand.SetHand(HandType.HoldingStick);
             rightHand.SetOrder(5);
 
