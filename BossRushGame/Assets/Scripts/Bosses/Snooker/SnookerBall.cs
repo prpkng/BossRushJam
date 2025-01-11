@@ -8,7 +8,8 @@ namespace Game.Bosses.Snooker
 {
     public class SnookerBall : MonoBehaviour
     {
-        private static readonly List<float> PickedHues = new();
+        private static readonly List<float> PickedHuesFlat = new();
+        private static readonly List<float> PickedHuesLine = new();
         
         [SerializeField] private bool faceDirection = false;
         [SerializeField] private float damageSpeedThreshold = 5f;
@@ -23,23 +24,26 @@ namespace Game.Bosses.Snooker
         private Rigidbody2D _rb;
 
         private float currentHue;
+        private bool isFlat;
         
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
-            currentHue = possibleHues.Except(PickedHues).ToArray().ChooseRandom();
-            ballSprite.material.SetFloat("_Shift", currentHue);
             ballAnimator.runtimeAnimatorController = possibleBallAnimations.ChooseRandom();
+            isFlat = Array.IndexOf(possibleBallAnimations, ballAnimator.runtimeAnimatorController) == 0;
+            currentHue = possibleHues.Except(isFlat ? PickedHuesFlat : PickedHuesLine).ToArray().ChooseRandom();
+            ballSprite.material.SetFloat("_Shift", currentHue);
+            
         }
 
         private void OnEnable()
         {
-            PickedHues.Add(currentHue);
+            (isFlat ? PickedHuesFlat : PickedHuesLine).Add(currentHue);
         }
 
         private void OnDisable()
         {
-            PickedHues.Remove(currentHue);
+            (isFlat ? PickedHuesFlat : PickedHuesLine).Remove(currentHue);
         }
 
         private void FixedUpdate()

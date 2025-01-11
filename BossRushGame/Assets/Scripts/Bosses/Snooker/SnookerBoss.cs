@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using Game.Systems;
 using PrimeTween;
 using UnityEngine.Serialization;
@@ -18,7 +19,7 @@ namespace Game.Bosses.Snooker
         public int initialBallCount = 3;
         public Vector2 minBallPos;
         public Vector2 maxBallPos;
-        
+
         [Header("Idle Cooldown")] public float idleWaitTime = 4;
 
         public TweenSettings<float> idleSineTweenY;
@@ -52,8 +53,7 @@ namespace Game.Bosses.Snooker
         [Header("Visual")] public float poolHandDistance = 3f;
         public float stickHandDistance = 8f;
 
-        [Header("References")] 
-        public GameObject ballPrefab;
+        [Header("References")] public GameObject ballPrefab;
         public BossHealth health;
         public Rigidbody2D[] availableBalls;
         public Transform poolStick;
@@ -64,7 +64,7 @@ namespace Game.Bosses.Snooker
 
         private StateMachine fsm;
         private Rigidbody2D _currentBall;
-        
+
         private int _currentBallCount;
 
         // State names
@@ -176,30 +176,18 @@ namespace Game.Bosses.Snooker
             fsm.AddState(StompPlayerState, new CoState(this, StompPlayerCoroutine, needsExitTime: true));
             fsm.AddTransition(StompPlayerState, PopulateBallsState);
 
-            
+
             // POPULATE BALLS STATE
             // TODO: Improve random ball position select (It can sometimes spawn over other balls or even the player!!)
             // TODO: Animate hands bringing the balls (This gonna take some hard work)
             // TODO: Make it so it only keeps the existing balls, and add the needed ones
-            fsm.AddState(PopulateBallsState, onEnter: _ =>
-            {
-                var availableBallCount = availableBalls.Count(b => b);
-                print($"There are {availableBallCount} available balls");
-                print($"And the ball count is {_currentBallCount}");
-                print($"So, we're adding {_currentBallCount - availableBallCount} balls");
-                for (var i = 0; i < _currentBallCount - availableBallCount; i++)
-                {
-                    var pos = new Vector2(
-                        Random.Range(minBallPos.x, maxBallPos.x),
-                        Random.Range(minBallPos.y, maxBallPos.y));
-                    var ball = Instantiate(ballPrefab, pos, Quaternion.identity);
-                    availableBalls = availableBalls.Append(ball.GetComponent<Rigidbody2D>()).ToArray();
-                }
-            });
+            fsm.AddState(PopulateBallsState, 
+                new CoState(this, PopulateBallsCoroutine, needsExitTime: true, loop: false)
+                );
             fsm.AddTransition(PopulateBallsState, IdleCooldownState);
 
             fsm.SetStartState(PopulateBallsState);
-            
+
             fsm.Init();
         }
 
@@ -208,8 +196,22 @@ namespace Game.Bosses.Snooker
             _currentBallCount++;
             fsm.RequestStateChange(PopulateBallsState, true);
         }
+
+        private IEnumerator ReturnHands()
+        {
+            leftHand.SetHand(HandType.Idle);
+            rightHand.SetHand(HandType.Idle);
+            var sequence = Sequence.Create();
+            sequence.Group(Tween.Position(leftHandTransform, transform.position + Vector3.right * 2f, 1f, Ease.InOutQuad));
+            sequence.Group(Tween.Rotation(leftHandTransform, Vector3.zero, 1f, Ease.InOutQuad));
+            sequence.Group(Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1f, Ease.InOutQuad));
+            sequence.Group(Tween.Rotation(rightHandTransform, Vector3.zero, 1f, Ease.InOutQuad));
+            sequence.Group(Tween.Position(poolStick, transform.position + Vector3.up * 1f, 1f, Ease.InOutQuad));
+            sequence.Group(Tween.Rotation(poolStick, Vector3.forward * -90, 1f, Ease.OutSine));
+            yield return sequence.ToYieldInstruction();
+        }
         
-        
+
         #region < == IDLE STATE == >
 
         private Sequence _idleSineSequenceY;
@@ -330,16 +332,8 @@ namespace Game.Bosses.Snooker
             rightHandTransform.SetParent(transform);
 
             // Return the stick and hands to the rest position
-            Tween.Rotation(poolStick, Vector3.forward * -90, 1.5f, Ease.OutSine);
-            Tween.Position(poolStick, transform.position + Vector3.right, 1.5f, Ease.OutSine);
-
-            Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1.5f, Ease.InOutQuad);
-            Tween.Rotation(rightHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine);
-            Tween.Position(leftHandTransform, transform.position + Vector3.right * 3, 1.5f, Ease.InOutQuad);
-            Tween.Rotation(leftHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine);
-
-            rightHand.SetHand(HandType.Idle);
-            leftHand.SetHand(HandType.Idle);
+            
+            yield return ReturnHands();
 
             // Wait until all balls are still or the wait time elapsed
             nextStep += shotBallWaitTime;
@@ -364,63 +358,64 @@ namespace Game.Bosses.Snooker
 
         #endregion
 
-        #region <== STOMP PLAYER STATE == >
+        #region < == STOMP PLAYER STATE == >
 
         private IEnumerator AttemptStompPlayer(Transform playerTransform)
         {
             int stompCount = Random.Range(stompCountMin, stompCountMax);
-                for (int i = stompCount; i >= 0; i--)
+            for (int i = stompCount; i >= 0; i--)
+            {
+                float time = Time.time;
+                poolStick.right = Vector3.down;
+                leftHandTransform.SetParent(transform);
+                rightHandTransform.SetParent(transform);
+                while (Time.time < time + stompHoverTime)
                 {
-                    float time = Time.time;
-                    poolStick.right = Vector3.down;
-                    leftHandTransform.SetParent(transform);
-                    rightHandTransform.SetParent(transform);
-                    while (Time.time < time + stompHoverTime)
-                    {
-                        poolStick.position = Vector3.Lerp(poolStick.position,
-                            playerTransform.position + Vector3.up * poolStickStompDistance, stickFollowDelay);
-                        poolStickShadow.position = Vector3.Lerp(poolStickShadow.position, playerTransform.position,
-                            stickFollowDelay);
-                        leftHandTransform.position = Vector3.Lerp(leftHandTransform.position,
-                            playerTransform.position + Vector3.up * poolStickLeftHandDistance, stickFollowDelay);
-                        rightHandTransform.position = Vector3.Lerp(rightHandTransform.position,
-                            playerTransform.position + Vector3.up * poolStickRightHandDistance, stickFollowDelay);
-                        yield return null;
-                    }
-
-                    leftHandTransform.SetParent(poolStick);
-                    rightHandTransform.SetParent(poolStick);
-
-                    yield return new WaitForSeconds(.05f);
-                    Tween.ShakeLocalPosition(poolStick, preStompShake);
-                    yield return new WaitForSeconds(.1f);
-                    poolStickShadow.position = poolStick.position + Vector3.down * poolStickStompDistance;
-                    yield return Tween
-                        .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, .1f, Ease.InSine)
-                        .ToYieldInstruction();
-                    stompHitbox.transform.position = poolStick.position;
-                    CameraManager.Instance.ShakeCamera(stompCameraShake);
-                    stompHitbox.SetActive(true);
-                    // Yield 3 frames
-                    for (int j = 0; j < 3; j++) yield return null;
-                    stompHitbox.SetActive(false);
-
-                    yield return new WaitForSeconds(.3f);
-
-                    if (i > 0)
-                    {
-                        Tween.PositionY(poolStick, poolStick.position.y + poolStickStompDistance, .35f, Ease.OutCubic);
-                    }
-                    else
-                    {
-                        yield return Tween.ShakeLocalRotation(poolStick, stickStuckShake).ToYieldInstruction();
-                        CameraManager.Instance.ShakeCamera(stompCameraShake);
-                        yield return Tween
-                            .PositionY(poolStick, poolStick.position.y + poolStickStompDistance, .5f, Ease.OutCubic)
-                            .ToYieldInstruction();
-                    }
+                    poolStick.position = Vector3.Lerp(poolStick.position,
+                        playerTransform.position + Vector3.up * poolStickStompDistance, stickFollowDelay);
+                    poolStickShadow.position = Vector3.Lerp(poolStickShadow.position, playerTransform.position,
+                        stickFollowDelay);
+                    leftHandTransform.position = Vector3.Lerp(leftHandTransform.position,
+                        playerTransform.position + Vector3.up * poolStickLeftHandDistance, stickFollowDelay);
+                    rightHandTransform.position = Vector3.Lerp(rightHandTransform.position,
+                        playerTransform.position + Vector3.up * poolStickRightHandDistance, stickFollowDelay);
+                    yield return null;
                 }
+
+                leftHandTransform.SetParent(poolStick);
+                rightHandTransform.SetParent(poolStick);
+
+                yield return new WaitForSeconds(.05f);
+                Tween.ShakeLocalPosition(poolStick, preStompShake);
+                yield return new WaitForSeconds(.1f);
+                poolStickShadow.position = poolStick.position + Vector3.down * poolStickStompDistance;
+                yield return Tween
+                    .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, .1f, Ease.InSine)
+                    .ToYieldInstruction();
+                stompHitbox.transform.position = poolStick.position;
+                CameraManager.Instance.ShakeCamera(stompCameraShake);
+                stompHitbox.SetActive(true);
+                // Yield 3 frames
+                for (int j = 0; j < 3; j++) yield return null;
+                stompHitbox.SetActive(false);
+
+                yield return new WaitForSeconds(.3f);
+
+                if (i > 0)
+                {
+                    Tween.PositionY(poolStick, poolStick.position.y + poolStickStompDistance, .35f, Ease.OutCubic);
+                }
+                else
+                {
+                    yield return Tween.ShakeLocalRotation(poolStick, stickStuckShake).ToYieldInstruction();
+                    CameraManager.Instance.ShakeCamera(stompCameraShake);
+                    yield return Tween
+                        .PositionY(poolStick, poolStick.position.y + poolStickStompDistance, .5f, Ease.OutCubic)
+                        .ToYieldInstruction();
+                }
+            }
         }
+
         private IEnumerator StompPlayerCoroutine(CoState<string, string> state)
         {
             leftHand.SetHand(HandType.HoldingStomp);
@@ -435,26 +430,64 @@ namespace Game.Bosses.Snooker
             {
                 yield return AttemptStompPlayer(playerTransform);
             }
+
             poolStickShadow.gameObject.SetActive(false);
             leftHand.SetHand(HandType.Idle);
             rightHand.SetHand(HandType.Idle);
             leftHandTransform.SetParent(transform);
             rightHandTransform.SetParent(transform);
-            
+
             var sequence = Sequence.Create(Tween.Rotation(poolStick, Vector3.forward * -90, 1.5f, Ease.OutSine));
             // Return the stick and hands to the rest position
             sequence.Group(Tween.Position(poolStick, transform.position + Vector3.right, 1.5f, Ease.OutSine));
 
-            sequence.Group(Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1.5f, Ease.InOutQuad));
+            sequence.Group(Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1.5f,
+                Ease.InOutQuad));
             sequence.Group(Tween.Rotation(rightHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine));
-            sequence.Group(Tween.Position(leftHandTransform, transform.position + Vector3.right * 3, 1.5f, Ease.InOutQuad));
+            sequence.Group(Tween.Position(leftHandTransform, transform.position + Vector3.right * 3, 1.5f,
+                Ease.InOutQuad));
             sequence.Group(Tween.Rotation(leftHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine));
 
             rightHand.SetHand(HandType.Idle);
             leftHand.SetHand(HandType.Idle);
 
             yield return sequence.ToYieldInstruction();
-            
+
+            state.fsm.StateCanExit();
+        }
+
+        #endregion
+
+        #region <== POPULATE BALLS STATE == >
+
+        private IEnumerator PopulateBallsCoroutine(CoState<string, string> state)
+        {
+            yield return ReturnHands();
+            leftHand.SetHand(HandType.HoldingBall);
+            var availableBallCount = availableBalls.Count(b => b);
+            print($"There are {availableBallCount} available balls");
+            print($"And the ball count is {_currentBallCount}");
+            print($"So, we're adding {_currentBallCount - availableBallCount} balls");
+            for (var i = 0; i < _currentBallCount - availableBallCount; i++)
+            {
+                var pos = new Vector2(
+                    Random.Range(minBallPos.x, maxBallPos.x),
+                    Random.Range(minBallPos.y, maxBallPos.y));
+                var ball = Instantiate(ballPrefab, leftHandTransform);
+                ball.transform.localPosition = Vector3.zero;
+                var rb = ball.GetComponent<Rigidbody2D>();
+                rb.simulated = false;
+
+                yield return Tween.Position(leftHandTransform, pos + Vector2.up * 3, 1, Ease.InOutSine)
+                    .ToYieldInstruction();
+
+                yield return Tween.Position(ball.transform, pos, .75f, Ease.InQuint).ToYieldInstruction();
+                rb.simulated = true;
+                ball.transform.SetParent(null);
+                availableBalls = availableBalls.Append(rb).ToArray();
+            }
+            leftHand.SetHand(HandType.Idle);
+            yield return ReturnHands();
             state.fsm.StateCanExit();
         }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 49a3b4ab55124d14fb18296b842d05fa
+guid: 8e15c14214b67b148b6d92fdd70fae65
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -74,7 +74,7 @@ ScriptedImporter:
   previousAsepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -87,7 +87,7 @@ ScriptedImporter:
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638721064383744444
+  platformSettingsDirtyTick: 638721242501324325
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,28 +123,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Base
-    originalName: 
-    pivot: {x: 0.49999997, y: 0.51449275}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 332
-      width: 516
-      height: 276
-    spriteID: 8953dabddc0280e4b8b3913c00758e18
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 332}
-  - name: Walls
+  - name: Table
     originalName: 
     pivot: {x: 0.5, y: 0.509375}
     alignment: 9
@@ -156,7 +135,7 @@ ScriptedImporter:
       y: 4
       width: 556
       height: 320
-    spriteID: ed7ed2d9afe5fdb4fac530838b42bede
+    spriteID: 8799ba6a0a70586498a17a30d54dbb5d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -164,43 +143,25 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: -38, y: -13}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1966747463
-    name: Base
-    layerFlags: 3
+    guid: 593506430
+    name: Table
+    layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Base
+    - name: Table
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 62
-        y: 38
-        width: 516
-        height: 276
-      spriteId: 8953dabddc0280e4b8b3913c00758e18
-    linkedCells: []
-    parentIndex: -1
-  - layerIndex: 1
-    guid: 593505845
-    name: Walls
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: Walls
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 42
-        y: 17
-        width: 556
-        height: 320
-      spriteId: ed7ed2d9afe5fdb4fac530838b42bede
+        x: 0
+        y: 0
+        width: 640
+        height: 360
+      spriteId: 8799ba6a0a70586498a17a30d54dbb5d
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -244,4 +205,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 640, y: 360}
-  previousTextureSize: {x: 1024, y: 1024}
+  previousTextureSize: {x: 1024, y: 512}

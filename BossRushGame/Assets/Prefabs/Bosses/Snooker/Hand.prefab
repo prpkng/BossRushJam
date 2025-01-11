@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -1443375424333514844, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -181,3 +181,4 @@ MonoBehaviour:
   poolHand: {fileID: 8479801120424315032, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
   holdStickHand: {fileID: -4509520678289745967, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
   holdStompHand: {fileID: 356956510637495882, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
+  holdBallHand: {fileID: -6307072736268437805, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
