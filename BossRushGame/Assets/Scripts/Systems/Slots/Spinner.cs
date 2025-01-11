@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using PrimeTween;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Game.Systems.Slots
 {
     public class Spinner : MonoBehaviour
     {
-        private MeshRenderer[] slots;
+        private SlotElement[] slots;
         public Texture[] slotSprites;
 
         public float spinAcceleration = 3f;
@@ -19,12 +20,9 @@ namespace Game.Systems.Slots
 
         private void Awake()
         {
-            slots = GetComponentsInChildren<MeshRenderer>();
+            slots = GetComponentsInChildren<SlotElement>();
 
-            foreach (var slot in slots)
-            {
-                slot.material.SetTexture("_MainTex", slotSprites.ChooseRandom());
-            }
+            foreach (var slot in slots) slot.SetRandom();
         }
 
         private float counter = 0f;
@@ -54,7 +52,11 @@ namespace Game.Systems.Slots
                         },
                         Ease.InOutQuad
                     );
+                    var selectedSlot = slots.OrderBy(s => -Mathf.Abs(s.transform.eulerAngles.x))
+                        .First();
+                    print(selectedSlot.currentModifier.Name);
                     Destroy(this);
+                    foreach (var slot in slots) Destroy(slot);
                 }
 
                 return;
@@ -64,12 +66,7 @@ namespace Game.Systems.Slots
                 spinSpeed += Time.deltaTime * spinAcceleration;
 
             foreach (var slot in slots)
-            {
-                if (!slot.isVisible)
-                {
-                    slot.material.SetTexture("_MainTex", slotSprites.ChooseRandom());
-                }
-            }
+                slot.SetRandom();
         }
     }
 }

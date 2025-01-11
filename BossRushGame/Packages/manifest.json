@@ -4,6 +4,7 @@
     "com.cysharp.unitask": "2.5.10",
     "com.inspiaaa.unityhfsm": "2.1.0",
     "com.kyrylokuzyk.primetween": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
+    "com.unity.addressables": "2.2.2",
     "com.unity.cinemachine": "3.1.2",
     "com.unity.collab-proxy": "2.6.0",
     "com.unity.feature.2d": "2.0.1",
