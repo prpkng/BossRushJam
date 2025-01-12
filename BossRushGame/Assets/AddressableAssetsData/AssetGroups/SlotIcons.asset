@@ -56,7 +56,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbca4a047e00a6b4f92947683407baa1
-    m_Address: Slots/Athletics.png
+    m_Address: SlotIcons/Athletics.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
