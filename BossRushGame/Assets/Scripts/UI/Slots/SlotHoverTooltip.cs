@@ -1,0 +1,42 @@
+using System;
+using Game.Systems.Slots.Modifiers;
+using Pixelplacement;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+
+namespace Game.UI.Slots
+{
+    public class SlotHoverTooltip : Singleton<SlotHoverTooltip>
+    {
+        public UIDocument document;
+        public int panelHeight = 225;
+
+        private Label titleLabel;
+        private Label descriptionLabel;
+
+        private void Start()
+        {
+            document.enabled = false;
+        }
+
+        private void Update()
+        {
+            if (!document.enabled) return;
+            var mousePos = RuntimePanelUtils.ScreenToPanel(document.runtimePanel, Mouse.current.position.ReadValue());
+            document.rootVisualElement.transform.position = new Vector2(mousePos.x, panelHeight - mousePos.y);
+        }
+
+        public void SetVisible(bool visible)
+        {
+            document.enabled = visible;
+        }
+
+        public void UpdateText(Modifier mod)
+        {
+            print($"Updating tooltip with {mod.Name}");
+            document.rootVisualElement.Q<Label>("Title").text = mod.Name;
+            document.rootVisualElement.Q<Label>("Description").text = mod.Description;
+        }
+    }
+}

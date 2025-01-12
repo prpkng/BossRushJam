@@ -19,7 +19,7 @@ namespace Game.Systems.Slots.Modifiers
                 .GetTypes()
                 .Where(t => t.IsSubclassOf(typeof(Modifier)))
                 .ToArray();
-            Debug.Log($"Registered {modifiers.Count()} modifiers (With weight)");
+            Debug.Log($"Registered {modifiers.Length} modifiers");
             foreach (var mod in modifiers)
             {
                 var odds = 1;

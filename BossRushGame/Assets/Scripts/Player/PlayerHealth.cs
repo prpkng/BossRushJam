@@ -10,7 +10,7 @@ namespace Game.Player
         {
             print("PLAYER DEAD!!");
             base.OnDeath();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Spin");
         }
     }
 }

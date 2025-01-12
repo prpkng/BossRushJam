@@ -179,8 +179,6 @@ namespace Game.Bosses.Snooker
 
             // POPULATE BALLS STATE
             // TODO: Improve random ball position select (It can sometimes spawn over other balls or even the player!!)
-            // TODO: Animate hands bringing the balls (This gonna take some hard work)
-            // TODO: Make it so it only keeps the existing balls, and add the needed ones
             fsm.AddState(PopulateBallsState, 
                 new CoState(this, PopulateBallsCoroutine, needsExitTime: true, loop: false)
                 );
