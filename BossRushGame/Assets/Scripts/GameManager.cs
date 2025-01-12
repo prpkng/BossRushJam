@@ -32,6 +32,12 @@ namespace Game
             CurrentLevelId = SceneManager.GetActiveScene().buildIndex;
         }
 
+        private void Start()
+        {
+            CurrentActiveModifier.ApplyAdvantage();
+            CurrentActiveModifier.ApplyDownside();
+        }
+
         public void CreateBossBar()
         {
             var obj = Instantiate(bossUIControllerPrefab);

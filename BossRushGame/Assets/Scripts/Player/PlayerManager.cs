@@ -30,15 +30,18 @@ namespace Game.Player
         public PlayerGun activeGun;
 
 
-        private Vector2 _currentKnockbackVector;
+        private Vector2 currentKnockbackVector;
         private StateMachine fsm;
 
-        [System.NonSerialized] public Rigidbody2D rb;
-        [System.NonSerialized] public bool canRoll = true;
+        [System.NonSerialized] public Rigidbody2D Rb;
+        [System.NonSerialized] public bool CanRoll = true;
+        [System.NonSerialized] public bool CanRollOverride = true;
+        [System.NonSerialized] public float SpeedMultiplier = 1f;
+        
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody2D>();
+            Rb = GetComponent<Rigidbody2D>();
             GameManager.Instance.Player = this;
         }
 
@@ -48,7 +51,7 @@ namespace Game.Player
             fsm.AddState(
                 "Idle",
                 onEnter: _ => playerAnimations.Play("Idle"),
-                onLogic: state => rb.linearVelocity -= rb.linearVelocity * deceleration
+                onLogic: state => Rb.linearVelocity -= Rb.linearVelocity * deceleration * SpeedMultiplier
             );
             fsm.AddState("Move", 
                 onEnter: _ => playerAnimations.Play("Run"), 
@@ -56,9 +59,9 @@ namespace Game.Player
                 {
                     var moveInput = InputManager.MoveVector;
                     var targetSpeed = moveInput * movementSpeed;
-                    var speedDiff = targetSpeed - rb.linearVelocity;
+                    var speedDiff = targetSpeed - Rb.linearVelocity;
     
-                    rb.linearVelocity += speedDiff * acceleration;
+                    Rb.linearVelocity += speedDiff * acceleration * SpeedMultiplier;
                 }
             );
 
@@ -68,7 +71,7 @@ namespace Game.Player
 
             fsm.AddState(
                 "Hit",
-                onLogic: _ => rb.linearVelocity = _currentKnockbackVector,
+                onLogic: _ => Rb.linearVelocity = currentKnockbackVector,
                 canExit: state => state.timer.Elapsed > knockbackDuration, 
                 needsExitTime: true
             );
@@ -94,21 +97,21 @@ namespace Game.Player
 
         private void OnRollPerformed()
         {
-            if (!canRoll)
+            if (!CanRoll || !CanRollOverride)
                 return;
             if (InputManager.MoveVector.sqrMagnitude <= Mathf.Epsilon)
                 return;
 
             playerAnimations.Play("Roll");
             fsm.Trigger("Roll");
-            canRoll = false;
+            CanRoll = false;
         }
 
         public void OnDamage(Vector2 knockback)
         {
             playerHitbox.SetInvulnerable(damageInvulnerabilityDuration);
             fsm.Trigger("Hit");
-            _currentKnockbackVector = knockback;
+            currentKnockbackVector = knockback;
         }
 
         private void FixedUpdate()

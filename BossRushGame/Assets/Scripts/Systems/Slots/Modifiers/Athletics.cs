@@ -9,12 +9,12 @@ namespace Game.Systems.Slots.Modifiers
         
         public override void ApplyAdvantage()
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.Player.rollDuration *= 1.5f;
         }
 
         public override void ApplyDownside()
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.Player.rollCooldown *= 2f;
         }
     }
 }

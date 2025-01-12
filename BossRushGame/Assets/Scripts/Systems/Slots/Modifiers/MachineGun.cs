@@ -9,12 +9,12 @@ namespace Game.Systems.Slots.Modifiers
         
         public override void ApplyAdvantage()
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.Player.activeGun.fireRate *= 2;
         }
 
         public override void ApplyDownside()
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.Player.activeGun.bulletDamage *= 0.5f;
         }
     }
 }

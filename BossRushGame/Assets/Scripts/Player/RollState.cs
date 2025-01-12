@@ -33,7 +33,7 @@ namespace Game.Player.States
 
         public override void OnLogic()
         {
-            playerManager.rb.linearVelocity = rollDirection * playerManager.rollSpeed;
+            playerManager.Rb.linearVelocity = rollDirection * playerManager.rollSpeed;
 
             if (timer.Elapsed < playerManager.rollDuration) return;
             fsm.StateCanExit();
@@ -42,7 +42,7 @@ namespace Game.Player.States
         public override void OnExit()
         {
             playerManager.activeGun.gameObject.SetActive(true);
-            Tween.Delay(playerManager.rollCooldown, () => playerManager.canRoll = true);
+            Tween.Delay(playerManager.rollCooldown, () => playerManager.CanRoll = true);
         }
     }
 }

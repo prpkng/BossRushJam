@@ -9,12 +9,12 @@ namespace Game.Systems.Slots.Modifiers
         
         public override void ApplyAdvantage()
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.Player.movementSpeed *= 1.45f;
         }
 
         public override void ApplyDownside()
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.Player.CanRollOverride = false;
         }
     }
 }
