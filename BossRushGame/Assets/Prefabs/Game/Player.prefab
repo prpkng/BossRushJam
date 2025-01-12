@@ -85,7 +85,7 @@ MonoBehaviour:
   rollInvulnerabilityDuration: 0.25
   rollSpeed: 24
   rollCooldown: 0.15
-  damageInvulnerabilityDuration: 2
+  damageInvulnerabilityDuration: 1.25
   knockbackDuration: 0.1
   playerSprite: {fileID: 7476110915833379268}
   playerAnimations: {fileID: 5012356460373697768}
@@ -333,7 +333,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7152862510048741635
@@ -460,6 +460,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitboxCollider: {fileID: 7610919338681936906}
   playerHealth: {fileID: 6698519441522588061}
+  soundAttenuationTween:
+    startFromCurrent: 0
+    startValue: 0
+    endValue: 0
+    settings:
+      duration: 0
+      ease: 0
+      customEase:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycles: 0
+      cycleMode: 0
+      startDelay: 0
+      endDelay: 0
+      useUnscaledTime: 0
+      useFixedUpdate: 0
   weakHitShake:
     strength: {x: 0, y: 0, z: 0}
     duration: 1

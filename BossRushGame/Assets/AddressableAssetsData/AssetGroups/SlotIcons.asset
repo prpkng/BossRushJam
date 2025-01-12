@@ -46,17 +46,17 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62c249da2705ae64786d7d2e3fb456ff
-    m_Address: Assets/Art/Sprites/Slots/slots4.png
+    m_Address: SlotIcons/DoubleGauge.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b35d9d6a8102e954caea0163877f0f08
-    m_Address: Assets/Art/Sprites/Slots/slots5.png
+    m_Address: SlotIcons/MachineGun.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbca4a047e00a6b4f92947683407baa1
-    m_Address: Assets/Art/Sprites/Slots/slots3.png
+    m_Address: Slots/Athletics.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

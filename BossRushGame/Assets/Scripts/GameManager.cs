@@ -14,7 +14,7 @@ namespace Game
     public class GameManager : Singleton<GameManager>
     {
         public static Modifier CurrentActiveModifier;
-        public static int CurrentLevelId { get; set; }
+        public static int CurrentLevelId { get; set; } = 1;
         public Transform ScreenRenderTexture;
         public PlayerManager Player;
         public Maybe<BossBarController> BossBarController;
