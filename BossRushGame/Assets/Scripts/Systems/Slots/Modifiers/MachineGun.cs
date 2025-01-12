@@ -5,7 +5,12 @@ namespace Game.Systems.Slots.Modifiers
     {
         public override string SpritePath => "SlotIcons/MachineGun.png";
         public override string Name => "Machine Gun";
-        public override string Description => "Turns your stick into a Machine Gun\nYour bullets are weaker";
+        protected override string Tier1Description => "Turns your stick into a Machine Gun\nYour bullets are weaker";
+        protected override string Tier2Description =>
+            "Turns your stick into a Machine Gun\n<color=aqua>But with steel bullets";
+        protected override string Tier3Description => 
+            "<color=aqua>Turns your stick into a UZI\nWOW";
+
         
         public override void ApplyAdvantage()
         {

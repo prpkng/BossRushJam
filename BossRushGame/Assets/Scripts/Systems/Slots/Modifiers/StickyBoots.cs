@@ -5,7 +5,11 @@ namespace Game.Systems.Slots.Modifiers
     {
         public override string SpritePath => "SlotIcons/StickyBoots.png";
         public override string Name => "Sticky Boots";
-        public override string Description => "Increased movement speed\nCannot roll anymore";
+        protected override string Tier1Description => "Increased movement speed\nCannot roll anymore";
+        protected override string Tier2Description =>
+            "<color=aqua>Incredible</color> movement speed\nCannot roll anymore";
+        protected override string Tier3Description => 
+            "<color=aqua>AMAZING</color> movement speed\nCannot roll anymore";
         
         public override void ApplyAdvantage()
         {

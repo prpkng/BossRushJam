@@ -46,13 +46,15 @@ namespace Game.UI.Slots
             op.Completed += result => icons.ForEach(icon => icon.sprite = result.Result);
             CurrentModifier = mod;
             
-            // Check if there's already a list containing this modifier
+            // Check if there's already a button containing this modifier
             if (buttonList.Select(b => b.CurrentModifier.GetType()).Contains(mod.GetType()))
             {
                 var btn = buttonList.First(b => b.CurrentModifier.GetType() == mod.GetType());
                 btn.icons.Add(icons.First());
                 btn.attachedBGs.Add(bgSprite);
+                btn.CurrentModifier.Tier++;
                 transform.SetParent(btn.transform);
+                print(btn.CurrentModifier.Tier);
                 Destroy(this);
                 Destroy(GetComponent<Button>());
                 return;

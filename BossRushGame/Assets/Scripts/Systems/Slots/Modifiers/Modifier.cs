@@ -29,10 +29,21 @@ namespace Game.Systems.Slots.Modifiers
             }
             Debug.Log($"Registered {ModifierList.Count} modifiers (With weight)");
         }
+
+        public string Description => Tier switch
+        {
+            1 => Tier1Description,
+            2 => Tier2Description,
+            3 => Tier3Description,
+            _ => throw new ArgumentOutOfRangeException()
+        };
         
+        public int Tier = 1;
         public abstract string SpritePath { get; }
         public abstract string Name { get; }
-        public abstract string Description { get; }
+        protected abstract string Tier1Description { get; }
+        protected virtual string Tier2Description => Tier1Description;
+        protected virtual string Tier3Description => Tier1Description;
         public abstract void ApplyAdvantage();
         public abstract void ApplyDownside();
     }

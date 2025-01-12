@@ -37,6 +37,10 @@ namespace Game.UI.Slots
             print($"Updating tooltip with {mod.Name}");
             document.rootVisualElement.Q<Label>("Title").text = mod.Name;
             document.rootVisualElement.Q<Label>("Description").text = mod.Description;
+            document.rootVisualElement.Q<VisualElement>("Star1").style.display =
+                mod.Tier > 1 ? DisplayStyle.Flex : DisplayStyle.None;
+            document.rootVisualElement.Q<VisualElement>("Star2").style.display =
+                mod.Tier > 2 ? DisplayStyle.Flex : DisplayStyle.None;
         }
     }
 }
