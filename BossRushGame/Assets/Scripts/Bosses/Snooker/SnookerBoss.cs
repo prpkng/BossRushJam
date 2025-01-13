@@ -192,7 +192,7 @@ namespace Game.Bosses.Snooker
         public void IncreaseBallCount()
         {
             _currentBallCount++;
-            fsm.RequestStateChange(PopulateBallsState, true);
+            // fsm.RequestStateChange(PopulateBallsState, true);
         }
 
         private IEnumerator ReturnHands()

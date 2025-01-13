@@ -34,8 +34,8 @@ namespace Game
 
         private void Start()
         {
-            CurrentActiveModifier.ApplyAdvantage();
-            CurrentActiveModifier.ApplyDownside();
+            CurrentActiveModifier?.ApplyAdvantage();
+            CurrentActiveModifier?.ApplyDownside();
         }
 
         public void CreateBossBar()
