@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Systems;
 using PrimeTween;
 using UnityEngine;
 
 namespace Game.Bosses.Cards
 {
-    public class CardHolder : MonoBehaviour
+    public class DeckHolder : MonoBehaviour
     {
         public List<Transform> cards;
         public Transform cardPrefab;
@@ -62,15 +63,17 @@ namespace Game.Bosses.Cards
         public Transform TakeCard()
         {
             var card = cards.First();
+            card.transform.position -= Vector3.forward * 10f;
+            card.WithComponent<Card>(c => c.enabled = true);
             cards.RemoveAt(0);
+            RecalculateCardsPosition();
             return card;
         }
+        
         public void RemoveCard()
         {
             var card = TakeCard();
             card.gameObject.SetActive(false);
-
-            RecalculateCardsPosition();
         }
     }
 }

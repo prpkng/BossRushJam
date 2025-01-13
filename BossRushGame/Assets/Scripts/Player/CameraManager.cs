@@ -11,6 +11,7 @@ namespace Game.Player
     {
         public static Vector2 currentScreenOffset;
 
+        public CinemachineTargetGroup targetGroup;
         public CinemachinePositionComposer positionComposer;
         public CinemachineRecomposer recomposer;
 
@@ -67,6 +68,16 @@ namespace Game.Player
                 self.recomposer.Tilt = vector3.y;
                 self.recomposer.Dutch = vector3.z;
             });
+        }
+
+        public void AddTarget(Transform target, float weight = .5f, float radius = 6f)
+        {
+            targetGroup.AddMember(target, weight, radius);    
+        } 
+        
+        public void RemoveTarget(Transform target)
+        {
+            targetGroup.RemoveMember(target);
         }
         
         private void Update()

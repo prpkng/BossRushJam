@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 namespace Game.Editor.Scripts
 {
-    [CustomEditor(typeof(CardHolder))]
+    [CustomEditor(typeof(DeckHolder))]
     public class CardHolderEditor : UnityEditor.Editor
     {
         public override VisualElement CreateInspectorGUI()
@@ -13,7 +13,7 @@ namespace Game.Editor.Scripts
             var element = new VisualElement();
             InspectorElement.FillDefaultInspector(element, serializedObject, this);
 
-            var obj = (CardHolder)target;
+            var obj = (DeckHolder)target;
             
             element.Add(new Button(() => obj.RemoveCard()) {text = "Remove card"});
             element.Add(new Button(() => obj.AddCard()) {text = "Add card"});
