@@ -1,3 +1,4 @@
+using Game.Systems.Common;
 using UnityEngine.Events;
 
 namespace Game.Bosses
