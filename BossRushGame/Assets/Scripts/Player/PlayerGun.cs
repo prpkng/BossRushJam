@@ -103,7 +103,7 @@ namespace Game.Player
             angle += Random.Range(bulletSpreadMin, bulletSpreadMax) * (Random.value > .5f ? -1 : 1);
             FireBullet(bulletPrefab, Utilities.FromDegrees(angle), bulletForce);
             _fireRateCounter = 1f / fireRate;
-            if (bulletRecoil > 0f)
+            if (bulletRecoil > .1f)
             {
                 GameManager.Instance.Player.Rb.linearVelocity = -direction * bulletRecoil;
                 playerRecoilTween = Tween.Custom(

@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1584713472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5efaace3b914761a1a130f5532dfd1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 68ced8baa3fc8cc4c8546a69cd5797d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 1970873844}
@@ -1279,8 +1279,8 @@ MonoBehaviour:
     startValue: {x: 0, y: 0, z: 0}
     endValue: {x: 0, y: 0, z: 0}
     settings:
-      duration: 0.9
-      ease: 10
+      duration: 1
+      ease: 13
       customEase:
         serializedVersion: 2
         m_Curve: []
@@ -1289,17 +1289,17 @@ MonoBehaviour:
         m_RotationOrder: 4
       cycles: 1
       cycleMode: 0
-      startDelay: 0.1
+      startDelay: 0
       endDelay: 0
       useUnscaledTime: 0
       useFixedUpdate: 0
   revealCardTween:
     startFromCurrent: 0
     startValue: {x: 0, y: 0, z: 0}
-    endValue: {x: 0, y: -180, z: 0}
+    endValue: {x: 0, y: 180, z: 0}
     settings:
-      duration: 0.75
-      ease: 13
+      duration: 1
+      ease: 10
       customEase:
         serializedVersion: 2
         m_Curve: []
@@ -1327,7 +1327,7 @@ MonoBehaviour:
     endValue: {x: 0, y: 0, z: 0}
     settings:
       duration: 1
-      ease: 10
+      ease: 13
       customEase:
         serializedVersion: 2
         m_Curve: []

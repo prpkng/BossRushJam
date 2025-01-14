@@ -129,10 +129,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 739155263927303789}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42069f12acb4a43b1e07756ca243def, type: 3}
+  m_Script: {fileID: 11500000, guid: 26bcc5614fadc0141ba8b59f67d14287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraWeight: 0.5
+  cameraWeight: 0.75
   spriteTransform: {fileID: 6076389444724418863}
   frontSprite: {fileID: 4140845815190188555}
   moveRotationForce: -300
