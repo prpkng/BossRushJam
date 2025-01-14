@@ -353,7 +353,7 @@ MonoBehaviour:
   - {fileID: 1816452278}
   - {fileID: 1230263270}
   slotsAnimator: {fileID: 1464252142}
-  spinnerToSlotSpeed: 0.1
+  spinnerToSlotSpeed: 0.035
   onSpinnersEnd:
     m_PersistentCalls:
       m_Calls:
