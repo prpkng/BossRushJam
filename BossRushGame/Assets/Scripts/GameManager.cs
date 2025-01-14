@@ -16,21 +16,7 @@ namespace Game
         public static Modifier CurrentActiveModifier;
         public static int CurrentLevelId { get; set; } = 1;
         public Transform ScreenRenderTexture;
-
-        private PlayerManager _player;
-        public PlayerManager Player
-        {
-            get => _player;
-            set
-            {
-                PlayerTransform = value.transform;
-                _player = value;
-            }
-        }
-
-        public Transform PlayerTransform { get; private set;}
-        public Vector3 PlayerPosition => PlayerTransform.position;
-        
+        public PlayerManager Player;
         public Maybe<BossBarController> BossBarController;
 
         [SerializeField] private GameObject bossUIControllerPrefab;

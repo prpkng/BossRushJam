@@ -10,9 +10,6 @@ namespace Game.UI.Slots
     public class SlotsScreenController : MonoBehaviour
     {
         public List<Spinner> spinners;
-        public Animator slotsAnimator;
-        public float spinnerToSlotSpeed;
-        
         public UnityEvent onSpinnersEnd;
 
         private bool waitingForSpinners = true;
@@ -24,8 +21,6 @@ namespace Game.UI.Slots
                 onSpinnersEnd.Invoke();
                 waitingForSpinners = false;
             }
-
-            slotsAnimator.speed = 1f + spinners.First().CurrentSpinSpeed * spinnerToSlotSpeed;
         }
     }
 }

@@ -1,14 +1,14 @@
+using System;
 using Game.Player;
 using UnityEngine;
 
-namespace Game.Bosses.Poker
+namespace Game.Bosses.Cards
 {
     
     public class Card : MonoBehaviour
     {
         public enum Type
         {
-            None,
             SpadesAce,
             HeartsAce,
             ClubsAce,
@@ -27,18 +27,6 @@ namespace Game.Bosses.Poker
         {
             frontSprite.sprite = classSprite;
             cardClass = @class;
-        }
-
-        public void Activate()
-        {
-            switch (cardClass)
-            {
-                case Type.DiamondsAce:
-                    gameObject.AddComponent<AttackDiamonds>();
-                    break;
-                default:
-                    break;
-            }
         }
         
         private void Update()

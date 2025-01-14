@@ -1,5 +1,4 @@
 using Game.Systems;
-using Game.Systems.Common;
 using Game.Systems.Visual;
 using PrimeTween;
 using UnityEngine;

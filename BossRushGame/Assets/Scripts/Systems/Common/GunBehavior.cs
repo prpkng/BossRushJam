@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Systems.Common
+namespace Game.Systems
 {
     public class GunBehavior : MonoBehaviour
     {

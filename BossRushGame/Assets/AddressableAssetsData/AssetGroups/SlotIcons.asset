@@ -15,33 +15,53 @@ MonoBehaviour:
   m_GroupName: SlotIcons
   m_GUID: 9f965cdfad5b81441ad171ea363b4fa5
   m_SerializeEntries:
-  - m_GUID: 1a10315fd576c8a4dba5305e45b6a1a1
+  - m_GUID: 05053ca26308b6f4e8d7d06b2df7da94
+    m_Address: Assets/Art/Sprites/Slots/slots2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15a03705ddc5c264ebc10cb365ee5a8e
+    m_Address: Assets/Art/Sprites/Slots/slots7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e5e21bb655d09c42952ca8c6eabad2f
     m_Address: SlotIcons/FocusedShooter.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 70d842f0415727c4fa1cf407e24d0240
-    m_Address: SlotIcons/Athletics.png
+  - m_GUID: 1fc0eece1c1f76f4e8456b75be94374b
+    m_Address: Assets/Art/Sprites/Slots/slots8.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: afc616fb575066442b5e193994707e3f
-    m_Address: Assets/Art/UI/Icons/metadeescudo.png
+  - m_GUID: 210ba8f2df080a84e999dd404a0ce685
+    m_Address: Assets/Art/Sprites/Slots/slots6.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bdf0fe1bbded49440b1fde02c2eb9fc3
-    m_Address: SlotIcons/MachineGun.png
+  - m_GUID: 35e2de397c2f3274698c38ec3905c3e3
+    m_Address: SlotIcons/StickyBoots.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e878445d3efcfbe41878c0cce0960407
+  - m_GUID: 62c249da2705ae64786d7d2e3fb456ff
     m_Address: SlotIcons/DoubleGauge.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f9b795e4f7d541c4185f7120609cb8bc
-    m_Address: SlotIcons/StickyBoots.png
+  - m_GUID: b35d9d6a8102e954caea0163877f0f08
+    m_Address: SlotIcons/MachineGun.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbca4a047e00a6b4f92947683407baa1
+    m_Address: SlotIcons/Athletics.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e48294eb76c0ab1428e2978332a7d830
+    m_Address: Assets/Art/Sprites/Slots/slots9.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

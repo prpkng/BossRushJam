@@ -1,6 +1,5 @@
 using System.Collections;
 using Game.Systems;
-using Game.Systems.Common;
 using PrimeTween;
 using UnityEngine;
 

@@ -1,7 +1,7 @@
-using UnityEngine;
-
-namespace Game.Systems.Common
+namespace Game.Systems
 {
+    using UnityEngine;
+
     public class HealthBehavior : MonoBehaviour
     {
         public float totalHealth = 100;

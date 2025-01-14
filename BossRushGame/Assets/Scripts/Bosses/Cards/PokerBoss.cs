@@ -1,13 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using AYellowpaper.SerializedCollections;
 using Game.Systems;
 using PrimeTween;
 using UnityEngine;
 using UnityHFSM;
+using System.Linq;
+using Cysharp.Threading.Tasks;
 
-namespace Game.Bosses.Poker
+namespace Game.Bosses.Cards
 {
     public class PokerBoss : MonoBehaviour
     {
@@ -27,13 +27,9 @@ namespace Game.Bosses.Poker
         public TweenSettings<Vector3> pickCardRotationTween;
         public TweenSettings<Vector3> revealCardTween;
         public Transform pickedCardLocation;
-        public Transform[] possibleCardLocations;
-
-        public TweenSettings<Vector3> positionCardTween;
-
-        [Header("Editor")] public Card.Type overrideCardType;
         
-        private List<Vector3> usedCardLocations = new();
+        
+        
         private StateMachine fsm;
         
         private void Start()
@@ -46,19 +42,11 @@ namespace Game.Bosses.Poker
 
         private IEnumerator ChooseCardCoroutine(CoState<string, string> arg)
         {
-            yield return new WaitForSeconds(1f);
             var card = deck.TakeCard();
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(1f);
 
-            Card.Type type;
-            if (overrideCardType == Card.Type.None)
-            {
-                var values = System.Enum.GetValues(typeof(Card.Type));
-                type = (Card.Type)values.GetValue(Random.Range(0, values.Length - 1));
-            }
-            else 
-                type = overrideCardType;
-
+            var values = System.Enum.GetValues(typeof(Card.Type));
+            var type = (Card.Type)values.GetValue(Random.Range(0, values.Length - 1));
             card.WithComponent<Card>(c => c.SetClass(type, cardSprites[type]));
 
             yield return Tween.Position(card, card.position + card.up * 2f, .35f, Ease.OutCubic).ToYieldInstruction();
@@ -73,21 +61,7 @@ namespace Game.Bosses.Poker
 
             yield return new WaitForSeconds(.25f);
 
-            yield return Tween.EulerAngles(card, revealCardTween).ToYieldInstruction();
-
-            var position = possibleCardLocations
-                .Select(p => p.position)
-                .Except(usedCardLocations)
-                .ToArray()
-                .ChooseRandom();
-            
-            positionCardTween.endValue = position;
-            positionCardTween.startFromCurrent = true;
-            usedCardLocations.Add(position);
-
-            yield return Tween.Position(card, positionCardTween).ToYieldInstruction();
-
-            card.WithComponent((Card c) => c.Activate());
+            Tween.EulerAngles(card, revealCardTween);
         }
 
         private void FixedUpdate()
