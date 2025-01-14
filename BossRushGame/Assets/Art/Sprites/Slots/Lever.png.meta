@@ -120,10 +120,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
+        width: 76
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: Lever_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 76
         y: 0
-        width: 128
+        width: 76
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: Lever_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 152
         y: 0
-        width: 128
+        width: 76
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: Lever_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 228
         y: 0
-        width: 128
+        width: 76
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: Lever_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 304
         y: 0
-        width: 128
+        width: 76
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: Lever_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 380
         y: 0
-        width: 128
+        width: 76
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -250,9 +250,9 @@ TextureImporter:
       name: Lever_6
       rect:
         serializedVersion: 2
-        x: 768
+        x: 456
         y: 0
-        width: 128
+        width: 76
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}

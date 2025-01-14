@@ -195,6 +195,7 @@ MonoBehaviour:
   fireRate: 4.5
   bulletSpreadMin: 1
   bulletSpreadMax: 1
+  bulletRecoil: 0
   gunRecoilSettings:
     startFromCurrent: 0
     startValue: 0.0625
@@ -529,6 +530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: a24e5f3bd2defe54d8ba6a52db8051f9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ca7af6729a7b0fa4a96bd455ad5dcf75, type: 2}
     - target: {fileID: 3626916397498700004, guid: a24e5f3bd2defe54d8ba6a52db8051f9, type: 3}
       propertyPath: m_SortingOrder
       value: 1

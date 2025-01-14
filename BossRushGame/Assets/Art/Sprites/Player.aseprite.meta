@@ -2,7 +2,22 @@ fileFormatVersion: 2
 guid: a24e5f3bd2defe54d8ba6a52db8051f9
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle
+    second: {fileID: 7400000, guid: 9aceed18e3e80f74bacf64c9be279820, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Roll
+    second: {fileID: 7400000, guid: 5c835ee0607bcd74c96facb7c5162aca, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Run
+    second: {fileID: 7400000, guid: 68673449c3020af41be498abffbc2496, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -98,7 +113,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638717013807800682
+  platformSettingsDirtyTick: 638724599212205521
   textureAssetName: 
   singleSpriteImportData:
   - name: 
