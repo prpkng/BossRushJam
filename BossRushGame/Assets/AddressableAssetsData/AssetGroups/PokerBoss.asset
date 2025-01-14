@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: PokerBoss
   m_GUID: afc1d89c423ed484986af9941e23ece8
   m_SerializeEntries:
+  - m_GUID: 624ac754e32910643ad2e52b8d456a03
+    m_Address: Prefabs/SpadesBullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf24428d35937f348affa5beec9b444a
     m_Address: Prefabs/DiamondBullet.prefab
     m_ReadOnly: 0

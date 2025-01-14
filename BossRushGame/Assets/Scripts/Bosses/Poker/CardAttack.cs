@@ -4,27 +4,23 @@ using UnityEngine.AddressableAssets;
 
 namespace Game.Bosses.Poker
 {
-    public class AttackDiamonds : MonoBehaviour
+    public abstract class CardAttack : MonoBehaviour
     {
-        private static Transform _diamondBulletPrefab;
-        
+        protected Transform bulletPrefab;
 
         public float rotatingSpeed = 25f;
-
         public float fireRate = 2;
-
+        public abstract bool FaceDirection { get; }
+        public abstract void GetBulletPrefab();
 
         private void Awake()
         {
-            if (!_diamondBulletPrefab)
-            {
-                Addressables.LoadAssetAsync<GameObject>("Prefabs/DiamondBullet.prefab").Completed +=
-                    handle => _diamondBulletPrefab = handle.Result.transform;
-            }
+            GetBulletPrefab();
         }
 
         private void Update()
         {
+            if (!FaceDirection) return;
             Vector2 dir = GameManager.Instance.Player.transform.position - transform.position;
             dir.Normalize();
             float a = Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg;
@@ -41,15 +37,15 @@ namespace Game.Bosses.Poker
             {
                 if (!this) yield break;
                 yield return new WaitForSeconds(1f / fireRate);
-                if (!_diamondBulletPrefab) continue;
+                if (!bulletPrefab) continue;
                 Fire();
             }
         }
 
         private void Fire()
         {
-            Transform bullet = Instantiate(_diamondBulletPrefab, transform.position + transform.up * 1.5f, Quaternion.identity);
-            bullet.right = transform.up;
+            var bullet = Instantiate(bulletPrefab, transform.position + transform.up * 1.5f, Quaternion.identity);
+            if (FaceDirection) bullet.right = transform.up;
         }
     }
 }

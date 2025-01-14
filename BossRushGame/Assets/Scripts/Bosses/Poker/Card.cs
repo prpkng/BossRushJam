@@ -37,7 +37,10 @@ namespace Game.Bosses.Poker
             switch (cardClass)
             {
                 case Type.DiamondsAce:
-                    gameObject.AddComponent<AttackDiamonds>();
+                    gameObject.AddComponent<CardAttackDiamonds>();
+                    break;
+                case Type.SpadesAce:
+                    gameObject.AddComponent<CardAttackSpades>();
                     break;
                 default:
                     break;
