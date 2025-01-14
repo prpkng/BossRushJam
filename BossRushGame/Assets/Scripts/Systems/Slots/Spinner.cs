@@ -20,6 +20,7 @@ namespace Game.Systems.Slots
         public float maxSpinSpeed = 50f;
         
         private float spinSpeed;
+        public float CurrentSpinSpeed => spinSpeed;
         private SlotElement[] slots;
 
 

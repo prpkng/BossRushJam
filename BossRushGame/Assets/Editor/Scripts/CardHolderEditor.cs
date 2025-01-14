@@ -1,4 +1,4 @@
-using Game.Bosses.Cards;
+using Game.Bosses.Poker;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;

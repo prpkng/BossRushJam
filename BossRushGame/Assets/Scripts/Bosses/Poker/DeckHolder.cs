@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Systems;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Bosses.Cards
+namespace Game.Bosses.Poker
 {
     public class DeckHolder : MonoBehaviour
     {
