@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - SnookerBall
+  - PocketTrigger
+  - Canvas
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NonPixel
   - Water
   - UI
   - Player

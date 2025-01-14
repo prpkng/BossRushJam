@@ -1,4 +1,5 @@
 using Game.Systems;
+using Game.Systems.Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,7 @@ namespace Game.Player
         {
             print("PLAYER DEAD!!");
             base.OnDeath();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Spin");
         }
     }
 }

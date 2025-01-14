@@ -1,31 +1,31 @@
 using System.Collections;
 using Game.Systems;
+using Game.Systems.Common;
 using PrimeTween;
 using UnityEngine;
 
 namespace Game.Player
 {
-
     public class PlayerGun : GunBehavior
     {
-        [Header("Properties")]
-        public float bulletDamage;
+        [Header("Properties")] public float bulletDamage;
         public float bulletForce;
-        
+
         [Tooltip("Bullet per Second")] public float fireRate = 3;
         public float bulletSpreadMin = 1f;
         public float bulletSpreadMax = 1f;
-        
 
-        [Header("Visual")] 
-        
-        [SerializeField] private TweenSettings<float> gunRecoilSettings;
-        
-        [Header("References")]
+        public float bulletRecoil;
+
+        [Header("Visual")] [SerializeField] private TweenSettings<float> gunRecoilSettings;
+
+        [Header("References")] [SerializeField]
+        private FMODUnity.StudioEventEmitter fireEventEmitter;
+
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Animator gunAnimator;
-        
+
         private new Camera camera;
 
         private bool _isHoldingFire;
@@ -37,6 +37,7 @@ namespace Game.Player
         }
 
         private Vector2 _lastPointVector;
+
         private Vector2 GetPointVector()
         {
             if (InputManager.isUsingGamepad)
@@ -48,10 +49,12 @@ namespace Game.Player
             {
                 _lastPointVector = (Vector3)InputManager.MousePosition - transform.position;
             }
+
             return _lastPointVector.normalized;
         }
 
         private Vector3 _temp;
+
         private void Update()
         {
             var lookDirection = GetPointVector();
@@ -60,7 +63,7 @@ namespace Game.Player
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
             spriteRenderer.flipY = lookDirection.x < 0;
-            
+
             _temp = GameManager.Instance.Player.playerSprite.transform.localScale;
             _temp.x = lookDirection.x < 0 ? -1 : 1;
             GameManager.Instance.Player.playerSprite.transform.localScale = _temp;
@@ -69,7 +72,6 @@ namespace Game.Player
             _fireRateCounter -= Time.deltaTime;
             if (_isHoldingFire && _fireRateCounter < 0)
                 TriggerShoot();
-
         }
 
         private void OnEnable()
@@ -77,6 +79,7 @@ namespace Game.Player
             OnPlayerFire(InputManager.isHoldingShoot);
             InputManager.ShootPerformed += OnPlayerFire;
         }
+
         private void OnDisable()
         {
             OnPlayerFire(false);
@@ -90,7 +93,9 @@ namespace Game.Player
                 TriggerShoot();
         }
 
-        private Tween _recoilTween;
+        private Tween recoilTween;
+        private Tween playerRecoilTween;
+
         private void TriggerShoot()
         {
             var direction = transform.right;
@@ -98,12 +103,23 @@ namespace Game.Player
             angle += Random.Range(bulletSpreadMin, bulletSpreadMax) * (Random.value > .5f ? -1 : 1);
             FireBullet(bulletPrefab, Utilities.FromDegrees(angle), bulletForce);
             _fireRateCounter = 1f / fireRate;
-            
-            gunAnimator.SetTrigger("Shot");
-            
-            _recoilTween.Complete();
-            _recoilTween = Tween.LocalPositionX(gunAnimator.transform, gunRecoilSettings);
-        }
+            if (bulletRecoil > 0f)
+            {
+                GameManager.Instance.Player.Rb.linearVelocity = -direction * bulletRecoil;
+                playerRecoilTween = Tween.Custom(
+                    0f,
+                    1f,
+                    .25f,
+                    f => GameManager.Instance.Player.SpeedMultiplier = f,
+                    Ease.OutCubic
+                );
+            }
 
+            gunAnimator.SetTrigger("Shot");
+            fireEventEmitter.Play();
+
+            recoilTween.Complete();
+            recoilTween = Tween.LocalPositionX(gunAnimator.transform, gunRecoilSettings);
+        }
     }
 }

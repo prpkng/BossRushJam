@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6053270112103487424}
   - component: {fileID: 7902854873566206686}
   - component: {fileID: 7167023216273660166}
+  - component: {fileID: 196970626892064646}
   - component: {fileID: 8505990715582930572}
   m_Layer: 12
   m_Name: Hand
@@ -58,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 8d8ab39eea4ba3a4b8505e8fc32f2c87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -1443375424333514844, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -124,7 +125,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.5555556, y: -0.10248113}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.4901961, y: 0.53846157}
@@ -134,7 +135,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4, y: 1.5}
+  m_Size: {x: 3, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &7167023216273660166
 MonoBehaviour:
@@ -149,6 +150,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  flashDuration: 0.05
+  flash: {fileID: 196970626892064646}
+--- !u!114 &196970626892064646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377855932427375321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af4b624027942f3b77864d73206dc29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.05
 --- !u!114 &8505990715582930572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,4 +179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleHand: {fileID: -1443375424333514844, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
   poolHand: {fileID: 8479801120424315032, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
-  holdStickHand: {fileID: -1443375424333514844, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
+  holdStickHand: {fileID: -4509520678289745967, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
+  holdStompHand: {fileID: 356956510637495882, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
+  holdBallHand: {fileID: -6307072736268437805, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}

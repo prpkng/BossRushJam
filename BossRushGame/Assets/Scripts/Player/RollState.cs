@@ -1,11 +1,8 @@
-using System;
-using Cysharp.Threading.Tasks;
-using UnityEngine;
-using System.Collections;
 using PrimeTween;
+using UnityEngine;
 using UnityHFSM;
 
-namespace Game.Player.States
+namespace Game.Player
 {
     public class RollState : StateBase
     {
@@ -33,7 +30,7 @@ namespace Game.Player.States
 
         public override void OnLogic()
         {
-            playerManager.rb.linearVelocity = rollDirection * playerManager.rollSpeed;
+            playerManager.Rb.linearVelocity = rollDirection * playerManager.rollSpeed;
 
             if (timer.Elapsed < playerManager.rollDuration) return;
             fsm.StateCanExit();
@@ -42,7 +39,7 @@ namespace Game.Player.States
         public override void OnExit()
         {
             playerManager.activeGun.gameObject.SetActive(true);
-            Tween.Delay(playerManager.rollCooldown, () => playerManager.canRoll = true);
+            Tween.Delay(playerManager.rollCooldown, () => playerManager.CanRoll = true);
         }
     }
 }

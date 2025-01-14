@@ -9,7 +9,7 @@ namespace Game.Player
     {
         [SerializeField] private BoxCollider2D hitboxCollider;
         [SerializeField] private PlayerHealth playerHealth;
-        
+        [SerializeField] private TweenSettings<float> soundAttenuationTween;
         [Header("Shakes")]
         [SerializeField] private ShakeSettings weakHitShake;
         [SerializeField] private ShakeSettings strongHitShake;
@@ -20,6 +20,10 @@ namespace Game.Player
             GameManager.Instance.Player.OnDamage(knockbackVector ?? Vector2.zero);
                 
             CameraManager.Instance.ShakeCamera(strong ? strongHitShake : weakHitShake);
+            Tween.Custom(soundAttenuationTween, f =>
+            {
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("DamageAttenuation", f);
+            });
         }
 
 

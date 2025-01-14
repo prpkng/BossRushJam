@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: SlotIcons
+  m_EditorClassIdentifier: 
+  m_GroupName: SlotIcons
+  m_GUID: 9f965cdfad5b81441ad171ea363b4fa5
+  m_SerializeEntries:
+  - m_GUID: 1a10315fd576c8a4dba5305e45b6a1a1
+    m_Address: SlotIcons/FocusedShooter.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70d842f0415727c4fa1cf407e24d0240
+    m_Address: SlotIcons/Athletics.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afc616fb575066442b5e193994707e3f
+    m_Address: Assets/Art/UI/Icons/metadeescudo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdf0fe1bbded49440b1fde02c2eb9fc3
+    m_Address: SlotIcons/MachineGun.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e878445d3efcfbe41878c0cce0960407
+    m_Address: SlotIcons/DoubleGauge.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9b795e4f7d541c4185f7120609cb8bc
+    m_Address: SlotIcons/StickyBoots.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 46b47be2d546d8047a6e2c213e8394af, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c25dc7dd5c076704f9c67816a83848a6, type: 2}
+    - {fileID: 11400000, guid: ce75c8c855d83214a8ce4426399f3122, type: 2}

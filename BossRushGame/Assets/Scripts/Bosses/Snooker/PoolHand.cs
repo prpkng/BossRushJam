@@ -7,7 +7,9 @@ namespace Game.Bosses.Snooker
     {
         Idle,
         PoolHand,
-        HoldingStick
+        HoldingStick,
+        HoldingStomp,
+        HoldingBall,
     }
 
     [RequireComponent(typeof(SpriteRenderer))]
@@ -16,17 +18,25 @@ namespace Game.Bosses.Snooker
         [SerializeField] private Sprite idleHand;
         [SerializeField] private Sprite poolHand;
         [SerializeField] private Sprite holdStickHand;
+        [SerializeField] private Sprite holdStompHand;
+        [SerializeField] private Sprite holdBallHand;
 
-        private SpriteRenderer _spr;
-        private void Awake() => _spr = gameObject.GetComponent<SpriteRenderer>();
+        private SpriteRenderer spr;
+        private void Awake() => spr = gameObject.GetComponent<SpriteRenderer>();
 
+        public void SetOrder(int order)
+        {
+            spr.sortingOrder = order;
+        }
         public void SetHand(HandType handType)
         {
-            _spr.sprite = handType switch
+            spr.sprite = handType switch
             {
                 HandType.Idle => idleHand,
                 HandType.PoolHand => poolHand,
                 HandType.HoldingStick => holdStickHand,
+                HandType.HoldingStomp => holdStompHand,
+                HandType.HoldingBall => holdBallHand,
                 _ => null
             };
         }
