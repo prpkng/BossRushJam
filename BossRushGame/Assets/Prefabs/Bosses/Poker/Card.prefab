@@ -135,7 +135,7 @@ MonoBehaviour:
   cameraWeight: 0.75
   spriteTransform: {fileID: 6076389444724418863}
   frontSprite: {fileID: 4140845815190188555}
-  moveRotationForce: -300
+  moveRotationForce: -50
   spriteLerpSpeed: 10
 --- !u!1 &2300952148789596222
 GameObject:

@@ -13,6 +13,7 @@ namespace Game.Player
 
         public CinemachineTargetGroup targetGroup;
         public CinemachinePositionComposer positionComposer;
+        public CinemachineCameraOffset cameraOffset;
         public CinemachineRecomposer recomposer;
 
         [Header("Focus Settings")]
@@ -64,8 +65,7 @@ namespace Game.Player
             _shakePosTween.Complete();
             _shakePosTween = Tween.ShakeCustom(this, Vector3.zero, shakeSettings, (self, vector3) =>
             {
-                self.recomposer.Pan = vector3.x;
-                self.recomposer.Tilt = vector3.y;
+                self.cameraOffset.Offset = (Vector2)vector3;
                 self.recomposer.Dutch = vector3.z;
             });
         }

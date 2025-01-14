@@ -500,7 +500,7 @@ MonoBehaviour:
     useUnscaledTime: 0
     useFixedUpdate: 0
   strongHitShake:
-    strength: {x: 4, y: 4, z: 4}
+    strength: {x: 1.5, y: 1.5, z: 3}
     duration: 0.5
     frequency: 20
     enableFalloff: 1

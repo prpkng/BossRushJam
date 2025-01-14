@@ -47,8 +47,8 @@ namespace Game.Bosses.Poker
         private IEnumerator ChooseCardCoroutine(CoState<string, string> arg)
         {
             yield return new WaitForSeconds(1f);
-            var card = deck.TakeCard();
             yield return new WaitForSeconds(.5f);
+            var card = deck.TakeCard();
 
             Card.Type type;
             if (overrideCardType == Card.Type.None)

@@ -1,3 +1,4 @@
+using System;
 using Game.Player;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ namespace Game.Bosses.Poker
         public SpriteRenderer frontSprite;
         public float moveRotationForce;
         public float spriteLerpSpeed = 10;
+        
+        private Vector3 movementVel;
         private Vector3 lastPos;
         private Type cardClass;
         
@@ -40,15 +43,19 @@ namespace Game.Bosses.Poker
                     break;
             }
         }
-        
+
+        private void FixedUpdate()
+        {
+            movementVel = transform.position - lastPos;
+            lastPos = transform.position;
+        }
+
         private void Update()
         {
-            var vel = transform.position - lastPos;
-            lastPos = transform.position;
             
             spriteTransform.localEulerAngles = Mathf.LerpAngle(
                 spriteTransform.localEulerAngles.z, 
-                vel.x * moveRotationForce,
+                movementVel.x * moveRotationForce,
                 Time.deltaTime * spriteLerpSpeed) * Vector3.forward;
         }
 
