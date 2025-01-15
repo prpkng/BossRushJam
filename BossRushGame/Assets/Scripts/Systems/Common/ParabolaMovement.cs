@@ -31,7 +31,7 @@ namespace Game.Systems
             // This is one divided by the total flight duration, to help convert it to 0-1 progress.
             stepScale = speed / 60f;
 
-            await UniTask.WaitUntil(this, self => !self.enabled);
+            await UniTask.WaitUntil(this, self => !self || !self.enabled);
         }
 
         private void FixedUpdate() {

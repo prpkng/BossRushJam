@@ -1,5 +1,7 @@
 using System;
+using Game.Systems.Visual;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Game.Bosses.Snooker
 {
@@ -12,33 +14,44 @@ namespace Game.Bosses.Snooker
         HoldingBall,
     }
 
-    [RequireComponent(typeof(SpriteRenderer))]
     public class PoolHand : MonoBehaviour
     {
-        [SerializeField] private Sprite idleHand;
-        [SerializeField] private Sprite poolHand;
-        [SerializeField] private Sprite holdStickHand;
-        [SerializeField] private Sprite holdStompHand;
-        [SerializeField] private Sprite holdBallHand;
+        [SerializeField] private SortingGroup sortingGroup;
+        [SerializeField] private Animator animator;
+        [SerializeField] private FlashSprite flashSprite;
 
-        private SpriteRenderer spr;
-        private void Awake() => spr = gameObject.GetComponent<SpriteRenderer>();
+        [SerializeField] private SpriteRenderer[] handLayers;
+        
+        [field: SerializeField] public SpriteRenderer CurrentHandLayer { get; private set; }
+
+        private void Start()
+        {
+            SetLayer(0);
+        }
 
         public void SetOrder(int order)
         {
-            spr.sortingOrder = order;
+            sortingGroup.sortingOrder = order;
         }
         public void SetHand(HandType handType)
         {
-            spr.sprite = handType switch
+            animator.Play(handType switch
             {
-                HandType.Idle => idleHand,
-                HandType.PoolHand => poolHand,
-                HandType.HoldingStick => holdStickHand,
-                HandType.HoldingStomp => holdStompHand,
-                HandType.HoldingBall => holdBallHand,
+                HandType.Idle => "Idle",
+                HandType.PoolHand => "Pool",
+                HandType.HoldingStick => "Point",
+                HandType.HoldingStomp => "Hold",
+                HandType.HoldingBall => "Carry",
                 _ => null
-            };
+            });
+        }
+        public void SetLayer(int layer)
+        {
+            for (int i = 0; i < handLayers.Length; i++)
+                handLayers[i].enabled = i == layer;
+            
+            CurrentHandLayer = handLayers[layer];
+            flashSprite.spriteRenderer = CurrentHandLayer;
         }
     }
 }

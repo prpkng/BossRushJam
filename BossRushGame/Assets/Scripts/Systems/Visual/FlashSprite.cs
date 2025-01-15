@@ -1,6 +1,7 @@
 using System;
 using PrimeTween;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Systems.Visual
 {
@@ -8,15 +9,16 @@ namespace Game.Systems.Visual
     {
         private static readonly int FlashID = Shader.PropertyToID("_Flash");
 
-        private SpriteRenderer spr;
+        [FormerlySerializedAs("spr")] public SpriteRenderer spriteRenderer;
         [SerializeField] private float flashDuration = .05f;
 
-        private void Awake() => spr = GetComponent<SpriteRenderer>();
+        private void Awake() => spriteRenderer = GetComponent<SpriteRenderer>();
 
         public void Flash()
         {
-            spr.material.SetInt(FlashID, 1);
-            Tween.Delay(flashDuration, () => spr.material.SetInt(FlashID, 0));
+            if (!spriteRenderer) return;
+            spriteRenderer.material.SetInt(FlashID, 1);
+            Tween.Delay(flashDuration, () => spriteRenderer.material.SetInt(FlashID, 0));
         }
     }
 }

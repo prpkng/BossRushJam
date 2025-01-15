@@ -1340,7 +1340,7 @@ MonoBehaviour:
       endDelay: 0
       useUnscaledTime: 0
       useFixedUpdate: 0
-  overrideCardType: 4
+  overrideCardType: 1
 --- !u!1 &1719588707
 GameObject:
   m_ObjectHideFlags: 0
