@@ -13,7 +13,7 @@ namespace Game.Bosses.Poker
         {
             transform.position += bulletSpeed * Time.fixedDeltaTime * transform.right;
 
-            Vector2 dir = GameManager.Instance.PlayerPosition - transform.position;
+            Vector2 dir = GameManager.PlayerPosition - transform.position;
             dir.Normalize();
             transform.right = Vector3.Lerp(
                 transform.right,

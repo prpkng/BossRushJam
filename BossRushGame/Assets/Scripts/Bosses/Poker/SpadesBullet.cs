@@ -9,7 +9,7 @@ namespace Game.Bosses.Poker
         public ParabolaMovement movement;
         private void Start()
         {
-            movement.StartTrajectory(GameManager.Instance.PlayerPosition).GetAwaiter().OnCompleted(() =>
+            movement.StartTrajectory(GameManager.PlayerPosition).GetAwaiter().OnCompleted(() =>
             {
                 if (!this) return;
                 Destroy(gameObject);

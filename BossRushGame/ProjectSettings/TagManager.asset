@@ -7,6 +7,7 @@ TagManager:
   - SnookerBall
   - PocketTrigger
   - Canvas
+  - RenderTextureImage
   layers:
   - Default
   - TransparentFX

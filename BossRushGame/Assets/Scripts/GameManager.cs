@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using Game.Systems.Slots.Modifiers;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,8 @@ namespace Game
         public static Modifier CurrentActiveModifier;
         public static int CurrentLevelId { get; set; } = 1;
         public Transform ScreenRenderTexture;
+        public static Transform PlayerTransform { get; private set;}
+        public static Vector3 PlayerPosition => PlayerTransform.position;
 
         private PlayerManager _player;
         public PlayerManager Player
@@ -28,8 +31,6 @@ namespace Game
             }
         }
 
-        public Transform PlayerTransform { get; private set;}
-        public Vector3 PlayerPosition => PlayerTransform.position;
         
         public Maybe<BossBarController> BossBarController;
 
@@ -50,6 +51,20 @@ namespace Game
         {
             CurrentActiveModifier?.ApplyAdvantage();
             CurrentActiveModifier?.ApplyDownside();
+            
+            ScreenRenderTexture = GameObject.FindWithTag("RenderTextureImage").transform;
+        }
+
+        public async void PlayerDeath()
+        {
+            DeathScreenController.LastCameraPosition = CameraManager.Instance.transform.position;
+            DeathScreenController.LastPlayerPosition = PlayerPosition;
+            
+            await SceneManager.LoadSceneAsync("DeathScreen");
+
+            await UniTask.WaitForSeconds(4);
+
+            SceneManager.LoadScene("Spin");
         }
 
         public void CreateBossBar()

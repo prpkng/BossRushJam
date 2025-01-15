@@ -1625,6 +1625,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7724400231489068225, guid: d29dac3121633bf4d8dd9355109b7162, type: 3}
+      propertyPath: _dontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400231489068225, guid: d29dac3121633bf4d8dd9355109b7162, type: 3}
       propertyPath: ScreenRenderTexture
       value: 
       objectReference: {fileID: 1205169106}

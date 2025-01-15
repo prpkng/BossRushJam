@@ -9,9 +9,8 @@ namespace Game.Player
     {
         public override void OnDeath()
         {
-            print("PLAYER DEAD!!");
             base.OnDeath();
-            SceneManager.LoadScene("Spin");
+            GameManager.Instance.PlayerDeath();
         }
     }
 }
