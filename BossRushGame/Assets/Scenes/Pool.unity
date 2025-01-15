@@ -1835,6 +1835,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.cycles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.frequency
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.strength.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.strength.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.strength.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.falloffEase
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.enableFalloff
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7303165611683896656, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: m_Name
       value: CinemachineCamera

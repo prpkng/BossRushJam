@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.Systems.Common
@@ -8,6 +9,10 @@ namespace Game.Systems.Common
         public float damageMultiplier = 1;
         public float currentHealth = 0;
 
+        public event Action<float> OnHealthChanged;
+        
+        public float HealthPercentage => currentHealth / totalHealth;
+        
         private void Start()
         {
             currentHealth = totalHealth;
@@ -21,6 +26,8 @@ namespace Game.Systems.Common
             currentHealth -= damage * damageMultiplier;
             if (currentHealth <= 0)
                 OnDeath();
+            
+            OnHealthChanged?.Invoke(currentHealth);
         }
     }
 }

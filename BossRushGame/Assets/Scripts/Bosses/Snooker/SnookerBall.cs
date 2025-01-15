@@ -23,7 +23,7 @@ namespace Game.Bosses.Snooker
         [SerializeField] private float ballSpeedPow = 1.1f;
         private Rigidbody2D _rb;
 
-        private float currentHue;
+        public float CurrentHue { get; private set; }
         private bool isFlat;
         
         private void Awake()
@@ -31,19 +31,19 @@ namespace Game.Bosses.Snooker
             _rb = GetComponent<Rigidbody2D>();
             ballAnimator.runtimeAnimatorController = possibleBallAnimations.ChooseRandom();
             isFlat = Array.IndexOf(possibleBallAnimations, ballAnimator.runtimeAnimatorController) == 0;
-            currentHue = possibleHues.Except(isFlat ? PickedHuesFlat : PickedHuesLine).ToArray().ChooseRandom();
-            ballSprite.material.SetFloat("_Shift", currentHue);
+            CurrentHue = possibleHues.Except(isFlat ? PickedHuesFlat : PickedHuesLine).ToArray().ChooseRandom();
+            ballSprite.material.SetFloat("_Shift", CurrentHue);
             
         }
 
         private void OnEnable()
         {
-            (isFlat ? PickedHuesFlat : PickedHuesLine).Add(currentHue);
+            (isFlat ? PickedHuesFlat : PickedHuesLine).Add(CurrentHue);
         }
 
         private void OnDisable()
         {
-            (isFlat ? PickedHuesFlat : PickedHuesLine).Remove(currentHue);
+            (isFlat ? PickedHuesFlat : PickedHuesLine).Remove(CurrentHue);
         }
 
         private void FixedUpdate()

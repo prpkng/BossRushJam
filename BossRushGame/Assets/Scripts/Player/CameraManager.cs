@@ -25,6 +25,8 @@ namespace Game.Player
         public float defaultZoom = 1.5f;
         public float zoomOutZoom = 1.35f;
 
+        [Header("Default Shakes")] public ShakeSettings defaultWeakShake;
+        
         private Tween _scaleTween;
         public void FocusUp()
         {

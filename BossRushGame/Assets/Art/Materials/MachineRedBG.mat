@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_UnlitColor
+  m_Name: MachineRedBG
   m_Shader: {fileID: -6465566751694194690, guid: a5fce124272e17f46962ad8a109b27e4, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
