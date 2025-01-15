@@ -17,6 +17,7 @@ namespace Game.Systems.Common
 
         public virtual void ApplyDamage(float damage)
         {
+            if (!enabled) return;
             currentHealth -= damage * damageMultiplier;
             if (currentHealth <= 0)
                 OnDeath();

@@ -34,6 +34,7 @@ namespace Game.Bosses.Poker
 
         public void Activate()
         {
+            print("Card Activated");
             switch (cardClass)
             {
                 case Type.DiamondsAce:

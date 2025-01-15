@@ -40,7 +40,7 @@ namespace Game.Bosses.Poker
                     cardTweenDuration,
                     cardTweenEase
                 );
-                cards[i].up = dir;
+                cards[i].localRotation = Quaternion.Euler(0, 0, a * Mathf.Rad2Deg - 90f);
             }
         }
 
@@ -62,6 +62,7 @@ namespace Game.Bosses.Poker
         public Transform TakeCard()
         {
             var card = cards.First();
+            card.parent = null;
             card.transform.position -= Vector3.forward * 10f;
             card.WithComponent<Card>(c => c.enabled = true);
             cards.RemoveAt(0);

@@ -100,6 +100,15 @@ namespace Game.Bosses.Poker
         private void FixedUpdate()
         {
             fsm.OnLogic();
+            
+            Vector2 dir = (GameManager.Instance.PlayerPosition - transform.position);
+            dir.Normalize();
+            deck.transform.localPosition = Vector3.Lerp(
+                deck.transform.localPosition,
+                dir * 4f,
+                Time.fixedDeltaTime * 6f
+            );
+            deck.transform.up = (transform.position - deck.transform.position).normalized;
         }
     }
 }

@@ -1,23 +1,18 @@
-using Game.Systems.Common;
 using Game.Systems.Visual;
-using PrimeTween;
+using UnityEngine;
 
-namespace Game.Bosses
+namespace Game.Systems.Common
 {
-    using Game.Systems;
-    using UnityEngine;
-
-    public class BossHitbox : MonoBehaviour
+    public class EnemyHitbox : MonoBehaviour
     {
         public HealthBehavior health;
-        [SerializeField] private float flashDuration = .25f;
         public FlashSprite flash;
         
         private void OnTriggerEnter2D(Collider2D other)
         {
             health.ApplyDamage(GameManager.Instance.Player.activeGun.bulletDamage);
             Destroy(other.gameObject);
-            flash.Flash();
+            if (flash) flash.Flash();
         }
     }
 }
