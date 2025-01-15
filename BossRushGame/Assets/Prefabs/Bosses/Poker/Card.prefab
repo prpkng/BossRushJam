@@ -197,6 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7383613882714660322}
   - component: {fileID: 4140845815190188555}
+  - component: {fileID: 8081494265759046013}
   m_Layer: 0
   m_Name: Front
   m_TagString: Untagged
@@ -242,7 +243,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 8d8ab39eea4ba3a4b8505e8fc32f2c87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -274,6 +275,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8081494265759046013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753552844365378951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af4b624027942f3b77864d73206dc29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.05
 --- !u!1 &9132801723417462824
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,4 +380,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 3025801405290300097}
-  flash: {fileID: 0}
+  flash: {fileID: 8081494265759046013}

@@ -51,7 +51,7 @@ namespace Game.Bosses.Snooker
                 handLayers[i].enabled = i == layer;
             
             CurrentHandLayer = handLayers[layer];
-            flashSprite.spriteRenderer = CurrentHandLayer;
+            flashSprite.SpriteRenderer = CurrentHandLayer;
         }
     }
 }

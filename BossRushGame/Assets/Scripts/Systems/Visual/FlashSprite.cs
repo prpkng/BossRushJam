@@ -9,16 +9,16 @@ namespace Game.Systems.Visual
     {
         private static readonly int FlashID = Shader.PropertyToID("_Flash");
 
-        [FormerlySerializedAs("spr")] public SpriteRenderer spriteRenderer;
+        public SpriteRenderer SpriteRenderer { get; set; }
         [SerializeField] private float flashDuration = .05f;
 
-        private void Awake() => spriteRenderer = GetComponent<SpriteRenderer>();
+        private void Awake() => SpriteRenderer = GetComponent<SpriteRenderer>();
 
         public void Flash()
         {
-            if (!spriteRenderer) return;
-            spriteRenderer.material.SetInt(FlashID, 1);
-            Tween.Delay(flashDuration, () => spriteRenderer.material.SetInt(FlashID, 0));
+            if (!SpriteRenderer) return;
+            SpriteRenderer.material.SetInt(FlashID, 1);
+            Tween.Delay(flashDuration, () => SpriteRenderer.material.SetInt(FlashID, 0));
         }
     }
 }

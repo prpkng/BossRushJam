@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 4941492837627649220}
-  bulletSpeed: 40
+  bulletSpeed: 30
   aimSpeed: 3
 --- !u!114 &6794527153119945160
 MonoBehaviour:

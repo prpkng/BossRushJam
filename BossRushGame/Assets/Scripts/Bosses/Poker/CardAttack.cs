@@ -8,7 +8,7 @@ namespace Game.Bosses.Poker
     {
         protected Transform bulletPrefab;
 
-        public float rotatingSpeed = 25f;
+        public float rotatingSpeed = 15f;
         public float fireRate = 2;
         public abstract bool FaceDirection { get; }
         public abstract void GetBulletPrefab();
