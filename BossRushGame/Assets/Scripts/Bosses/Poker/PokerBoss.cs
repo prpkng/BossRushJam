@@ -59,7 +59,7 @@ namespace Game.Bosses.Poker
             if (overrideCardType == Card.Type.None)
             {
                 var values = System.Enum.GetValues(typeof(Card.Type));
-                type = (Card.Type)values.GetValue(Random.Range(0, values.Length - 1));
+                type = (Card.Type)values.GetValue(Random.Range(0, values.Length - 2));
             }
             else 
                 type = overrideCardType;

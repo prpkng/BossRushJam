@@ -9,8 +9,8 @@ namespace Game.Bosses.Poker
     {
         public enum Type
         {
-            None,
-            SpadesAce,
+            None = -1,
+            SpadesAce = 0,
             HeartsAce,
             ClubsAce,
             DiamondsAce,
