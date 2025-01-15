@@ -28,7 +28,7 @@ namespace Game.Player
 
         private new Camera camera;
 
-        private bool _isHoldingFire;
+        public bool IsHoldingFire { get; private set; }
         private float _fireRateCounter;
 
         private void Awake()
@@ -70,7 +70,7 @@ namespace Game.Player
 
 
             _fireRateCounter -= Time.deltaTime;
-            if (_isHoldingFire && _fireRateCounter < 0)
+            if (IsHoldingFire && _fireRateCounter < 0)
                 TriggerShoot();
         }
 
@@ -86,9 +86,9 @@ namespace Game.Player
             InputManager.ShootPerformed -= OnPlayerFire;
         }
 
-        private void OnPlayerFire(bool pressed)
+        public void OnPlayerFire(bool pressed)
         {
-            _isHoldingFire = pressed;
+            IsHoldingFire = pressed;
             if (pressed && _fireRateCounter < 0)
                 TriggerShoot();
         }

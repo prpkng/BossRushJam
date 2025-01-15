@@ -1969,6 +1969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: idleWaitTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.size
       value: 3

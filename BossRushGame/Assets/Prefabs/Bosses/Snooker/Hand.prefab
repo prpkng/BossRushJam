@@ -131,6 +131,7 @@ MonoBehaviour:
   - {fileID: 8965922873738919224}
   - {fileID: 5974842607579685154}
   - {fileID: 2252164777665923728}
+  <CurrentHandLayer>k__BackingField: {fileID: 0}
 --- !u!1001 &659067249511113898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,6 +140,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7167158112212107330}
     m_Modifications:
+    - target: {fileID: -8137813610356888312, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -5180077685122335756, guid: 03afa1ac30132064da2b3d5dbf633f51, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

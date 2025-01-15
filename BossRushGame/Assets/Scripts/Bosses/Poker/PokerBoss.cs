@@ -11,6 +11,7 @@ namespace Game.Bosses.Poker
 {
     public class PokerBoss : MonoBehaviour
     {
+        public enum States { ChooseCard, ChooseCardCooldown }
         public DeckHolder deck;
 
         [SerializedDictionary("Card Type", "Sprite")]
@@ -30,23 +31,27 @@ namespace Game.Bosses.Poker
         public Transform[] possibleCardLocations;
 
         public TweenSettings<Vector3> positionCardTween;
+        public float pickCardCooldown = 4f;
 
         [Header("Editor")] public Card.Type overrideCardType;
         
         private List<Vector3> usedCardLocations = new();
-        private StateMachine fsm;
+        private StateMachine<States> fsm;
         
         private void Start()
         {
-            fsm = new StateMachine();
-            fsm.AddState("ChooseCard", new CoState(this, ChooseCardCoroutine, loop: false));
+            fsm = new StateMachine<States>();
+            fsm.AddState(States.ChooseCard, new CoState<States>(this, ChooseCardCoroutine, loop: false, needsExitTime: true));
+            fsm.AddTransition(States.ChooseCard, States.ChooseCardCooldown);
+            
+            fsm.AddState(States.ChooseCardCooldown);
+            fsm.AddTransition(new TransitionAfter<States>(States.ChooseCardCooldown, States.ChooseCard, pickCardCooldown));
             
             fsm.Init();
         }
 
-        private IEnumerator ChooseCardCoroutine(CoState<string, string> arg)
+        private IEnumerator ChooseCardCoroutine(CoState<States, string> state)
         {
-            yield return new WaitForSeconds(1f);
             yield return new WaitForSeconds(.5f);
             var card = deck.TakeCard();
 
@@ -88,6 +93,8 @@ namespace Game.Bosses.Poker
             yield return Tween.Position(card, positionCardTween).ToYieldInstruction();
 
             card.WithComponent((Card c) => c.Activate());
+            
+            state.fsm.StateCanExit();
         }
 
         private void FixedUpdate()

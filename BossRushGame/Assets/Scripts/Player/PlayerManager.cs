@@ -6,24 +6,21 @@ namespace Game.Player
 {
     public partial class PlayerManager : MonoBehaviour
     {
-        [Header("Player Properties")]
-        public float movementSpeed;
+        [Header("Player Properties")] public float movementSpeed;
 
-        [Range(0, 1)]
-        public float acceleration;
-        [Range(0, 1)]
-        public float deceleration;
-        
+        [Range(0, 1)] public float acceleration;
+        [Range(0, 1)] public float deceleration;
+
         public float rollDuration = .5f;
         public float rollInvulnerabilityDuration = .35f;
         public float rollSpeed = 12;
         public float rollCooldown = 0.5f;
-        [Space]
-        public float damageInvulnerabilityDuration = .4f;
+        [Space] public float damageInvulnerabilityDuration = .4f;
+
+        public float idleWaitTime = 1f;
 
         [Space] public float knockbackDuration = .25f;
-        [Header("References")]
-        public SpriteRenderer playerSprite;
+        [Header("References")] public SpriteRenderer playerSprite;
         public Animator playerAnimations;
         public PlayerHitbox playerHitbox;
         public PlayerGun activeGun;
@@ -36,7 +33,7 @@ namespace Game.Player
         [System.NonSerialized] public bool CanRoll = true;
         [System.NonSerialized] public bool CanRollOverride = true;
         [System.NonSerialized] public float SpeedMultiplier = 1f;
-        
+
 
         private void Awake()
         {
@@ -47,19 +44,20 @@ namespace Game.Player
         private void Start()
         {
             fsm = new StateMachine();
+
             fsm.AddState(
                 "Idle",
                 onEnter: _ => playerAnimations.Play("Idle"),
-                onLogic: state => Rb.linearVelocity -= Rb.linearVelocity * deceleration * SpeedMultiplier
+                onLogic: _ => Rb.linearVelocity -= Rb.linearVelocity * deceleration * SpeedMultiplier
             );
-            fsm.AddState("Move", 
-                onEnter: _ => playerAnimations.Play("Run"), 
+            fsm.AddState("Move",
+                onEnter: _ => playerAnimations.Play("Run"),
                 onLogic: state =>
                 {
                     var moveInput = InputManager.MoveVector;
                     var targetSpeed = moveInput * movementSpeed;
                     var speedDiff = targetSpeed - Rb.linearVelocity;
-    
+
                     Rb.linearVelocity += speedDiff * acceleration * SpeedMultiplier;
                 }
             );
@@ -71,12 +69,12 @@ namespace Game.Player
             fsm.AddState(
                 "Hit",
                 onLogic: _ => Rb.linearVelocity = currentKnockbackVector,
-                canExit: state => state.timer.Elapsed > knockbackDuration, 
+                canExit: state => state.timer.Elapsed > knockbackDuration,
                 needsExitTime: true
             );
             fsm.AddTransition("Hit", "Idle", _ => InputManager.MoveVector.sqrMagnitude <= Mathf.Epsilon);
             fsm.AddTransition("Hit", "Move", _ => InputManager.MoveVector.sqrMagnitude > Mathf.Epsilon);
-            
+
             fsm.AddTwoWayTransition("Idle", "Move", _ => InputManager.MoveVector.sqrMagnitude > Mathf.Epsilon);
 
             fsm.AddTriggerTransitionFromAny("Roll", new TransitionBase("", "Roll", forceInstantly: true));
@@ -117,6 +115,5 @@ namespace Game.Player
         {
             fsm.OnLogic();
         }
-
     }
 }

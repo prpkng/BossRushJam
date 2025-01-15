@@ -147,7 +147,7 @@ namespace Game.Bosses.Snooker
                         })
                 )
             );
-            fsm.AddTransition(ShotBallState, IdleCooldownState);
+            fsm.AddTransition(ShotBallState, ShotBallState);
 
             // FREAK OUT STATE
             fsm.AddState(
@@ -312,7 +312,7 @@ namespace Game.Bosses.Snooker
             Tween.Position(poolStick, _currentBall.position - dir * 1.45f, 0.1f, Ease.Linear);
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
-
+            
             // Reset all balls' linear damping (were set during the last loop)
             foreach (var ball in availableBalls)
                 if (ball)
@@ -332,12 +332,11 @@ namespace Game.Bosses.Snooker
             // Return the stick and hands to the rest position
             
             yield return ReturnHands();
-
+            
             // Wait until all balls are still or the wait time elapsed
             nextStep += shotBallWaitTime;
             yield return new WaitWhile(() =>
-                state.timer.Elapsed < nextStep && _currentBall?.linearVelocity.magnitude > whiteBallStopThreshold);
-
+                state.timer.Elapsed < nextStep);
 
             // During two seconds, start reducing all balls' linear damping
             nextStep += 2f;
