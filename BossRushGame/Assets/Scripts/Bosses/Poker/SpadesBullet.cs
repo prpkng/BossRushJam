@@ -11,6 +11,7 @@ namespace Game.Bosses.Poker
         {
             movement.StartTrajectory(GameManager.Instance.PlayerPosition).GetAwaiter().OnCompleted(() =>
             {
+                if (!this) return;
                 Destroy(gameObject);
             });
         }
