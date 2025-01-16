@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FMODUnity;
 using Game.Systems;
+using Game.Systems.Common;
 using UnityEngine;
 
 namespace Game.Bosses.Snooker
@@ -11,16 +13,17 @@ namespace Game.Bosses.Snooker
         private static readonly List<float> PickedHuesFlat = new();
         private static readonly List<float> PickedHuesLine = new();
         
-        [SerializeField] private bool faceDirection = false;
-        [SerializeField] private float damageSpeedThreshold = 5f;
-        [SerializeField] private int hazardousLayer;
-        [SerializeField] private int safeLayer;
-        [SerializeField] private SpriteRenderer ballSprite;
-        [SerializeField] private Animator ballAnimator;
-        [SerializeField] private RuntimeAnimatorController[] possibleBallAnimations;
+        [SerializeField] private bool faceDirection = true;
         [SerializeField] private float[] possibleHues;
+        [SerializeField] private SpriteRenderer ballSprite;
+        [SerializeField] private float impactForceThreshold = 3f;
+        [SerializeField] private StudioEventEmitter collisionSound;
+        [SerializeField] private HealthBehavior ballHealth;
+        [Header("Ball Animation")]
         [SerializeField] private float ballSpeedMulti = 0.25f;
         [SerializeField] private float ballSpeedPow = 1.1f;
+        [SerializeField] private Animator ballAnimator;
+        [SerializeField] private RuntimeAnimatorController[] possibleBallAnimations;
         private Rigidbody2D _rb;
 
         public float CurrentHue { get; private set; }
@@ -50,8 +53,6 @@ namespace Game.Bosses.Snooker
         {
             ballAnimator.speed = Mathf.Pow(_rb.linearVelocity.magnitude * ballSpeedMulti, ballSpeedPow);
             if (faceDirection) transform.right = _rb.linearVelocity.normalized;
-
-            gameObject.layer = _rb.linearVelocity.magnitude > damageSpeedThreshold ? hazardousLayer : safeLayer;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -60,6 +61,13 @@ namespace Game.Bosses.Snooker
             {
                 Destroy(gameObject);
             }
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.relativeVelocity.magnitude <= impactForceThreshold) return;
+            collisionSound.Play();
+            ballHealth.ApplyDamage(1);
         }
     }
 }
