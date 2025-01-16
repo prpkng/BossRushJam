@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{35876457-6fae-4962-93f7-36de8d7b2df9}">
+	<object class="AudioFile" id="{901047cb-7278-4e55-9424-a1414261deab}">
 		<property name="assetPath">
-			<value>SFX/Gun/Texture/SFX_ShotTexture-002.wav</value>
+			<value>SFX/SFX_BallExplode.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="length">
-			<value>0.21793650793650793</value>
+			<value>0.46138321995464854</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{c620fda0-caf0-4f6a-9b30-678d7c082555}</destination>
