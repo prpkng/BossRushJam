@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
+using FMODUnity;
 using Game.Systems;
 using PrimeTween;
 using UnityEngine.Serialization;
@@ -53,6 +54,10 @@ namespace Game.Bosses.Snooker
         [Header("Visual")] public float poolHandDistance = 3f;
         public float stickHandDistance = 8f;
 
+        [Header("Sound")] 
+        public StudioEventEmitter stompHitSound;
+        public StudioEventEmitter stompPullSound;
+        public StudioEventEmitter poolShotSound;
         [Header("References")] public GameObject ballPrefab;
         public BossHealth health;
         public Rigidbody2D[] availableBalls;
@@ -178,7 +183,6 @@ namespace Game.Bosses.Snooker
 
 
             // POPULATE BALLS STATE
-            // TODO: Improve random ball position select (It can sometimes spawn over other balls or even the player!!)
             fsm.AddState(PopulateBallsState, 
                 new CoState(this, PopulateBallsCoroutine, needsExitTime: true, loop: false)
                 );
@@ -320,6 +324,8 @@ namespace Game.Bosses.Snooker
 
             // Apply velocity to the selected ball
             _currentBall.linearVelocity = dir * shotForce;
+            
+            poolShotSound.Play();
 
             // Apply the knockback tween to the pool stick and hands
             Tween.Position(poolStick, poolStick.position - (Vector3)dir, .5f, Ease.OutCubic);
@@ -390,6 +396,7 @@ namespace Game.Bosses.Snooker
                     .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, .1f, Ease.InSine)
                     .ToYieldInstruction();
                 stompHitbox.transform.position = poolStick.position;
+                stompHitSound.Play();
                 CameraManager.Instance.ShakeCamera(stompCameraShake);
                 stompHitbox.SetActive(true);
                 // Yield 3 frames
@@ -434,21 +441,11 @@ namespace Game.Bosses.Snooker
             leftHandTransform.SetParent(transform);
             rightHandTransform.SetParent(transform);
 
-            var sequence = Sequence.Create(Tween.Rotation(poolStick, Vector3.forward * -90, 1.5f, Ease.OutSine));
-            // Return the stick and hands to the rest position
-            sequence.Group(Tween.Position(poolStick, transform.position + Vector3.right, 1.5f, Ease.OutSine));
-
-            sequence.Group(Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1.5f,
-                Ease.InOutQuad));
-            sequence.Group(Tween.Rotation(rightHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine));
-            sequence.Group(Tween.Position(leftHandTransform, transform.position + Vector3.right * 3, 1.5f,
-                Ease.InOutQuad));
-            sequence.Group(Tween.Rotation(leftHandTransform, Quaternion.identity, 1.5f, Ease.InOutSine));
+            yield return ReturnHands();
 
             rightHand.SetHand(HandType.Idle);
             leftHand.SetHand(HandType.Idle);
 
-            yield return sequence.ToYieldInstruction();
 
             state.fsm.StateCanExit();
         }

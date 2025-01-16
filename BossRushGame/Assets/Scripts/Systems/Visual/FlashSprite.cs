@@ -18,7 +18,11 @@ namespace Game.Systems.Visual
         {
             if (!SpriteRenderer) return;
             SpriteRenderer.material.SetInt(FlashID, 1);
-            Tween.Delay(flashDuration, () => SpriteRenderer.material.SetInt(FlashID, 0));
+            Tween.Delay(this, flashDuration, self =>
+            {
+                if (!self) return;
+                SpriteRenderer.material.SetInt(FlashID, 0);
+            });
         }
     }
 }
