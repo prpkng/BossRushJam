@@ -86,6 +86,7 @@ MonoBehaviour:
   rollSpeed: 24
   rollCooldown: 0.15
   damageInvulnerabilityDuration: 1.25
+  idleWaitTime: 1
   knockbackDuration: 0.1
   playerSprite: {fileID: 7476110915833379268}
   playerAnimations: {fileID: 5012356460373697768}
@@ -379,6 +380,7 @@ GameObject:
   - component: {fileID: 1076880749311777720}
   - component: {fileID: 7610919338681936906}
   - component: {fileID: 2212418656940548027}
+  - component: {fileID: 1439649283285046414}
   m_Layer: 11
   m_Name: Hitbox
   m_TagString: Untagged
@@ -463,23 +465,24 @@ MonoBehaviour:
   playerHealth: {fileID: 6698519441522588061}
   soundAttenuationTween:
     startFromCurrent: 0
-    startValue: 0
+    startValue: 1
     endValue: 0
     settings:
-      duration: 0
-      ease: 0
+      duration: 1
+      ease: 9
       customEase:
         serializedVersion: 2
         m_Curve: []
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      cycles: 0
+      cycles: 1
       cycleMode: 0
       startDelay: 0
       endDelay: 0
       useUnscaledTime: 0
       useFixedUpdate: 0
+  hitSound: {fileID: 1439649283285046414}
   weakHitShake:
     strength: {x: 0, y: 0, z: 0}
     duration: 1
@@ -518,6 +521,37 @@ MonoBehaviour:
     endDelay: 0
     useUnscaledTime: 0
     useFixedUpdate: 0
+--- !u!114 &1439649283285046414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650056742510175277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -384386199
+      Data2: 1085004639
+      Data3: 776571787
+      Data4: 1772860050
+    Path: event:/SFX/Player/SFX_PlayerHit
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &6166868781627353376
 PrefabInstance:
   m_ObjectHideFlags: 0
