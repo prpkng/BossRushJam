@@ -51,8 +51,6 @@ namespace Game
         {
             CurrentActiveModifier?.ApplyAdvantage();
             CurrentActiveModifier?.ApplyDownside();
-            
-            ScreenRenderTexture = GameObject.FindWithTag("RenderTextureImage").transform;
         }
 
         public async void PlayerDeath()
