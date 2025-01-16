@@ -57,6 +57,7 @@ namespace Game
 
         public async void PlayerDeath()
         {
+            Destroy(gameObject);
             DeathScreenController.LastCameraPosition = CameraManager.Instance.transform.position;
             DeathScreenController.LastPlayerPosition = PlayerPosition;
             
