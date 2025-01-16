@@ -62,7 +62,7 @@ namespace Game
             
             await SceneManager.LoadSceneAsync("DeathScreen");
 
-            await UniTask.WaitForSeconds(4);
+            await UniTask.WaitForSeconds(5);
 
             SceneManager.LoadScene("Spin");
         }
