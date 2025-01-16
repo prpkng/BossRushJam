@@ -159,7 +159,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{0f47cb0e-8f92-4df3-9bcb-4555d6527ff6}">
 		<property name="volume">
-			<value>-9</value>
+			<value>-11.5</value>
 		</property>
 		<property name="name">
 			<value>Texture01</value>
@@ -300,7 +300,7 @@
 	</object>
 	<object class="AutomationPoint" id="{17d2efbe-0a2f-48dc-b534-3a8d6bd1d2d2}">
 		<property name="position">
-			<value>0.080000000000000002</value>
+			<value>0.02</value>
 		</property>
 		<property name="value">
 			<value>1</value>
