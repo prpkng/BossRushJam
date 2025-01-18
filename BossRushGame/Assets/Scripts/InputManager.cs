@@ -28,6 +28,8 @@ namespace Game
                 SceneManager.LoadScene("Pool");
             if (Keyboard.current.f7Key.wasPressedThisFrame)
                 SceneManager.LoadScene("Poker");
+            if (Keyboard.current.f8Key.wasPressedThisFrame)
+                SceneManager.LoadScene("Lobby");
         }
 
         public static Vector2 MousePosition

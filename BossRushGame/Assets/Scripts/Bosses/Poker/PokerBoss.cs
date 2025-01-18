@@ -11,7 +11,9 @@ namespace Game.Bosses.Poker
 {
     public class PokerBoss : MonoBehaviour
     {
-        public enum States { ChooseCard, ChooseCardCooldown }
+        public enum States { ChooseCard, ChooseCardCooldown,
+            StartState
+        }
         public DeckHolder deck;
 
         [SerializedDictionary("Card Type", "Sprite")]
@@ -38,14 +40,22 @@ namespace Game.Bosses.Poker
         private List<Vector3> usedCardLocations = new();
         private StateMachine<States> fsm;
         
+        private List<Card.Type> pickedCards = new();
+        
         private void Start()
         {
             fsm = new StateMachine<States>();
+            
+            fsm.AddState(States.StartState);
+            fsm.AddTransition(new TransitionAfter<States>(States.StartState, States.ChooseCard, 1f));
+            
             fsm.AddState(States.ChooseCard, new CoState<States>(this, ChooseCardCoroutine, loop: false, needsExitTime: true));
             fsm.AddTransition(States.ChooseCard, States.ChooseCardCooldown);
             
             fsm.AddState(States.ChooseCardCooldown);
             fsm.AddTransition(new TransitionAfter<States>(States.ChooseCardCooldown, States.ChooseCard, pickCardCooldown));
+            
+            fsm.SetStartState(States.StartState);
             
             fsm.Init();
         }
@@ -58,12 +68,16 @@ namespace Game.Bosses.Poker
             Card.Type type;
             if (overrideCardType == Card.Type.None)
             {
-                var values = System.Enum.GetValues(typeof(Card.Type));
-                type = (Card.Type)values.GetValue(Random.Range(1, values.Length - 1));
+                var values = Enumerable.Range(0, Card.CardCount)
+                    .Select(c => (Card.Type)c)
+                    .Except(pickedCards)
+                    .ToArray();
+                type = values.ChooseRandom();
             }
             else 
                 type = overrideCardType;
 
+            pickedCards.Add(type);
             card.WithComponent<Card>(c => c.SetClass(type, cardSprites[type]));
 
             yield return Tween.Position(card, card.position + card.up * 2f, .35f, Ease.OutCubic).ToYieldInstruction();

@@ -10,21 +10,20 @@ namespace Game.Bosses.Poker
     {
         public List<Transform> cards;
         public Transform cardPrefab;
-        
+
+        public int startCardCount = 4;
         public float defaultRange = 30f;
         public float cardsRangeSum = 5f;
-        
-        [Space]
-        public float cardTweenDuration;
+
+        [Space] public float cardTweenDuration;
         public Ease cardTweenEase;
-        [Space]
-        public float addCardTweenDuration;
+        [Space] public float addCardTweenDuration;
         public Ease addCardTweenEase;
-        
+
 
         private void Start()
         {
-            RecalculateCardsPosition();
+            AddCard(startCardCount);
         }
 
         private void RecalculateCardsPosition()
@@ -32,7 +31,7 @@ namespace Game.Bosses.Poker
             float range = defaultRange + cardsRangeSum * cards.Count;
             for (int i = 0; i < cards.Count; i++)
             {
-                float a = Mathf.Deg2Rad * (Mathf.Lerp(-range, range, i / (cards.Count - 1f)) + 90f);
+                float a = Mathf.Deg2Rad * (Mathf.Lerp(-range, range, (i + .5f) / cards.Count) + 90f);
                 var dir = new Vector3(Mathf.Cos(a), Mathf.Sin(a), 0);
                 Tween.LocalPosition(
                     cards[i],
@@ -44,18 +43,22 @@ namespace Game.Bosses.Poker
             }
         }
 
-        public void AddCard()
+        public void AddCard(int count = 0)
         {
-            var card = Instantiate(cardPrefab, transform);
-            
-            float range = defaultRange + cardsRangeSum * cards.Count;
-            float a = Mathf.Deg2Rad * (-range + 90f);
-            var dir = new Vector3(Mathf.Cos(a), Mathf.Sin(a), 0);
-            card.localPosition = dir * 4 + Vector3.down * 4f;
+            for (int i = 0; i < count; i++)
+            {
+                var card = Instantiate(cardPrefab, transform);
 
-            Tween.Scale(card, Vector3.zero, Vector3.one, addCardTweenDuration, addCardTweenEase);
-            
-            cards.Insert(0, card);
+                float range = defaultRange + cardsRangeSum * cards.Count;
+                float a = Mathf.Deg2Rad * (-range + 90f);
+                var dir = new Vector3(Mathf.Cos(a), Mathf.Sin(a), 0);
+                card.localPosition = dir * 4 + Vector3.down * 4f;
+
+                Tween.Scale(card, Vector3.zero, Vector3.one, addCardTweenDuration, addCardTweenEase);
+
+                cards.Insert(0, card);
+            }
+
             RecalculateCardsPosition();
         }
 
@@ -63,13 +66,14 @@ namespace Game.Bosses.Poker
         {
             var card = cards.First();
             card.parent = null;
+            Tween.StopAll(card.transform);
             card.transform.position -= Vector3.forward * 10f;
             card.WithComponent<Card>(c => c.enabled = true);
             cards.RemoveAt(0);
             RecalculateCardsPosition();
             return card;
         }
-        
+
         public void RemoveCard()
         {
             var card = TakeCard();

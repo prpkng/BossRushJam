@@ -15,6 +15,8 @@ namespace Game.Bosses.Poker
             ClubsAce,
             DiamondsAce,
         }
+
+        public const int CardCount = 4;
         
         public float cameraWeight = 1;
         public Transform spriteTransform;

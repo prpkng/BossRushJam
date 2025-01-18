@@ -1255,11 +1255,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1178339938
-      Data2: 1190725645
-      Data3: -776867162
-      Data4: -1220437021
-    Path: event:/MUS/MUS_Boss02
+      Data1: 1465519335
+      Data2: 1324698245
+      Data3: 935233215
+      Data4: 618793812
+    Path: event:/MUS/MUS_Gameplay
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 12
