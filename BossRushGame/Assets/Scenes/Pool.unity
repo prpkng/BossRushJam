@@ -1255,11 +1255,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1465519335
-      Data2: 1324698245
-      Data3: 935233215
-      Data4: 618793812
-    Path: event:/MUS/MUS_Gameplay
+      Data1: -1178339938
+      Data2: 1190725645
+      Data3: -776867162
+      Data4: -1220437021
+    Path: event:/MUS/MUS_Boss02
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 12
@@ -1276,6 +1276,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
   m_PrefabInstance: {fileID: 6847132131701263847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1747960194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 527443938548100427, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+  m_PrefabInstance: {fileID: 6847132131701263847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1747960195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747960194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 368587903
+      Data2: 1128122782
+      Data3: 1727149459
+      Data4: 683538775
+    Path: event:/SFX/Player/SFX_Footsteps
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1808225528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,7 +2063,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 527443938548100427, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1747960195}
   m_SourcePrefab: {fileID: 100100000, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
 --- !u!1001 &6895901554292110501
 PrefabInstance:
