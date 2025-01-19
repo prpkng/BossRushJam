@@ -36,7 +36,7 @@ namespace Game.Bosses.Poker
             cardClass = @class;
         }
 
-        public void Activate()
+        public void Activate(PokerBoss boss)
         {
             print("Card Activated");
             switch (cardClass)
@@ -46,6 +46,10 @@ namespace Game.Bosses.Poker
                     break;
                 case Type.SpadesAce:
                     gameObject.AddComponent<CardAttackSpades>();
+                    break;
+                case Type.HeartsAce:
+                    boss.bossHealth.AddHealth(boss.heartsHealthRecover);
+                    Destroy(gameObject);
                     break;
                 default:
                     break;

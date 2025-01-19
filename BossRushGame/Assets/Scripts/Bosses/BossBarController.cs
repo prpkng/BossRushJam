@@ -16,7 +16,6 @@ namespace Game.Bosses
 
         public void SetHealthPercentage(float percentage)
         {
-            print($"HealthPercentage: {percentage}");
             bar.style.right = new StyleLength(Length.Percent(100f - percentage));
         }
     }

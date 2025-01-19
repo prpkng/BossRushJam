@@ -133,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3288324
+      value: 3.119342
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -99.94288
+      value: -99.79441
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalRotation.w
@@ -255,11 +255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 871471212557376644, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3288324
+      value: 3.119342
       objectReference: {fileID: 0}
     - target: {fileID: 871471212557376644, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -99.94288
+      value: -99.79441
       objectReference: {fileID: 0}
     - target: {fileID: 871471212557376644, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: m_LocalRotation.w
@@ -502,6 +502,18 @@ PrefabInstance:
     - target: {fileID: 1409317391862399993, guid: 9895357cf50aea348be399fd9aea5baf, type: 3}
       propertyPath: m_TagString
       value: RenderTextureImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781690864409295169, guid: 9895357cf50aea348be399fd9aea5baf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781690864409295169, guid: 9895357cf50aea348be399fd9aea5baf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781690864409295169, guid: 9895357cf50aea348be399fd9aea5baf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 6396166283811334799, guid: 9895357cf50aea348be399fd9aea5baf, type: 3}
       propertyPath: m_Pivot.x
@@ -1483,7 +1495,7 @@ Transform:
   m_GameObject: {fileID: 1156134151}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6888321, z: 0.057119567}
+  m_LocalPosition: {x: 0, y: 2.4793417, z: 0.2055928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1506,7 +1518,7 @@ MonoBehaviour:
   UpdateMethod: 1
   Targets:
   - Object: {fileID: 1970873843}
-    Weight: 0.25
+    Weight: 1
     Radius: 6
   - Object: {fileID: 1106370047}
     Weight: 2.5
@@ -1603,6 +1615,8 @@ MonoBehaviour:
       Value: {fileID: -7296714189530781681, guid: 95f05d45deaab234abae935024e2e722, type: 3}
     - Key: 2
       Value: {fileID: 5022257917207342745, guid: 95f05d45deaab234abae935024e2e722, type: 3}
+  bossHealth: {fileID: 1584713478}
+  heartsHealthRecover: 15
   pickCardTween:
     startFromCurrent: 0
     startValue: {x: 0, y: 0, z: 0}
@@ -1660,15 +1674,6 @@ MonoBehaviour:
       endDelay: 0
       useUnscaledTime: 0
       useFixedUpdate: 0
-  pickedCardLocation: {fileID: 1731348499}
-  possibleCardLocations:
-  - {fileID: 818507478}
-  - {fileID: 2133349370}
-  - {fileID: 607339888}
-  - {fileID: 69393288}
-  - {fileID: 1719588708}
-  - {fileID: 1767264979}
-  - {fileID: 1494165460}
   positionCardTween:
     startFromCurrent: 0
     startValue: {x: 0, y: 0, z: 0}
@@ -1688,6 +1693,15 @@ MonoBehaviour:
       endDelay: 0
       useUnscaledTime: 0
       useFixedUpdate: 0
+  pickedCardLocation: {fileID: 1731348499}
+  possibleCardLocations:
+  - {fileID: 818507478}
+  - {fileID: 2133349370}
+  - {fileID: 607339888}
+  - {fileID: 69393288}
+  - {fileID: 1719588708}
+  - {fileID: 1767264979}
+  - {fileID: 1494165460}
   pickCardCooldown: 1
   overrideCardType: -1
 --- !u!58 &1584713476
@@ -2109,7 +2123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards: []
   cardPrefab: {fileID: 3239751743489427745, guid: b28b0691706d8c84583a1bf54075906c, type: 3}
-  startCardCount: 4
+  startCardCount: 7
   defaultRange: 0
   cardsRangeSum: 5
   cardTweenDuration: 0.5

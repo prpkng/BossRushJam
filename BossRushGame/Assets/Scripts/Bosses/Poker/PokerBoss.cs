@@ -25,14 +25,17 @@ namespace Game.Bosses.Poker
             {Card.Type.DiamondsAce, null},
         };
         
+        public BossHealth bossHealth;
+        public float heartsHealthRecover = 20f;
+        
         [Header("PickCard")]
         public TweenSettings<Vector3> pickCardTween;
         public TweenSettings<Vector3> pickCardRotationTween;
         public TweenSettings<Vector3> revealCardTween;
+        public TweenSettings<Vector3> positionCardTween;
         public Transform pickedCardLocation;
         public Transform[] possibleCardLocations;
 
-        public TweenSettings<Vector3> positionCardTween;
         public float pickCardCooldown = 4f;
 
         [Header("Editor")] public Card.Type overrideCardType;
@@ -64,6 +67,8 @@ namespace Game.Bosses.Poker
         {
             yield return new WaitForSeconds(.5f);
             var card = deck.TakeCard();
+            
+            if (pickedCards.Count >= 4) pickedCards.Clear();
 
             Card.Type type;
             if (overrideCardType == Card.Type.None)
@@ -106,7 +111,7 @@ namespace Game.Bosses.Poker
 
             yield return Tween.Position(card, positionCardTween).ToYieldInstruction();
 
-            card.WithComponent((Card c) => c.Activate());
+            card.WithComponent((Card c) => c.Activate(this));
             
             state.fsm.StateCanExit();
         }

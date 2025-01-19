@@ -25,14 +25,29 @@ namespace Game.Systems.Common
             if (destroyOnDeath) Destroy(gameObject);
         }
 
+
+        public virtual void AddHealth(float amount)
+        {
+            if (!enabled) return;
+            if ((currentHealth + amount) > totalHealth)
+            {
+                currentHealth = totalHealth;
+                OnHealthChanged?.Invoke(currentHealth + amount);
+                return;
+            }
+            OnHealthChanged?.Invoke(currentHealth + amount);
+
+            currentHealth += amount;
+        }
+
         public virtual void ApplyDamage(float damage)
         {
             if (!enabled) return;
+            OnHealthChanged?.Invoke(currentHealth - damage * damageMultiplier);
+
             currentHealth -= damage * damageMultiplier;
             if (currentHealth <= 0)
                 OnDeath();
-
-            OnHealthChanged?.Invoke(currentHealth);
         }
     }
 }
