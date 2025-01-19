@@ -7,7 +7,7 @@ namespace Game.Player
 {
     public class PlayerHealth : HealthBehavior
     {
-        public override void OnDeath()
+        protected override void OnDeath()
         {
             base.OnDeath();
             GameManager.Instance.PlayerDeath();

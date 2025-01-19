@@ -1755,6 +1755,7 @@ MonoBehaviour:
   totalHealth: 150
   damageMultiplier: 1
   currentHealth: 0
+  destroyOnDeath: 0
   onThreeQuartersHealth:
     m_PersistentCalls:
       m_Calls: []

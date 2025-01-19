@@ -7,19 +7,17 @@ using UnityEngine.Serialization;
 
 namespace Game.Systems.Visual
 {
-    public class HealthStages : MonoBehaviour
+    public class MaskStages : MonoBehaviour
     {
-        [FormerlySerializedAs("ballSprite")] public SpriteRenderer objectSprite;
         public HealthBehavior health;
         public List<Sprite> stageSprites;
-        public new SpriteRenderer renderer;
+        public SpriteMask mask;
         public StudioEventEmitter soundEmitter;
         
         private int lastIndex = 0;
         private void Start()
         {
             health.OnHealthChanged += SetSprite;
-            renderer.material = objectSprite.material;
         }
 
         
@@ -30,7 +28,7 @@ namespace Game.Systems.Visual
                 soundEmitter.Play();
             lastIndex = i;
             i = Mathf.Min(i, stageSprites.Count - 1);
-            renderer.sprite = stageSprites[i];
+            mask.sprite = stageSprites[i];
         }
     }
 }

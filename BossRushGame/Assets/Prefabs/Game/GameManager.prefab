@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d947c3304518ee7489c315d401379364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 1
+  _dontDestroyOnLoad: 0
   ScreenRenderTexture: {fileID: 0}
   bossUIControllerPrefab: {fileID: 2222027122261420121, guid: e1cde3172a65e4643b1a2dda8be1a2f2, type: 3}
 --- !u!114 &3724685730139210145

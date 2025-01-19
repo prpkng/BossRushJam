@@ -1,5 +1,6 @@
 using System;
 using Game.Player;
+using Game.Systems.Common;
 using UnityEngine;
 
 namespace Game.Bosses.Poker
@@ -19,6 +20,7 @@ namespace Game.Bosses.Poker
         public const int CardCount = 4;
         
         public float cameraWeight = 1;
+        public HealthBehavior health;
         public Transform spriteTransform;
         public SpriteRenderer frontSprite;
         public float moveRotationForce;
@@ -48,6 +50,8 @@ namespace Game.Bosses.Poker
                 default:
                     break;
             }
+
+            health.enabled = true;
         }
 
         private void FixedUpdate()

@@ -8,8 +8,8 @@ namespace Game.Bosses.Snooker
     public class SnookerBallHealth : HealthBehavior
     {
         public BallDeathParticles deathParticles;
-      
-        public override void OnDeath()
+
+        protected override void OnDeath()
         {
             deathParticles.Play();
             Destroy(gameObject);
