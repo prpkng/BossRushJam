@@ -94,6 +94,7 @@ namespace Game.Bosses.Snooker
                     new State(
                         onEnter: _ =>
                         {
+                            BossMusicController.Instance.SetKidding();
                             CameraManager.Instance.FocusUp();
                             health.Defense = vulnerableDefense;
                         },
@@ -310,6 +311,7 @@ namespace Game.Bosses.Snooker
             Tween.ShakeLocalPosition(leftHandTransform, Vector3.one * .15f, .35f, 25f);
 
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
+            BossMusicController.Instance.SetAggressive();
 
             // Push the stick
             nextStep += 0.1f;
@@ -337,6 +339,7 @@ namespace Game.Bosses.Snooker
 
             // Return the stick and hands to the rest position
             
+            BossMusicController.Instance.SetKidding();
             yield return ReturnHands();
             
             // Wait until all balls are still or the wait time elapsed
@@ -422,6 +425,8 @@ namespace Game.Bosses.Snooker
 
         private IEnumerator StompPlayerCoroutine(CoState<string, string> state)
         {
+            BossMusicController.Instance.SetAggressive();
+            
             leftHand.SetHand(HandType.HoldingStomp);
             rightHand.SetHand(HandType.HoldingStomp);
             rightHand.SetOrder(5);

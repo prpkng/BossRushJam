@@ -25,6 +25,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{c8d54762-107e-46be-9a3b-2a9146b7a336}" />
 	<object class="ThreeEQEffect" id="{0d3c55bb-d87d-4fe3-80a0-c3a55ac03cce}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<relationship name="automators">
 			<destination>{9275be55-d039-4764-b015-b2d03bad7cd7}</destination>
 			<destination>{8ee5e726-3f2c-4133-a7e2-2f2c2f3da76e}</destination>
