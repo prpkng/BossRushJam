@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_GUID: 2276f8cef96d23e4891009e20c50b0cf
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 567ed74789ac50e4bbcdf64a59d3b515
+    m_Address: Prefabs/ClubsBullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 46b47be2d546d8047a6e2c213e8394af, type: 2}
   m_SchemaSet:

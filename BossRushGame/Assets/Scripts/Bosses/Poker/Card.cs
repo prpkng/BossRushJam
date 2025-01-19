@@ -51,6 +51,9 @@ namespace Game.Bosses.Poker
                     boss.bossHealth.AddHealth(boss.heartsHealthRecover);
                     Destroy(gameObject);
                     break;
+                case Type.ClubsAce:
+                    gameObject.AddComponent<ClubsWallAttack>();
+                    break;
                 default:
                     break;
             }
