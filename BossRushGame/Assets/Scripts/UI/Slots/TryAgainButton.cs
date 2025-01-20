@@ -1,4 +1,5 @@
 using System;
+using Game.Systems.Saving;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ namespace Game.UI.Slots
         public void OnClick()
         {
             GameManager.CurrentActiveModifier = SlotButton.CurrentSelectedSlot.CurrentModifier;
+            SaveManager.SetCurrentModifierType(SlotButton.CurrentSelectedSlot.CurrentModifier.GetType());
             SceneManager.LoadScene("Lobby");
         }
 
