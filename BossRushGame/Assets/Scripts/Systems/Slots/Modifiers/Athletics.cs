@@ -15,12 +15,12 @@ namespace BRJ.Systems.Slots.Modifiers
 
         public override void ApplyAdvantage()
         {
-            WorldManager.Instance.Player.rollDuration *= 1.5f;
+            Game.Instance.World.Player.rollDuration *= 1.5f;
         }
 
         public override void ApplyDownside()
         {
-            WorldManager.Instance.Player.rollCooldown *= 2f;
+            Game.Instance.World.Player.rollCooldown *= 2f;
         }
     }
 }

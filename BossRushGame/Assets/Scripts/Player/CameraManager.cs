@@ -6,6 +6,7 @@ using Tween = PrimeTween.Tween;
 
 namespace BRJ.Player
 {
+    using BRJ.Systems;
 
     public class CameraManager : Singleton<CameraManager>
     {
@@ -38,10 +39,10 @@ namespace BRJ.Player
 
             _scaleTween.Stop();
             _scaleTween = Tween.Custom(
-                WorldManager.Instance.RenderTextureZoom,
+                Game.Instance.World.RenderTextureZoom,
                 zoomOutZoom,
                 zoomDuration,
-                f => WorldManager.Instance.RenderTextureZoom = f
+                f => Game.Instance.World.RenderTextureZoom = f
             );
         }
         public void ResetFocus()
@@ -54,10 +55,10 @@ namespace BRJ.Player
             
             _scaleTween.Stop();
             _scaleTween = Tween.Custom(
-                WorldManager.Instance.RenderTextureZoom,
+                Game.Instance.World.RenderTextureZoom,
                 defaultZoom,
                 zoomDuration,
-                f => WorldManager.Instance.RenderTextureZoom = f
+                f => Game.Instance.World.RenderTextureZoom = f
             );
         }
 

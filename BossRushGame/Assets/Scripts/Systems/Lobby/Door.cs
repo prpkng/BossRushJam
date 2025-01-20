@@ -34,7 +34,9 @@ namespace BRJ.Systems.Lobby {
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (other.CompareTag("Player")) {
-                LobbyController.Instance.LoadBoss(doorDestination);
+                GameObject.FindWithTag("LobbyController")
+                          .GetComponent<LobbyController>()
+                          .LoadBoss(doorDestination);
             }
         }
     }

@@ -19,7 +19,8 @@ namespace BRJ.Systems
 
             await Tween.Position(cameraTransform, LastCameraPosition, LastPlayerPosition + Vector3.up * 1.5f - Vector3.forward*100f, lerpCameraTween);
             await UniTask.Delay(TimeSpan.FromSeconds(1));
-            Tween.Position(cameraTransform, cameraTransform.position + Vector3.down * 12f, lerpCameraTween);
+            
+            await Tween.Position(cameraTransform, cameraTransform.position + Vector3.down * 12f, lerpCameraTween);
         }
     }
 }

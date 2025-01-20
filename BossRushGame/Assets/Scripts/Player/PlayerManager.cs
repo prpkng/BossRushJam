@@ -38,7 +38,7 @@ namespace BRJ.Player
         private void Awake()
         {
             Rb = GetComponent<Rigidbody2D>();
-            WorldManager.Instance.Player = this;
+            Game.Instance.World.Player = this;
         }
 
         // TODO: FIX PLAYER INPUT NOT WORKING WHEN TRANSITIONING FROM LOBBY SCENE

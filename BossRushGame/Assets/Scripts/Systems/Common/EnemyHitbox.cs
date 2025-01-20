@@ -10,7 +10,7 @@ namespace BRJ.Systems.Common
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            health.ApplyDamage(WorldManager.Instance.Player.activeGun.bulletDamage);
+            health.ApplyDamage(Game.Instance.World.Player.activeGun.bulletDamage);
             Destroy(other.gameObject);
             if (flash) flash.Flash();
         }

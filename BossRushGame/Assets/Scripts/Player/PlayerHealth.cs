@@ -10,7 +10,7 @@ namespace BRJ.Player
         protected override void OnDeath()
         {
             base.OnDeath();
-            WorldManager.Instance.PlayerDeath();
+            Game.Instance.World.PlayerDeath();
         }
     }
 }

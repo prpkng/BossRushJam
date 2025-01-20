@@ -1,4 +1,5 @@
 using System;
+using BRJ.Systems;
 using FMODUnity;
 using PrimeTween;
 using TMPro;
@@ -21,7 +22,7 @@ namespace BRJ.Player
             if (playerHealth.currentHealth <= 0) return;
             print($"kbv: {knockbackVector}");
             hitSound.Play();
-            WorldManager.Instance.Player.OnDamage(knockbackVector ?? Vector2.zero);
+            Game.Instance.World.Player.OnDamage(knockbackVector ?? Vector2.zero);
             CameraManager.Instance.ShakeCamera(strong ? strongHitShake : weakHitShake);
 
             Tween.Custom(soundAttenuationTween, f =>

@@ -12,7 +12,7 @@ namespace BRJ
     using UnityEngine;
     using UnityEngine.UI;
 
-    public class WorldManager : Singleton<WorldManager>
+    public class WorldManager : MonoBehaviour
     {
         public static Modifier CurrentActiveModifier;
         public static int CurrentLevelId { get; set; } = 1;

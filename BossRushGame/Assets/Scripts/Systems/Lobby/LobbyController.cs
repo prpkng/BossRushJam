@@ -1,13 +1,14 @@
 using System;
 using AYellowpaper.SerializedCollections;
 using BRJ;
+using BRJ.Systems;
 using BRJ.Systems.Saving;
 using BRJ.Systems.Slots.Modifiers;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LobbyController : Singleton<LobbyController>
+public class LobbyController : MonoBehaviour
 {
     private string playerLastEnteredBoss = null;
     public Vector3 playerDoorSpawnOffset = Vector3.down * 4;
@@ -28,7 +29,7 @@ public class LobbyController : Singleton<LobbyController>
         {
             if (doors.ContainsKey(playerLastEnteredBoss))
             {
-                WorldManager.Instance.Player.transform.position =
+                Game.Instance.World.Player.transform.position =
                     doors[playerLastEnteredBoss].transform.position + playerDoorSpawnOffset;
             }
         }

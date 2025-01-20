@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3614059698957180703}
   - component: {fileID: 7724400231489068225}
-  - component: {fileID: 3724685730139210145}
   m_Layer: 0
   m_Name: WorldManager
   m_TagString: Untagged
@@ -45,18 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d947c3304518ee7489c315d401379364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 0
   ScreenRenderTexture: {fileID: 0}
   bossUIControllerPrefab: {fileID: 2222027122261420121, guid: e1cde3172a65e4643b1a2dda8be1a2f2, type: 3}
---- !u!114 &3724685730139210145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558625179160946890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55938fb1577dd4ad3af7e994048c86f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
