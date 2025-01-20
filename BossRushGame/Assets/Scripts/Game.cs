@@ -22,6 +22,7 @@ namespace BRJ
         public void SetPaused(bool paused) {
             Time.timeScale = paused ? 0 : 1;
             Paused = paused;
+            Sound.SetGlobalParameter(SoundManager.PauseAttenuationParam, paused ? 1 : 0);
         }
 
         public void SetCamera(CameraManager camera) {
