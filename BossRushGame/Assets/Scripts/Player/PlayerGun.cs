@@ -1,10 +1,10 @@
 using System.Collections;
-using Game.Systems;
-using Game.Systems.Common;
+using BRJ.Systems;
+using BRJ.Systems.Common;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Player
+namespace BRJ.Player
 {
     public class PlayerGun : GunBehavior
     {

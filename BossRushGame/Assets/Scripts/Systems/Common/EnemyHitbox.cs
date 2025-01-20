@@ -1,7 +1,7 @@
-using Game.Systems.Visual;
+using BRJ.Systems.Visual;
 using UnityEngine;
 
-namespace Game.Systems.Common
+namespace BRJ.Systems.Common
 {
     public class EnemyHitbox : MonoBehaviour
     {

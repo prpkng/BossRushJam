@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Systems.Slots;
+using BRJ.Systems.Slots;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Game.UI.Slots
+namespace BRJ.UI.Slots
 {
     public class SlotsScreenController : MonoBehaviour
     {

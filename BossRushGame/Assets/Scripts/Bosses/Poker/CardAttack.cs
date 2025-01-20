@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     public abstract class CardAttack : MonoBehaviour
     {

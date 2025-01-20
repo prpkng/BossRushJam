@@ -1,8 +1,8 @@
 using System;
 using AYellowpaper.SerializedCollections;
-using Game;
-using Game.Systems.Saving;
-using Game.Systems.Slots.Modifiers;
+using BRJ;
+using BRJ.Systems.Saving;
+using BRJ.Systems.Slots.Modifiers;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.SceneManagement;

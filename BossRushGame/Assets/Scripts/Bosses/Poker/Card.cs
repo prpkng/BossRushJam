@@ -1,9 +1,9 @@
 using System;
-using Game.Player;
-using Game.Systems.Common;
+using BRJ.Player;
+using BRJ.Systems.Common;
 using UnityEngine;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     
     public class Card : MonoBehaviour

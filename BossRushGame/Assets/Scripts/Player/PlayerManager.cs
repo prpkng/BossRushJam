@@ -1,8 +1,8 @@
-using Game.Systems;
+using BRJ.Systems;
 using UnityEngine;
 using UnityHFSM;
 
-namespace Game.Player
+namespace BRJ.Player
 {
     public partial class PlayerManager : MonoBehaviour
     {
@@ -57,8 +57,6 @@ namespace Game.Player
                 onLogic: state =>
                 {
                     var moveInput = InputManager.MoveVector;
-                    print("Move state running");
-                    print($"Move input: {moveInput}");
                     var targetSpeed = moveInput * movementSpeed;
                     var speedDiff = targetSpeed - Rb.linearVelocity;
 
@@ -118,7 +116,6 @@ namespace Game.Player
         private void FixedUpdate()
         {
             fsm.OnLogic();
-            print(InputManager.MoveVector);
         }
     }
 }

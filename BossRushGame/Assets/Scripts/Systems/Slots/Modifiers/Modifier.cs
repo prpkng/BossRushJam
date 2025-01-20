@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-namespace Game.Systems.Slots.Modifiers
+namespace BRJ.Systems.Slots.Modifiers
 {
     public abstract class Modifier
     {

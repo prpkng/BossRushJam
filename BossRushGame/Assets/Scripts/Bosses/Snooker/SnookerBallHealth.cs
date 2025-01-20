@@ -1,9 +1,9 @@
-using Game.Systems;
-using Game.Systems.Common;
+using BRJ.Systems;
+using BRJ.Systems.Common;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     public class SnookerBallHealth : HealthBehavior
     {

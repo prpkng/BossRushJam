@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
-using Game.Systems;
+using BRJ.Systems;
 using PrimeTween;
 using UnityEngine;
 using UnityHFSM;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     public class PokerBoss : MonoBehaviour
     {

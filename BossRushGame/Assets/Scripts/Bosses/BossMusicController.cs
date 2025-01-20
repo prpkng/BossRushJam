@@ -1,4 +1,4 @@
-namespace Game.Bosses {
+namespace BRJ.Bosses {
     using Pixelplacement;
 
     public class BossMusicController : Singleton<BossMusicController> {

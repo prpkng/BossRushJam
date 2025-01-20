@@ -1,9 +1,9 @@
 using System;
-using Game.Systems.Slots.Modifiers;
+using BRJ.Systems.Slots.Modifiers;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Game.Systems.Slots
+namespace BRJ.Systems.Slots
 {
     public class SlotElement : MonoBehaviour
     {

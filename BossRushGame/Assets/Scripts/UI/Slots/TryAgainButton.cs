@@ -1,10 +1,10 @@
 using System;
-using Game.Systems.Saving;
+using BRJ.Systems.Saving;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Game.UI.Slots
+namespace BRJ.UI.Slots
 {
     public class TryAgainButton : MonoBehaviour
     {

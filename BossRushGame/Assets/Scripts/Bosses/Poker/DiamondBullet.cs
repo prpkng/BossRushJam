@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     public class DiamondBullet : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-namespace Game.Systems.Slots.Modifiers
+namespace BRJ.Systems.Slots.Modifiers
 {
     [ModifierChance(10)]
     public class StickyBoots : Modifier

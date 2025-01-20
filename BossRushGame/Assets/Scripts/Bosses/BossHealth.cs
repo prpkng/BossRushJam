@@ -1,9 +1,9 @@
-using Game.Systems.Common;
+using BRJ.Systems.Common;
 using UnityEngine.Events;
 
-namespace Game.Bosses
+namespace BRJ.Bosses
 {
-    using Game.Systems;
+    using BRJ.Systems;
     using UnityEngine;
 
     public class BossHealth : HealthBehavior

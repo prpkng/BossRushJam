@@ -1,9 +1,9 @@
-using Game.Player;
-using Game.Systems;
+using BRJ.Player;
+using BRJ.Systems;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     public class BallDeathParticles : MonoBehaviour
     {

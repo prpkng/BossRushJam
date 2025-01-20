@@ -1,10 +1,10 @@
-using Game.Systems;
-using Game.Systems.Common;
-using Game.Systems.Visual;
+using BRJ.Systems;
+using BRJ.Systems.Common;
+using BRJ.Systems.Visual;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     public class SnookerBallHitbox : MonoBehaviour
     {

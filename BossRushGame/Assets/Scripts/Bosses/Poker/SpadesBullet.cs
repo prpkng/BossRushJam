@@ -1,8 +1,8 @@
 using System;
-using Game.Systems;
+using BRJ.Systems;
 using UnityEngine;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     public class SpadesBullet : MonoBehaviour
     {

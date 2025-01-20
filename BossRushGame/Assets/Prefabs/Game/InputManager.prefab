@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7246739840240901764}
-  - component: {fileID: 4248500746510696359}
   - component: {fileID: 6271999610817936414}
   - component: {fileID: 788874691674604670}
   m_Layer: 0
-  m_Name: Input Manager
+  m_Name: InputManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,18 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4248500746510696359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375758678926878562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55938fb1577dd4ad3af7e994048c86f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6271999610817936414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54975e44c2e55494ca1839f96601053a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 1
   playerInputComponent: {fileID: 788874691674604670}
 --- !u!114 &788874691674604670
 MonoBehaviour:

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Game.Systems.Saving
+namespace BRJ.Systems.Saving
 {
     public static class SaveManager
     {

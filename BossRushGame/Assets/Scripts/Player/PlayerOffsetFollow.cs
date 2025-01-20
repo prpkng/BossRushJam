@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Player
+namespace BRJ.Player
 {
     public class PlayerOffsetFollow : MonoBehaviour
     {

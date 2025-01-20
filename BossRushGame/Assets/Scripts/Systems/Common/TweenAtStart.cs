@@ -2,7 +2,7 @@ using System;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Systems.Common
+namespace BRJ.Systems.Common
 {
     public class TweenAtStart : MonoBehaviour
     {

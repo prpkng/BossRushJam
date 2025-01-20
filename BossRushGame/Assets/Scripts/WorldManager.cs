@@ -1,13 +1,13 @@
 using System;
 using Cysharp.Threading.Tasks;
-using Game.Systems.Slots.Modifiers;
+using BRJ.Systems.Slots.Modifiers;
 using UnityEngine.SceneManagement;
 
-namespace Game
+namespace BRJ
 {
-    using Game.Bosses;
-    using Game.Player;
-    using Game.Systems;
+    using BRJ.Bosses;
+    using BRJ.Player;
+    using BRJ.Systems;
     using Pixelplacement;
     using UnityEngine;
     using UnityEngine.UI;

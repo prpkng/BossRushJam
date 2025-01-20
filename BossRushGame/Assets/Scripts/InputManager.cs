@@ -1,14 +1,17 @@
 using System;
-using Game.Player;
+using System.Threading.Tasks;
+using BRJ.Player;
+using BRJ.Systems;
+using Cysharp.Threading.Tasks;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-namespace Game
+namespace BRJ
 {
-    public class InputManager : Singleton<InputManager>
+    public class InputManager : MonoBehaviour
     {
         [SerializeField] private PlayerInput playerInputComponent;
 
@@ -21,15 +24,23 @@ namespace Game
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             playerInputComponent.onActionTriggered -= OnActionTriggered;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
-        private void OnSceneLoaded(Scene _, LoadSceneMode mode) {
+        private async void OnSceneLoaded(Scene _, LoadSceneMode mode)
+        {
             if (mode != LoadSceneMode.Single)
                 return;
             mainCamera = Camera.main;
+
+            
+            // Reload player input component
+            playerInputComponent.enabled = false;
+            await UniTask.NextFrame();
+            playerInputComponent.enabled = true;
         }
 
         private void Update()
@@ -50,7 +61,7 @@ namespace Game
             {
                 Vector2 viewportPos = Mouse.current.position.ReadValue() /
                          new Vector2(Screen.width, Screen.height);
-                float scale = WorldManager.Instance.ScreenRenderTexture.localScale.x;
+                float scale = Game.Instance.World.ScreenRenderTexture.localScale.x;
                 var range = new Vector2(0.5f - 0.5f / scale, 0.5f + 0.5f / scale);
                 viewportPos = new Vector2(
                     Mathf.Lerp(range.x, range.y, viewportPos.x),

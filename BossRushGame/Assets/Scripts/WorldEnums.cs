@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Game.Levels
+namespace BRJ.Levels
 {
     /// <summary>
     /// LDtk Enum for WorldEnums

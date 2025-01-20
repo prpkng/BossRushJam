@@ -2,11 +2,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using FMODUnity;
-using Game.Systems;
+using BRJ.Systems;
 using PrimeTween;
 using UnityEngine.Serialization;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     using System.Collections;
     using Player;

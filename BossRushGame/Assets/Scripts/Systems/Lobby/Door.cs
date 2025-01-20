@@ -1,6 +1,5 @@
-namespace Game.Systems.Lobby {
+namespace BRJ.Systems.Lobby {
     using System.Linq;
-    using Game.Levels;
     using LDtkUnity;
     using UnityEngine;
     using UnityEngine.SceneManagement;

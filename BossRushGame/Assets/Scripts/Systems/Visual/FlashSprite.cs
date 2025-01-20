@@ -3,7 +3,7 @@ using PrimeTween;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Game.Systems.Visual
+namespace BRJ.Systems.Visual
 {
     public class FlashSprite : MonoBehaviour
     {

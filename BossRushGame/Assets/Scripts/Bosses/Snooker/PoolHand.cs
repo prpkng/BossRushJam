@@ -1,9 +1,9 @@
 using System;
-using Game.Systems.Visual;
+using BRJ.Systems.Visual;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     public enum HandType
     {

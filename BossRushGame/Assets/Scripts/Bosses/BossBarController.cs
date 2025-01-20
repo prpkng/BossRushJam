@@ -1,4 +1,4 @@
-namespace Game.Bosses
+namespace BRJ.Bosses
 {
     using UnityEngine;
     using UnityEngine.UIElements;

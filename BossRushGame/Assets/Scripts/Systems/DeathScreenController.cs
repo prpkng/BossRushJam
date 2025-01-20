@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Systems
+namespace BRJ.Systems
 {
     public class DeathScreenController : MonoBehaviour
     {

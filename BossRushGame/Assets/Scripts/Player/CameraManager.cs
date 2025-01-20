@@ -4,7 +4,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using Tween = PrimeTween.Tween;
 
-namespace Game.Player
+namespace BRJ.Player
 {
 
     public class CameraManager : Singleton<CameraManager>

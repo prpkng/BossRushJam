@@ -1,10 +1,10 @@
-using Game.Systems.Common;
-using Game.Systems.Visual;
+using BRJ.Systems.Common;
+using BRJ.Systems.Visual;
 using PrimeTween;
 
-namespace Game.Bosses
+namespace BRJ.Bosses
 {
-    using Game.Systems;
+    using BRJ.Systems;
     using UnityEngine;
 
     public class BossHitbox : MonoBehaviour
