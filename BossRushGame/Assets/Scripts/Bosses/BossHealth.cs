@@ -20,7 +20,7 @@ namespace Game.Bosses
 
         private void Awake()
         {
-            GameManager.Instance.CreateBossBar();
+            WorldManager.Instance.CreateBossBar();
         }
         
         public override void ApplyDamage(float damage)
@@ -28,7 +28,7 @@ namespace Game.Bosses
             var healthBefore = currentHealth;
             base.ApplyDamage(damage);
 
-            GameManager.Instance.BossBarController.With(b =>
+            WorldManager.Instance.BossBarController.With(b =>
             {
                 b.SetHealthPercentage(currentHealth / totalHealth * 100f);
             });

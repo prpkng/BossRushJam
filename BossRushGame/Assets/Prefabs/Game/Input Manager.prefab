@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54975e44c2e55494ca1839f96601053a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 0
+  _dontDestroyOnLoad: 1
   playerInputComponent: {fileID: 788874691674604670}
 --- !u!114 &788874691674604670
 MonoBehaviour:

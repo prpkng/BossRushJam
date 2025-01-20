@@ -1,4 +1,4 @@
-/// <summary>
+﻿/// <summary>
 /// SURGE FRAMEWORK
 /// Author: Bob Berkebile
 /// Email: bobb@pixelplacement.com
@@ -36,15 +36,6 @@ namespace Pixelplacement
         //Private Variables:
         [SerializeField] bool _dontDestroyOnLoad = false;
         static T _instance;
-
-
-#if UNITY_EDITOR
-        // Fix don't destroy on load not initializing object with domain reload disabled 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
-        private static void DeregisterSingleton() {
-            _instance = default;
-        }
-#endif
 
         //Virtual Methods:
         /// <summary>

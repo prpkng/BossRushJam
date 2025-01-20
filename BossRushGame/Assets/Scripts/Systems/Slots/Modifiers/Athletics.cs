@@ -15,12 +15,12 @@ namespace Game.Systems.Slots.Modifiers
 
         public override void ApplyAdvantage()
         {
-            GameManager.Instance.Player.rollDuration *= 1.5f;
+            WorldManager.Instance.Player.rollDuration *= 1.5f;
         }
 
         public override void ApplyDownside()
         {
-            GameManager.Instance.Player.rollCooldown *= 2f;
+            WorldManager.Instance.Player.rollCooldown *= 2f;
         }
     }
 }

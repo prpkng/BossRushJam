@@ -38,7 +38,7 @@ namespace Game.Player
         private void Awake()
         {
             Rb = GetComponent<Rigidbody2D>();
-            GameManager.Instance.Player = this;
+            WorldManager.Instance.Player = this;
         }
 
         // TODO: FIX PLAYER INPUT NOT WORKING WHEN TRANSITIONING FROM LOBBY SCENE
@@ -57,6 +57,8 @@ namespace Game.Player
                 onLogic: state =>
                 {
                     var moveInput = InputManager.MoveVector;
+                    print("Move state running");
+                    print($"Move input: {moveInput}");
                     var targetSpeed = moveInput * movementSpeed;
                     var speedDiff = targetSpeed - Rb.linearVelocity;
 
@@ -116,6 +118,7 @@ namespace Game.Player
         private void FixedUpdate()
         {
             fsm.OnLogic();
+            print(InputManager.MoveVector);
         }
     }
 }

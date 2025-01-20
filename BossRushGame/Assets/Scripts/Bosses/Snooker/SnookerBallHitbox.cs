@@ -18,7 +18,7 @@ namespace Game.Bosses.Snooker
         private Tween _shotShake;
         private void OnTriggerEnter2D(Collider2D other)
         {
-            health.ApplyDamage(GameManager.Instance.Player.activeGun.bulletDamage);
+            health.ApplyDamage(WorldManager.Instance.Player.activeGun.bulletDamage);
             rb.AddForceAtPosition(other.attachedRigidbody.linearVelocity.normalized * knockbackForce, other.transform.position, ForceMode2D.Impulse);
             
             _shotShake.Complete();

@@ -38,10 +38,10 @@ namespace Game.Player
 
             _scaleTween.Stop();
             _scaleTween = Tween.Custom(
-                GameManager.Instance.RenderTextureZoom,
+                WorldManager.Instance.RenderTextureZoom,
                 zoomOutZoom,
                 zoomDuration,
-                f => GameManager.Instance.RenderTextureZoom = f
+                f => WorldManager.Instance.RenderTextureZoom = f
             );
         }
         public void ResetFocus()
@@ -54,10 +54,10 @@ namespace Game.Player
             
             _scaleTween.Stop();
             _scaleTween = Tween.Custom(
-                GameManager.Instance.RenderTextureZoom,
+                WorldManager.Instance.RenderTextureZoom,
                 defaultZoom,
                 zoomDuration,
-                f => GameManager.Instance.RenderTextureZoom = f
+                f => WorldManager.Instance.RenderTextureZoom = f
             );
         }
 

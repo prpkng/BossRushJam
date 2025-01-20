@@ -12,7 +12,7 @@ namespace Game
     using UnityEngine;
     using UnityEngine.UI;
 
-    public class GameManager : Singleton<GameManager>
+    public class WorldManager : Singleton<WorldManager>
     {
         public static Modifier CurrentActiveModifier;
         public static int CurrentLevelId { get; set; } = 1;

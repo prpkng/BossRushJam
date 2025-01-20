@@ -64,9 +64,9 @@ namespace Game.Player
 
             spriteRenderer.flipY = lookDirection.x < 0;
 
-            _temp = GameManager.Instance.Player.playerSprite.transform.localScale;
+            _temp = WorldManager.Instance.Player.playerSprite.transform.localScale;
             _temp.x = lookDirection.x < 0 ? -1 : 1;
-            GameManager.Instance.Player.playerSprite.transform.localScale = _temp;
+            WorldManager.Instance.Player.playerSprite.transform.localScale = _temp;
 
 
             _fireRateCounter -= Time.deltaTime;
@@ -105,12 +105,12 @@ namespace Game.Player
             _fireRateCounter = 1f / fireRate;
             if (bulletRecoil > .1f)
             {
-                GameManager.Instance.Player.Rb.linearVelocity = -direction * bulletRecoil;
+                WorldManager.Instance.Player.Rb.linearVelocity = -direction * bulletRecoil;
                 playerRecoilTween = Tween.Custom(
                     0f,
                     1f,
                     .25f,
-                    f => GameManager.Instance.Player.SpeedMultiplier = f,
+                    f => WorldManager.Instance.Player.SpeedMultiplier = f,
                     Ease.OutCubic
                 );
             }

@@ -10,7 +10,7 @@ namespace Game.Systems.Common
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            health.ApplyDamage(GameManager.Instance.Player.activeGun.bulletDamage);
+            health.ApplyDamage(WorldManager.Instance.Player.activeGun.bulletDamage);
             Destroy(other.gameObject);
             if (flash) flash.Flash();
         }

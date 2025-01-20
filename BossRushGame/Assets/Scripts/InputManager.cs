@@ -14,10 +14,22 @@ namespace Game
 
         private static Camera mainCamera;
 
-        private void Awake()
+        private void OnEnable()
         {
             mainCamera = Camera.main;
             playerInputComponent.onActionTriggered += OnActionTriggered;
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable() {
+            playerInputComponent.onActionTriggered -= OnActionTriggered;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene _, LoadSceneMode mode) {
+            if (mode != LoadSceneMode.Single)
+                return;
+            mainCamera = Camera.main;
         }
 
         private void Update()
@@ -38,7 +50,7 @@ namespace Game
             {
                 Vector2 viewportPos = Mouse.current.position.ReadValue() /
                          new Vector2(Screen.width, Screen.height);
-                float scale = GameManager.Instance.ScreenRenderTexture.localScale.x;
+                float scale = WorldManager.Instance.ScreenRenderTexture.localScale.x;
                 var range = new Vector2(0.5f - 0.5f / scale, 0.5f + 0.5f / scale);
                 viewportPos = new Vector2(
                     Mathf.Lerp(range.x, range.y, viewportPos.x),

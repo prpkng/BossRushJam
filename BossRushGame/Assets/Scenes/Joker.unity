@@ -192,10 +192,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Input Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 788874691674604670, guid: ab20a578599b21e45ab0d4381d1328be, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 2127753339}
     - target: {fileID: 7246739840240901764, guid: ab20a578599b21e45ab0d4381d1328be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2167,11 +2163,6 @@ Transform:
   - {fileID: 1731348499}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &2127753339 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 7487836083093872292, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
-  m_PrefabInstance: {fileID: 23482847}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2133349369
 GameObject:
   m_ObjectHideFlags: 0

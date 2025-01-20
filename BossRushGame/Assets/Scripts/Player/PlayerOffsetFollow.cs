@@ -10,7 +10,7 @@ namespace Game.Player
 
         private void FixedUpdate()
         {
-            transform.position = GameManager.PlayerPosition * offsetMultiplier;
+            transform.position = WorldManager.PlayerPosition * offsetMultiplier;
         }
     }
 }

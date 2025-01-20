@@ -21,7 +21,7 @@ namespace Game.Bosses.Poker
         private void Update()
         {
             if (!FaceDirection) return;
-            Vector2 dir = GameManager.Instance.Player.transform.position - transform.position;
+            Vector2 dir = WorldManager.Instance.Player.transform.position - transform.position;
             dir.Normalize();
             float a = Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Lerp(

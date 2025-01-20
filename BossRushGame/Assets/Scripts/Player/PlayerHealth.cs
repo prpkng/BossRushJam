@@ -10,7 +10,7 @@ namespace Game.Player
         protected override void OnDeath()
         {
             base.OnDeath();
-            GameManager.Instance.PlayerDeath();
+            WorldManager.Instance.PlayerDeath();
         }
     }
 }

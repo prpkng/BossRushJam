@@ -14,12 +14,12 @@ namespace Game.Systems.Slots.Modifiers
         
         public override void ApplyAdvantage()
         {
-            GameManager.Instance.Player.activeGun.bulletDamage *= 1.15f;
+            WorldManager.Instance.Player.activeGun.bulletDamage *= 1.15f;
         }
 
         public override void ApplyDownside()
         {
-            GameManager.Instance.Player.activeGun.bulletRecoil = 10f;
+            WorldManager.Instance.Player.activeGun.bulletRecoil = 10f;
         }
     }
 }

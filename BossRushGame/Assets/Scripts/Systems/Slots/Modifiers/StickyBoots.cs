@@ -13,12 +13,12 @@ namespace Game.Systems.Slots.Modifiers
         
         public override void ApplyAdvantage()
         {
-            GameManager.Instance.Player.movementSpeed *= 1.45f;
+            WorldManager.Instance.Player.movementSpeed *= 1.45f;
         }
 
         public override void ApplyDownside()
         {
-            GameManager.Instance.Player.CanRollOverride = false;
+            WorldManager.Instance.Player.CanRollOverride = false;
         }
     }
 }

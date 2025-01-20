@@ -21,7 +21,7 @@ namespace Game.Player
             if (playerHealth.currentHealth <= 0) return;
             print($"kbv: {knockbackVector}");
             hitSound.Play();
-            GameManager.Instance.Player.OnDamage(knockbackVector ?? Vector2.zero);
+            WorldManager.Instance.Player.OnDamage(knockbackVector ?? Vector2.zero);
             CameraManager.Instance.ShakeCamera(strong ? strongHitShake : weakHitShake);
 
             Tween.Custom(soundAttenuationTween, f =>

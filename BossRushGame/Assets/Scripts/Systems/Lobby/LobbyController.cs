@@ -28,7 +28,7 @@ public class LobbyController : Singleton<LobbyController>
         {
             if (doors.ContainsKey(playerLastEnteredBoss))
             {
-                GameManager.Instance.Player.transform.position =
+                WorldManager.Instance.Player.transform.position =
                     doors[playerLastEnteredBoss].transform.position + playerDoorSpawnOffset;
             }
         }
@@ -36,8 +36,8 @@ public class LobbyController : Singleton<LobbyController>
         var currentModifierType = SaveManager.GetCurrentModifierType();
         if (currentModifierType != null)
         {
-            GameManager.CurrentActiveModifier = (Modifier)Activator.CreateInstance(currentModifierType);
-            print("Current modifier type: " + GameManager.CurrentActiveModifier.GetType());
+            WorldManager.CurrentActiveModifier = (Modifier)Activator.CreateInstance(currentModifierType);
+            print("Current modifier type: " + WorldManager.CurrentActiveModifier.GetType());
         }
     }
 

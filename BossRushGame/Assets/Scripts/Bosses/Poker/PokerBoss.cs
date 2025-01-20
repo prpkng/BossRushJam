@@ -120,7 +120,7 @@ namespace Game.Bosses.Poker
         {
             fsm.OnLogic();
             
-            Vector2 dir = (GameManager.PlayerPosition - transform.position);
+            Vector2 dir = (WorldManager.PlayerPosition - transform.position);
             dir.Normalize();
             deck.transform.localPosition = Vector3.Lerp(
                 deck.transform.localPosition,

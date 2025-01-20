@@ -252,7 +252,7 @@ namespace Game.Bosses.Snooker
         {
             health.Defense = vulnerableDefense;
             float nextStep = 0;
-            var player = GameManager.Instance.Player.transform;
+            var player = WorldManager.Instance.Player.transform;
 
             Vector2 dir = player.position - _currentBall.transform.position;
             dir.Normalize();
@@ -433,7 +433,7 @@ namespace Game.Bosses.Snooker
             leftHand.SetOrder(5);
             leftHandTransform.right = Vector3.left;
             rightHandTransform.right = Vector3.left;
-            var playerTransform = GameManager.Instance.Player.transform;
+            var playerTransform = WorldManager.Instance.Player.transform;
             poolStickShadow.gameObject.SetActive(true);
             for (int i = 0; i < 3; i++)
             {
