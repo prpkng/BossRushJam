@@ -1312,6 +1312,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1184609591}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1184609591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,13 +1339,13 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1086929726
-      Data2: 1152295832
-      Data3: -1152804207
-      Data4: -2131986322
-    Path: event:/SFX/UI/SFX_UIHover
+      Data1: 889598653
+      Data2: 1335157539
+      Data3: 61776512
+      Data4: -778402142
+    Path: event:/SFX/SFX_SlotMachine
   Event: 
-  EventPlayTrigger: 13
+  EventPlayTrigger: 0
   EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -2421,9 +2433,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0021961932
+    x: 0
     y: 0
-    width: 0.9956076
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
