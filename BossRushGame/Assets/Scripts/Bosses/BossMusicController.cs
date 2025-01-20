@@ -1,9 +1,15 @@
 namespace BRJ.Bosses {
+    using BRJ.Systems;
     using Pixelplacement;
+    using UnityEngine;
 
-    public class BossMusicController : Singleton<BossMusicController> {
+    public class BossMusicController : MonoBehaviour {
 
         public FMODUnity.StudioEventEmitter eventEmitter;
+
+        private void Awake() {
+            Game.Instance.Sound.BossMusic = new Maybe<BossMusicController>(this);
+        }
 
         // Salvar como uma constante pra evitar typos
         private const string AggressiveParam = "AgressiveAct";

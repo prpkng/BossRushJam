@@ -1,5 +1,6 @@
 using System;
 using BRJ.Player;
+using BRJ.Systems;
 using BRJ.Systems.Common;
 using UnityEngine;
 
@@ -78,12 +79,12 @@ namespace BRJ.Bosses.Poker
 
         private void OnEnable()
         {
-            CameraManager.Instance.AddTarget(transform, cameraWeight);
+            Game.Instance.Camera.AddTarget(transform, cameraWeight);
         }
 
         private void OnDisable()
         {
-            CameraManager.Instance.RemoveTarget(transform);
+            Game.Instance.Camera.RemoveTarget(transform);
         }
     }
 }

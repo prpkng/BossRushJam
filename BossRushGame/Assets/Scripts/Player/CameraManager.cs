@@ -8,7 +8,7 @@ namespace BRJ.Player
 {
     using BRJ.Systems;
 
-    public class CameraManager : Singleton<CameraManager>
+    public class CameraManager : MonoBehaviour
     {
         public static Vector2 currentScreenOffset;
 
@@ -28,6 +28,10 @@ namespace BRJ.Player
 
         [Header("Default Shakes")] public ShakeSettings defaultWeakShake;
         
+        private void Awake() {
+            Game.Instance.SetCamera(this);
+        }
+
         private Tween _scaleTween;
         public void FocusUp()
         {

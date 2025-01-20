@@ -23,7 +23,7 @@ namespace BRJ.Player
             print($"kbv: {knockbackVector}");
             hitSound.Play();
             Game.Instance.World.Player.OnDamage(knockbackVector ?? Vector2.zero);
-            CameraManager.Instance.ShakeCamera(strong ? strongHitShake : weakHitShake);
+            Game.Instance.Camera.ShakeCamera(strong ? strongHitShake : weakHitShake);
 
             Tween.Custom(soundAttenuationTween, f =>
             {

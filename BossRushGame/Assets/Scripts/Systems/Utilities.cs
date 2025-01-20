@@ -22,9 +22,14 @@ namespace BRJ.Systems
     }
     public struct Maybe<T> where T : class
     {
-        private T Value { get; set; }
+        public T Value { get; private set; }
 
         public Maybe(T value)
+        {
+            Value = value;
+        }
+
+        public void Set(T value)
         {
             Value = value;
         }

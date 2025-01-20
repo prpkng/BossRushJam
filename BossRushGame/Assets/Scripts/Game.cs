@@ -1,5 +1,6 @@
-namespace BRJ.Systems
+namespace BRJ
 {
+    using BRJ.Player;
     using LDtkUnity;
     using UnityEngine;
 
@@ -14,6 +15,12 @@ namespace BRJ.Systems
 
         public WorldManager World { get; private set; }
         public InputManager Input { get; private set; }
+        public SoundManager Sound { get; private set; }
+        public CameraManager Camera { get; private set; }
+
+        public void SetCamera(CameraManager camera) {
+            Camera = camera;
+        }
 
         private void Awake()
         {

@@ -15,7 +15,7 @@ namespace BRJ.Bosses.Snooker
         public Ease ease = Ease.OutCubic;
         public void Play()
         {
-            CameraManager.Instance.ShakeCamera(CameraManager.Instance.defaultWeakShake);
+            Game.Instance.Camera.ShakeCamera(Game.Instance.Camera.defaultWeakShake);
             gameObject.SetActive(true);
             transform.parent = null;
             foreach (var spriteRenderer in sprites)
