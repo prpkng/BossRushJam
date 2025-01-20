@@ -911,394 +911,26 @@ MonoBehaviour:
       - rid: 8699871916283658561
       - rid: 8699871910205326205
       - rid: 8699871916283658562
+      - rid: 8699871916586172416
+      - rid: 8699871916586172417
+      - rid: 8699871916586172418
+      - rid: 8699871916586172419
+      - rid: 8699871916586172420
+      - rid: 8699871916586172421
+      - rid: 8699871916586172422
+      - rid: 8699871916586172423
+      - rid: 8699871916586172424
+      - rid: 8699871916586172425
+      - rid: 8699871916586172426
+      - rid: 8699871916586172427
+      - rid: 8699871916586172428
+      - rid: 8699871916586172429
+      - rid: 8699871916586172430
+      - rid: 8699871916586172431
+      - rid: 8699871916586172432
+      - rid: 8699871916586172433
     m_RuntimeSettings:
-      m_List:
-      - rid: 7752762179098771456
-      - rid: 7752762179098771457
-      - rid: 7752762179098771459
-      - rid: 7752762179098771461
-      - rid: 7752762179098771462
-      - rid: 7752762179098771464
-      - rid: 7752762179098771466
-      - rid: 7752762179098771468
-      - rid: 7752762179098771472
-      - rid: 7752762179098771476
-      - rid: 8699871893849899008
-      - rid: 8699871893849899009
-      - rid: 8699871893849899011
-      - rid: 8699871893849899013
-      - rid: 8699871893849899014
-      - rid: 8699871893849899017
-      - rid: 8699871893849899021
-      - rid: 8699871893849899024
-      - rid: 8699871893849899111
-      - rid: 8699871893849899112
-      - rid: 8699871893849899114
-      - rid: 8699871893849899116
-      - rid: 8699871893849899117
-      - rid: 8699871893849899120
-      - rid: 8699871893849899124
-      - rid: 8699871893849899127
-      - rid: 8699871893849899131
-      - rid: 8699871893849899132
-      - rid: 8699871893849899134
-      - rid: 8699871893849899136
-      - rid: 8699871893849899137
-      - rid: 8699871893849899140
-      - rid: 8699871893849899144
-      - rid: 8699871893849899147
-      - rid: 8699871893849899150
-      - rid: 8699871893849899151
-      - rid: 8699871893849899153
-      - rid: 8699871893849899155
-      - rid: 8699871893849899156
-      - rid: 8699871893849899159
-      - rid: 8699871893849899163
-      - rid: 8699871893849899166
-      - rid: 8699871893849899172
-      - rid: 8699871893849899173
-      - rid: 8699871893849899175
-      - rid: 8699871893849899177
-      - rid: 8699871893849899178
-      - rid: 8699871893849899181
-      - rid: 8699871893849899185
-      - rid: 8699871893849899188
-      - rid: 8699871893849899191
-      - rid: 8699871893849899192
-      - rid: 8699871893849899194
-      - rid: 8699871893849899196
-      - rid: 8699871893849899197
-      - rid: 8699871893849899200
-      - rid: 8699871893849899204
-      - rid: 8699871893849899207
-      - rid: 8699871893849899210
-      - rid: 8699871893849899211
-      - rid: 8699871893849899213
-      - rid: 8699871893849899215
-      - rid: 8699871893849899216
-      - rid: 8699871893849899219
-      - rid: 8699871893849899223
-      - rid: 8699871893849899226
-      - rid: 8699871893849899229
-      - rid: 8699871893849899230
-      - rid: 8699871893849899232
-      - rid: 8699871893849899234
-      - rid: 8699871893849899235
-      - rid: 8699871893849899238
-      - rid: 8699871893849899242
-      - rid: 8699871893849899245
-      - rid: 8699871893849899248
-      - rid: 8699871893849899249
-      - rid: 8699871893849899251
-      - rid: 8699871893849899253
-      - rid: 8699871893849899254
-      - rid: 8699871893849899257
-      - rid: 8699871893849899261
-      - rid: 8699871893849899264
-      - rid: 8699871893849899267
-      - rid: 8699871893849899268
-      - rid: 8699871893849899270
-      - rid: 8699871893849899272
-      - rid: 8699871893849899273
-      - rid: 8699871893849899276
-      - rid: 8699871893849899280
-      - rid: 8699871893849899283
-      - rid: 8699871893849899286
-      - rid: 8699871893849899287
-      - rid: 8699871893849899289
-      - rid: 8699871893849899291
-      - rid: 8699871893849899292
-      - rid: 8699871893849899295
-      - rid: 8699871893849899299
-      - rid: 8699871893849899302
-      - rid: 8699871893849899305
-      - rid: 8699871893849899306
-      - rid: 8699871893849899308
-      - rid: 8699871893849899310
-      - rid: 8699871893849899311
-      - rid: 8699871893849899314
-      - rid: 8699871893849899318
-      - rid: 8699871893849899321
-      - rid: 8699871893849899324
-      - rid: 8699871893849899325
-      - rid: 8699871893849899327
-      - rid: 8699871893849899329
-      - rid: 8699871893849899330
-      - rid: 8699871893849899333
-      - rid: 8699871893849899337
-      - rid: 8699871893849899340
-      - rid: 8699871893849899343
-      - rid: 8699871893849899344
-      - rid: 8699871893849899346
-      - rid: 8699871893849899348
-      - rid: 8699871893849899349
-      - rid: 8699871893849899352
-      - rid: 8699871893849899356
-      - rid: 8699871893849899359
-      - rid: 8699871893849899362
-      - rid: 8699871893849899363
-      - rid: 8699871893849899365
-      - rid: 8699871893849899367
-      - rid: 8699871893849899368
-      - rid: 8699871893849899371
-      - rid: 8699871893849899375
-      - rid: 8699871893849899378
-      - rid: 8699871893849899381
-      - rid: 8699871893849899382
-      - rid: 8699871893849899384
-      - rid: 8699871893849899386
-      - rid: 8699871893849899387
-      - rid: 8699871893849899390
-      - rid: 8699871893849899394
-      - rid: 8699871893849899397
-      - rid: 8699871893849899400
-      - rid: 8699871893849899401
-      - rid: 8699871893849899403
-      - rid: 8699871893849899405
-      - rid: 8699871893849899406
-      - rid: 8699871893849899409
-      - rid: 8699871893849899413
-      - rid: 8699871893849899416
-      - rid: 8699871893849899419
-      - rid: 8699871893849899420
-      - rid: 8699871893849899422
-      - rid: 8699871893849899424
-      - rid: 8699871893849899425
-      - rid: 8699871893849899428
-      - rid: 8699871893849899432
-      - rid: 8699871893849899435
-      - rid: 8699871893849899441
-      - rid: 8699871893849899442
-      - rid: 8699871893849899444
-      - rid: 8699871893849899446
-      - rid: 8699871893849899447
-      - rid: 8699871893849899450
-      - rid: 8699871893849899454
-      - rid: 8699871893849899457
-      - rid: 8699871893849899460
-      - rid: 8699871893849899461
-      - rid: 8699871893849899463
-      - rid: 8699871893849899465
-      - rid: 8699871893849899466
-      - rid: 8699871893849899469
-      - rid: 8699871893849899473
-      - rid: 8699871893849899476
-      - rid: 8699871893849899479
-      - rid: 8699871893849899480
-      - rid: 8699871893849899482
-      - rid: 8699871893849899484
-      - rid: 8699871893849899485
-      - rid: 8699871893849899488
-      - rid: 8699871893849899492
-      - rid: 8699871893849899495
-      - rid: 8699871893849899498
-      - rid: 8699871893849899499
-      - rid: 8699871893849899501
-      - rid: 8699871893849899503
-      - rid: 8699871893849899504
-      - rid: 8699871893849899507
-      - rid: 8699871893849899511
-      - rid: 8699871893849899514
-      - rid: 8699871893849899517
-      - rid: 8699871893849899518
-      - rid: 8699871893849899520
-      - rid: 8699871893849899522
-      - rid: 8699871893849899523
-      - rid: 8699871893849899526
-      - rid: 8699871893849899530
-      - rid: 8699871893849899533
-      - rid: 8699871893849899539
-      - rid: 8699871893849899540
-      - rid: 8699871893849899542
-      - rid: 8699871893849899544
-      - rid: 8699871893849899545
-      - rid: 8699871893849899548
-      - rid: 8699871893849899552
-      - rid: 8699871893849899555
-      - rid: 8699871893849899557
-      - rid: 8699871893849899558
-      - rid: 8699871893849899560
-      - rid: 8699871893849899562
-      - rid: 8699871893849899563
-      - rid: 8699871893849899566
-      - rid: 8699871893849899570
-      - rid: 8699871893849899573
-      - rid: 8699871893849899579
-      - rid: 8699871893849899580
-      - rid: 8699871893849899582
-      - rid: 8699871893849899584
-      - rid: 8699871893849899585
-      - rid: 8699871893849899588
-      - rid: 8699871893849899592
-      - rid: 8699871893849899595
-      - rid: 8699871893849899598
-      - rid: 8699871893849899599
-      - rid: 8699871893849899601
-      - rid: 8699871893849899603
-      - rid: 8699871893849899604
-      - rid: 8699871893849899607
-      - rid: 8699871893849899611
-      - rid: 8699871893849899614
-      - rid: 8699871893849899621
-      - rid: 8699871893849899622
-      - rid: 8699871893849899624
-      - rid: 8699871893849899626
-      - rid: 8699871893849899627
-      - rid: 8699871893849899630
-      - rid: 8699871893849899634
-      - rid: 8699871893849899637
-      - rid: 8699871893849899640
-      - rid: 8699871893849899641
-      - rid: 8699871893849899643
-      - rid: 8699871893849899645
-      - rid: 8699871893849899646
-      - rid: 8699871893849899649
-      - rid: 8699871893849899653
-      - rid: 8699871893849899656
-      - rid: 8699871893849899659
-      - rid: 8699871893849899660
-      - rid: 8699871893849899662
-      - rid: 8699871893849899664
-      - rid: 8699871893849899665
-      - rid: 8699871893849899668
-      - rid: 8699871893849899672
-      - rid: 8699871893849899675
-      - rid: 8699871893849899678
-      - rid: 8699871893849899679
-      - rid: 8699871893849899681
-      - rid: 8699871893849899683
-      - rid: 8699871893849899684
-      - rid: 8699871893849899687
-      - rid: 8699871893849899691
-      - rid: 8699871893849899694
-      - rid: 8699871910205325312
-      - rid: 8699871910205325313
-      - rid: 8699871910205325315
-      - rid: 8699871910205325317
-      - rid: 8699871910205325318
-      - rid: 8699871910205325321
-      - rid: 8699871910205325325
-      - rid: 8699871910205325328
-      - rid: 8699871910205325415
-      - rid: 8699871910205325416
-      - rid: 8699871910205325418
-      - rid: 8699871910205325420
-      - rid: 8699871910205325421
-      - rid: 8699871910205325424
-      - rid: 8699871910205325428
-      - rid: 8699871910205325431
-      - rid: 8699871910205325434
-      - rid: 8699871910205325435
-      - rid: 8699871910205325437
-      - rid: 8699871910205325439
-      - rid: 8699871910205325440
-      - rid: 8699871910205325443
-      - rid: 8699871910205325447
-      - rid: 8699871910205325450
-      - rid: 8699871910205325453
-      - rid: 8699871910205325454
-      - rid: 8699871910205325456
-      - rid: 8699871910205325458
-      - rid: 8699871910205325459
-      - rid: 8699871910205325462
-      - rid: 8699871910205325466
-      - rid: 8699871910205325469
-      - rid: 8699871910205325473
-      - rid: 8699871910205325474
-      - rid: 8699871910205325476
-      - rid: 8699871910205325478
-      - rid: 8699871910205325479
-      - rid: 8699871910205325482
-      - rid: 8699871910205325486
-      - rid: 8699871910205325489
-      - rid: 8699871910205325492
-      - rid: 8699871910205325493
-      - rid: 8699871910205325495
-      - rid: 8699871910205325497
-      - rid: 8699871910205325498
-      - rid: 8699871910205325501
-      - rid: 8699871910205325505
-      - rid: 8699871910205325508
-      - rid: 8699871910205325511
-      - rid: 8699871910205325512
-      - rid: 8699871910205325514
-      - rid: 8699871910205325516
-      - rid: 8699871910205325517
-      - rid: 8699871910205325520
-      - rid: 8699871910205325524
-      - rid: 8699871910205325527
-      - rid: 8699871910205325530
-      - rid: 8699871910205325531
-      - rid: 8699871910205325533
-      - rid: 8699871910205325535
-      - rid: 8699871910205325536
-      - rid: 8699871910205325539
-      - rid: 8699871910205325543
-      - rid: 8699871910205325546
-      - rid: 8699871910205325550
-      - rid: 8699871910205325551
-      - rid: 8699871910205325553
-      - rid: 8699871910205325555
-      - rid: 8699871910205325556
-      - rid: 8699871910205325559
-      - rid: 8699871910205325563
-      - rid: 8699871910205325566
-      - rid: 8699871910205325569
-      - rid: 8699871910205325570
-      - rid: 8699871910205325572
-      - rid: 8699871910205325574
-      - rid: 8699871910205325575
-      - rid: 8699871910205325578
-      - rid: 8699871910205325582
-      - rid: 8699871910205325585
-      - rid: 8699871910205326070
-      - rid: 8699871910205326071
-      - rid: 8699871910205326073
-      - rid: 8699871910205326075
-      - rid: 8699871910205326076
-      - rid: 8699871910205326079
-      - rid: 8699871910205326083
-      - rid: 8699871910205326086
-      - rid: 8699871910205326110
-      - rid: 8699871910205326111
-      - rid: 8699871910205326113
-      - rid: 8699871910205326115
-      - rid: 8699871910205326116
-      - rid: 8699871910205326119
-      - rid: 8699871910205326123
-      - rid: 8699871910205326126
-      - rid: 8699871910205326132
-      - rid: 8699871910205326133
-      - rid: 8699871910205326135
-      - rid: 8699871910205326137
-      - rid: 8699871910205326138
-      - rid: 8699871910205326141
-      - rid: 8699871910205326145
-      - rid: 8699871910205326148
-      - rid: 8699871910205326151
-      - rid: 8699871910205326152
-      - rid: 8699871910205326154
-      - rid: 8699871910205326156
-      - rid: 8699871910205326157
-      - rid: 8699871910205326160
-      - rid: 8699871910205326164
-      - rid: 8699871910205326167
-      - rid: 8699871910205326170
-      - rid: 8699871910205326171
-      - rid: 8699871910205326173
-      - rid: 8699871910205326175
-      - rid: 8699871910205326176
-      - rid: 8699871910205326179
-      - rid: 8699871910205326183
-      - rid: 8699871910205326186
-      - rid: 8699871910205326189
-      - rid: 8699871910205326190
-      - rid: 8699871910205326192
-      - rid: 8699871910205326194
-      - rid: 8699871910205326195
-      - rid: 8699871910205326198
-      - rid: 8699871910205326202
-      - rid: 8699871910205326205
+      m_List: []
   m_AssetVersion: 8
   m_ObsoleteDefaultVolumeProfile: {fileID: 0}
   m_RenderingLayerNames:
@@ -7880,6 +7512,140 @@ MonoBehaviour:
         m_Version: 1
         m_ProbeVolumeDisableStreamingAssets: 0
     - rid: 8699871916283658562
+      type: {class: STP/RuntimeResources, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_setupCS: {fileID: 7200000, guid: 33be2e9a5506b2843bdb2bdff9cad5e1, type: 3}
+        m_preTaaCS: {fileID: 7200000, guid: a679dba8ec4d9ce45884a270b0e22dda, type: 3}
+        m_taaCS: {fileID: 7200000, guid: 3923900e2b41b5e47bc25bfdcbcdc9e6, type: 3}
+    - rid: 8699871916586172416
+      type: {class: UniversalRenderPipelineRuntimeShaders, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_FallbackErrorShader: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+        m_BlitHDROverlay: {fileID: 4800000, guid: a89bee29cffa951418fc1e2da94d1959, type: 3}
+        m_CoreBlitPS: {fileID: 4800000, guid: 93446b5c5339d4f00b85c159e1159b7c, type: 3}
+        m_CoreBlitColorAndDepthPS: {fileID: 4800000, guid: d104b2fc1ca6445babb8e90b0758136b, type: 3}
+        m_SamplingPS: {fileID: 4800000, guid: 04c410c9937594faa893a11dceb85f7e, type: 3}
+    - rid: 8699871916586172417
+      type: {class: URPDefaultVolumeProfileSettings, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_VolumeProfile: {fileID: 0}
+    - rid: 8699871916586172418
+      type: {class: UniversalRenderPipelineEditorMaterials, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_DefaultMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+        m_DefaultParticleMaterial: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+        m_DefaultLineMaterial: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+        m_DefaultTerrainMaterial: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
+        m_DefaultDecalMaterial: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
+        m_DefaultSpriteMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - rid: 8699871916586172419
+      type: {class: UniversalRenderPipelineRuntimeXRResources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_xrOcclusionMeshPS: {fileID: 4800000, guid: 4431b1f1f743fbf4eb310a967890cbea, type: 3}
+        m_xrMirrorViewPS: {fileID: 4800000, guid: d5a307c014552314b9f560906d708772, type: 3}
+        m_xrMotionVector: {fileID: 4800000, guid: f89aac1e4f84468418fe30e611dff395, type: 3}
+    - rid: 8699871916586172420
+      type: {class: URPShaderStrippingSetting, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_StripUnusedPostProcessingVariants: 0
+        m_StripUnusedVariants: 1
+        m_StripScreenCoordOverrideVariants: 1
+    - rid: 8699871916586172421
+      type: {class: UniversalRenderPipelineDebugShaders, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_DebugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
+        m_HdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
+        m_ProbeVolumeSamplingDebugComputeShader: {fileID: 7200000, guid: 53626a513ea68ce47b59dc1299fe3959, type: 3}
+    - rid: 8699871916586172422
+      type: {class: RenderGraphSettings, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_EnableRenderCompatibilityMode: 0
+    - rid: 8699871916586172423
+      type: {class: UniversalRendererResources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_CopyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+        m_CameraMotionVector: {fileID: 4800000, guid: c56b7e0d4c7cb484e959caeeedae9bbf, type: 3}
+        m_StencilDeferredPS: {fileID: 4800000, guid: e9155b26e1bc55942a41e518703fe304, type: 3}
+        m_DBufferClear: {fileID: 4800000, guid: f056d8bd2a1c7e44e9729144b4c70395, type: 3}
+    - rid: 8699871916586172424
+      type: {class: GPUResidentDrawerResources, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.GPUDriven.Runtime}
+      data:
+        m_Version: 0
+        m_InstanceDataBufferCopyKernels: {fileID: 7200000, guid: f984aeb540ded8b4fbb8a2047ab5b2e2, type: 3}
+        m_InstanceDataBufferUploadKernels: {fileID: 7200000, guid: 53864816eb00f2343b60e1a2c5a262ef, type: 3}
+        m_TransformUpdaterKernels: {fileID: 7200000, guid: 2a567b9b2733f8d47a700c3c85bed75b, type: 3}
+        m_WindDataUpdaterKernels: {fileID: 7200000, guid: fde76746e4fd0ed418c224f6b4084114, type: 3}
+        m_OccluderDepthPyramidKernels: {fileID: 7200000, guid: 08b2b5fb307b0d249860612774a987da, type: 3}
+        m_InstanceOcclusionCullingKernels: {fileID: 7200000, guid: f6d223acabc2f974795a5a7864b50e6c, type: 3}
+        m_OcclusionCullingDebugKernels: {fileID: 7200000, guid: b23e766bcf50ca4438ef186b174557df, type: 3}
+        m_DebugOcclusionTestPS: {fileID: 4800000, guid: d3f0849180c2d0944bc71060693df100, type: 3}
+        m_DebugOccluderPS: {fileID: 4800000, guid: b3c92426a88625841ab15ca6a7917248, type: 3}
+    - rid: 8699871916586172425
+      type: {class: RenderGraphGlobalSettings, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_version: 0
+        m_EnableCompilationCaching: 1
+        m_EnableValidityChecks: 1
+    - rid: 8699871916586172426
+      type: {class: ProbeVolumeRuntimeResources, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_Version: 1
+        probeVolumeBlendStatesCS: {fileID: 7200000, guid: a3f7b8c99de28a94684cb1daebeccf5d, type: 3}
+        probeVolumeUploadDataCS: {fileID: 7200000, guid: 0951de5992461754fa73650732c4954c, type: 3}
+        probeVolumeUploadDataL2CS: {fileID: 7200000, guid: 6196f34ed825db14b81fb3eb0ea8d931, type: 3}
+    - rid: 8699871916586172427
+      type: {class: IncludeAdditionalRPAssets, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_version: 0
+        m_IncludeReferencedInScenes: 0
+        m_IncludeAssetsByLabel: 0
+        m_LabelToInclude: 
+    - rid: 8699871916586172428
+      type: {class: ProbeVolumeBakingResources, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_Version: 1
+        dilationShader: {fileID: 7200000, guid: 6bb382f7de370af41b775f54182e491d, type: 3}
+        subdivideSceneCS: {fileID: 7200000, guid: bb86f1f0af829fd45b2ebddda1245c22, type: 3}
+        voxelizeSceneShader: {fileID: 4800000, guid: c8b6a681c7b4e2e4785ffab093907f9e, type: 3}
+        traceVirtualOffsetCS: {fileID: -6772857160820960102, guid: ff2cbab5da58bf04d82c5f34037ed123, type: 3}
+        traceVirtualOffsetRT: {fileID: -5126288278712620388, guid: ff2cbab5da58bf04d82c5f34037ed123, type: 3}
+        skyOcclusionCS: {fileID: -6772857160820960102, guid: 5a2a534753fbdb44e96c3c78b5a6999d, type: 3}
+        skyOcclusionRT: {fileID: -5126288278712620388, guid: 5a2a534753fbdb44e96c3c78b5a6999d, type: 3}
+        renderingLayerCS: {fileID: -6772857160820960102, guid: 94a070d33e408384bafc1dea4a565df9, type: 3}
+        renderingLayerRT: {fileID: -5126288278712620388, guid: 94a070d33e408384bafc1dea4a565df9, type: 3}
+    - rid: 8699871916586172429
+      type: {class: RenderGraphUtilsResources, ns: UnityEngine.Rendering.RenderGraphModule.Util, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_Version: 0
+        m_CoreCopyPS: {fileID: 4800000, guid: 12dc59547ea167a4ab435097dd0f9add, type: 3}
+    - rid: 8699871916586172430
+      type: {class: ProbeVolumeDebugResources, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_Version: 1
+        probeVolumeDebugShader: {fileID: 4800000, guid: 3b21275fd12d65f49babb5286f040f2d, type: 3}
+        probeVolumeFragmentationDebugShader: {fileID: 4800000, guid: 3a80877c579b9144ebdcc6d923bca303, type: 3}
+        probeVolumeSamplingDebugShader: {fileID: 4800000, guid: bf54e6528c79a224e96346799064c393, type: 3}
+        probeVolumeOffsetDebugShader: {fileID: 4800000, guid: db8bd7436dc2c5f4c92655307d198381, type: 3}
+        probeSamplingDebugMesh: {fileID: -3555484719484374845, guid: 20be25aac4e22ee49a7db76fb3df6de2, type: 3}
+        numbersDisplayTex: {fileID: 2800000, guid: 73fe53b428c5b3440b7e87ee830b608a, type: 3}
+    - rid: 8699871916586172431
+      type: {class: ProbeVolumeGlobalSettings, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_Version: 1
+        m_ProbeVolumeDisableStreamingAssets: 0
+    - rid: 8699871916586172432
+      type: {class: ShaderStrippingSetting, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_Version: 0
+        m_ExportShaderVariants: 1
+        m_ShaderVariantLogLevel: 0
+        m_StripRuntimeDebugShaders: 1
+    - rid: 8699871916586172433
       type: {class: STP/RuntimeResources, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
       data:
         m_setupCS: {fileID: 7200000, guid: 33be2e9a5506b2843bdb2bdff9cad5e1, type: 3}

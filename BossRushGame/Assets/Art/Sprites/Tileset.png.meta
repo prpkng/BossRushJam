@@ -128,8 +128,8 @@ TextureImporter:
       name: Tileset_0
       rect:
         serializedVersion: 2
-        x: 112
-        y: 29
+        x: 192
+        y: 48
         width: 80
         height: 96
       alignment: 7

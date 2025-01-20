@@ -1707,7 +1707,7 @@ MonoBehaviour:
   - {fileID: 1767264979}
   - {fileID: 1494165460}
   pickCardCooldown: 1
-  overrideCardType: 2
+  overrideCardType: -1
 --- !u!58 &1584713476
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2070,12 +2070,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 6551201461496519737, guid: 2c62207dcb57b3049a4b58d8d81f6bb8, type: 3}
+  m_Sprite: {fileID: -5425822692175215262, guid: 2c62207dcb57b3049a4b58d8d81f6bb8, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.3125, y: 1.4375}
+  m_Size: {x: 1.3125, y: 1.3125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
