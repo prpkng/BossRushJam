@@ -6,6 +6,7 @@ namespace BRJ
 
     public class Game : MonoBehaviour
     {
+        public bool Paused { get; private set; }
         public static Game Instance { get; private set; }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -17,6 +18,11 @@ namespace BRJ
         public InputManager Input { get; private set; }
         public SoundManager Sound { get; private set; }
         public CameraManager Camera { get; private set; }
+
+        public void SetPaused(bool paused) {
+            Time.timeScale = paused ? 0 : 1;
+            Paused = paused;
+        }
 
         public void SetCamera(CameraManager camera) {
             Camera = camera;

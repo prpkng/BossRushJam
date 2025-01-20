@@ -76,6 +76,7 @@ namespace BRJ
 
         public static event Action RollPerformed;
         public static event Action<bool> ShootPerformed;
+        public static event Action PausePressed;
         public static bool isHoldingShoot;
 
         public static bool isUsingGamepad;
@@ -102,6 +103,9 @@ namespace BRJ
                 case "Shoot" when ctx.canceled:
                     ShootPerformed?.Invoke(false);
                     isHoldingShoot = false;
+                    break;
+                case "Pause" when ctx.started:
+                    PausePressed?.Invoke();
                     break;
             }
         }

@@ -57,6 +57,7 @@ namespace BRJ.Player
 
         private void Update()
         {
+            if (Game.Instance.Paused) return;
             var lookDirection = GetPointVector();
 
             float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
