@@ -17,7 +17,7 @@ namespace Game.UI.Slots
         public void OnClick()
         {
             GameManager.CurrentActiveModifier = SlotButton.CurrentSelectedSlot.CurrentModifier;
-            SceneManager.LoadScene(GameManager.CurrentLevelId);
+            SceneManager.LoadScene("Lobby");
         }
 
     }

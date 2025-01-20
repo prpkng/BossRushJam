@@ -4794,6 +4794,71 @@ TilemapCollider2D:
   m_CorrespondingSourceObject: {fileID: -8724154691006688365, guid: 6b9b1a72d82ba174e9b1f8d9c156b00b, type: 3}
   m_PrefabInstance: {fileID: 612957778}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &746647893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 746647894}
+  - component: {fileID: 746647896}
+  - component: {fileID: 746647895}
+  m_Layer: 0
+  m_Name: LobbyController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &746647894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746647893}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.155767, y: -9.480577, z: 0.012138799}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &746647895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746647893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3902d2cf6541642b044d5dd6792d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
+  playerDoorSpawnOffset: {x: 0, y: -3, z: 0}
+  doors:
+    _serializedList:
+    - Key: TheHand
+      Value: {fileID: 1305760803}
+    - Key: Joker
+      Value: {fileID: 1981621235}
+--- !u!114 &746647896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746647893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55938fb1577dd4ad3af7e994048c86f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1238289637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4851,6 +4916,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab20a578599b21e45ab0d4381d1328be, type: 3}
+--- !u!1 &1305760803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8001823801064333582, guid: 6b9b1a72d82ba174e9b1f8d9c156b00b, type: 3}
+  m_PrefabInstance: {fileID: 612957778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1340436964 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1781690864409295169, guid: 9895357cf50aea348be399fd9aea5baf, type: 3}
@@ -5014,6 +5084,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9895357cf50aea348be399fd9aea5baf, type: 3}
+--- !u!1 &1981621235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5583943140282661625, guid: 6b9b1a72d82ba174e9b1f8d9c156b00b, type: 3}
+  m_PrefabInstance: {fileID: 612957778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2090752047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5340,3 +5415,4 @@ SceneRoots:
   - {fileID: 418342434}
   - {fileID: 1238289637}
   - {fileID: 1440047163}
+  - {fileID: 746647894}

@@ -11,7 +11,7 @@ namespace Game.Systems.Lobby {
         public Sprite snookerDoorSprite;
         public Sprite jokerDoorSprite;
 
-        public string destinationScene;
+        public string doorDestination;
 
         public void OnLDtkImportEntity(EntityInstance entityInstance)
         {
@@ -24,18 +24,18 @@ namespace Game.Systems.Lobby {
             switch (field.Value) {
                 case "The_Hand":
                     doorRenderer.sprite = snookerDoorSprite;
-                    destinationScene = "TheHand";
+                    doorDestination = "TheHand";
                     break;
                 case "Joker":
                     doorRenderer.sprite = jokerDoorSprite;
-                    destinationScene = "Joker";
+                    doorDestination = "Joker";
                     break;
             }
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (other.CompareTag("Player")) {
-                SceneManager.LoadScene(destinationScene);
+                LobbyController.Instance.LoadBoss(doorDestination);
             }
         }
     }
