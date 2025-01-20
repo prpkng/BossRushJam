@@ -34,8 +34,6 @@ namespace BRJ
         
         public Maybe<BossBarController> BossBarController;
 
-        [SerializeField] private GameObject bossUIControllerPrefab;
-        
         public float RenderTextureZoom
         {
             get => ScreenRenderTexture.transform.localScale.x;
@@ -64,12 +62,6 @@ namespace BRJ
             await UniTask.WaitForSeconds(5);
 
             SceneManager.LoadScene("Spin");
-        }
-
-        public void CreateBossBar()
-        {
-            var obj = Instantiate(bossUIControllerPrefab);
-            BossBarController = new(obj.GetComponent<BossBarController>());
         }
     }
 }

@@ -37,6 +37,7 @@ namespace BRJ
 
             World = GetComponentInChildren<WorldManager>();
             Input = GetComponentInChildren<InputManager>();
+            Sound = GetComponentInChildren<SoundManager>();
         }
     }
 }

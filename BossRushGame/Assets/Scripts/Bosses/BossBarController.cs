@@ -1,24 +1,20 @@
 namespace BRJ.Bosses
 {
     using UnityEngine;
-    using UnityEngine.UIElements;
 
     public class BossBarController : MonoBehaviour
     {
-        public UIDocument uiDocument;
+        public RectTransform rectTransform;
 
-        private VisualElement bar;
-
-        private void Start()
-        {
-            bar = uiDocument.rootVisualElement.Q<VisualElement>("Bar");
+        private float startWidth;
+        private void Start() {
+            startWidth = rectTransform.rect.width;
         }
 
         public void SetHealthPercentage(float percentage)
         {
-            float value = (100f - percentage) / 2;
-            bar.style.right = new StyleLength(Length.Percent(value));
-            bar.style.left = new StyleLength(Length.Percent(value));
+            float value = percentage / 100f;
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, startWidth * value);
         }
     }
 }

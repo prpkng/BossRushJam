@@ -17,11 +17,6 @@ namespace BRJ.Bosses
         {
             set => damageMultiplier = 1f / value;
         }
-
-        private void Awake()
-        {
-            Game.Instance.World.CreateBossBar();
-        }
         
         public override void ApplyDamage(float damage)
         {

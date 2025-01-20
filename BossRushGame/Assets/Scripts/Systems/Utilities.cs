@@ -20,9 +20,11 @@ namespace BRJ.Systems
         public static T ChooseRandom<T>(this ICollection<T> collection) =>
             collection.ElementAt(Random.Range(0, collection.Count));   
     }
+
+    [System.Serializable]
     public struct Maybe<T> where T : class
     {
-        public T Value { get; private set; }
+        [field: SerializeField] public T Value { get; private set; }
 
         public Maybe(T value)
         {
