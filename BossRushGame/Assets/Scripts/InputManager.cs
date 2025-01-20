@@ -25,9 +25,11 @@ namespace Game
             if (Keyboard.current.rKey.wasPressedThisFrame)
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             if (Keyboard.current.f6Key.wasPressedThisFrame)
-                SceneManager.LoadScene("Pool");
+                SceneManager.LoadScene("TheHand");
             if (Keyboard.current.f7Key.wasPressedThisFrame)
-                SceneManager.LoadScene("Poker");
+                SceneManager.LoadScene("Joker");
+            if (Keyboard.current.f8Key.wasPressedThisFrame)
+                SceneManager.LoadScene("Lobby");
         }
 
         public static Vector2 MousePosition

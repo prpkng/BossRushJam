@@ -15,7 +15,7 @@ namespace Game.Player
         [Header("Shakes")]
         [SerializeField] private ShakeSettings weakHitShake;
         [SerializeField] private ShakeSettings strongHitShake;
-        public void HitPlayer(int damage, Vector2? knockbackVector = null, bool strong = true) 
+        public void HitPlayer(int damage, Vector2? knockbackVector = null, bool strong = true)
         {
             playerHealth.ApplyDamage(damage);
             if (playerHealth.currentHealth <= 0) return;
@@ -23,7 +23,7 @@ namespace Game.Player
             hitSound.Play();
             GameManager.Instance.Player.OnDamage(knockbackVector ?? Vector2.zero);
             CameraManager.Instance.ShakeCamera(strong ? strongHitShake : weakHitShake);
-                
+
             Tween.Custom(soundAttenuationTween, f =>
             {
                 RuntimeManager.StudioSystem.setParameterByName("DamageAttenuation", f);
@@ -37,9 +37,13 @@ namespace Game.Player
             if (_invulnerableTween.isAlive)
                 duration += _invulnerableTween.duration - _invulnerableTween.elapsedTime;
             _invulnerableTween.Stop();
-            
+
             hitboxCollider.enabled = false;
-            _invulnerableTween = Tween.Delay(duration, () => hitboxCollider.enabled = true);
+            _invulnerableTween = Tween.Delay(hitboxCollider, duration, col => 
+                { 
+                    if (col) col.enabled = true; 
+                }
+            );
         }
     }
 }

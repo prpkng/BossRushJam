@@ -8,26 +8,46 @@ namespace Game.Systems.Common
         public float totalHealth = 100;
         public float damageMultiplier = 1;
         public float currentHealth = 0;
+        public bool destroyOnDeath = false;
+
 
         public event Action<float> OnHealthChanged;
-        
+
         public float HealthPercentage => currentHealth / totalHealth;
-        
+
         private void Start()
         {
             currentHealth = totalHealth;
         }
 
-        public virtual void OnDeath() { }
+        protected virtual void OnDeath()
+        {
+            if (destroyOnDeath) Destroy(gameObject);
+        }
+
+
+        public virtual void AddHealth(float amount)
+        {
+            if (!enabled) return;
+            if ((currentHealth + amount) > totalHealth)
+            {
+                currentHealth = totalHealth;
+                OnHealthChanged?.Invoke(currentHealth + amount);
+                return;
+            }
+            OnHealthChanged?.Invoke(currentHealth + amount);
+
+            currentHealth += amount;
+        }
 
         public virtual void ApplyDamage(float damage)
         {
             if (!enabled) return;
+            OnHealthChanged?.Invoke(currentHealth - damage * damageMultiplier);
+
             currentHealth -= damage * damageMultiplier;
             if (currentHealth <= 0)
                 OnDeath();
-            
-            OnHealthChanged?.Invoke(currentHealth);
         }
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ce5c1fe5-bd89-4ed2-8db7-0cf030e20ea7}">
+		<property name="assetPath">
+			<value>MUS/Mus_Boss01Melody.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>57.600000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c620fda0-caf0-4f6a-9b30-678d7c082555}</destination>
+		</relationship>
+	</object>
+</objects>
