@@ -16,7 +16,7 @@ namespace Game.Bosses.Poker
         
         private const float xPos = 8;
         private const float yMin = -2;
-        private const float yMax = 8;
+        private const float yMax = 10;
 
         private void Awake()
         {
@@ -29,10 +29,10 @@ namespace Game.Bosses.Poker
         }
 
         private async void Burst() {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Shoot();
-                await UniTask.WaitForSeconds(1f);
+                await UniTask.WaitForSeconds(.75f);
             }
         }
 
@@ -62,8 +62,8 @@ namespace Game.Bosses.Poker
                     new Vector3(
                         startX,
                         y),
-                    2f,
-                    Ease.InOutExpo
+                    1.5f,
+                    Ease.OutCubic
                 ));
             }
 

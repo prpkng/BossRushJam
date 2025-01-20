@@ -130,7 +130,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6773966113461911884}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d6276a37174399856253d4b71fea58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 2765773991504524980}
   moveSpeed: 10
 --- !u!1 &7566797140201473286
 GameObject:
