@@ -1,5 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using Game;
+using Game.Systems.Saving;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,9 +13,9 @@ public class LobbyController : Singleton<LobbyController> {
     public SerializedDictionary<string, GameObject> doors;
 
     private void Awake() {
-        if (PlayerPrefs.HasKey("LastEnteredBoss")) {
-            playerLastEnteredBoss = PlayerPrefs.GetString("LastEnteredBoss");
-        }
+        var _lastEnteredBoss = SaveManager.GetLastEnteredBoss();
+        if (_lastEnteredBoss != "")
+            playerLastEnteredBoss = _lastEnteredBoss;
     }
 
     private void Start() {
@@ -29,7 +30,7 @@ public class LobbyController : Singleton<LobbyController> {
     public void LoadBoss(string levelName) {
 
         playerLastEnteredBoss = levelName;
-        PlayerPrefs.SetString("LastEnteredBoss", levelName);
+        SaveManager.SetLastEnteredBoss(playerLastEnteredBoss);
 
         SceneManager.LoadScene(levelName);
     }
