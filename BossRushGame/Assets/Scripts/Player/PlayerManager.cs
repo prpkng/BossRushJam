@@ -41,8 +41,6 @@ namespace BRJ.Player
             Game.Instance.World.Player = this;
         }
 
-        // TODO: FIX PLAYER INPUT NOT WORKING WHEN TRANSITIONING FROM LOBBY SCENE
-
         private void Start()
         {
             fsm = new StateMachine();
