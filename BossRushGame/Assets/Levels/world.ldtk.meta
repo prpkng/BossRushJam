@@ -24,6 +24,6 @@ ScriptedImporter:
   _entities:
   - _key: Door
     _asset: {fileID: 387972415121282731, guid: a6b77a9fa8340864b9bd73360322de17, type: 3}
-  _enumGenerate: 0
-  _enumPath: 
-  _enumNamespace: 
+  _enumGenerate: 1
+  _enumPath: ../Scripts/WorldEnums.cs
+  _enumNamespace: Game.Levels
