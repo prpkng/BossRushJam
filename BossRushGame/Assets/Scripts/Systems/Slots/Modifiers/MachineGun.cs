@@ -1,4 +1,4 @@
-namespace Game.Systems.Slots.Modifiers
+namespace BRJ.Systems.Slots.Modifiers
 {
     [ModifierChance(10)]
     public class MachineGun : Modifier
@@ -14,12 +14,12 @@ namespace Game.Systems.Slots.Modifiers
         
         public override void ApplyAdvantage()
         {
-            GameManager.Instance.Player.activeGun.fireRate *= 2;
+            Game.Instance.World.Player.activeGun.fireRate *= 2;
         }
 
         public override void ApplyDownside()
         {
-            GameManager.Instance.Player.activeGun.bulletDamage *= 0.5f;
+            Game.Instance.World.Player.activeGun.bulletDamage *= 0.5f;
         }
     }
 }

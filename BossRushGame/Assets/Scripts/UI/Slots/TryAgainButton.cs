@@ -1,10 +1,10 @@
 using System;
-using Game.Systems.Saving;
+using BRJ.Systems.Saving;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Game.UI.Slots
+namespace BRJ.UI.Slots
 {
     public class TryAgainButton : MonoBehaviour
     {
@@ -17,7 +17,7 @@ namespace Game.UI.Slots
 
         public void OnClick()
         {
-            GameManager.CurrentActiveModifier = SlotButton.CurrentSelectedSlot.CurrentModifier;
+            WorldManager.CurrentActiveModifier = SlotButton.CurrentSelectedSlot.CurrentModifier;
             SaveManager.SetCurrentModifierType(SlotButton.CurrentSelectedSlot.CurrentModifier.GetType());
             SceneManager.LoadScene("Lobby");
         }

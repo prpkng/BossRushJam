@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     public class DiamondBullet : MonoBehaviour
     {
@@ -13,7 +13,7 @@ namespace Game.Bosses.Poker
         {
             transform.position += bulletSpeed * Time.fixedDeltaTime * transform.right;
 
-            Vector2 dir = GameManager.PlayerPosition - transform.position;
+            Vector2 dir = WorldManager.PlayerPosition - transform.position;
             dir.Normalize();
             transform.right = Vector3.Lerp(
                 transform.right,

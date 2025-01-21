@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Game.Systems
+namespace BRJ.Systems
 {
     public class ParabolaMovement : MonoBehaviour
     {

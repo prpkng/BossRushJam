@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Game.Systems
+namespace BRJ.Systems
 {
     public static class Utilities
     {
@@ -20,11 +20,18 @@ namespace Game.Systems
         public static T ChooseRandom<T>(this ICollection<T> collection) =>
             collection.ElementAt(Random.Range(0, collection.Count));   
     }
+
+    [System.Serializable]
     public struct Maybe<T> where T : class
     {
-        private T Value { get; set; }
+        [field: SerializeField] public T Value { get; private set; }
 
         public Maybe(T value)
+        {
+            Value = value;
+        }
+
+        public void Set(T value)
         {
             Value = value;
         }

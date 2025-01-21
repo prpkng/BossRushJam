@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityHFSM;
 
-namespace Game.Bosses.Snooker.States
+namespace BRJ.Bosses.Snooker.States
 {
     // public class ShotWhiteBall : CoState
     // {

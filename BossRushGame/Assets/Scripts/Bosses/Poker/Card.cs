@@ -1,9 +1,10 @@
 using System;
-using Game.Player;
-using Game.Systems.Common;
+using BRJ.Player;
+using BRJ.Systems;
+using BRJ.Systems.Common;
 using UnityEngine;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     
     public class Card : MonoBehaviour
@@ -78,12 +79,12 @@ namespace Game.Bosses.Poker
 
         private void OnEnable()
         {
-            CameraManager.Instance.AddTarget(transform, cameraWeight);
+            Game.Instance.Camera.AddTarget(transform, cameraWeight);
         }
 
         private void OnDisable()
         {
-            CameraManager.Instance.RemoveTarget(transform);
+            Game.Instance.Camera.RemoveTarget(transform);
         }
     }
 }

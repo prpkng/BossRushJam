@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using FMODUnity;
-using Game.Systems.Common;
+using BRJ.Systems.Common;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Game.Systems.Visual
+namespace BRJ.Systems.Visual
 {
     public class HealthStages : MonoBehaviour
     {

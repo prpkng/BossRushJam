@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Systems.Slots.Modifiers;
+using BRJ.Systems.Slots.Modifiers;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Game.UI.Slots
+namespace BRJ.UI.Slots
 {
     public class SlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {

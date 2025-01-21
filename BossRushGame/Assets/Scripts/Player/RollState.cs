@@ -2,7 +2,7 @@ using PrimeTween;
 using UnityEngine;
 using UnityHFSM;
 
-namespace Game.Player
+namespace BRJ.Player
 {
     public class RollState : StateBase
     {

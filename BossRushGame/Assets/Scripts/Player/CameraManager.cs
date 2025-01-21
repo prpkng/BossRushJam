@@ -4,10 +4,11 @@ using Unity.Cinemachine;
 using UnityEngine;
 using Tween = PrimeTween.Tween;
 
-namespace Game.Player
+namespace BRJ.Player
 {
+    using BRJ.Systems;
 
-    public class CameraManager : Singleton<CameraManager>
+    public class CameraManager : MonoBehaviour
     {
         public static Vector2 currentScreenOffset;
 
@@ -27,6 +28,10 @@ namespace Game.Player
 
         [Header("Default Shakes")] public ShakeSettings defaultWeakShake;
         
+        private void Awake() {
+            Game.Instance.SetCamera(this);
+        }
+
         private Tween _scaleTween;
         public void FocusUp()
         {
@@ -38,10 +43,10 @@ namespace Game.Player
 
             _scaleTween.Stop();
             _scaleTween = Tween.Custom(
-                GameManager.Instance.RenderTextureZoom,
+                Game.Instance.World.RenderTextureZoom,
                 zoomOutZoom,
                 zoomDuration,
-                f => GameManager.Instance.RenderTextureZoom = f
+                f => Game.Instance.World.RenderTextureZoom = f
             );
         }
         public void ResetFocus()
@@ -54,10 +59,10 @@ namespace Game.Player
             
             _scaleTween.Stop();
             _scaleTween = Tween.Custom(
-                GameManager.Instance.RenderTextureZoom,
+                Game.Instance.World.RenderTextureZoom,
                 defaultZoom,
                 zoomDuration,
-                f => GameManager.Instance.RenderTextureZoom = f
+                f => Game.Instance.World.RenderTextureZoom = f
             );
         }
 

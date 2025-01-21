@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Systems.Visual
+namespace BRJ.Systems.Visual
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class MirrorSprite : MonoBehaviour

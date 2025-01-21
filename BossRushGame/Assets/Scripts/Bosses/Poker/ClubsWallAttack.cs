@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Random = UnityEngine.Random;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     public class ClubsWallAttack : MonoBehaviour
     {

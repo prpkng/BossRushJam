@@ -1,16 +1,16 @@
-using Game.Systems;
-using Game.Systems.Common;
+using BRJ.Systems;
+using BRJ.Systems.Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Game.Player
+namespace BRJ.Player
 {
     public class PlayerHealth : HealthBehavior
     {
         protected override void OnDeath()
         {
             base.OnDeath();
-            GameManager.Instance.PlayerDeath();
+            Game.Instance.World.PlayerDeath();
         }
     }
 }

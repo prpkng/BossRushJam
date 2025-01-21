@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Systems.Common
+namespace BRJ.Systems.Common
 {
     public class HealthBehavior : MonoBehaviour
     {

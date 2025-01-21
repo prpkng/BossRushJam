@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using FMODUnity;
-using Game.Systems;
-using Game.Systems.Common;
+using BRJ.Systems;
+using BRJ.Systems.Common;
 using UnityEngine;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     public class SnookerBall : MonoBehaviour
     {

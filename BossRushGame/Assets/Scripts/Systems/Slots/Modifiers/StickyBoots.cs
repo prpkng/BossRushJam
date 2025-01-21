@@ -1,4 +1,4 @@
-namespace Game.Systems.Slots.Modifiers
+namespace BRJ.Systems.Slots.Modifiers
 {
     [ModifierChance(10)]
     public class StickyBoots : Modifier
@@ -13,12 +13,12 @@ namespace Game.Systems.Slots.Modifiers
         
         public override void ApplyAdvantage()
         {
-            GameManager.Instance.Player.movementSpeed *= 1.45f;
+            Game.Instance.World.Player.movementSpeed *= 1.45f;
         }
 
         public override void ApplyDownside()
         {
-            GameManager.Instance.Player.CanRollOverride = false;
+            Game.Instance.World.Player.CanRollOverride = false;
         }
     }
 }

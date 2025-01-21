@@ -1,10 +1,11 @@
 using System;
+using BRJ.Systems;
 using FMODUnity;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
 
-namespace Game.Player
+namespace BRJ.Player
 {
     public class PlayerHitbox : MonoBehaviour
     {
@@ -21,8 +22,8 @@ namespace Game.Player
             if (playerHealth.currentHealth <= 0) return;
             print($"kbv: {knockbackVector}");
             hitSound.Play();
-            GameManager.Instance.Player.OnDamage(knockbackVector ?? Vector2.zero);
-            CameraManager.Instance.ShakeCamera(strong ? strongHitShake : weakHitShake);
+            Game.Instance.World.Player.OnDamage(knockbackVector ?? Vector2.zero);
+            Game.Instance.Camera.ShakeCamera(strong ? strongHitShake : weakHitShake);
 
             Tween.Custom(soundAttenuationTween, f =>
             {

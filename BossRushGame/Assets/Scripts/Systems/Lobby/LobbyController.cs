@@ -1,13 +1,14 @@
 using System;
 using AYellowpaper.SerializedCollections;
-using Game;
-using Game.Systems.Saving;
-using Game.Systems.Slots.Modifiers;
+using BRJ;
+using BRJ.Systems;
+using BRJ.Systems.Saving;
+using BRJ.Systems.Slots.Modifiers;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LobbyController : Singleton<LobbyController>
+public class LobbyController : MonoBehaviour
 {
     private string playerLastEnteredBoss = null;
     public Vector3 playerDoorSpawnOffset = Vector3.down * 4;
@@ -28,7 +29,7 @@ public class LobbyController : Singleton<LobbyController>
         {
             if (doors.ContainsKey(playerLastEnteredBoss))
             {
-                GameManager.Instance.Player.transform.position =
+                Game.Instance.World.Player.transform.position =
                     doors[playerLastEnteredBoss].transform.position + playerDoorSpawnOffset;
             }
         }
@@ -36,8 +37,8 @@ public class LobbyController : Singleton<LobbyController>
         var currentModifierType = SaveManager.GetCurrentModifierType();
         if (currentModifierType != null)
         {
-            GameManager.CurrentActiveModifier = (Modifier)Activator.CreateInstance(currentModifierType);
-            print("Current modifier type: " + GameManager.CurrentActiveModifier.GetType());
+            WorldManager.CurrentActiveModifier = (Modifier)Activator.CreateInstance(currentModifierType);
+            print("Current modifier type: " + WorldManager.CurrentActiveModifier.GetType());
         }
     }
 

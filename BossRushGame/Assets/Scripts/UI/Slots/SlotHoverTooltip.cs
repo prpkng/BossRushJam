@@ -1,11 +1,11 @@
 using System;
-using Game.Systems.Slots.Modifiers;
+using BRJ.Systems.Slots.Modifiers;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-namespace Game.UI.Slots
+namespace BRJ.UI.Slots
 {
     public class SlotHoverTooltip : Singleton<SlotHoverTooltip>
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Game.Systems.Saving {
+namespace BRJ.Systems.Saving {
 
     [Serializable]
     public struct SaveData

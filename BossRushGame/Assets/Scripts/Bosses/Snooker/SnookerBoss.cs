@@ -2,11 +2,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using FMODUnity;
-using Game.Systems;
+using BRJ.Systems;
 using PrimeTween;
 using UnityEngine.Serialization;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     using System.Collections;
     using Player;
@@ -94,13 +94,13 @@ namespace Game.Bosses.Snooker
                     new State(
                         onEnter: _ =>
                         {
-                            BossMusicController.Instance.SetKidding();
-                            CameraManager.Instance.FocusUp();
+                            Game.Instance.Sound.BossMusic.With(b => b.SetKidding());
+                            Game.Instance.Camera.FocusUp();
                             health.Defense = vulnerableDefense;
                         },
                         onExit: _ =>
                         {
-                            CameraManager.Instance.ResetFocus();
+                            Game.Instance.Camera.ResetFocus();
                             _idleSineSequenceX.Stop();
                             _idleSineSequenceY.Stop();
                         })
@@ -162,10 +162,10 @@ namespace Game.Bosses.Snooker
                     new CoState(this, IdleStateCoroutineX),
                     new CoState(this, IdleStateCoroutineY),
                     new State(
-                        onEnter: _ => { CameraManager.Instance.FocusUp(); },
+                        onEnter: _ => { Game.Instance.Camera.FocusUp(); },
                         onExit: _ =>
                         {
-                            CameraManager.Instance.ResetFocus();
+                            Game.Instance.Camera.ResetFocus();
                             _idleSineSequenceX.Stop();
                             _idleSineSequenceY.Stop();
                         })
@@ -252,7 +252,7 @@ namespace Game.Bosses.Snooker
         {
             health.Defense = vulnerableDefense;
             float nextStep = 0;
-            var player = GameManager.Instance.Player.transform;
+            var player = Game.Instance.World.Player.transform;
 
             Vector2 dir = player.position - _currentBall.transform.position;
             dir.Normalize();
@@ -311,7 +311,7 @@ namespace Game.Bosses.Snooker
             Tween.ShakeLocalPosition(leftHandTransform, Vector3.one * .15f, .35f, 25f);
 
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
-            BossMusicController.Instance.SetAggressive();
+            Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
 
             // Push the stick
             nextStep += 0.1f;
@@ -339,7 +339,7 @@ namespace Game.Bosses.Snooker
 
             // Return the stick and hands to the rest position
             
-            BossMusicController.Instance.SetKidding();
+            Game.Instance.Sound.BossMusic.With(b => b.SetKidding());
             yield return ReturnHands();
             
             // Wait until all balls are still or the wait time elapsed
@@ -400,7 +400,7 @@ namespace Game.Bosses.Snooker
                     .ToYieldInstruction();
                 stompHitbox.transform.position = poolStick.position;
                 stompHitSound.Play();
-                CameraManager.Instance.ShakeCamera(stompCameraShake);
+                Game.Instance.Camera.ShakeCamera(stompCameraShake);
                 stompHitbox.SetActive(true);
                 // Yield 3 frames
                 for (int j = 0; j < 3; j++) yield return null;
@@ -415,7 +415,7 @@ namespace Game.Bosses.Snooker
                 else
                 {
                     yield return Tween.ShakeLocalRotation(poolStick, stickStuckShake).ToYieldInstruction();
-                    CameraManager.Instance.ShakeCamera(stompCameraShake);
+                    Game.Instance.Camera.ShakeCamera(stompCameraShake);
                     yield return Tween
                         .PositionY(poolStick, poolStick.position.y + poolStickStompDistance, .5f, Ease.OutCubic)
                         .ToYieldInstruction();
@@ -425,7 +425,7 @@ namespace Game.Bosses.Snooker
 
         private IEnumerator StompPlayerCoroutine(CoState<string, string> state)
         {
-            BossMusicController.Instance.SetAggressive();
+            Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
             
             leftHand.SetHand(HandType.HoldingStomp);
             rightHand.SetHand(HandType.HoldingStomp);
@@ -433,7 +433,7 @@ namespace Game.Bosses.Snooker
             leftHand.SetOrder(5);
             leftHandTransform.right = Vector3.left;
             rightHandTransform.right = Vector3.left;
-            var playerTransform = GameManager.Instance.Player.transform;
+            var playerTransform = Game.Instance.World.Player.transform;
             poolStickShadow.gameObject.SetActive(true);
             for (int i = 0; i < 3; i++)
             {

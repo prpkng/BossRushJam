@@ -1,4 +1,4 @@
-namespace Game.Systems.Slots.Modifiers
+namespace BRJ.Systems.Slots.Modifiers
 {
     [ModifierChance(10)]
     public class FocusedShooter : Modifier
@@ -13,12 +13,12 @@ namespace Game.Systems.Slots.Modifiers
         
         public override void ApplyAdvantage()
         {
-            GameManager.Instance.Player.activeGun.fireRate *= 1.15f;
+            Game.Instance.World.Player.activeGun.fireRate *= 1.15f;
         }
 
         public override void ApplyDownside()
         {
-            GameManager.Instance.Player.movementSpeed *= 0.8f;
+            Game.Instance.World.Player.movementSpeed *= 0.8f;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Systems.Visual
+namespace BRJ.Systems.Visual
 {
     public class SineRotation : MonoBehaviour
     {

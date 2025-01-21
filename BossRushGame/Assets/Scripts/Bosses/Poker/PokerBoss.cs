@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
-using Game.Systems;
+using BRJ.Systems;
 using PrimeTween;
 using UnityEngine;
 using UnityHFSM;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     public class PokerBoss : MonoBehaviour
     {
@@ -120,7 +120,7 @@ namespace Game.Bosses.Poker
         {
             fsm.OnLogic();
             
-            Vector2 dir = (GameManager.PlayerPosition - transform.position);
+            Vector2 dir = (WorldManager.PlayerPosition - transform.position);
             dir.Normalize();
             deck.transform.localPosition = Vector3.Lerp(
                 deck.transform.localPosition,
