@@ -441,14 +441,21 @@ namespace BRJ.Bosses.Snooker
                 Random.Range(minBallPos.y, maxBallPos.y));
             var ball = Instantiate(ballPrefab, handTransform);
             ball.transform.localPosition = Vector3.zero;
+            var sb = ball.GetComponent<SnookerBall>();
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.simulated = false;
 
+            sb.SetShadowLocalPos(Vector2.down * 3);
+
             await Tween.Position(handTransform, pos + Vector2.up * 3, 1, Ease.InOutSine);
+            
+            sb.DetachShadow();
             await Tween.Position(ball.transform, pos, .75f, Ease.InQuint);
+            sb.AttachShadow();
 
             rb.simulated = true;
             ball.transform.SetParent(null);
+            sb.SetShadowLocalPos(Vector3.zero);
             availableBalls = availableBalls.Append(rb).ToArray();
         }
 

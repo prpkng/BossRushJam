@@ -12,6 +12,10 @@ namespace BRJ.Systems
         {
             if (behaviour.TryGetComponent(out T component)) action(component);
         }
+        public static void WithComponent<T>(this GameObject behaviour, Action<T> action) where T : Component
+        {
+            if (behaviour.TryGetComponent(out T component)) action(component);
+        }
         public static Vector2 FromDegrees(float angle) => new(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
         public static Vector2 FromRadians(float angle) => new(Mathf.Cos(angle), Mathf.Sin(angle));
 

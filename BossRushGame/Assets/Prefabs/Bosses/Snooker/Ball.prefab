@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b579ed44d5f941789e4b125fea108628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSprite: {fileID: 5217732039239008545}
+  objectSprite: {fileID: 5217732039239008545}
   health: {fileID: 4753292431069373674}
   stageSprites:
   - {fileID: -2103132290680992075, guid: 814b05b3b96104a4f98dab578223cda5, type: 3}
@@ -694,8 +694,9 @@ MonoBehaviour:
   - 17
   - 165
   - 0
-  ballSprite: {fileID: 5217732039239008545}
   impactForceThreshold: 3
+  ballSprite: {fileID: 5217732039239008545}
+  ballShadow: {fileID: 3989655026171900027}
   collisionSound: {fileID: 1207906087112994560}
   ballHealth: {fileID: 4753292431069373674}
   ballSpeedMulti: 0.65
@@ -719,6 +720,7 @@ MonoBehaviour:
   totalHealth: 80
   damageMultiplier: 1
   currentHealth: 0
+  destroyOnDeath: 0
   deathParticles: {fileID: 3810184071858919342}
 --- !u!114 &1207906087112994560
 MonoBehaviour:

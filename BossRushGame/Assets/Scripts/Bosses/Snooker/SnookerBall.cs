@@ -1,10 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using FMODUnity;
 using BRJ.Systems;
 using BRJ.Systems.Common;
 using UnityEngine;
+using System;
 
 namespace BRJ.Bosses.Snooker
 {
@@ -15,8 +15,9 @@ namespace BRJ.Bosses.Snooker
         
         [SerializeField] private bool faceDirection = true;
         [SerializeField] private float[] possibleHues;
-        [SerializeField] private SpriteRenderer ballSprite;
         [SerializeField] private float impactForceThreshold = 3f;
+        [SerializeField] private SpriteRenderer ballSprite;
+        [SerializeField] private Transform ballShadow;
         [SerializeField] private StudioEventEmitter collisionSound;
         [SerializeField] private HealthBehavior ballHealth;
         [Header("Ball Animation")]
@@ -28,6 +29,17 @@ namespace BRJ.Bosses.Snooker
 
         public float CurrentHue { get; private set; }
         private bool isFlat;
+
+        public void DetachShadow() {
+            ballShadow.parent = null;
+        }
+        public void AttachShadow() {
+            ballShadow.parent = transform;
+        }
+
+        public void SetShadowLocalPos(Vector3 localPos) {
+            ballShadow.localPosition = localPos;
+        }
         
         private void Awake()
         {

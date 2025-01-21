@@ -59,63 +59,6 @@ MonoBehaviour:
   maxBallPos: {x: 12, y: 4}
   idleWaitTime: 3
   handsIdleSine: {fileID: 4938716155462246623}
-  idleSineTweenY:
-    startFromCurrent: 0
-    startValue: -1
-    endValue: 1
-    settings:
-      duration: 2
-      ease: 4
-      customEase:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycles: 1
-      cycleMode: 0
-      startDelay: 0
-      endDelay: 0
-      useUnscaledTime: 0
-      useFixedUpdate: 0
-  rightIdleSineTweenX:
-    startFromCurrent: 0
-    startValue: 3
-    endValue: 2
-    settings:
-      duration: 1.5
-      ease: 4
-      customEase:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycles: 1
-      cycleMode: 0
-      startDelay: 0
-      endDelay: 0
-      useUnscaledTime: 0
-      useFixedUpdate: 0
-  leftIdleSineTweenX:
-    startFromCurrent: 0
-    startValue: -3
-    endValue: -2
-    settings:
-      duration: 1.5
-      ease: 4
-      customEase:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycles: 1
-      cycleMode: 0
-      startDelay: 0
-      endDelay: 0
-      useUnscaledTime: 0
-      useFixedUpdate: 0
   shotBallWaitTime: 4
   whiteBallStopThreshold: 4
   shotForce: 25
@@ -581,63 +524,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHandTransform: {fileID: 7063005310955102695}
   leftHandTransform: {fileID: 8939613280120032888}
-  idleSineTweenY:
-    startFromCurrent: 0
-    startValue: -1
-    endValue: 1
-    settings:
-      duration: 2
-      ease: 4
-      customEase:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycles: 1
-      cycleMode: 0
-      startDelay: 0
-      endDelay: 0
-      useUnscaledTime: 0
-      useFixedUpdate: 0
-  rightIdleSineTweenX:
-    startFromCurrent: 0
-    startValue: 3
-    endValue: 2
-    settings:
-      duration: 1.5
-      ease: 4
-      customEase:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycles: 1
-      cycleMode: 0
-      startDelay: 0
-      endDelay: 0
-      useUnscaledTime: 0
-      useFixedUpdate: 0
-  leftIdleSineTweenX:
-    startFromCurrent: 0
-    startValue: -3
-    endValue: -2
-    settings:
-      duration: 1.5
-      ease: 4
-      customEase:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycles: 1
-      cycleMode: 0
-      startDelay: 0
-      endDelay: 0
-      useUnscaledTime: 0
-      useFixedUpdate: 0
+  sineXMagnitude: 0.5
+  sineYMagnitude: 1.5
+  sineXSpeed: 2
+  sineYSpeed: 1
+  lerpSpeed: 10
 --- !u!1 &8491966029747772028
 GameObject:
   m_ObjectHideFlags: 0
