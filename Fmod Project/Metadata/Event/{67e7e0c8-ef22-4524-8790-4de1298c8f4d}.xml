@@ -54,7 +54,7 @@
 			<destination>{95b7b8ce-68aa-4612-a800-1e2d024036ef}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{980c6494-035e-49bf-bcda-8f2b11b2bd6d}</destination>
+			<destination>{9a89fbae-e05f-4b17-83c8-023015c989ae}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{2c4fdde6-ad6a-4d02-8f00-608894a114a1}" />
@@ -83,7 +83,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{baf1cb5c-b724-4f0f-a7cf-b2e05db83528}">
 		<property name="volume">
-			<value>4</value>
+			<value>3.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{6939872f-4d6c-43d5-805d-9f49ca03c3c9}</destination>
@@ -125,7 +125,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{7a31615d-0456-4e60-b38d-727b40604776}">
 		<property name="volume">
-			<value>-22.5</value>
+			<value>-14</value>
 		</property>
 		<property name="name">
 			<value>Main Shot</value>
@@ -142,7 +142,7 @@
 	</object>
 	<object class="EventSound" id="{96dedb3b-3db0-4a6e-96b7-a957e961a53a}">
 		<property name="length">
-			<value>0.17999999999999999</value>
+			<value>0.080000000000000002</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{7c2d3798-ea2d-403a-af68-e4915c88ea9e}</destination>
@@ -156,7 +156,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{0f47cb0e-8f92-4df3-9bcb-4555d6527ff6}">
 		<property name="volume">
-			<value>-16.5</value>
+			<value>-12</value>
 		</property>
 		<property name="name">
 			<value>Texture01</value>
@@ -315,12 +315,12 @@
 			<value>1</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.347673178</value>
+			<value>1</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{5db387cb-7037-4ffe-a26d-607e630275ee}">
 		<property name="position">
-			<value>0.17999999999999999</value>
+			<value>0.080000000000000002</value>
 		</property>
 		<property name="value">
 			<value>0</value>
