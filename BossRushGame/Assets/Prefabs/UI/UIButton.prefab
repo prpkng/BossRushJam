@@ -198,8 +198,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BRJ.UI.GUIManager, Assembly-CSharp
-        m_MethodName: PausePressed
+        m_TargetAssemblyTypeName: BRJ.UI.PauseManager, Assembly-CSharp
+        m_MethodName: GiveUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
