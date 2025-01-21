@@ -9,6 +9,7 @@ using UnityEngine.Serialization;
 namespace BRJ.Bosses.Snooker
 {
     using System.Collections;
+    using Cysharp.Threading.Tasks;
     using Player;
     using UnityEngine;
     using UnityHFSM;
@@ -22,10 +23,7 @@ namespace BRJ.Bosses.Snooker
         public Vector2 maxBallPos;
 
         [Header("Idle Cooldown")] public float idleWaitTime = 4;
-
-        public TweenSettings<float> idleSineTweenY;
-        public TweenSettings<float> rightIdleSineTweenX;
-        public TweenSettings<float> leftIdleSineTweenX;
+        public HandsIdleSine handsIdleSine;
 
         [Header("Shot White Ball")] public float shotBallWaitTime = 5f;
         public float whiteBallStopThreshold = 1f;
@@ -54,7 +52,7 @@ namespace BRJ.Bosses.Snooker
         [Header("Visual")] public float poolHandDistance = 3f;
         public float stickHandDistance = 8f;
 
-        [Header("Sound")] 
+        [Header("Sound")]
         public StudioEventEmitter stompHitSound;
         public StudioEventEmitter stompPullSound;
         public StudioEventEmitter poolShotSound;
@@ -88,22 +86,19 @@ namespace BRJ.Bosses.Snooker
             // IDLE COOLDOWN STATE
             fsm.AddState(
                 IdleCooldownState,
-                new ParallelStates(
-                    new CoState(this, IdleStateCoroutineX),
-                    new CoState(this, IdleStateCoroutineY),
-                    new State(
-                        onEnter: _ =>
-                        {
-                            Game.Instance.Sound.BossMusic.With(b => b.SetKidding());
-                            Game.Instance.Camera.FocusUp();
-                            health.Defense = vulnerableDefense;
-                        },
-                        onExit: _ =>
-                        {
-                            Game.Instance.Camera.ResetFocus();
-                            _idleSineSequenceX.Stop();
-                            _idleSineSequenceY.Stop();
-                        })
+                new State(
+                    onEnter: _ =>
+                    {
+                        Game.Instance.Sound.BossMusic.With(b => b.SetKidding());
+                        Game.Instance.Camera.FocusUp();
+                        health.Defense = vulnerableDefense;
+                        handsIdleSine.StartMovement();
+                    },
+                    onExit: _ =>
+                    {
+                        Game.Instance.Camera.ResetFocus();
+                        handsIdleSine.StopMovement();
+                    }
                 )
             );
             fsm.AddTransition(
@@ -158,17 +153,17 @@ namespace BRJ.Bosses.Snooker
             // FREAK OUT STATE
             fsm.AddState(
                 FreakOutState,
-                new ParallelStates(
-                    new CoState(this, IdleStateCoroutineX),
-                    new CoState(this, IdleStateCoroutineY),
-                    new State(
-                        onEnter: _ => { Game.Instance.Camera.FocusUp(); },
-                        onExit: _ =>
-                        {
-                            Game.Instance.Camera.ResetFocus();
-                            _idleSineSequenceX.Stop();
-                            _idleSineSequenceY.Stop();
-                        })
+                new State(
+                    onEnter: _ =>
+                    {
+                        Game.Instance.Camera.FocusUp();
+                        handsIdleSine.StartMovement();
+                    },
+                    onExit: _ =>
+                    {
+                        Game.Instance.Camera.ResetFocus();
+                        handsIdleSine.StopMovement();
+                    }
                 )
             );
             fsm.AddTransition(
@@ -179,12 +174,12 @@ namespace BRJ.Bosses.Snooker
             );
 
             // STOMP PLAYER STATE
-            fsm.AddState(StompPlayerState, new CoState(this, StompPlayerCoroutine, needsExitTime: true));
+            fsm.AddState(StompPlayerState, new CoState(this, StompPlayerCoroutine, needsExitTime: true, loop: false));
             fsm.AddTransition(StompPlayerState, PopulateBallsState);
 
 
             // POPULATE BALLS STATE
-            fsm.AddState(PopulateBallsState, 
+            fsm.AddState(PopulateBallsState,
                 new CoState(this, PopulateBallsCoroutine, needsExitTime: true, loop: false)
                 );
             fsm.AddTransition(PopulateBallsState, IdleCooldownState);
@@ -197,52 +192,28 @@ namespace BRJ.Bosses.Snooker
         public void IncreaseBallCount()
         {
             _currentBallCount++;
-            // fsm.RequestStateChange(PopulateBallsState, true);
+            fsm.RequestStateChange(PopulateBallsState);
         }
 
-        private IEnumerator ReturnHands()
+        private IEnumerator ReturnHands(bool? left = null)
         {
-            leftHand.SetHand(HandType.Idle);
-            rightHand.SetHand(HandType.Idle);
+            bool doRight = !left.HasValue || !left.Value;
+            bool doLeft = !left.HasValue || left.Value;
+
+            if (doLeft) leftHand.SetHand(HandType.Idle);
+            if (doRight) rightHand.SetHand(HandType.Idle);
             var sequence = Sequence.Create();
-            sequence.Group(Tween.Position(leftHandTransform, transform.position + Vector3.right * 2f, 1f, Ease.InOutQuad));
-            sequence.Group(Tween.Rotation(leftHandTransform, Vector3.zero, 1f, Ease.InOutQuad));
-            sequence.Group(Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1f, Ease.InOutQuad));
-            sequence.Group(Tween.Rotation(rightHandTransform, Vector3.zero, 1f, Ease.InOutQuad));
-            sequence.Group(Tween.Position(poolStick, transform.position + Vector3.up * 1f, 1f, Ease.InOutQuad));
-            sequence.Group(Tween.Rotation(poolStick, Vector3.forward * -90, 1f, Ease.OutSine));
+            if (doLeft) sequence.Group(Tween.Position(leftHandTransform, transform.position + Vector3.right * 2f, 1f, Ease.InOutQuad));
+            if (doLeft) sequence.Group(Tween.Rotation(leftHandTransform, Quaternion.identity, 1f, Ease.InOutQuad));
+            if (doRight) sequence.Group(Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1f, Ease.InOutQuad));
+            if (doRight) sequence.Group(Tween.Rotation(rightHandTransform, Quaternion.identity, 1f, Ease.InOutQuad));
+            if (!left.HasValue) sequence.Group(Tween.Position(poolStick, transform.position + Vector3.up * 1f, 1f, Ease.InOutQuad));
+            if (!left.HasValue) sequence.Group(Tween.Rotation(poolStick, Vector3.forward * -90, 1f, Ease.OutSine));
             yield return sequence.ToYieldInstruction();
         }
-        
+
 
         #region < == IDLE STATE == >
-
-        private Sequence _idleSineSequenceY;
-
-        private IEnumerator IdleStateCoroutineY()
-        {
-            _idleSineSequenceY = Sequence.Create(Tween.LocalPositionY(rightHandTransform, idleSineTweenY));
-            _idleSineSequenceY.Group(Tween.LocalPositionY(leftHandTransform, idleSineTweenY));
-            yield return _idleSineSequenceY.ToYieldInstruction();
-            _idleSineSequenceY =
-                Sequence.Create(Tween.LocalPositionY(rightHandTransform, idleSineTweenY.WithDirection(false)));
-            _idleSineSequenceY.Group(Tween.LocalPositionY(leftHandTransform, idleSineTweenY.WithDirection(false)));
-            yield return _idleSineSequenceY.ToYieldInstruction();
-        }
-
-        private Sequence _idleSineSequenceX;
-
-        private IEnumerator IdleStateCoroutineX()
-        {
-            _idleSineSequenceX = Sequence.Create(Tween.LocalPositionX(rightHandTransform, leftIdleSineTweenX));
-            _idleSineSequenceX.Group(Tween.LocalPositionX(leftHandTransform, rightIdleSineTweenX));
-            yield return _idleSineSequenceX.ToYieldInstruction();
-            _idleSineSequenceX =
-                Sequence.Create(Tween.LocalPositionX(rightHandTransform, leftIdleSineTweenX.WithDirection(false)));
-            _idleSineSequenceX.Group(Tween.LocalPositionX(leftHandTransform,
-                rightIdleSineTweenX.WithDirection(false)));
-            yield return _idleSineSequenceX.ToYieldInstruction();
-        }
 
         #endregion
 
@@ -250,6 +221,7 @@ namespace BRJ.Bosses.Snooker
 
         private IEnumerator ShotWhiteBallCoroutine(CoState<string, string> state)
         {
+            handsIdleSine.StopMovement();
             health.Defense = vulnerableDefense;
             float nextStep = 0;
             var player = Game.Instance.World.Player.transform;
@@ -318,7 +290,7 @@ namespace BRJ.Bosses.Snooker
             Tween.Position(poolStick, _currentBall.position - dir * 1.45f, 0.1f, Ease.Linear);
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
-            
+
             // Reset all balls' linear damping (were set during the last loop)
             foreach (var ball in availableBalls)
                 if (ball)
@@ -326,7 +298,7 @@ namespace BRJ.Bosses.Snooker
 
             // Apply velocity to the selected ball
             _currentBall.linearVelocity = dir * shotForce;
-            
+
             poolShotSound.Play();
 
             // Apply the knockback tween to the pool stick and hands
@@ -338,10 +310,11 @@ namespace BRJ.Bosses.Snooker
             rightHandTransform.SetParent(transform);
 
             // Return the stick and hands to the rest position
-            
+
             Game.Instance.Sound.BossMusic.With(b => b.SetKidding());
             yield return ReturnHands();
-            
+            handsIdleSine.StartMovement();
+
             // Wait until all balls are still or the wait time elapsed
             nextStep += shotBallWaitTime;
             yield return new WaitWhile(() =>
@@ -426,7 +399,7 @@ namespace BRJ.Bosses.Snooker
         private IEnumerator StompPlayerCoroutine(CoState<string, string> state)
         {
             Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
-            
+
             leftHand.SetHand(HandType.HoldingStomp);
             rightHand.SetHand(HandType.HoldingStomp);
             rightHand.SetOrder(5);
@@ -441,6 +414,8 @@ namespace BRJ.Bosses.Snooker
             }
 
             poolStickShadow.gameObject.SetActive(false);
+            leftHandTransform.right = Vector3.right;
+            rightHandTransform.right = Vector3.right;
             leftHand.SetHand(HandType.Idle);
             rightHand.SetHand(HandType.Idle);
             leftHandTransform.SetParent(transform);
@@ -459,34 +434,52 @@ namespace BRJ.Bosses.Snooker
 
         #region <== POPULATE BALLS STATE == >
 
+        private async UniTask PopulateBall(Transform handTransform)
+        {
+            var pos = new Vector2(
+                Random.Range(minBallPos.x, maxBallPos.x),
+                Random.Range(minBallPos.y, maxBallPos.y));
+            var ball = Instantiate(ballPrefab, handTransform);
+            ball.transform.localPosition = Vector3.zero;
+            var rb = ball.GetComponent<Rigidbody2D>();
+            rb.simulated = false;
+
+            await Tween.Position(handTransform, pos + Vector2.up * 3, 1, Ease.InOutSine);
+            await Tween.Position(ball.transform, pos, .75f, Ease.InQuint);
+
+            rb.simulated = true;
+            ball.transform.SetParent(null);
+            availableBalls = availableBalls.Append(rb).ToArray();
+        }
+
+        private async UniTask PopulateBalls(bool isLeft, int count)
+        {
+            for (var i = 0; i < count; i++)
+            {
+                await PopulateBall(isLeft ? leftHandTransform : rightHandTransform);
+            }
+
+            await ReturnHands(isLeft).ToUniTask();
+        }
+
         private IEnumerator PopulateBallsCoroutine(CoState<string, string> state)
         {
             yield return ReturnHands();
             leftHand.SetHand(HandType.HoldingBall);
+            rightHand.SetHand(HandType.HoldingBall);
             var availableBallCount = availableBalls.Count(b => b);
-            print($"There are {availableBallCount} available balls");
-            print($"And the ball count is {_currentBallCount}");
-            print($"So, we're adding {_currentBallCount - availableBallCount} balls");
-            for (var i = 0; i < _currentBallCount - availableBallCount; i++)
-            {
-                var pos = new Vector2(
-                    Random.Range(minBallPos.x, maxBallPos.x),
-                    Random.Range(minBallPos.y, maxBallPos.y));
-                var ball = Instantiate(ballPrefab, leftHandTransform);
-                ball.transform.localPosition = Vector3.zero;
-                var rb = ball.GetComponent<Rigidbody2D>();
-                rb.simulated = false;
+            float count = (_currentBallCount - availableBallCount) / 2f;
+            
+            int leftCount = Mathf.FloorToInt(count);
+            int rightCount = Mathf.CeilToInt(count);
 
-                yield return Tween.Position(leftHandTransform, pos + Vector2.up * 3, 1, Ease.InOutSine)
-                    .ToYieldInstruction();
+            yield return UniTask.WhenAll(
+                PopulateBalls(true, leftCount),
+                PopulateBalls(false, rightCount)
+            ).ToCoroutine();
 
-                yield return Tween.Position(ball.transform, pos, .75f, Ease.InQuint).ToYieldInstruction();
-                rb.simulated = true;
-                ball.transform.SetParent(null);
-                availableBalls = availableBalls.Append(rb).ToArray();
-            }
             leftHand.SetHand(HandType.Idle);
-            yield return ReturnHands();
+            rightHand.SetHand(HandType.Idle);
             state.fsm.StateCanExit();
         }
 
