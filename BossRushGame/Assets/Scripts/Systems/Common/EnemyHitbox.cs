@@ -1,7 +1,7 @@
-using Game.Systems.Visual;
+using BRJ.Systems.Visual;
 using UnityEngine;
 
-namespace Game.Systems.Common
+namespace BRJ.Systems.Common
 {
     public class EnemyHitbox : MonoBehaviour
     {
@@ -10,7 +10,7 @@ namespace Game.Systems.Common
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            health.ApplyDamage(GameManager.Instance.Player.activeGun.bulletDamage);
+            health.ApplyDamage(Game.Instance.World.Player.activeGun.bulletDamage);
             Destroy(other.gameObject);
             if (flash) flash.Flash();
         }

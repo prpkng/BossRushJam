@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Player
+namespace BRJ.Player
 {
     public class PlayerOffsetFollow : MonoBehaviour
     {
@@ -10,7 +10,7 @@ namespace Game.Player
 
         private void FixedUpdate()
         {
-            transform.position = GameManager.Instance.PlayerPosition * offsetMultiplier;
+            transform.position = WorldManager.PlayerPosition * offsetMultiplier;
         }
     }
 }

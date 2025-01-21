@@ -1,9 +1,9 @@
-using Game.Systems.Common;
+using BRJ.Systems.Common;
 using UnityEngine.Events;
 
-namespace Game.Bosses
+namespace BRJ.Bosses
 {
-    using Game.Systems;
+    using BRJ.Systems;
     using UnityEngine;
 
     public class BossHealth : HealthBehavior
@@ -17,18 +17,13 @@ namespace Game.Bosses
         {
             set => damageMultiplier = 1f / value;
         }
-
-        private void Awake()
-        {
-            GameManager.Instance.CreateBossBar();
-        }
         
         public override void ApplyDamage(float damage)
         {
             var healthBefore = currentHealth;
             base.ApplyDamage(damage);
 
-            GameManager.Instance.BossBarController.With(b =>
+            Game.Instance.World.BossBarController.With(b =>
             {
                 b.SetHealthPercentage(currentHealth / totalHealth * 100f);
             });

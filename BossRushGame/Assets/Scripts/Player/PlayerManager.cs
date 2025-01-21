@@ -1,8 +1,8 @@
-using Game.Systems;
+using BRJ.Systems;
 using UnityEngine;
 using UnityHFSM;
 
-namespace Game.Player
+namespace BRJ.Player
 {
     public partial class PlayerManager : MonoBehaviour
     {
@@ -38,7 +38,7 @@ namespace Game.Player
         private void Awake()
         {
             Rb = GetComponent<Rigidbody2D>();
-            GameManager.Instance.Player = this;
+            Game.Instance.World.Player = this;
         }
 
         private void Start()

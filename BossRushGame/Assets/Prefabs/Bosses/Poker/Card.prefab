@@ -85,7 +85,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &739155263927303789
 GameObject:
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraWeight: 0.75
+  health: {fileID: 3025801405290300097}
   spriteTransform: {fileID: 6076389444724418863}
   frontSprite: {fileID: 4140845815190188555}
   moveRotationForce: -50
@@ -154,6 +155,7 @@ MonoBehaviour:
   totalHealth: 30
   damageMultiplier: 1
   currentHealth: 0
+  destroyOnDeath: 1
 --- !u!1 &2300952148789596222
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +165,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6076389444724418863}
+  - component: {fileID: 3178259975627424150}
+  - component: {fileID: 7032231001575905874}
+  - component: {fileID: 7793136815020760888}
   m_Layer: 0
   m_Name: SpriteT
   m_TagString: Untagged
@@ -187,6 +192,113 @@ Transform:
   - {fileID: 3946394147573284899}
   m_Father: {fileID: 3239751743489427745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!331 &3178259975627424150
+SpriteMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300952148789596222}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 4255211946059749863, guid: 2cbbf6eba5d68d64982003154df3c047, type: 3}
+  m_MaskAlphaCutoff: 0.2
+  m_FrontSortingLayerID: 0
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 0
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 0
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 0
+  m_SpriteSortPoint: 0
+  m_MaskSource: 0
+--- !u!114 &7032231001575905874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300952148789596222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634270db22f1491a872c19be5949c03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 3025801405290300097}
+  stageSprites:
+  - {fileID: 4255211946059749863, guid: 2cbbf6eba5d68d64982003154df3c047, type: 3}
+  - {fileID: 5734492098156206483, guid: 2cbbf6eba5d68d64982003154df3c047, type: 3}
+  - {fileID: 9122276570915693824, guid: 2cbbf6eba5d68d64982003154df3c047, type: 3}
+  - {fileID: -489778784508956032, guid: 2cbbf6eba5d68d64982003154df3c047, type: 3}
+  - {fileID: 5839171271466069764, guid: 2cbbf6eba5d68d64982003154df3c047, type: 3}
+  mask: {fileID: 3178259975627424150}
+  soundEmitter: {fileID: 7793136815020760888}
+--- !u!114 &7793136815020760888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300952148789596222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1483620887
+      Data2: 1171288325
+      Data3: 1824606134
+      Data4: -1010356126
+    Path: event:/SFX/SnookerBoss/SFX_BallShatter
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7753552844365378951
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +385,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &8081494265759046013
 MonoBehaviour:

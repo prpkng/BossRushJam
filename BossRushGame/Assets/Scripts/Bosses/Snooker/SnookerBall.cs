@@ -1,30 +1,45 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Systems;
+using FMODUnity;
+using BRJ.Systems;
+using BRJ.Systems.Common;
 using UnityEngine;
+using System;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     public class SnookerBall : MonoBehaviour
     {
         private static readonly List<float> PickedHuesFlat = new();
         private static readonly List<float> PickedHuesLine = new();
         
-        [SerializeField] private bool faceDirection = false;
-        [SerializeField] private float damageSpeedThreshold = 5f;
-        [SerializeField] private int hazardousLayer;
-        [SerializeField] private int safeLayer;
-        [SerializeField] private SpriteRenderer ballSprite;
-        [SerializeField] private Animator ballAnimator;
-        [SerializeField] private RuntimeAnimatorController[] possibleBallAnimations;
+        [SerializeField] private bool faceDirection = true;
         [SerializeField] private float[] possibleHues;
+        [SerializeField] private float impactForceThreshold = 3f;
+        [SerializeField] private SpriteRenderer ballSprite;
+        [SerializeField] private Transform ballShadow;
+        [SerializeField] private StudioEventEmitter collisionSound;
+        [SerializeField] private HealthBehavior ballHealth;
+        [Header("Ball Animation")]
         [SerializeField] private float ballSpeedMulti = 0.25f;
         [SerializeField] private float ballSpeedPow = 1.1f;
+        [SerializeField] private Animator ballAnimator;
+        [SerializeField] private RuntimeAnimatorController[] possibleBallAnimations;
         private Rigidbody2D _rb;
 
         public float CurrentHue { get; private set; }
         private bool isFlat;
+
+        public void DetachShadow() {
+            ballShadow.parent = null;
+        }
+        public void AttachShadow() {
+            ballShadow.parent = transform;
+        }
+
+        public void SetShadowLocalPos(Vector3 localPos) {
+            ballShadow.localPosition = localPos;
+        }
         
         private void Awake()
         {
@@ -50,8 +65,6 @@ namespace Game.Bosses.Snooker
         {
             ballAnimator.speed = Mathf.Pow(_rb.linearVelocity.magnitude * ballSpeedMulti, ballSpeedPow);
             if (faceDirection) transform.right = _rb.linearVelocity.normalized;
-
-            gameObject.layer = _rb.linearVelocity.magnitude > damageSpeedThreshold ? hazardousLayer : safeLayer;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -60,6 +73,13 @@ namespace Game.Bosses.Snooker
             {
                 Destroy(gameObject);
             }
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.relativeVelocity.magnitude <= impactForceThreshold) return;
+            collisionSound.Play();
+            ballHealth.ApplyDamage(1);
         }
     }
 }

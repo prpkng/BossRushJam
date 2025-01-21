@@ -1,8 +1,9 @@
 using System.Collections;
+using BRJ.Systems;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     public abstract class CardAttack : MonoBehaviour
     {
@@ -21,7 +22,7 @@ namespace Game.Bosses.Poker
         private void Update()
         {
             if (!FaceDirection) return;
-            Vector2 dir = GameManager.Instance.Player.transform.position - transform.position;
+            Vector2 dir = Game.Instance.World.Player.transform.position - transform.position;
             dir.Normalize();
             float a = Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Lerp(

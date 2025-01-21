@@ -1,8 +1,10 @@
 using System;
-using Game.Player;
+using BRJ.Player;
+using BRJ.Systems;
+using BRJ.Systems.Common;
 using UnityEngine;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     
     public class Card : MonoBehaviour
@@ -15,8 +17,11 @@ namespace Game.Bosses.Poker
             ClubsAce,
             DiamondsAce,
         }
+
+        public const int CardCount = 4;
         
         public float cameraWeight = 1;
+        public HealthBehavior health;
         public Transform spriteTransform;
         public SpriteRenderer frontSprite;
         public float moveRotationForce;
@@ -32,7 +37,7 @@ namespace Game.Bosses.Poker
             cardClass = @class;
         }
 
-        public void Activate()
+        public void Activate(PokerBoss boss)
         {
             print("Card Activated");
             switch (cardClass)
@@ -43,9 +48,18 @@ namespace Game.Bosses.Poker
                 case Type.SpadesAce:
                     gameObject.AddComponent<CardAttackSpades>();
                     break;
+                case Type.HeartsAce:
+                    boss.bossHealth.AddHealth(boss.heartsHealthRecover);
+                    Destroy(gameObject);
+                    break;
+                case Type.ClubsAce:
+                    gameObject.AddComponent<ClubsWallAttack>();
+                    break;
                 default:
                     break;
             }
+
+            health.enabled = true;
         }
 
         private void FixedUpdate()
@@ -65,12 +79,12 @@ namespace Game.Bosses.Poker
 
         private void OnEnable()
         {
-            CameraManager.Instance.AddTarget(transform, cameraWeight);
+            Game.Instance.Camera.AddTarget(transform, cameraWeight);
         }
 
         private void OnDisable()
         {
-            CameraManager.Instance.RemoveTarget(transform);
+            Game.Instance.Camera.RemoveTarget(transform);
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7330559444157686007}
   - component: {fileID: 1409683214027594039}
   - component: {fileID: 2338245022845996370}
+  - component: {fileID: 4357236074548724672}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -33,9 +34,10 @@ Transform:
   m_Children:
   - {fileID: 6761423087225824590}
   - {fileID: 1883839048920986253}
+  - {fileID: 460477857583220459}
   - {fileID: 7063005310955102695}
   - {fileID: 8939613280120032888}
-  - {fileID: 460477857583220459}
+  - {fileID: 8089621201210422861}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1409683214027594039
@@ -55,64 +57,8 @@ MonoBehaviour:
   initialBallCount: 3
   minBallPos: {x: -12, y: -4}
   maxBallPos: {x: 12, y: 4}
-  idleWaitTime: 5
-  idleSineTweenY:
-    startFromCurrent: 0
-    startValue: -1
-    endValue: 1
-    settings:
-      duration: 2
-      ease: 4
-      customEase:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycles: 1
-      cycleMode: 0
-      startDelay: 0
-      endDelay: 0
-      useUnscaledTime: 0
-      useFixedUpdate: 0
-  rightIdleSineTweenX:
-    startFromCurrent: 0
-    startValue: 3
-    endValue: 2
-    settings:
-      duration: 1.5
-      ease: 4
-      customEase:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycles: 1
-      cycleMode: 0
-      startDelay: 0
-      endDelay: 0
-      useUnscaledTime: 0
-      useFixedUpdate: 0
-  leftIdleSineTweenX:
-    startFromCurrent: 0
-    startValue: -3
-    endValue: -2
-    settings:
-      duration: 1.5
-      ease: 4
-      customEase:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycles: 1
-      cycleMode: 0
-      startDelay: 0
-      endDelay: 0
-      useUnscaledTime: 0
-      useFixedUpdate: 0
+  idleWaitTime: 3
+  handsIdleSine: {fileID: 4938716155462246623}
   shotBallWaitTime: 4
   whiteBallStopThreshold: 4
   shotForce: 25
@@ -165,7 +111,7 @@ MonoBehaviour:
     useUnscaledTime: 0
     useFixedUpdate: 0
   stompCameraShake:
-    strength: {x: 2, y: 2, z: 0}
+    strength: {x: 0.5, y: 0.5, z: 0.5}
     duration: 0.15
     frequency: 15
     enableFalloff: 0
@@ -188,6 +134,9 @@ MonoBehaviour:
   stompCountMax: 6
   poolHandDistance: 3
   stickHandDistance: 9
+  stompHitSound: {fileID: 4357236074548724672}
+  stompPullSound: {fileID: 4357236074548724672}
+  poolShotSound: {fileID: 4357236074548724672}
   ballPrefab: {fileID: 4317147210184284824, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
   health: {fileID: 2338245022845996370}
   availableBalls: []
@@ -211,6 +160,7 @@ MonoBehaviour:
   totalHealth: 500
   damageMultiplier: 1
   currentHealth: 0
+  destroyOnDeath: 0
   onThreeQuartersHealth:
     m_PersistentCalls:
       m_Calls:
@@ -222,6 +172,30 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8609000956720070441}
+        m_TargetAssemblyTypeName: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
+        m_MethodName: SetLayer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7598249609894973622}
+        m_TargetAssemblyTypeName: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
+        m_MethodName: SetLayer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -241,6 +215,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8609000956720070441}
+        m_TargetAssemblyTypeName: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
+        m_MethodName: SetLayer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7598249609894973622}
+        m_TargetAssemblyTypeName: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
+        m_MethodName: SetLayer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onQuarterHealth:
     m_PersistentCalls:
       m_Calls:
@@ -256,6 +254,61 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8609000956720070441}
+        m_TargetAssemblyTypeName: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
+        m_MethodName: SetLayer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7598249609894973622}
+        m_TargetAssemblyTypeName: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
+        m_MethodName: SetLayer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4357236074548724672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56063950311246133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1483620887
+      Data2: 1171288325
+      Data3: 1824606134
+      Data4: -1010356126
+    Path: event:/SFX/SnookerBoss/SFX_BallShatter
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &992675719498475725
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +384,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -4191806669631607836, guid: 34f293bc9e394b84c9e25fea7f4ef2ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -425,6 +478,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackForce: 0
+--- !u!1 &5013026198375414725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8089621201210422861}
+  - component: {fileID: 4938716155462246623}
+  m_Layer: 0
+  m_Name: HandsSine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8089621201210422861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5013026198375414725}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.6090574, y: -13.2455845, z: 1507.3806}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7330559444157686007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4938716155462246623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5013026198375414725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fec5aaabbf567a4ca7e0dd673aab87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHandTransform: {fileID: 7063005310955102695}
+  leftHandTransform: {fileID: 8939613280120032888}
+  sineXMagnitude: 0.5
+  sineYMagnitude: 1.5
+  sineXSpeed: 2
+  sineYSpeed: 1
+  lerpSpeed: 10
 --- !u!1 &8491966029747772028
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +633,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2338245022845996370}
     - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
       objectReference: {fileID: 0}
@@ -546,15 +654,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -627,15 +735,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7167158112212107330, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

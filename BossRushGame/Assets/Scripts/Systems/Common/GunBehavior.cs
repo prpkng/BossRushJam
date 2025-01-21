@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Systems.Common
+namespace BRJ.Systems.Common
 {
     public class GunBehavior : MonoBehaviour
     {

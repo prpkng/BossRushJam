@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Game.Bosses.Poker
+namespace BRJ.Bosses.Poker
 {
     public class CardAttackSpades : CardAttack
     {

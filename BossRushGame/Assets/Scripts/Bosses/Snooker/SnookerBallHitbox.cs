@@ -1,10 +1,10 @@
-using Game.Systems;
-using Game.Systems.Common;
-using Game.Systems.Visual;
+using BRJ.Systems;
+using BRJ.Systems.Common;
+using BRJ.Systems.Visual;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     public class SnookerBallHitbox : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace Game.Bosses.Snooker
         private Tween _shotShake;
         private void OnTriggerEnter2D(Collider2D other)
         {
-            health.ApplyDamage(GameManager.Instance.Player.activeGun.bulletDamage);
+            health.ApplyDamage(Game.Instance.World.Player.activeGun.bulletDamage);
             rb.AddForceAtPosition(other.attachedRigidbody.linearVelocity.normalized * knockbackForce, other.transform.position, ForceMode2D.Impulse);
             
             _shotShake.Complete();

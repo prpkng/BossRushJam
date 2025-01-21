@@ -1,6 +1,6 @@
 using System;
 
-namespace Game.Systems.Slots.Modifiers
+namespace BRJ.Systems.Slots.Modifiers
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class ModifierChanceAttribute : Attribute

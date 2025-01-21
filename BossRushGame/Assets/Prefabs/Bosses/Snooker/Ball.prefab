@@ -201,12 +201,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910654109737338541}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6678563305826895738}
+  m_Father: {fileID: 1645934849336945853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5217732039239008545
 SpriteRenderer:
@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 1770755278262559167}
   - component: {fileID: 2883570391160937925}
   - component: {fileID: 1096073054656998827}
+  - component: {fileID: 3600108497559435925}
   m_Layer: 0
   m_Name: HealthStages
   m_TagString: Untagged
@@ -408,12 +409,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901745271526981994}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6678563305826895738}
+  m_Father: {fileID: 1645934849336945853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2883570391160937925
 SpriteRenderer:
@@ -482,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b579ed44d5f941789e4b125fea108628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSprite: {fileID: 5217732039239008545}
+  objectSprite: {fileID: 5217732039239008545}
   health: {fileID: 4753292431069373674}
   stageSprites:
   - {fileID: -2103132290680992075, guid: 814b05b3b96104a4f98dab578223cda5, type: 3}
@@ -491,6 +492,84 @@ MonoBehaviour:
   - {fileID: 6473015565657289503, guid: 814b05b3b96104a4f98dab578223cda5, type: 3}
   - {fileID: -7976688259994987561, guid: 814b05b3b96104a4f98dab578223cda5, type: 3}
   renderer: {fileID: 2883570391160937925}
+  soundEmitter: {fileID: 3600108497559435925}
+--- !u!114 &3600108497559435925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3901745271526981994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1483620887
+      Data2: 1171288325
+      Data3: 1824606134
+      Data4: -1010356126
+    Path: event:/SFX/SnookerBoss/SFX_BallShatter
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &4305545880660742306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1645934849336945853}
+  - component: {fileID: 8884163144804926200}
+  m_Layer: 8
+  m_Name: SortingGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1645934849336945853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305545880660742306}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1687155812382764744}
+  - {fileID: 1770755278262559167}
+  m_Father: {fileID: 6678563305826895738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &8884163144804926200
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305545880660742306}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_SortAtRoot: 0
 --- !u!1 &4317147210184284824
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,8 +583,8 @@ GameObject:
   - component: {fileID: 4565283947866118565}
   - component: {fileID: 4299385746948494696}
   - component: {fileID: 4753292431069373674}
-  - component: {fileID: 3094152938428483770}
-  m_Layer: 0
+  - component: {fileID: 1207906087112994560}
+  m_Layer: 8
   m_Name: Ball
   m_TagString: SnookerBall
   m_Icon: {fileID: 0}
@@ -527,8 +606,7 @@ Transform:
   m_Children:
   - {fileID: 1209041427005551328}
   - {fileID: 4968808607443251463}
-  - {fileID: 1687155812382764744}
-  - {fileID: 1770755278262559167}
+  - {fileID: 1645934849336945853}
   - {fileID: 3989655026171900027}
   - {fileID: 8262258357299464016}
   m_Father: {fileID: 0}
@@ -609,14 +687,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceDirection: 1
-  damageSpeedThreshold: -1
-  hazardousLayer: 8
-  safeLayer: 0
-  ballSprite: {fileID: 5217732039239008545}
-  ballAnimator: {fileID: 7648826604262153229}
-  possibleBallAnimations:
-  - {fileID: -4852412476061962919, guid: 6e24915af78c05a429d54629bf89a114, type: 3}
-  - {fileID: -1946603547101133165, guid: 754def3f4699aff44ab95a1862b22bee, type: 3}
   possibleHues:
   - 38
   - 223
@@ -624,8 +694,17 @@ MonoBehaviour:
   - 17
   - 165
   - 0
+  impactForceThreshold: 3
+  ballSprite: {fileID: 5217732039239008545}
+  ballShadow: {fileID: 3989655026171900027}
+  collisionSound: {fileID: 1207906087112994560}
+  ballHealth: {fileID: 4753292431069373674}
   ballSpeedMulti: 0.65
   ballSpeedPow: 0.75
+  ballAnimator: {fileID: 7648826604262153229}
+  possibleBallAnimations:
+  - {fileID: -4852412476061962919, guid: 6e24915af78c05a429d54629bf89a114, type: 3}
+  - {fileID: -1946603547101133165, guid: 754def3f4699aff44ab95a1862b22bee, type: 3}
 --- !u!114 &4753292431069373674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,19 +720,39 @@ MonoBehaviour:
   totalHealth: 80
   damageMultiplier: 1
   currentHealth: 0
+  destroyOnDeath: 0
   deathParticles: {fileID: 3810184071858919342}
---- !u!210 &3094152938428483770
-SortingGroup:
+--- !u!114 &1207906087112994560
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4317147210184284824}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_SortAtRoot: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 324603725
+      Data2: 1321098247
+      Data3: 1325872016
+      Data4: 1362393264
+    Path: event:/SFX/SnookerBoss/SFX_BallBounce
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4449913507445808381
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +1088,7 @@ GameObject:
   - component: {fileID: 8262258357299464016}
   - component: {fileID: 3810184071858919342}
   - component: {fileID: 2928605311008359496}
+  - component: {fileID: 2747194178949652942}
   m_Layer: 0
   m_Name: DeathParticles
   m_TagString: Untagged
@@ -1048,6 +1148,37 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_SortAtRoot: 0
+--- !u!114 &2747194178949652942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8025742444760763849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1606946906
+      Data2: 1333627882
+      Data3: 1852486033
+      Data4: -1527997356
+    Path: event:/SFX/SnookerBoss/SFX_BallBreak
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8330407823371170248
 GameObject:
   m_ObjectHideFlags: 0

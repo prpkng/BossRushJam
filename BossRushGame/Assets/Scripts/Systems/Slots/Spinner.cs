@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using Game.UI.Slots;
+using BRJ.UI.Slots;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Systems.Slots
+namespace BRJ.Systems.Slots
 {
     public class Spinner : MonoBehaviour
     {

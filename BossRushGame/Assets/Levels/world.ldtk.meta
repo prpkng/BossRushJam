@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 6b9b1a72d82ba174e9b1f8d9c156b00b
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: aaa16bfc62c086f4fb45da87b6acf9b1, type: 3}
+  _reimportOnDependencyChange: 1
+  _jsonFile: {fileID: -164016180542632921, guid: 6b9b1a72d82ba174e9b1f8d9c156b00b, type: 3}
+  _pixelsPerUnit: 16
+  _customLevelPrefab: {instanceID: 0}
+  _intGridValueColorsVisible: 0
+  _useCompositeCollider: 1
+  _geometryType: 0
+  _createBackgroundColor: 1
+  _createLevelBoundsTrigger: 0
+  _useParallax: 1
+  _intGridValues:
+  - _key: BasicLayer_1
+    _asset: {fileID: 11400000, guid: 0fa38306681bf8140ae622da276cabb7, type: 2}
+  _entities:
+  - _key: Door
+    _asset: {fileID: 387972415121282731, guid: a6b77a9fa8340864b9bd73360322de17, type: 3}
+  _enumGenerate: 1
+  _enumPath: ../Scripts/WorldEnums.cs
+  _enumNamespace: Game.Levels

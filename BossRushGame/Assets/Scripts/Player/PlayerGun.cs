@@ -1,10 +1,10 @@
 using System.Collections;
-using Game.Systems;
-using Game.Systems.Common;
+using BRJ.Systems;
+using BRJ.Systems.Common;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Player
+namespace BRJ.Player
 {
     public class PlayerGun : GunBehavior
     {
@@ -57,6 +57,7 @@ namespace Game.Player
 
         private void Update()
         {
+            if (Game.Instance.Paused) return;
             var lookDirection = GetPointVector();
 
             float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
@@ -64,9 +65,9 @@ namespace Game.Player
 
             spriteRenderer.flipY = lookDirection.x < 0;
 
-            _temp = GameManager.Instance.Player.playerSprite.transform.localScale;
+            _temp = Game.Instance.World.Player.playerSprite.transform.localScale;
             _temp.x = lookDirection.x < 0 ? -1 : 1;
-            GameManager.Instance.Player.playerSprite.transform.localScale = _temp;
+            Game.Instance.World.Player.playerSprite.transform.localScale = _temp;
 
 
             _fireRateCounter -= Time.deltaTime;
@@ -105,12 +106,12 @@ namespace Game.Player
             _fireRateCounter = 1f / fireRate;
             if (bulletRecoil > .1f)
             {
-                GameManager.Instance.Player.Rb.linearVelocity = -direction * bulletRecoil;
+                Game.Instance.World.Player.Rb.linearVelocity = -direction * bulletRecoil;
                 playerRecoilTween = Tween.Custom(
                     0f,
                     1f,
                     .25f,
-                    f => GameManager.Instance.Player.SpeedMultiplier = f,
+                    f => Game.Instance.World.Player.SpeedMultiplier = f,
                     Ease.OutCubic
                 );
             }

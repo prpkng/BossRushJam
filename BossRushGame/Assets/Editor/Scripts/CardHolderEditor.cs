@@ -1,9 +1,9 @@
-using Game.Bosses.Poker;
+using BRJ.Bosses.Poker;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace Game.Editor.Scripts
+namespace BRJ.Editor.Scripts
 {
     [CustomEditor(typeof(DeckHolder))]
     public class CardHolderEditor : UnityEditor.Editor

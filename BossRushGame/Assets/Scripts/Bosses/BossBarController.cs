@@ -1,23 +1,21 @@
-namespace Game.Bosses
+namespace BRJ.Bosses
 {
     using UnityEngine;
-    using UnityEngine.UIElements;
 
     public class BossBarController : MonoBehaviour
     {
-        public UIDocument uiDocument;
+        public RectTransform rectTransform;
 
-        private VisualElement bar;
-
-        private void Start()
-        {
-            bar = uiDocument.rootVisualElement.Q<VisualElement>("Bar");
+        private float startWidth;
+        private void Start() {
+            startWidth = rectTransform.rect.width;
+            Game.Instance.World.BossBarController.Set(this);
         }
 
         public void SetHealthPercentage(float percentage)
         {
-            print($"HealthPercentage: {percentage}");
-            bar.style.right = new StyleLength(Length.Percent(100f - percentage));
+            float value = percentage / 100f;
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, startWidth * value);
         }
     }
 }

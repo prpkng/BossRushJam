@@ -1,23 +1,46 @@
 using System;
-using Game.Player;
+using System.Threading.Tasks;
+using BRJ.Player;
+using BRJ.Systems;
+using Cysharp.Threading.Tasks;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-namespace Game
+namespace BRJ
 {
-    public class InputManager : Singleton<InputManager>
+    public class InputManager : MonoBehaviour
     {
         [SerializeField] private PlayerInput playerInputComponent;
 
         private static Camera mainCamera;
 
-        private void Awake()
+        private void OnEnable()
         {
             mainCamera = Camera.main;
             playerInputComponent.onActionTriggered += OnActionTriggered;
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            playerInputComponent.onActionTriggered -= OnActionTriggered;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private async void OnSceneLoaded(Scene _, LoadSceneMode mode)
+        {
+            if (mode != LoadSceneMode.Single)
+                return;
+            mainCamera = Camera.main;
+
+            
+            // Reload player input component
+            playerInputComponent.enabled = false;
+            await UniTask.NextFrame();
+            playerInputComponent.enabled = true;
         }
 
         private void Update()
@@ -25,9 +48,11 @@ namespace Game
             if (Keyboard.current.rKey.wasPressedThisFrame)
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             if (Keyboard.current.f6Key.wasPressedThisFrame)
-                SceneManager.LoadScene("Pool");
+                SceneManager.LoadScene("TheHand");
             if (Keyboard.current.f7Key.wasPressedThisFrame)
-                SceneManager.LoadScene("Poker");
+                SceneManager.LoadScene("Joker");
+            if (Keyboard.current.f8Key.wasPressedThisFrame)
+                SceneManager.LoadScene("Lobby");
         }
 
         public static Vector2 MousePosition
@@ -36,7 +61,7 @@ namespace Game
             {
                 Vector2 viewportPos = Mouse.current.position.ReadValue() /
                          new Vector2(Screen.width, Screen.height);
-                float scale = GameManager.Instance.ScreenRenderTexture.localScale.x;
+                float scale = Game.Instance.World.ScreenRenderTexture.localScale.x;
                 var range = new Vector2(0.5f - 0.5f / scale, 0.5f + 0.5f / scale);
                 viewportPos = new Vector2(
                     Mathf.Lerp(range.x, range.y, viewportPos.x),
@@ -51,6 +76,7 @@ namespace Game
 
         public static event Action RollPerformed;
         public static event Action<bool> ShootPerformed;
+        public static event Action PausePressed;
         public static bool isHoldingShoot;
 
         public static bool isUsingGamepad;
@@ -77,6 +103,9 @@ namespace Game
                 case "Shoot" when ctx.canceled:
                     ShootPerformed?.Invoke(false);
                     isHoldingShoot = false;
+                    break;
+                case "Pause" when ctx.started:
+                    PausePressed?.Invoke();
                     break;
             }
         }

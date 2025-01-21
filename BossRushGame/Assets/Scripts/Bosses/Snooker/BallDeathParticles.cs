@@ -1,9 +1,9 @@
-using Game.Player;
-using Game.Systems;
+using BRJ.Player;
+using BRJ.Systems;
 using PrimeTween;
 using UnityEngine;
 
-namespace Game.Bosses.Snooker
+namespace BRJ.Bosses.Snooker
 {
     public class BallDeathParticles : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace Game.Bosses.Snooker
         public Ease ease = Ease.OutCubic;
         public void Play()
         {
-            CameraManager.Instance.ShakeCamera(CameraManager.Instance.defaultWeakShake);
+            Game.Instance.Camera.ShakeCamera(Game.Instance.Camera.defaultWeakShake);
             gameObject.SetActive(true);
             transform.parent = null;
             foreach (var spriteRenderer in sprites)

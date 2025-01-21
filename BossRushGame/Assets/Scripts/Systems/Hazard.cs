@@ -1,8 +1,8 @@
 using System;
-using Game.Player;
+using BRJ.Player;
 using UnityEngine;
 
-namespace Game.Systems
+namespace BRJ.Systems
 {
     public class Hazard : MonoBehaviour
     {

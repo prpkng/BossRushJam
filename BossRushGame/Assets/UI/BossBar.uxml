@@ -1,9 +1,13 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:VisualElement style="flex-grow: 1; align-items: flex-start; flex-direction: row;">
-        <engine:VisualElement style="flex-grow: 1; height: 7%; align-items: center; justify-content: center;">
-            <engine:VisualElement name="BarContainer" style="flex-grow: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; width: 80%; height: 75%;">
-                <engine:VisualElement name="BarBG" style="flex-grow: 1; background-color: rgb(206, 0, 0); position: absolute; right: 0; left: 0; top: 0; bottom: 0;" />
-                <engine:VisualElement name="Bar" style="flex-grow: 1; background-color: rgb(61, 233, 56); position: absolute; left: 0; top: 0; bottom: 0; right: 0; transition-property: all, right; transition-duration: 0s, 0.15s; transition-timing-function: ease, ease-out-sine; transition-delay: 0s, 0s;" />
+        <engine:VisualElement style="flex-grow: 1; height: 20px; align-items: center; justify-content: center;">
+            <engine:VisualElement name="BarContainer" style="flex-grow: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; width: 80%; height: 8px;">
+                <engine:VisualElement name="BarBG" style="flex-grow: 1; background-color: rgb(206, 0, 0); position: absolute; right: 0; left: 0; top: 0; bottom: 0; display: none;" />
+                <engine:VisualElement name="Bar" style="flex-grow: 0; position: absolute; left: 0; top: 0; bottom: 0; right: 0; transition-property: all, right; transition-duration: 0s, 0.15s; transition-timing-function: ease, ease-out-sine; transition-delay: 0s, 0s; flex-direction: row; align-content: stretch; justify-content: space-between; align-items: center;">
+                    <engine:VisualElement name="Color" style="flex-grow: 1; height: 100%; background-color: rgb(255, 255, 255); border-top-width: 1px; border-bottom-width: 1px; border-bottom-color: rgb(64, 55, 65); border-top-color: rgb(64, 55, 65);" />
+                    <engine:VisualElement name="LeftHand" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/UI/SnookerBarHand.png?fileID=2800000&amp;guid=66aa7f5000f1f494386ac9870b83c6da&amp;type=3#SnookerBarHand&quot;); width: 32px; height: 32px; min-height: 32px; min-width: 32px; align-items: center; justify-content: center; align-self: flex-start; align-content: center; translate: -16px -12px; position: absolute; left: 0;" />
+                    <engine:VisualElement name="RightHand" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/UI/SnookerBarHand.png?fileID=2800000&amp;guid=66aa7f5000f1f494386ac9870b83c6da&amp;type=3#SnookerBarHand&quot;); width: 32px; height: 32px; min-height: 32px; min-width: 32px; align-items: center; justify-content: center; align-self: flex-start; align-content: center; translate: 16px -12px; scale: -1 1; position: absolute; right: 0;" />
+                </engine:VisualElement>
             </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>

@@ -1,4 +1,4 @@
-namespace Game.Systems.Slots.Modifiers
+namespace BRJ.Systems.Slots.Modifiers
 {
     [ModifierChance(8)]
     public class Athletics : Modifier
@@ -15,12 +15,12 @@ namespace Game.Systems.Slots.Modifiers
 
         public override void ApplyAdvantage()
         {
-            GameManager.Instance.Player.rollDuration *= 1.5f;
+            Game.Instance.World.Player.rollDuration *= 1.5f;
         }
 
         public override void ApplyDownside()
         {
-            GameManager.Instance.Player.rollCooldown *= 2f;
+            Game.Instance.World.Player.rollCooldown *= 2f;
         }
     }
 }
