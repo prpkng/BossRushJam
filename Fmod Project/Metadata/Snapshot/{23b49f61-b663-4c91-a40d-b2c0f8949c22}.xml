@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Snapshot" id="{23b49f61-b663-4c91-a40d-b2c0f8949c22}">
 		<property name="name">
-			<value>pause</value>
+			<value>Pause</value>
 		</property>
 		<relationship name="mixer">
 			<destination>{c77fb5e7-919e-400a-8717-56946d74d67c}</destination>
