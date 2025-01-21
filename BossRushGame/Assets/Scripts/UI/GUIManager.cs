@@ -5,6 +5,7 @@ namespace BRJ.UI {
     public class GUIManager : MonoBehaviour {
         public DisplayObject playerHud;
         public DisplayObject pauseMenu;
+        public PauseManager pauseManager;
 
         private void Start() {
             playerHud.SetActive(true);
@@ -24,6 +25,7 @@ namespace BRJ.UI {
                 pauseMenu.SetActive(false);
                 Game.Instance.SetPaused(false);
             } else {
+                pauseManager.ResetPause();
                 pauseMenu.SetActive(true);
                 Game.Instance.SetPaused(true);
             }
