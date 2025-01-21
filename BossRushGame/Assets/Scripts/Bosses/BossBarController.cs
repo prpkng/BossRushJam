@@ -9,6 +9,7 @@ namespace BRJ.Bosses
         private float startWidth;
         private void Start() {
             startWidth = rectTransform.rect.width;
+            Game.Instance.World.BossBarController.Set(this);
         }
 
         public void SetHealthPercentage(float percentage)
