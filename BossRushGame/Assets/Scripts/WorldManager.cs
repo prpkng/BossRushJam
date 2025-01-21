@@ -53,7 +53,6 @@ namespace BRJ
 
         public async void PlayerDeath()
         {
-            Destroy(gameObject);
             DeathScreenController.LastCameraPosition = Game.Instance.Camera.transform.position;
             DeathScreenController.LastPlayerPosition = PlayerPosition;
             
