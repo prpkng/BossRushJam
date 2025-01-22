@@ -2,6 +2,9 @@ namespace BRJ.Bosses.Poker
 {
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading;
+    using Cysharp.Threading.Tasks;
     using PrimeTween;
     using UnityEngine;
 
@@ -17,24 +20,38 @@ namespace BRJ.Bosses.Poker
             currentCards.Add(card);
         }
 
-        private IEnumerator Start()
+        private async void Start()
         {
+            if (!this) return;
+            currentCards = currentCards.Where(c => (MonoBehaviour)c).ToList();
 
-            yield return new WaitUntil(() => currentCards.Count > 0);
+            await UniTask.WaitUntil(() => currentCards.Count > 0);
+            var tokenSource = new CancellationTokenSource();
             for (int i = 0; i < currentCards.Count; i++)
             {
                 var target = (MonoBehaviour) currentCards[i];
+                if (!target)
+                    continue;
                 var startPos = target.transform.position.y;
-                yield return Tween.PositionY(
+                await Tween.PositionY(
                     target.transform,
                     startPos,
                     startPos + cardSelectOffset,
                     cardSelectTween
-                ).ToYieldInstruction();
+                );
 
                 print($"Started attack on card: ${currentCards[i].GetType().Name}");
                 var attackDuration = currentCards[i].StartAttack();
-                yield return new WaitForSeconds(attackDuration);
+
+                var time = Time.time;
+                while (Time.time < time + attackDuration) {
+                    if (!target)
+                        break;
+                    await UniTask.WaitForEndOfFrame();
+                }
+                if (!target)
+                    continue;
+
                 print($"Stopped attack on card: ${currentCards[i].GetType().Name}");
                 currentCards[i].StopAttack();
 
@@ -43,12 +60,12 @@ namespace BRJ.Bosses.Poker
                     startPos + cardSelectOffset,
                     startPos,
                     cardSelectTween
-                );
+                ).ToUniTask().Forget();
 
-                yield return new WaitForSeconds(cardAttackDelay);
+                await UniTask.WaitForSeconds(cardAttackDelay);
 
             }
-            yield return StartCoroutine(Start());
+            Start();
         }
     }
 }
