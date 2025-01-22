@@ -133,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.835957
+      value: 13.167063
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -99.79655
+      value: -99.786255
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalRotation.w
@@ -194,11 +194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 871471212557376644, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.835957
+      value: 13.167063
       objectReference: {fileID: 0}
     - target: {fileID: 871471212557376644, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -99.79655
+      value: -99.786255
       objectReference: {fileID: 0}
     - target: {fileID: 871471212557376644, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: m_LocalRotation.w
@@ -377,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188894148}
   - component: {fileID: 188894149}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 408704863}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,8 @@ GameObject:
   m_Component:
   - component: {fileID: 496071476}
   - component: {fileID: 496071477}
-  m_Layer: 0
+  - component: {fileID: 496071478}
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +575,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 8d8ab39eea4ba3a4b8505e8fc32f2c87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -606,6 +607,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &496071478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496071475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af4b624027942f3b77864d73206dc29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.05
 --- !u!1001 &515188526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -695,7 +709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 664578995}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 855142759}
   - component: {fileID: 855142760}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,7 +1114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 868016835}
   - component: {fileID: 868016836}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1187,6 +1201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 877502614}
   - component: {fileID: 877502613}
+  - component: {fileID: 877502615}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -1216,7 +1231,7 @@ MonoBehaviour:
     Path: event:/MUS/MUS_Gameplay
   Event: 
   EventPlayTrigger: 11
-  EventStopTrigger: 12
+  EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -1240,6 +1255,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &877502615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877502612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5faa0ab4b538f043bc32af5be03f9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventEmitter: {fileID: 877502613}
 --- !u!1 &879553228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,7 +1278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 879553229}
   - component: {fileID: 879553230}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1336,7 +1364,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 892270363}
-  m_Layer: 0
+  - component: {fileID: 892270364}
+  - component: {fileID: 892270365}
+  m_Layer: 12
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1360,6 +1390,56 @@ Transform:
   - {fileID: 2005436763}
   m_Father: {fileID: 1982963566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &892270364
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892270362}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 4.5}
+  m_Radius: 1.75
+--- !u!114 &892270365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892270362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb6c7e4e65340e09ed20602dc8b52f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 1584713478}
+  flash: {fileID: 496071478}
 --- !u!1 &901969612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,6 +1518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eyes
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 3e03335de95cccb4fbd2955cf8c113de, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 3e03335de95cccb4fbd2955cf8c113de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.1875
@@ -1498,7 +1582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1077991525}
   - component: {fileID: 1077991526}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2220,7 +2304,7 @@ Transform:
   m_GameObject: {fileID: 1156134151}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 11.195956, z: 0.20345314}
+  m_LocalPosition: {x: 0, y: 12.527062, z: 0.21374404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2275,7 +2359,7 @@ Transform:
   m_GameObject: {fileID: 1381104787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.75, z: 0}
+  m_LocalPosition: {x: 0, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2339,8 +2423,6 @@ GameObject:
   - component: {fileID: 1584713473}
   - component: {fileID: 1584713479}
   - component: {fileID: 1584713474}
-  - component: {fileID: 1584713476}
-  - component: {fileID: 1584713477}
   - component: {fileID: 1584713478}
   m_Layer: 12
   m_Name: Boss
@@ -2482,7 +2564,7 @@ MonoBehaviour:
   pickCardCooldown: 1
   revealBossTween:
     startFromCurrent: 0
-    startValue: {x: 0, y: -2.75, z: 0}
+    startValue: {x: 0, y: -3.5, z: 0}
     endValue: {x: 0, y: -1.5, z: 0}
     settings:
       duration: 2.5
@@ -2500,56 +2582,6 @@ MonoBehaviour:
       useUnscaledTime: 0
       useFixedUpdate: 0
   overrideCardType: -1
---- !u!58 &1584713476
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584713472}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 2.5
---- !u!114 &1584713477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584713472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb6c7e4e65340e09ed20602dc8b52f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 1584713478}
-  flash: {fileID: 0}
 --- !u!114 &1584713478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2613,7 +2645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1630014980}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2788,7 +2820,7 @@ Transform:
   m_GameObject: {fileID: 1970873842}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2813,8 +2845,8 @@ MonoBehaviour:
   cardsRangeSum: 5
   cardTweenDuration: 0.5
   cardTweenEase: 9
-  addCardTweenDuration: 0
-  addCardTweenEase: 0
+  addCardTweenDuration: 0.25
+  addCardTweenEase: 18
 --- !u!114 &1970873845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2828,8 +2860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpSpeed: 4
-  rotateFactor: 0.4
-  displacement: 4
+  rotateFactor: 0.7
+  displacement: 0
 --- !u!1 &1982963565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2873,7 @@ GameObject:
   - component: {fileID: 1982963566}
   - component: {fileID: 1982963567}
   - component: {fileID: 1982963568}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: JokerBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2908,7 +2940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2005436763}
   - component: {fileID: 2005436764}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2995,7 +3027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2008811069}
   - component: {fileID: 2008811070}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
