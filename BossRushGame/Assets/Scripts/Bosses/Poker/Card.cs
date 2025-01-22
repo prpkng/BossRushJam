@@ -42,19 +42,22 @@ namespace BRJ.Bosses.Poker
             print("Card Activated");
             switch (cardClass)
             {
-                case Type.DiamondsAce:
-                    gameObject.AddComponent<CardAttackDiamonds>();
-                    break;
-                case Type.SpadesAce:
-                    gameObject.AddComponent<CardAttackSpades>();
-                    break;
-                case Type.HeartsAce:
+                case Type.DiamondsAce:{
+                    var attack = gameObject.AddComponent<CardAttackDiamonds>();
+                    boss.attackManager.AddCard(attack);
+                    break;}
+                case Type.SpadesAce:{
+                    var attack = gameObject.AddComponent<CardAttackSpades>();
+                    boss.attackManager.AddCard(attack);
+                    break;}
+                case Type.HeartsAce:{
                     boss.bossHealth.AddHealth(boss.heartsHealthRecover);
                     Destroy(gameObject);
-                    break;
-                case Type.ClubsAce:
-                    gameObject.AddComponent<ClubsWallAttack>();
-                    break;
+                    break;}
+                case Type.ClubsAce:{
+                    var attack = gameObject.AddComponent<ClubsWallAttack>();
+                    boss.attackManager.AddCard(attack);
+                    break;}
                 default:
                     break;
             }

@@ -1,16 +1,18 @@
 using System.Collections;
 using BRJ.Systems;
+using PrimeTween;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace BRJ.Bosses.Poker
 {
-    public abstract class CardAttack : MonoBehaviour
+    public abstract class ShootingAttack : MonoBehaviour, ICardAttack
     {
         protected Transform bulletPrefab;
 
         public float rotatingSpeed = 15f;
         public float fireRate = 2;
+        public abstract float AttackDuration { get; }
         public abstract bool FaceDirection { get; }
         public abstract void GetBulletPrefab();
 
@@ -21,7 +23,7 @@ namespace BRJ.Bosses.Poker
 
         private void Update()
         {
-            if (!FaceDirection) return;
+            if (!FaceDirection || !attacking) return;
             Vector2 dir = Game.Instance.World.Player.transform.position - transform.position;
             dir.Normalize();
             float a = Mathf.Atan2(-dir.y, dir.x) * Mathf.Rad2Deg;
@@ -32,9 +34,31 @@ namespace BRJ.Bosses.Poker
             );
         }
 
-        private IEnumerator Start()
+        private bool attacking = false;
+        private Coroutine shootingCoroutine;
+        public float StartAttack()
         {
-            while (true)
+            shootingCoroutine = StartCoroutine(StartShootingCoroutine());
+            attacking = true;
+            return AttackDuration;
+        }
+
+        public void StopAttack()
+        {
+            StopCoroutine(shootingCoroutine);
+            Tween.Rotation(
+                transform,
+                Quaternion.Euler(0, 180, 0),
+                1f,
+                Ease.InOutCubic
+            );
+            attacking = false;
+        }
+
+        private IEnumerator StartShootingCoroutine()
+        {
+            var time = Time.time;
+            while (Time.time < time + AttackDuration)   
             {
                 if (!this) yield break;
                 yield return new WaitForSeconds(1f / fireRate);

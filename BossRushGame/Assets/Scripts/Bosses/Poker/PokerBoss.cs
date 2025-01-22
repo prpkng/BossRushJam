@@ -16,6 +16,8 @@ namespace BRJ.Bosses.Poker
         }
         public DeckHolder deck;
 
+        public CardAttackManager attackManager;
+
         [SerializedDictionary("Card Type", "Sprite")]
         public SerializedDictionary<Card.Type, Sprite> cardSprites = new()
         {
@@ -40,10 +42,13 @@ namespace BRJ.Bosses.Poker
 
         [Header("Editor")] public Card.Type overrideCardType;
         
+
+
         private List<Vector3> usedCardLocations = new();
         private StateMachine<States> fsm;
         
         private List<Card.Type> pickedCards = new();
+
         
         private void Start()
         {
@@ -119,15 +124,6 @@ namespace BRJ.Bosses.Poker
         private void FixedUpdate()
         {
             fsm.OnLogic();
-            
-            Vector2 dir = (WorldManager.PlayerPosition - transform.position);
-            dir.Normalize();
-            deck.transform.localPosition = Vector3.Lerp(
-                deck.transform.localPosition,
-                dir * 4f,
-                Time.fixedDeltaTime * 6f
-            );
-            deck.transform.up = (transform.position - deck.transform.position).normalized;
         }
     }
 }
