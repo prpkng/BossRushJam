@@ -811,6 +811,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1204671221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 56063950311246133, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+  m_PrefabInstance: {fileID: 6895901554292110501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &1204671226
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204671221}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_SortAtRoot: 0
 --- !u!1 &1331442443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1692029673
 Transform:
   m_ObjectHideFlags: 0
@@ -1934,6 +1951,86 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveToShot.Path
+      value: event:/SFX/Snooker/SFX_MoveToPlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveHandEvent.Path
+      value: event:/SFX/Snooker/SFX_HandFloat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Path
+      value: event:/SFX/Snooker/SFX_PlaySnooker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveToShot.Guid.Data1
+      value: -451432831
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveToShot.Guid.Data2
+      value: 1232673659
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveToShot.Guid.Data3
+      value: -644768099
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveToShot.Guid.Data4
+      value: -1525337875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: returnHandsEvent.Path
+      value: event:/SFX/Snooker/SFX_MoveFromPlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveHandEvent.Guid.Data1
+      value: -650678165
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveHandEvent.Guid.Data2
+      value: 1119800191
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveHandEvent.Guid.Data3
+      value: 1773605780
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: moveHandEvent.Guid.Data4
+      value: -1617525168
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Guid.Data1
+      value: -138986045
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Guid.Data2
+      value: 1104700227
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Guid.Data3
+      value: 1925006981
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Guid.Data4
+      value: -2123107063
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: returnHandsEvent.Guid.Data1
+      value: 1638920198
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: returnHandsEvent.Guid.Data2
+      value: 1144219262
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: returnHandsEvent.Guid.Data3
+      value: 315051186
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: returnHandsEvent.Guid.Data4
+      value: -1766883907
+      objectReference: {fileID: 0}
     - target: {fileID: 7330559444157686007, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1977,7 +2074,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 56063950311246133, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1204671226}
   m_SourcePrefab: {fileID: 100100000, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
