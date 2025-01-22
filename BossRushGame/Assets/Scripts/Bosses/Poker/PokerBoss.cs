@@ -17,9 +17,13 @@ namespace BRJ.Bosses.Poker
             ChooseCardCooldown,
             StartState,
             PanicState,
+            ShootKingCards
         }
         public Transform bossSprite;
         public DeckHolder deck;
+        public Transform deckOffset;
+        public Vector3 defendingDeckPosition;
+        public Vector3 openDeckPosition;
 
         public CardAttackManager attackManager;
 
@@ -46,6 +50,12 @@ namespace BRJ.Bosses.Poker
         public float pickCardCooldown = 4f;
         [Header("Panic")]
         public TweenSettings<Vector3> revealBossTween; 
+        public float panicWaitTime = 4f;
+        [Header("ShootKing")]
+        public TweenSettings shootCardTween;
+        
+        [SerializedDictionary("Card Type", "Sprite")]
+        public List<Sprite> kingSprites = new() {};
 
         [Header("Editor")] public Card.Suits overrideCardType;
 
@@ -55,6 +65,7 @@ namespace BRJ.Bosses.Poker
         private StateMachine<States> fsm;
 
         private List<Card.Suits> pickedCards = new();
+        private List<Card> activeCards = new();
 
 
         private void Start()
@@ -74,9 +85,17 @@ namespace BRJ.Bosses.Poker
             fsm.AddTransition(new TransitionAfter<States>(States.ChooseCardCooldown, States.ChooseCard, pickCardCooldown));
 
             // Panic state
+            // TODO: Boss new eyes
             fsm.AddState(States.PanicState, onEnter: _ => {
                 Tween.LocalPosition(bossSprite, revealBossTween);
+                Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
+                
             });
+
+            fsm.AddTransition(new TransitionAfter<States>(States.PanicState, States.ShootKingCards, panicWaitTime));
+
+            // Shoot king cards
+            fsm.AddState(States.ShootKingCards, new CoState<States>(this, ShootKingCards, needsExitTime: true, loop: false));
 
             fsm.SetStartState(States.StartState);
 
@@ -132,10 +151,41 @@ namespace BRJ.Bosses.Poker
             yield return Tween.Position(card, positionCardTween).ToYieldInstruction();
 
             card.WithComponent((Card c) => c.Activate(this));
+            activeCards.Add(card.GetComponent<Card>());
 
             state.fsm.StateCanExit();
         }
 
+        private IEnumerator ShootKingCards() {
+            // activeCards.ForEach(c => {
+            //     if (c)
+            //         Destroy(c.gameObject);
+            // });
+
+            deckOffset.localPosition = openDeckPosition;
+
+            activeCards.Clear();
+            deck.AddCard(5);
+
+            yield return new WaitForSeconds(3);
+
+
+            for (int i = 0; i < 5; i++)
+            {
+                var card = deck.TakeCard();
+                card.WithComponent((Card c) => c.frontSprite.sprite = kingSprites.ChooseRandom());
+                Tween.Position(card, card.position, WorldManager.PlayerPosition - card.up * 1.5f, shootCardTween);
+                Tween.Rotation(
+                    card,
+                    card.transform.eulerAngles,
+                    new Vector3(0, 180, Random.Range(-165, 165)),
+                    shootCardTween
+                );
+
+                yield return new WaitForSeconds(3);
+            }
+            yield return null;
+        }
         private void FixedUpdate()
         {
             fsm.OnLogic();

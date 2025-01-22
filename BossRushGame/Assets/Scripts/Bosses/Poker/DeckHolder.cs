@@ -43,7 +43,7 @@ namespace BRJ.Bosses.Poker
             }
         }
 
-        public void AddCard(int count = 0)
+        public void AddCard(int count = 1)
         {
             for (int i = 0; i < count; i++)
             {
@@ -66,7 +66,7 @@ namespace BRJ.Bosses.Poker
         {
             var card = cards.First();
             card.parent = null;
-            Tween.StopAll(card.transform);
+            Tween.CompleteAll(card.transform);
             card.transform.position -= Vector3.forward * 10f;
             card.WithComponent<Card>(c => c.enabled = true);
             cards.RemoveAt(0);

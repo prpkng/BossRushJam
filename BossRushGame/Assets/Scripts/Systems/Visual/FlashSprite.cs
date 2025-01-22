@@ -7,14 +7,14 @@ namespace BRJ.Systems.Visual
 {
     public class FlashSprite : MonoBehaviour
     {
-        private static readonly int FlashID = Shader.PropertyToID("_Flash");
+        protected static readonly int FlashID = Shader.PropertyToID("_Flash");
 
         public SpriteRenderer SpriteRenderer { get; set; }
-        [SerializeField] private float flashDuration = .05f;
+        [SerializeField] protected float flashDuration = .05f;
 
         private void Awake() => SpriteRenderer = GetComponent<SpriteRenderer>();
 
-        public void Flash()
+        public virtual void Flash()
         {
             if (!SpriteRenderer) return;
             SpriteRenderer.material.SetInt(FlashID, 1);
