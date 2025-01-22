@@ -26,6 +26,7 @@ namespace BRJ.Bosses.Poker
             currentCards = currentCards.Where(c => (MonoBehaviour)c).ToList();
 
             await UniTask.WaitUntil(() => currentCards.Count > 0);
+            await UniTask.WaitUntil(() => enabled);
             var tokenSource = new CancellationTokenSource();
             for (int i = 0; i < currentCards.Count; i++)
             {

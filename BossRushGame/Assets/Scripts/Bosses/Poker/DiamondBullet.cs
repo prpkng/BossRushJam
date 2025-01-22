@@ -5,7 +5,7 @@ namespace BRJ.Bosses.Poker
 {
     public class DiamondBullet : MonoBehaviour
     {
-        public SpriteRenderer renderer;
+        public new SpriteRenderer renderer;
         public float bulletSpeed = 20f;
 		public float aimSpeed = .75f;
 
