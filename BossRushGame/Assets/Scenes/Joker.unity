@@ -2788,7 +2788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards: []
   cardPrefab: {fileID: 3239751743489427745, guid: b28b0691706d8c84583a1bf54075906c, type: 3}
-  startCardCount: 7
+  startCardCount: 4
   defaultRange: 0
   cardsRangeSum: 5
   cardTweenDuration: 0.5

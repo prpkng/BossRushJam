@@ -14,15 +14,16 @@ namespace BRJ.Bosses.Poker
         private Transform bulletPrefab;
         private List<Transform> bullets;
         
-        private const float xPos = 8;
-        private const float yMin = -2;
+        private const float xPos = 16;
+        private const float yMin = -5.5f;
         private const float yMax = 10;
+        private const float yAddIfLow = .5f;
 
-        private const int WallShootingCount = 5;
+        private const int WallShootingCount = 6;
         private const float EachWallDelay = .75f;
         private const float TweenMoveDuration = 1.5f;
         private const float FinishDelay = .25f;
-
+        private const int BulletCount = 7;
 
         private void Awake()
         {
@@ -45,20 +46,24 @@ namespace BRJ.Bosses.Poker
         {
             bullets = new List<Transform>();
 
-            var index = Random.Range(1, 5);
+            var index = Random.Range(1, BulletCount);
 
             var sequence = Sequence.Create();
 
             float startX = transform.position.x > 0 ? xPos : -xPos;
             
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < BulletCount+1; i++)
             {
                 if (i == index) continue;
                 var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
                 if (startX > 0) bullet.right = Vector3.left;
                 
-                float y = Mathf.Lerp(yMin, yMax, i / 6f);
+                float y = Mathf.Lerp(yMin, yMax, i / (float)BulletCount);
+                if (i < index)
+                    y -= yAddIfLow;
+                else if (i > index)
+                    y += yAddIfLow;
 
                 bullets.Add(bullet);
                 
