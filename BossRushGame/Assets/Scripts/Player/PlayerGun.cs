@@ -89,6 +89,7 @@ namespace BRJ.Player
 
         public void OnPlayerFire(bool pressed)
         {
+            if (Game.Instance.Paused) return;
             IsHoldingFire = pressed;
             if (pressed && _fireRateCounter < 0)
                 TriggerShoot();
