@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace BRJ.Bosses.Poker
 {
-    public class ClubsWallAttack : MonoBehaviour
+    public class ClubsWallAttack : MonoBehaviour, ICardAttack
     {
         private Transform bulletPrefab;
         private List<Transform> bullets;
@@ -18,21 +18,26 @@ namespace BRJ.Bosses.Poker
         private const float yMin = -2;
         private const float yMax = 10;
 
+        private const int WallShootingCount = 5;
+        private const float EachWallDelay = .75f;
+        private const float TweenMoveDuration = 1.5f;
+        private const float FinishDelay = .25f;
+
+
         private void Awake()
         {
             var op = Addressables.LoadAssetAsync<GameObject>("Prefabs/ClubsBullet.prefab");
             op.Completed += handle =>
             {
                 bulletPrefab = handle.Result.transform;
-                Burst();
             };
         }
 
         private async void Burst() {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < WallShootingCount; i++)
             {
                 Shoot();
-                await UniTask.WaitForSeconds(.75f);
+                await UniTask.WaitForSeconds(EachWallDelay);
             }
         }
 
@@ -62,7 +67,7 @@ namespace BRJ.Bosses.Poker
                     new Vector3(
                         startX,
                         y),
-                    1.5f,
+                    TweenMoveDuration,
                     Ease.OutCubic
                 ));
             }
@@ -72,6 +77,14 @@ namespace BRJ.Bosses.Poker
             bullets.ForEach(b => b.GetComponent<ClubsBullet>().enabled = true);
             
         }
-        
+
+        public float StartAttack()
+        {
+            Burst();
+            return EachWallDelay * WallShootingCount + TweenMoveDuration + FinishDelay;
+        }
+
+        public void StopAttack()
+        { }
     }
 }
