@@ -85,7 +85,10 @@
 	<object class="MultiSound" id="{118ab52d-f9a1-4a85-804a-a7501c4473b7}">
 		<relationship name="sounds">
 			<destination>{174ac87b-d400-4927-9df4-49527faaea3e}</destination>
+<<<<<<< HEAD
 			<destination>{deb41e31-eb9a-4c2b-8761-9775d0c54de2}</destination>
+=======
+>>>>>>> 08774fa (Ui + Snooker sounds)
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{41660962-c8e0-4471-ad49-8d548dfece1e}">
@@ -105,11 +108,14 @@
 			<destination>{04e66340-e091-4d94-8387-a789c51a430b}</destination>
 		</relationship>
 	</object>
+<<<<<<< HEAD
 	<object class="CommandSound" id="{deb41e31-eb9a-4c2b-8761-9775d0c54de2}">
 		<relationship name="commandTarget">
 			<destination>{350632bd-e323-4f94-80a2-ae03a2869ad1}</destination>
 		</relationship>
 	</object>
+=======
+>>>>>>> 08774fa (Ui + Snooker sounds)
 	<object class="MixerBusFader" id="{052a93e4-a2a2-4509-9977-ef834f3aa08b}" />
 	<object class="MixerBusFader" id="{a933f5a1-a4d7-484c-89a8-9638786f3634}" />
 </objects>

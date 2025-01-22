@@ -11,6 +11,10 @@ namespace BRJ.Bosses {
             Game.Instance.Sound.BossMusic = new Maybe<BossMusicController>(this);
         }
 
+        private void Start() {
+            Game.Instance.Sound.currentBGM = eventEmitter.EventInstance;
+        }
+
         // Salvar como uma constante pra evitar typos
         private const string AggressiveParam = "AgressiveAct";
 

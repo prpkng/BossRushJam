@@ -61,7 +61,10 @@
 	<object class="GroupTrack" id="{152cfe6f-b424-4a4d-b856-3058db62940c}">
 		<relationship name="modules">
 			<destination>{cfba382d-e7b5-4d61-b373-c90e27222b9f}</destination>
+<<<<<<< HEAD
 			<destination>{351f32c2-4cf3-4d9e-865f-0404708ff237}</destination>
+=======
+>>>>>>> 08774fa (Ui + Snooker sounds)
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{284952d9-da2c-4a60-80f3-ab18b357cbc3}</destination>
@@ -70,7 +73,10 @@
 	<object class="Timeline" id="{940a0e66-9f54-4482-9003-968204e7a110}">
 		<relationship name="modules">
 			<destination>{cfba382d-e7b5-4d61-b373-c90e27222b9f}</destination>
+<<<<<<< HEAD
 			<destination>{351f32c2-4cf3-4d9e-865f-0404708ff237}</destination>
+=======
+>>>>>>> 08774fa (Ui + Snooker sounds)
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{008ba384-f8de-4c82-8bd4-e7fce9e36316}">
@@ -92,6 +98,7 @@
 	<object class="MixerBusPanner" id="{cb36ea48-fd59-4e8b-a1a5-93728c1eca95}" />
 	<object class="SingleSound" id="{cfba382d-e7b5-4d61-b373-c90e27222b9f}">
 		<property name="length">
+<<<<<<< HEAD
 			<value>0.53200000000000003</value>
 		</property>
 		<property name="timelockedOffset">
@@ -110,6 +117,9 @@
 		</property>
 		<property name="timelockedOffset">
 			<value>1.782</value>
+=======
+			<value>2.423560090702948</value>
+>>>>>>> 08774fa (Ui + Snooker sounds)
 		</property>
 		<relationship name="audioFile">
 			<destination>{5782f5b6-cc15-40a4-9af7-5e2ce42fad25}</destination>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Snapshot" id="{05ed8f1f-2a5f-47b2-9df3-a4a470f829c6}">
+		<property name="name">
+			<value>Death</value>
+		</property>
+		<relationship name="mixer">
+			<destination>{c77fb5e7-919e-400a-8717-56946d74d67c}</destination>
+		</relationship>
+		<relationship name="automatableProperties">
+			<destination>{84de8c08-0bd2-4e33-adfb-ce56b8cb4daf}</destination>
+		</relationship>
+		<relationship name="markerTracks">
+			<destination>{e10b84b7-053f-4351-a9f2-6214b1a18715}</destination>
+		</relationship>
+		<relationship name="timeline">
+			<destination>{edadcd85-d4e9-4801-aabb-5c5b3ff2eadd}</destination>
+		</relationship>
+		<relationship name="snapshotMasterTrack">
+			<destination>{4833ab0b-9690-4547-a67c-be02539fdcdb}</destination>
+		</relationship>
+		<relationship name="snapshotProperties">
+			<destination>{c8126c7a-87b9-42e5-b88e-fa186b6ca1ea}</destination>
+			<destination>{50a5f724-45f9-4bb9-8ced-0a2e19d45947}</destination>
+		</relationship>
+		<relationship name="snapshotTracks">
+			<destination>{cab941ef-ba7c-4382-85d7-99723b22a60d}</destination>
+		</relationship>
+	</object>
+	<object class="EventAutomatableProperties" id="{84de8c08-0bd2-4e33-adfb-ce56b8cb4daf}">
+		<property name="snapshotIntensity">
+			<value>0</value>
+		</property>
+		<relationship name="automators">
+			<destination>{898d3cc0-3e90-4b99-9625-9b57f5a16e39}</destination>
+		</relationship>
+	</object>
+	<object class="MarkerTrack" id="{e10b84b7-053f-4351-a9f2-6214b1a18715}" />
+	<object class="Timeline" id="{edadcd85-d4e9-4801-aabb-5c5b3ff2eadd}" />
+	<object class="SnapshotMasterTrack" id="{4833ab0b-9690-4547-a67c-be02539fdcdb}" />
+	<object class="SnapshotProperty" id="{c8126c7a-87b9-42e5-b88e-fa186b6ca1ea}">
+		<property name="propertyName">
+			<value>pitch</value>
+		</property>
+		<property name="value">
+			<value>-17</value>
+		</property>
+		<relationship name="automatableObject">
+			<destination>{7304a6e9-ac34-4394-9cbd-2764c6855960}</destination>
+		</relationship>
+	</object>
+	<object class="SnapshotProperty" id="{50a5f724-45f9-4bb9-8ced-0a2e19d45947}">
+		<property name="propertyName">
+			<value>volume</value>
+		</property>
+		<property name="value">
+			<value>-46</value>
+		</property>
+		<relationship name="automatableObject">
+			<destination>{7304a6e9-ac34-4394-9cbd-2764c6855960}</destination>
+		</relationship>
+	</object>
+	<object class="SnapshotTrack" id="{cab941ef-ba7c-4382-85d7-99723b22a60d}">
+		<relationship name="mixerStrip">
+			<destination>{7304a6e9-ac34-4394-9cbd-2764c6855960}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{898d3cc0-3e90-4b99-9625-9b57f5a16e39}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>snapshotIntensity</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{1ad08225-6890-43bc-b946-01aaab9af771}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{1ad08225-6890-43bc-b946-01aaab9af771}">
+		<relationship name="parameter">
+			<destination>{d569fcaf-4832-4aea-a66f-c7a3de04ca39}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{de5ebaa4-feaa-4ea4-ba0d-97780c4489f8}</destination>
+			<destination>{935889fa-22fd-4c07-995b-1e48264e3b02}</destination>
+			<destination>{738ee873-509f-4747-bde3-69e8647655e1}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{de5ebaa4-feaa-4ea4-ba0d-97780c4489f8}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>42</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.526322424</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{935889fa-22fd-4c07-995b-1e48264e3b02}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>100</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{738ee873-509f-4747-bde3-69e8647655e1}">
+		<property name="position">
+			<value>0.050000000000000003</value>
+		</property>
+		<property name="value">
+			<value>2</value>
+		</property>
+		<property name="curveShape">
+			<value>0.158046752</value>
+		</property>
+	</object>
+</objects>
