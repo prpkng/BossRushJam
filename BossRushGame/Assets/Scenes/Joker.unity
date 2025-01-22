@@ -2275,7 +2275,7 @@ Transform:
   m_GameObject: {fileID: 1381104787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0625, y: -2.75, z: 0}
+  m_LocalPosition: {x: 0, y: -2.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2378,18 +2378,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ced8baa3fc8cc4c8546a69cd5797d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossSprite: {fileID: 1381104788}
   deck: {fileID: 1970873844}
   attackManager: {fileID: 1584713479}
   cardSprites:
     _serializedList:
     - Key: 0
-      Value: {fileID: -3443432164744778554, guid: 95f05d45deaab234abae935024e2e722, type: 3}
-    - Key: 1
       Value: {fileID: 7711599896142614937, guid: 95f05d45deaab234abae935024e2e722, type: 3}
-    - Key: 3
+    - Key: 1
       Value: {fileID: -7296714189530781681, guid: 95f05d45deaab234abae935024e2e722, type: 3}
-    - Key: 2
+    - Key: 3
       Value: {fileID: 5022257917207342745, guid: 95f05d45deaab234abae935024e2e722, type: 3}
+    - Key: 2
+      Value: {fileID: -4633221315021531617, guid: 95f05d45deaab234abae935024e2e722, type: 3}
   bossHealth: {fileID: 1584713478}
   heartsHealthRecover: 15
   pickCardTween:
@@ -2479,6 +2480,25 @@ MonoBehaviour:
   - {fileID: 1494165460}
   - {fileID: 1811089761}
   pickCardCooldown: 1
+  revealBossTween:
+    startFromCurrent: 0
+    startValue: {x: 0, y: -2.75, z: 0}
+    endValue: {x: 0, y: -1.5, z: 0}
+    settings:
+      duration: 2.5
+      ease: 4
+      customEase:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycles: 1
+      cycleMode: 0
+      startDelay: 0
+      endDelay: 0
+      useUnscaledTime: 0
+      useFixedUpdate: 0
   overrideCardType: -1
 --- !u!58 &1584713476
 CircleCollider2D:
@@ -2788,7 +2808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards: []
   cardPrefab: {fileID: 3239751743489427745, guid: b28b0691706d8c84583a1bf54075906c, type: 3}
-  startCardCount: 7
+  startCardCount: 4
   defaultRange: 0
   cardsRangeSum: 5
   cardTweenDuration: 0.5

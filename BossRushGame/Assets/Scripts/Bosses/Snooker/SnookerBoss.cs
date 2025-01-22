@@ -53,9 +53,12 @@ namespace BRJ.Bosses.Snooker
         public float stickHandDistance = 8f;
 
         [Header("Sound")]
-        public StudioEventEmitter stompHitSound;
-        public StudioEventEmitter stompPullSound;
-        public StudioEventEmitter poolShotSound;
+        public EventReference moveToShot;
+        public EventReference poolShotEvent;
+        public EventReference returnHandsEvent;
+
+        public float returnHandsMinSoundDistance = 4;
+        public EventReference moveHandEvent;
         [Header("References")] public GameObject ballPrefab;
         public BossHealth health;
         public Rigidbody2D[] availableBalls;
@@ -197,15 +200,23 @@ namespace BRJ.Bosses.Snooker
 
         private IEnumerator ReturnHands(bool? left = null)
         {
+
+            var leftHandDest = transform.position + Vector3.right * 2f;
+            var rightHandDest = transform.position + Vector3.left * 2f;
+
+            if (Vector2.Distance(leftHandTransform.position, leftHandDest) > returnHandsMinSoundDistance ||
+                Vector2.Distance(rightHandTransform.position, rightHandDest) > returnHandsMinSoundDistance)
+                RuntimeManager.CreateInstance(returnHandsEvent).start();
+
             bool doRight = !left.HasValue || !left.Value;
             bool doLeft = !left.HasValue || left.Value;
 
             if (doLeft) leftHand.SetHand(HandType.Idle);
             if (doRight) rightHand.SetHand(HandType.Idle);
             var sequence = Sequence.Create();
-            if (doLeft) sequence.Group(Tween.Position(leftHandTransform, transform.position + Vector3.right * 2f, 1f, Ease.InOutQuad));
+            if (doLeft) sequence.Group(Tween.Position(leftHandTransform, leftHandDest, 1f, Ease.InOutQuad));
             if (doLeft) sequence.Group(Tween.Rotation(leftHandTransform, Quaternion.identity, 1f, Ease.InOutQuad));
-            if (doRight) sequence.Group(Tween.Position(rightHandTransform, transform.position + Vector3.left * 2f, 1f, Ease.InOutQuad));
+            if (doRight) sequence.Group(Tween.Position(rightHandTransform, rightHandDest, 1f, Ease.InOutQuad));
             if (doRight) sequence.Group(Tween.Rotation(rightHandTransform, Quaternion.identity, 1f, Ease.InOutQuad));
             if (!left.HasValue) sequence.Group(Tween.Position(poolStick, transform.position + Vector3.up * 1f, 1f, Ease.InOutQuad));
             if (!left.HasValue) sequence.Group(Tween.Rotation(poolStick, Vector3.forward * -90, 1f, Ease.OutSine));
@@ -221,6 +232,8 @@ namespace BRJ.Bosses.Snooker
 
         private IEnumerator ShotWhiteBallCoroutine(CoState<string, string> state)
         {
+            // Play pool shot sound
+
             handsIdleSine.StopMovement();
             health.Defense = vulnerableDefense;
             float nextStep = 0;
@@ -232,6 +245,7 @@ namespace BRJ.Bosses.Snooker
             // Move stick to ball
             Tween.Position(poolStick, _currentBall.position - dir * 1.6f, 1, Ease.OutCubic);
             Tween.Rotation(poolStick, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
+            RuntimeManager.CreateInstance(moveToShot).start();
 
             // Move left hand to under the stick
             Tween.Position(leftHandTransform, _currentBall.position - dir * (1.6f + poolHandDistance), 1f);
@@ -268,6 +282,7 @@ namespace BRJ.Bosses.Snooker
                 yield return null;
             }
 
+            RuntimeManager.CreateInstance(poolShotEvent).start();
             // Start pulling stick back
             nextStep += 0.25f;
             rightHandTransform.SetParent(poolStick);
@@ -299,7 +314,7 @@ namespace BRJ.Bosses.Snooker
             // Apply velocity to the selected ball
             _currentBall.linearVelocity = dir * shotForce;
 
-            poolShotSound.Play();
+            // poolShotSound.Play();
 
             // Apply the knockback tween to the pool stick and hands
             Tween.Position(poolStick, poolStick.position - (Vector3)dir, .5f, Ease.OutCubic);
@@ -372,7 +387,7 @@ namespace BRJ.Bosses.Snooker
                     .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, .1f, Ease.InSine)
                     .ToYieldInstruction();
                 stompHitbox.transform.position = poolStick.position;
-                stompHitSound.Play();
+                // stompHitSound.Play();
                 Game.Instance.Camera.ShakeCamera(stompCameraShake);
                 stompHitbox.SetActive(true);
                 // Yield 3 frames
@@ -447,8 +462,9 @@ namespace BRJ.Bosses.Snooker
 
             sb.SetShadowLocalPos(Vector2.down * 3);
 
+            RuntimeManager.CreateInstance(moveHandEvent).start();
             await Tween.Position(handTransform, pos + Vector2.up * 3, 1, Ease.InOutSine);
-            
+
             sb.DetachShadow();
             await Tween.Position(ball.transform, pos, .75f, Ease.InQuint);
             sb.AttachShadow();
@@ -476,7 +492,7 @@ namespace BRJ.Bosses.Snooker
             rightHand.SetHand(HandType.HoldingBall);
             var availableBallCount = availableBalls.Count(b => b);
             float count = (_currentBallCount - availableBallCount) / 2f;
-            
+
             int leftCount = Mathf.FloorToInt(count);
             int rightCount = Mathf.CeilToInt(count);
 

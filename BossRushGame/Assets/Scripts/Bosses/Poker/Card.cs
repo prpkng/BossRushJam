@@ -9,13 +9,13 @@ namespace BRJ.Bosses.Poker
     
     public class Card : MonoBehaviour
     {
-        public enum Type
+        public enum Suits
         {
             None = -1,
-            SpadesAce = 0,
-            HeartsAce,
-            ClubsAce,
-            DiamondsAce,
+            Spades = 0,
+            Hearts,
+            Clubs,
+            Diamonds,
         }
 
         public const int CardCount = 4;
@@ -29,32 +29,32 @@ namespace BRJ.Bosses.Poker
         
         private Vector3 movementVel;
         private Vector3 lastPos;
-        private Type cardClass;
+        private Suits cardSuit;
         
-        public void SetClass(Type @class, Sprite classSprite)
+        public void SetClass(Suits suit, Sprite classSprite)
         {
             frontSprite.sprite = classSprite;
-            cardClass = @class;
+            cardSuit = suit;
         }
 
         public void Activate(PokerBoss boss)
         {
             print("Card Activated");
-            switch (cardClass)
+            switch (cardSuit)
             {
-                case Type.DiamondsAce:{
+                case Suits.Diamonds:{
                     var attack = gameObject.AddComponent<CardAttackDiamonds>();
                     boss.attackManager.AddCard(attack);
                     break;}
-                case Type.SpadesAce:{
+                case Suits.Spades:{
                     var attack = gameObject.AddComponent<CardAttackSpades>();
                     boss.attackManager.AddCard(attack);
                     break;}
-                case Type.HeartsAce:{
+                case Suits.Hearts:{
                     boss.bossHealth.AddHealth(boss.heartsHealthRecover);
                     Destroy(gameObject);
                     break;}
-                case Type.ClubsAce:{
+                case Suits.Clubs:{
                     var attack = gameObject.AddComponent<ClubsWallAttack>();
                     boss.attackManager.AddCard(attack);
                     break;}
