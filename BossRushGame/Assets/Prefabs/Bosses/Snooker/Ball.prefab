@@ -694,6 +694,7 @@ MonoBehaviour:
   - 17
   - 165
   - 0
+  - -1
   impactForceThreshold: 3
   ballSprite: {fileID: 5217732039239008545}
   ballShadow: {fileID: 3989655026171900027}
