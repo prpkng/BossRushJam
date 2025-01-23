@@ -49,13 +49,13 @@ namespace BRJ.Bosses.Poker
 
         public float pickCardCooldown = 4f;
         [Header("Panic")]
-        public TweenSettings<Vector3> revealBossTween; 
+        public TweenSettings<Vector3> revealBossTween;
         public float panicWaitTime = 4f;
         [Header("ShootKing")]
         public TweenSettings shootCardTween;
-        
+
         [SerializedDictionary("Card Type", "Sprite")]
-        public List<Sprite> kingSprites = new() {};
+        public List<Sprite> kingSprites = new() { };
 
         [Header("Editor")] public Card.Suits overrideCardType;
 
@@ -86,10 +86,11 @@ namespace BRJ.Bosses.Poker
 
             // Panic state
             // TODO: Boss new eyes
-            fsm.AddState(States.PanicState, onEnter: _ => {
+            fsm.AddState(States.PanicState, onEnter: _ =>
+            {
                 Tween.LocalPosition(bossSprite, revealBossTween);
                 Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
-                
+
             });
 
             fsm.AddTransition(new TransitionAfter<States>(States.PanicState, States.ShootKingCards, panicWaitTime));
@@ -156,7 +157,8 @@ namespace BRJ.Bosses.Poker
             state.fsm.StateCanExit();
         }
 
-        private IEnumerator ShootKingCards() {
+        private IEnumerator ShootKingCards()
+        {
             // activeCards.ForEach(c => {
             //     if (c)
             //         Destroy(c.gameObject);
@@ -174,7 +176,15 @@ namespace BRJ.Bosses.Poker
             {
                 var card = deck.TakeCard();
                 card.WithComponent((Card c) => c.frontSprite.sprite = kingSprites.ChooseRandom());
-                Tween.Position(card, card.position, WorldManager.PlayerPosition - card.up * 1.5f, shootCardTween);
+
+
+                Vector2 dest = WorldManager.PlayerPosition;
+                if (Game.Instance.World.Player.IsMoving)
+                    dest += Game.Instance.World.Player.movementSpeed * shootCardTween.duration
+                             * InputManager.MoveVector;
+
+
+                Tween.Position(card, card.position, (Vector3)dest - card.up * 1.5f, shootCardTween);
                 Tween.Rotation(
                     card,
                     card.transform.eulerAngles,
