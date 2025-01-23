@@ -309,6 +309,8 @@ namespace BRJ.Bosses.Snooker
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
             Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
 
+            shotBallInstance.start();
+
             // Push the stick
             nextStep += 0.1f;
             Tween.Position(poolStick, _currentBall.position - dir * 1.45f, 0.1f, Ease.Linear);
@@ -322,7 +324,6 @@ namespace BRJ.Bosses.Snooker
 
             // Apply velocity to the selected ball
             _currentBall.linearVelocity = dir * shotForce;
-            shotBallInstance.start();
 
             // poolShotSound.Play();
 
