@@ -182,10 +182,10 @@ MonoBehaviour:
     useFixedUpdate: 0
   deathSnapshotEvent:
     Guid:
-      Data1: 99454751
-      Data2: 1202858591
-      Data3: -1532693603
-      Data4: -970327952
+      Data1: 1672122343
+      Data2: 1190111639
+      Data3: 390319017
+      Data4: -1406475125
     Path: snapshot:/Death
 --- !u!1 &529788610
 GameObject:

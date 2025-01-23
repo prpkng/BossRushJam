@@ -10,6 +10,7 @@ namespace BRJ.Bosses.Snooker
 {
     using System.Collections;
     using Cysharp.Threading.Tasks;
+    using FMOD.Studio;
     using Player;
     using UnityEngine;
     using UnityHFSM;
@@ -56,7 +57,8 @@ namespace BRJ.Bosses.Snooker
         public EventReference moveToShot;
         public EventReference poolShotEvent;
         public EventReference returnHandsEvent;
-
+        public EventReference shotBallSound;
+        public EventReference stompHitSound;
         public float returnHandsMinSoundDistance = 4;
         public EventReference moveHandEvent;
         [Header("References")] public GameObject ballPrefab;
@@ -81,8 +83,15 @@ namespace BRJ.Bosses.Snooker
         private const string StompPlayerState = "StompPlayer";
         private const string PopulateBallsState = "PopulateBallsState";
 
+        private EventInstance shotBallInstance;
+        private EventInstance stompHitInstance;
+
         private void Start()
         {
+            // Create sound instances
+            shotBallInstance = RuntimeManager.CreateInstance(shotBallSound);
+            stompHitInstance = RuntimeManager.CreateInstance(stompHitSound);
+
             _currentBallCount = initialBallCount;
             fsm = new StateMachine();
 
@@ -313,6 +322,7 @@ namespace BRJ.Bosses.Snooker
 
             // Apply velocity to the selected ball
             _currentBall.linearVelocity = dir * shotForce;
+            shotBallInstance.start();
 
             // poolShotSound.Play();
 
@@ -387,7 +397,8 @@ namespace BRJ.Bosses.Snooker
                     .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, .1f, Ease.InSine)
                     .ToYieldInstruction();
                 stompHitbox.transform.position = poolStick.position;
-                // stompHitSound.Play();
+                stompHitInstance.start();
+
                 Game.Instance.Camera.ShakeCamera(stompCameraShake);
                 stompHitbox.SetActive(true);
                 // Yield 3 frames

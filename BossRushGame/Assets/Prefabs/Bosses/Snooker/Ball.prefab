@@ -583,7 +583,6 @@ GameObject:
   - component: {fileID: 4565283947866118565}
   - component: {fileID: 4299385746948494696}
   - component: {fileID: 4753292431069373674}
-  - component: {fileID: 1207906087112994560}
   m_Layer: 8
   m_Name: Ball
   m_TagString: SnookerBall
@@ -698,7 +697,20 @@ MonoBehaviour:
   impactForceThreshold: 3
   ballSprite: {fileID: 5217732039239008545}
   ballShadow: {fileID: 3989655026171900027}
-  collisionSound: {fileID: 1207906087112994560}
+  hitBallSound:
+    Guid:
+      Data1: 770104208
+      Data2: 1093959967
+      Data3: -1871139915
+      Data4: 753170573
+    Path: event:/SFX/Snooker/SFX_BallHitBall
+  hitWallSound:
+    Guid:
+      Data1: -774199870
+      Data2: 1086057916
+      Data3: -1742708851
+      Data4: 1882654016
+    Path: event:/SFX/Snooker/SFX_BallHitSides
   ballHealth: {fileID: 4753292431069373674}
   ballSpeedMulti: 0.65
   ballSpeedPow: 0.75
@@ -723,37 +735,6 @@ MonoBehaviour:
   currentHealth: 0
   destroyOnDeath: 0
   deathParticles: {fileID: 3810184071858919342}
---- !u!114 &1207906087112994560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4317147210184284824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 324603725
-      Data2: 1321098247
-      Data3: 1325872016
-      Data4: 1362393264
-    Path: event:/SFX/SnookerBoss/SFX_BallBounce
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &4449913507445808381
 GameObject:
   m_ObjectHideFlags: 0

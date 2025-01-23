@@ -20,7 +20,7 @@ namespace BRJ.Systems.Visual
         private void Start()
         {
             health.OnHealthChanged += SetSprite;
-            if (stageSound.Path != "")
+            if (!stageSound.IsNull)
                 stageEvent = RuntimeManager.CreateInstance(stageSound);
         }
 
