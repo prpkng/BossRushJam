@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using BRJ.Systems;
+using Cysharp.Threading.Tasks;
 using PrimeTween;
 using UnityEngine;
 using UnityHFSM;
@@ -13,6 +14,7 @@ namespace BRJ.Bosses.Poker
     {
         public enum States
         {
+            RefillCards,
             ChooseCard,
             ChooseCardCooldown,
             StartState,
@@ -39,7 +41,8 @@ namespace BRJ.Bosses.Poker
         public BossHealth bossHealth;
         public float heartsHealthRecover = 20f;
 
-        [Header("PickCard")]
+        [Header("Pick Card")]
+        public int startCardCount = 4;
         public TweenSettings<Vector3> pickCardTween;
         public TweenSettings<Vector3> pickCardRotationTween;
         public TweenSettings<Vector3> revealCardTween;
@@ -51,8 +54,10 @@ namespace BRJ.Bosses.Poker
         [Header("Panic")]
         public TweenSettings<Vector3> revealBossTween;
         public float panicWaitTime = 4f;
-        [Header("ShootKing")]
+        [Header("Shoot King")]
         public TweenSettings shootCardTween;
+        public GameObject kingCardAttackPrefab;
+        public float kingAttackDelay = 1f;
 
         [SerializedDictionary("Card Type", "Sprite")]
         public List<Sprite> kingSprites = new() { };
@@ -74,9 +79,29 @@ namespace BRJ.Bosses.Poker
 
             // Start state
             fsm.AddState(States.StartState);
-            fsm.AddTransition(new TransitionAfter<States>(States.StartState, States.ChooseCard, 1f));
+            fsm.AddTransition(new TransitionAfter<States>(States.StartState, States.RefillCards, 1f));
+
+            // Refill Cards
+            fsm.AddState(
+                States.RefillCards,
+                onEnter: async _ =>
+                {
+                    usedCardLocations.Clear();
+                    deckOffset.localPosition = defendingDeckPosition;
+                    for (int i = 0; i < startCardCount; i++)
+                    {
+                        deck.AddCard();
+                        await UniTask.WaitForSeconds(0.25f);
+                    }
+
+                    _.fsm.StateCanExit();
+                },
+                needsExitTime: true
+            );
+            fsm.AddTransition(States.RefillCards, States.ChooseCard);
 
             // Choose card state
+
             fsm.AddState(States.ChooseCard, new CoState<States>(this, ChooseCardCoroutine, loop: false, needsExitTime: true));
             fsm.AddTransition(States.ChooseCard, States.ChooseCardCooldown);
 
@@ -97,6 +122,7 @@ namespace BRJ.Bosses.Poker
 
             // Shoot king cards
             fsm.AddState(States.ShootKingCards, new CoState<States>(this, ShootKingCards, needsExitTime: true, loop: false));
+            fsm.AddTransition(States.ShootKingCards, States.RefillCards);
 
             fsm.SetStartState(States.StartState);
 
@@ -106,8 +132,9 @@ namespace BRJ.Bosses.Poker
         private IEnumerator ChooseCardCoroutine(CoState<States, string> state)
         {
             yield return new WaitForSeconds(.5f);
-            var card = deck.TakeCard();
+            deckOffset.localPosition = defendingDeckPosition;
 
+            var card = deck.TakeCard();
             if (pickedCards.Count >= 4) pickedCards.Clear();
 
             Card.Suits type;
@@ -157,7 +184,7 @@ namespace BRJ.Bosses.Poker
             state.fsm.StateCanExit();
         }
 
-        private IEnumerator ShootKingCards()
+        private IEnumerator ShootKingCards(CoState<States, string> state)
         {
             // activeCards.ForEach(c => {
             //     if (c)
@@ -167,7 +194,12 @@ namespace BRJ.Bosses.Poker
             deckOffset.localPosition = openDeckPosition;
 
             activeCards.Clear();
-            deck.AddCard(5);
+
+            for (int i = 0; i < 5; i++)
+            {
+                deck.AddCard();
+                yield return new WaitForSeconds(.5f);
+            }
 
             yield return new WaitForSeconds(3);
 
@@ -175,26 +207,41 @@ namespace BRJ.Bosses.Poker
             for (int i = 0; i < 5; i++)
             {
                 var card = deck.TakeCard();
-                card.WithComponent((Card c) => c.frontSprite.sprite = kingSprites.ChooseRandom());
+                Destroy(card.gameObject, 10);
+                card.WithComponent((Card c) =>
+                {
+                    c.frontSprite.sprite = kingSprites.ChooseRandom();
+                    Destroy(c.collider);
+                    Destroy(c);
+                });
 
+                var destRot = new Vector3(0, 180, Random.Range(-165, 165));
 
                 Vector2 dest = WorldManager.PlayerPosition;
-                if (Game.Instance.World.Player.IsMoving)
-                    dest += Game.Instance.World.Player.movementSpeed * shootCardTween.duration
-                             * InputManager.MoveVector;
+                // if (Game.Instance.World.Player.IsMoving)
+                //     dest += Game.Instance.World.Player.movementSpeed * shootCardTween.duration
+                //              * InputManager.MoveVector.x * Vector2.right;
+
+                dest += (Vector2)(Quaternion.Euler(destRot) * Vector3.down * 1.5f);
 
 
-                Tween.Position(card, card.position, (Vector3)dest - card.up * 1.5f, shootCardTween);
-                Tween.Rotation(
+                Tween.Position(card, card.position, (Vector3)dest, shootCardTween);
+                yield return Tween.Rotation(
                     card,
                     card.transform.eulerAngles,
-                    new Vector3(0, 180, Random.Range(-165, 165)),
+                    destRot,
                     shootCardTween
-                );
+                ).ToYieldInstruction();
 
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(kingAttackDelay);
+                Instantiate(kingCardAttackPrefab, card).transform.localPosition = Vector3.up * 1.5f;
+                yield return new WaitForSeconds(1.5f);
             }
             yield return null;
+
+            state.fsm.StateCanExit();
+
+
         }
         private void FixedUpdate()
         {

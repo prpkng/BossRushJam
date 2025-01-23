@@ -140,6 +140,7 @@ MonoBehaviour:
   frontSprite: {fileID: 4140845815190188555}
   moveRotationForce: -50
   spriteLerpSpeed: 10
+  collider: {fileID: 390183568194779647}
 --- !u!114 &3025801405290300097
 MonoBehaviour:
   m_ObjectHideFlags: 0

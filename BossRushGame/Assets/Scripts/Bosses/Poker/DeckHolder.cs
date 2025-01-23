@@ -11,7 +11,6 @@ namespace BRJ.Bosses.Poker
         public List<Transform> cards;
         public Transform cardPrefab;
 
-        public int startCardCount = 4;
         public float defaultRange = 30f;
         public float cardsRangeSum = 5f;
 
@@ -20,11 +19,6 @@ namespace BRJ.Bosses.Poker
         [Space] public float addCardTweenDuration;
         public Ease addCardTweenEase;
 
-
-        private void Start()
-        {
-            AddCard(startCardCount);
-        }
 
         private void RecalculateCardsPosition()
         {

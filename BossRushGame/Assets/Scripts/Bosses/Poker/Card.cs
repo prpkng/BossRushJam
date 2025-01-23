@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace BRJ.Bosses.Poker
 {
-    
+
     public class Card : MonoBehaviour
     {
         public enum Suits
@@ -19,18 +19,19 @@ namespace BRJ.Bosses.Poker
         }
 
         public const int CardCount = 4;
-        
+
         public float cameraWeight = 1;
         public HealthBehavior health;
         public Transform spriteTransform;
         public SpriteRenderer frontSprite;
         public float moveRotationForce;
         public float spriteLerpSpeed = 10;
-        
+        public new Collider2D collider;
+
         private Vector3 movementVel;
         private Vector3 lastPos;
         private Suits cardSuit;
-        
+
         public void SetClass(Suits suit, Sprite classSprite)
         {
             frontSprite.sprite = classSprite;
@@ -42,22 +43,30 @@ namespace BRJ.Bosses.Poker
             print("Card Activated");
             switch (cardSuit)
             {
-                case Suits.Diamonds:{
-                    var attack = gameObject.AddComponent<CardAttackDiamonds>();
-                    boss.attackManager.AddCard(attack);
-                    break;}
-                case Suits.Spades:{
-                    var attack = gameObject.AddComponent<CardAttackSpades>();
-                    boss.attackManager.AddCard(attack);
-                    break;}
-                case Suits.Hearts:{
-                    boss.bossHealth.AddHealth(boss.heartsHealthRecover);
-                    Destroy(gameObject);
-                    break;}
-                case Suits.Clubs:{
-                    var attack = gameObject.AddComponent<ClubsWallAttack>();
-                    boss.attackManager.AddCard(attack);
-                    break;}
+                case Suits.Diamonds:
+                    {
+                        var attack = gameObject.AddComponent<CardAttackDiamonds>();
+                        boss.attackManager.AddCard(attack);
+                        break;
+                    }
+                case Suits.Spades:
+                    {
+                        var attack = gameObject.AddComponent<CardAttackSpades>();
+                        boss.attackManager.AddCard(attack);
+                        break;
+                    }
+                case Suits.Hearts:
+                    {
+                        boss.bossHealth.AddHealth(boss.heartsHealthRecover);
+                        Destroy(gameObject);
+                        break;
+                    }
+                case Suits.Clubs:
+                    {
+                        var attack = gameObject.AddComponent<ClubsWallAttack>();
+                        boss.attackManager.AddCard(attack);
+                        break;
+                    }
                 default:
                     break;
             }
@@ -73,9 +82,9 @@ namespace BRJ.Bosses.Poker
 
         private void Update()
         {
-            
+
             spriteTransform.localEulerAngles = Mathf.LerpAngle(
-                spriteTransform.localEulerAngles.z, 
+                spriteTransform.localEulerAngles.z,
                 movementVel.x * moveRotationForce,
                 Time.deltaTime * spriteLerpSpeed) * Vector3.forward;
         }
