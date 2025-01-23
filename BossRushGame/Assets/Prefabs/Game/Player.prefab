@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6822615971887044637}
   - component: {fileID: 2760835209528523545}
   - component: {fileID: 6698519441522588061}
+  - component: {fileID: 6376591591661803634}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -144,6 +145,37 @@ MonoBehaviour:
   damageMultiplier: 1
   currentHealth: 6
   destroyOnDeath: 0
+--- !u!114 &6376591591661803634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527443938548100427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 368587903
+      Data2: 1128122782
+      Data3: 1727149459
+      Data4: 683538775
+    Path: event:/SFX/Player/SFX_Footsteps
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &843537091462712187
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 6834589067673517211}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -328,15 +360,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -59270830, guid: bb5285c4445ea97448e893ae4bc6cf9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1affd3e7ae838647b8e20f203a118de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7152862510048741635
@@ -448,7 +480,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.45, y: 0.7}
+  m_Size: {x: 0.45, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &2212418656940548027
 MonoBehaviour:
@@ -469,7 +501,7 @@ MonoBehaviour:
     startValue: 1
     endValue: 0
     settings:
-      duration: 1
+      duration: 2
       ease: 9
       customEase:
         serializedVersion: 2

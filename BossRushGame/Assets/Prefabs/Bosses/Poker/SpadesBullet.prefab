@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 4381942295609661933}
+  moveDisplacementForce: 0.7
 --- !u!114 &4381942295609661933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810bb93dd76a412b9635880465bff212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 70
   arcHeight: 5
 --- !u!1 &7566797140201473286
 GameObject:

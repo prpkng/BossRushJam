@@ -12,13 +12,14 @@ namespace BRJ.Bosses.Snooker
     {
         private static readonly List<float> PickedHuesFlat = new();
         private static readonly List<float> PickedHuesLine = new();
-        
+
         [SerializeField] private bool faceDirection = true;
         [SerializeField] private float[] possibleHues;
         [SerializeField] private float impactForceThreshold = 3f;
         [SerializeField] private SpriteRenderer ballSprite;
         [SerializeField] private Transform ballShadow;
-        [SerializeField] private StudioEventEmitter collisionSound;
+        [SerializeField] private EventReference hitBallSound;
+        [SerializeField] private EventReference hitWallSound;
         [SerializeField] private HealthBehavior ballHealth;
         [Header("Ball Animation")]
         [SerializeField] private float ballSpeedMulti = 0.25f;
@@ -30,17 +31,20 @@ namespace BRJ.Bosses.Snooker
         public float CurrentHue { get; private set; }
         private bool isFlat;
 
-        public void DetachShadow() {
+        public void DetachShadow()
+        {
             ballShadow.parent = null;
         }
-        public void AttachShadow() {
+        public void AttachShadow()
+        {
             ballShadow.parent = transform;
         }
 
-        public void SetShadowLocalPos(Vector3 localPos) {
+        public void SetShadowLocalPos(Vector3 localPos)
+        {
             ballShadow.localPosition = localPos;
         }
-        
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -48,7 +52,7 @@ namespace BRJ.Bosses.Snooker
             isFlat = Array.IndexOf(possibleBallAnimations, ballAnimator.runtimeAnimatorController) == 0;
             CurrentHue = possibleHues.Except(isFlat ? PickedHuesFlat : PickedHuesLine).ToArray().ChooseRandom();
             ballSprite.material.SetFloat("_Shift", CurrentHue);
-            
+
         }
 
         private void OnEnable()
@@ -78,7 +82,9 @@ namespace BRJ.Bosses.Snooker
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.relativeVelocity.magnitude <= impactForceThreshold) return;
-            collisionSound.Play();
+            RuntimeManager.CreateInstance(
+                other.gameObject.CompareTag("SnookerBall") ? hitBallSound : hitWallSound
+            ).start();
             ballHealth.ApplyDamage(1);
         }
     }

@@ -29,10 +29,11 @@ namespace BRJ.Player
         private Vector2 currentKnockbackVector;
         private StateMachine fsm;
 
-        [System.NonSerialized] public Rigidbody2D Rb;
-        [System.NonSerialized] public bool CanRoll = true;
-        [System.NonSerialized] public bool CanRollOverride = true;
-        [System.NonSerialized] public float SpeedMultiplier = 1f;
+        public bool IsMoving { get; private set; }
+        public Rigidbody2D Rb { get; set; }
+        public bool CanRoll { get; set; } = true;
+        public bool CanRollOverride { get; set; } = true;
+        public float SpeedMultiplier { get; set; } = 1f;
 
 
         private void Awake()
@@ -51,14 +52,22 @@ namespace BRJ.Player
                 onLogic: _ => Rb.linearVelocity -= Rb.linearVelocity * deceleration * SpeedMultiplier
             );
             fsm.AddState("Move",
-                onEnter: _ => playerAnimations.Play("Run"),
+                onEnter: _ =>
+                {
+                    IsMoving = true;
+                    playerAnimations.Play("Run");
+                },
                 onLogic: state =>
                 {
                     var moveInput = InputManager.MoveVector;
                     var targetSpeed = moveInput * movementSpeed;
                     var speedDiff = targetSpeed - Rb.linearVelocity;
 
-                    Rb.linearVelocity += speedDiff * acceleration * SpeedMultiplier;
+                    Rb.linearVelocity += acceleration * SpeedMultiplier * speedDiff;
+                },
+                onExit: _ =>
+                {
+                    IsMoving = false;
                 }
             );
 

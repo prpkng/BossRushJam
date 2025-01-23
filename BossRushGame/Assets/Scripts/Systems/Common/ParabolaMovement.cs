@@ -29,12 +29,13 @@ namespace BRJ.Systems
             float distance = Vector3.Distance(startPosition, target);
 
             // This is one divided by the total flight duration, to help convert it to 0-1 progress.
-            stepScale = speed / 60f;
+            stepScale = speed / 50f;
 
             await UniTask.WaitUntil(this, self => !self || !self.enabled);
         }
 
-        private void FixedUpdate() {
+        private void FixedUpdate()
+        {
             // Increment our progress from 0 at the start, to 1 when we arrive.
             progress = Mathf.Min(progress + Time.fixedDeltaTime * stepScale, 1.0f);
 

@@ -536,11 +536,11 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../Fmod Project/BossRush2025Audio.fspro
-  sourceBankPath: ../Fmod Project/Build
+  sourceProjectPath: ../BossRush25AudioProject/BossRush2025Audio/BossRush2025Audio.fspro
+  sourceBankPath: ../BossRush25AudioProject/BossRush2025Audio/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
-  ShowBankRefreshWindow: 0
+  ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0
