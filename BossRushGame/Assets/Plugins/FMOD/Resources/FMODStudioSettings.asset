@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 0
+  HasSourceProject: 1
   HasPlatforms: 1
   sourceProjectPath: ../BossRush25AudioProject/BossRush2025Audio/BossRush2025Audio.fspro
   sourceBankPath: ../BossRush25AudioProject/BossRush2025Audio/Build
