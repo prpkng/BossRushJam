@@ -18,17 +18,21 @@ namespace BRJ.Player
         public CinemachineRecomposer recomposer;
 
         [Header("Focus Settings")]
-        
+
         public TweenSettings<float> focusUpTween;
         public TweenSettings<float> focusDownTween;
-        
+
         public float zoomDuration = 1f;
         public float defaultZoom = 1.5f;
         public float zoomOutZoom = 1.35f;
 
-        [Header("Default Shakes")] public ShakeSettings defaultWeakShake;
-        
-        private void Awake() {
+        [Header("Default Shakes")]
+
+        public ShakeSettings defaultWeakShake;
+        public ShakeSettings defaultStrongShake;
+
+        private void Awake()
+        {
             Game.Instance.SetCamera(this);
         }
 
@@ -56,7 +60,7 @@ namespace BRJ.Player
                 f => positionComposer.Composition.ScreenPosition =
                     new Vector2(positionComposer.Composition.ScreenPosition.x, f)
             );
-            
+
             _scaleTween.Stop();
             _scaleTween = Tween.Custom(
                 Game.Instance.World.RenderTextureZoom,
@@ -65,6 +69,10 @@ namespace BRJ.Player
                 f => Game.Instance.World.RenderTextureZoom = f
             );
         }
+
+
+        public void ShakeWeak() => ShakeCamera(defaultWeakShake);
+        public void ShakeStrong() => ShakeCamera(defaultStrongShake);
 
         private Tween _shakePosTween;
         public void ShakeCamera(ShakeSettings shakeSettings)
@@ -79,17 +87,18 @@ namespace BRJ.Player
 
         public void AddTarget(Transform target, float weight = .5f, float radius = 6f)
         {
-            targetGroup.AddMember(target, weight, radius);    
-        } 
-        
+            targetGroup.AddMember(target, weight, radius);
+        }
+
         public void RemoveTarget(Transform target)
         {
             targetGroup.RemoveMember(target);
         }
-        
+
         private void Update()
         {
-            currentScreenOffset = positionComposer.Composition.ScreenPosition;
+            if (positionComposer)
+                currentScreenOffset = positionComposer.Composition.ScreenPosition;
         }
     }
 }

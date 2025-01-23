@@ -20,7 +20,7 @@ namespace BRJ.Systems.Visual
         private void Start()
         {
             health.OnHealthChanged += SetSprite;
-            if (stageSound.IsNull)
+            if (stageSound.Path != "")
                 stageEvent = RuntimeManager.CreateInstance(stageSound);
         }
 
@@ -31,7 +31,7 @@ namespace BRJ.Systems.Visual
             if (lastIndex != i)
             {
                 stageEvent?.start();
-                animator.Play(stateName, 0, 1f-health.HealthPercentage);
+                animator.Play(stateName, 0, 1f - health.HealthPercentage);
             }
             lastIndex = i;
 
