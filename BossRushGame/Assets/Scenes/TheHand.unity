@@ -1336,42 +1336,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
   m_PrefabInstance: {fileID: 6847132131701263847}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1747960194 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 527443938548100427, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-  m_PrefabInstance: {fileID: 6847132131701263847}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1747960195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747960194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 368587903
-      Data2: 1128122782
-      Data3: 1727149459
-      Data4: 683538775
-    Path: event:/SFX/Player/SFX_Footsteps
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1808225528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,22 +1803,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: soundAttenuationTween.startValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: soundAttenuationTween.settings.ease
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: soundAttenuationTween.settings.cycles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2212418656940548027, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: soundAttenuationTween.settings.duration
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1895,49 +1843,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6527369853897677281, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-    - target: {fileID: 6527369853897677281, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6527369853897677281, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6527369853897677281, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6527369853897677281, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6696319807130475012, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6696319807130475012, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6696319807130475012, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6696319807130475012, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 527443938548100427, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1747960195}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
 --- !u!1001 &6895901554292110501
 PrefabInstance:

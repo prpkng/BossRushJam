@@ -1,4 +1,5 @@
-namespace BRJ.Systems.Lobby {
+namespace BRJ.Systems.Lobby
+{
     using System.Linq;
     using LDtkUnity;
     using UnityEngine;
@@ -20,20 +21,23 @@ namespace BRJ.Systems.Lobby {
             print($"Importing door with destination type {field.Value.GetType()}");
             if (!field.IsEnum) return;
 
-            switch (field.Value) {
+            switch (field.Value)
+            {
                 case "The_Hand":
                     doorRenderer.sprite = snookerDoorSprite;
                     doorDestination = "TheHand";
                     break;
                 case "Joker":
                     doorRenderer.sprite = jokerDoorSprite;
-                    doorDestination = "Joker";
+                    doorDestination = "JokerCutscene";
                     break;
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other) {
-            if (other.CompareTag("Player")) {
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
                 GameObject.FindWithTag("LobbyController")
                           .GetComponent<LobbyController>()
                           .LoadBoss(doorDestination);
