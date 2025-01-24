@@ -170,11 +170,13 @@ namespace BRJ.Bosses.Snooker
             // FREAK OUT STATE
             fsm.AddState(
                 FreakOutState,
-                new State(
+                new CoState(
+                    this,
+                    FreakOutCoroutine,
+                    loop: false,
                     onEnter: _ =>
                     {
                         Game.Instance.Camera.FocusUp();
-                        handsIdleSine.StartMovement();
                     },
                     onExit: _ =>
                     {
@@ -214,6 +216,7 @@ namespace BRJ.Bosses.Snooker
 
         private IEnumerator ReturnHands(bool? left = null)
         {
+            Tween.StopAll(poolStick);
 
             var leftHandDest = transform.position + Vector3.right * 2f;
             var rightHandDest = transform.position + Vector3.left * 2f;
@@ -224,6 +227,8 @@ namespace BRJ.Bosses.Snooker
 
             bool doRight = !left.HasValue || !left.Value;
             bool doLeft = !left.HasValue || left.Value;
+            if (doLeft) Tween.StopAll(leftHand);
+            if (doRight) Tween.StopAll(rightHand);
 
             if (doLeft) leftHand.SetHand(HandType.Idle);
             if (doRight) rightHand.SetHand(HandType.Idle);
@@ -237,6 +242,12 @@ namespace BRJ.Bosses.Snooker
             yield return sequence.ToYieldInstruction();
         }
 
+
+        private IEnumerator FreakOutCoroutine()
+        {
+            yield return ReturnHands();
+            handsIdleSine.StartMovement();
+        }
 
         #region < == IDLE STATE == >
 
