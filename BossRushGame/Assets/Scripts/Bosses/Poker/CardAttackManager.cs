@@ -22,55 +22,62 @@ namespace BRJ.Bosses.Poker
 
         private async void Start()
         {
-            if (!this) return;
-            currentCards = currentCards.Where(c => (MonoBehaviour)c).ToList();
-
-            await UniTask.WaitUntil(() => currentCards.Count > 0);
-            await UniTask.WaitUntil(() => enabled);
-            var tokenSource = new CancellationTokenSource();
-            for (int i = 0; i < currentCards.Count; i++)
+            try
             {
-                var target = (MonoBehaviour)currentCards[i];
-                var card = target.GetComponent<Card>();
-                if (!target)
-                    continue;
-                var startPos = target.transform.position.y;
-                await Tween.PositionY(
-                    target.transform,
-                    startPos,
-                    startPos + cardSelectOffset,
-                    cardSelectTween
-                );
+                if (!this) return;
+                currentCards = currentCards.Where(c => (MonoBehaviour)c).ToList();
 
-                print($"Started attack on card: ${currentCards[i].GetType().Name}");
-                var attackDuration = currentCards[i].StartAttack();
-                card.exclamationMark.SetActive(true);
-
-                var time = Time.time;
-                while (Time.time < time + attackDuration)
+                await UniTask.WaitUntil(() => currentCards.Count > 0);
+                await UniTask.WaitUntil(() => enabled);
+                currentCards = currentCards.Where(c => (MonoBehaviour)c).ToList();
+                var tokenSource = new CancellationTokenSource();
+                for (int i = 0; i < currentCards.Count; i++)
                 {
+                    var target = (MonoBehaviour)currentCards[i];
+                    var card = target.GetComponent<Card>();
                     if (!target)
-                        break;
-                    await UniTask.WaitForEndOfFrame();
+                        continue;
+                    var startPos = target.transform.position.y;
+                    await Tween.PositionY(
+                        target.transform,
+                        startPos,
+                        startPos + cardSelectOffset,
+                        cardSelectTween
+                    );
+
+                    print($"Started attack on card: ${currentCards[i].GetType().Name}");
+                    var attackDuration = currentCards[i].StartAttack();
+                    card.exclamationMark.SetActive(true);
+
+                    var time = Time.time;
+                    while (Time.time < time + attackDuration)
+                    {
+                        if (!target)
+                            break;
+                        await UniTask.WaitForEndOfFrame();
+                    }
+                    if (!target)
+                        continue;
+
+                    print($"Stopped attack on card: ${currentCards[i].GetType().Name}");
+                    currentCards[i].StopAttack();
+                    card.exclamationMark.SetActive(false);
+
+                    Tween.PositionY(
+                        target.transform,
+                        startPos + cardSelectOffset,
+                        startPos,
+                        cardSelectTween
+                    ).ToUniTask().Forget();
+
+                    await UniTask.WaitForSeconds(cardAttackDelay);
+
                 }
-                if (!target)
-                    continue;
-
-                print($"Stopped attack on card: ${currentCards[i].GetType().Name}");
-                currentCards[i].StopAttack();
-                card.exclamationMark.SetActive(false);
-
-                Tween.PositionY(
-                    target.transform,
-                    startPos + cardSelectOffset,
-                    startPos,
-                    cardSelectTween
-                ).ToUniTask().Forget();
-
-                await UniTask.WaitForSeconds(cardAttackDelay);
-
             }
-            Start();
+            finally
+            {
+                Start();
+            }
         }
     }
 }

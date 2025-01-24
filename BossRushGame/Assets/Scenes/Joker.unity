@@ -2722,7 +2722,7 @@ MonoBehaviour:
       Value: {fileID: -4633221315021531617, guid: 95f05d45deaab234abae935024e2e722, type: 3}
   bossHealth: {fileID: 1584713478}
   heartsHealthRecover: 15
-  startCardCount: 1
+  startCardCount: 4
   pickCardTween:
     startFromCurrent: 0
     startValue: {x: 0, y: 0, z: 0}
@@ -2937,7 +2937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588dd8cf633db6c4fa17d86a36cc1b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 300
+  totalHealth: 265
   damageMultiplier: 1
   currentHealth: 0
   destroyOnDeath: 0

@@ -201,6 +201,9 @@ namespace BRJ.Bosses.Poker
         {
             DestroyAllCards();
 
+            bossEyes.SetAngry();
+            Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
+
             deathCamera.Priority = 10;
 
             Tween.Custom(
@@ -310,9 +313,10 @@ namespace BRJ.Bosses.Poker
             yield return new WaitForSeconds(moveJokerTween.duration);
 
             var jokerComponents = (from jk in jokers select jk.GetComponent<JokerCard>()).ToArray();
-
+            int attempts = 0;
             while (true)
             {
+                attempts++;
                 float currentAngle = 0;
                 float currentAngleSpeed = 0;
                 float counter = 0;
@@ -373,7 +377,7 @@ namespace BRJ.Bosses.Poker
                     f => mat.SetFloat("_Force", f)
                 );
 
-                if (success == 1)
+                if (attempts >= 4 || success == 1)
                     break;
             }
 

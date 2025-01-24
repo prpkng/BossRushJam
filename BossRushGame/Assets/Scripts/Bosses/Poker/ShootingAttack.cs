@@ -58,7 +58,7 @@ namespace BRJ.Bosses.Poker
         private IEnumerator StartShootingCoroutine()
         {
             var time = Time.time;
-            while (Time.time < time + AttackDuration)   
+            while (Time.time < time + AttackDuration)
             {
                 if (!this) yield break;
                 yield return new WaitForSeconds(1f / fireRate);
@@ -71,6 +71,12 @@ namespace BRJ.Bosses.Poker
         {
             var bullet = Instantiate(bulletPrefab, transform.position + transform.up * 1.5f, Quaternion.identity);
             if (FaceDirection) bullet.right = transform.up;
+            else
+            {
+                Vector2 dir = WorldManager.PlayerPosition - transform.position;
+                dir.Normalize();
+                bullet.right = dir;
+            }
         }
     }
 }
