@@ -24,12 +24,12 @@ namespace BRJ.Systems
             var ev = RuntimeManager.CreateInstance(deathSnapshotEvent);
             ev.start();
 
-            await Tween.Position(cameraTransform, LastCameraPosition, LastPlayerPosition + Vector3.up * 1.5f - Vector3.forward*100f, lerpCameraTween);
+            await Tween.Position(cameraTransform, LastCameraPosition, LastPlayerPosition + Vector3.up * 1.5f - Vector3.forward * 100f, lerpCameraTween);
             await UniTask.Delay(TimeSpan.FromSeconds(1));
-            
+
             await Tween.Position(cameraTransform, cameraTransform.position + Vector3.down * 12f, lerpCameraTween);
 
-            Game.Instance.Sound.currentBGM?.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            Game.Instance.Sound.CurrentBGM?.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             ev.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
     }

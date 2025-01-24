@@ -46,6 +46,8 @@ namespace BRJ.Bosses.Snooker
         public ShakeSettings stickStuckShake;
         public ShakeSettings stompCameraShake;
 
+        public TweenSettings stompTween;
+
         public float stompHoverTime = .5f;
         public int stompCountMin = 3;
         public int stompCountMax = 6;
@@ -392,11 +394,14 @@ namespace BRJ.Bosses.Snooker
 
                 yield return new WaitForSeconds(.05f);
                 Tween.ShakeLocalPosition(poolStick, preStompShake);
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(.05f);
                 poolStickShadow.position = poolStick.position + Vector3.down * poolStickStompDistance;
-                yield return Tween
-                    .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, .1f, Ease.InSine)
-                    .ToYieldInstruction();
+                var tween = Tween
+                    .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, stompTween);
+                yield return tween.ToYieldInstruction();
+                tween.Complete();
+                yield return new WaitForFixedUpdate();
+                poolStick.position = poolStickShadow.position;
                 stompHitbox.transform.position = poolStick.position;
                 stompHitInstance.start();
 

@@ -138,9 +138,10 @@ MonoBehaviour:
   health: {fileID: 3025801405290300097}
   spriteTransform: {fileID: 6076389444724418863}
   frontSprite: {fileID: 4140845815190188555}
+  collider: {fileID: 390183568194779647}
+  cardSine: {fileID: 3686035720188094305}
   moveRotationForce: -50
   spriteLerpSpeed: 10
-  collider: {fileID: 390183568194779647}
 --- !u!114 &3025801405290300097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +170,7 @@ GameObject:
   - component: {fileID: 3178259975627424150}
   - component: {fileID: 7032231001575905874}
   - component: {fileID: 7793136815020760888}
+  - component: {fileID: 3686035720188094305}
   m_Layer: 0
   m_Name: SpriteT
   m_TagString: Untagged
@@ -300,6 +302,24 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &3686035720188094305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300952148789596222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445572a90ee1cba498efc1eac3a3b7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ySpeed: 2
+  yMagnitude: 0.35
+  xSpeed: 4
+  xMagnitude: 0.1
+  lerpSpeed: 10
+  startRunning: 1
 --- !u!1 &7753552844365378951
 GameObject:
   m_ObjectHideFlags: 0
