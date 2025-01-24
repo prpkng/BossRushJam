@@ -106,6 +106,7 @@ namespace BRJ.Bosses.Snooker
                 new State(
                     onEnter: _ =>
                     {
+                        ReturnPoolStick();
                         Game.Instance.Sound.BossMusic.With(b => b.SetKidding());
                         Game.Instance.Camera.FocusUp();
                         health.Defense = vulnerableDefense;
@@ -193,7 +194,16 @@ namespace BRJ.Bosses.Snooker
             );
 
             // STOMP PLAYER STATE
-            fsm.AddState(StompPlayerState, new CoState(this, StompPlayerCoroutine, needsExitTime: true, loop: false));
+            fsm.AddState(
+                StompPlayerState,
+                new CoState(
+                    this,
+                    StompPlayerCoroutine,
+                    needsExitTime: true,
+                    loop: false,
+                    onExit: _ => poolStickShadow.gameObject.SetActive(false)
+                )
+            );
             fsm.AddTransition(StompPlayerState, PopulateBallsState);
 
 
@@ -214,6 +224,13 @@ namespace BRJ.Bosses.Snooker
             fsm.RequestStateChange(PopulateBallsState);
         }
 
+        private void ReturnPoolStick()
+        {
+            poolStick.SetParent(leftHandTransform);
+            Tween.LocalPosition(poolStick, new Vector3(1.5f, -2f), 1f, Ease.InOutQuad);
+            Tween.Rotation(poolStick, Vector3.forward * -45, 1f, Ease.OutSine);
+        }
+
         private IEnumerator ReturnHands(bool? left = null)
         {
             Tween.StopAll(poolStick);
@@ -227,18 +244,32 @@ namespace BRJ.Bosses.Snooker
 
             bool doRight = !left.HasValue || !left.Value;
             bool doLeft = !left.HasValue || left.Value;
-            if (doLeft) Tween.StopAll(leftHand);
-            if (doRight) Tween.StopAll(rightHand);
+            if (doLeft)
+            {
+                Tween.StopAll(leftHand);
+                leftHand.SetHand(HandType.Idle);
+            }
 
-            if (doLeft) leftHand.SetHand(HandType.Idle);
-            if (doRight) rightHand.SetHand(HandType.Idle);
+            if (doRight)
+            {
+                Tween.StopAll(rightHand);
+                rightHand.SetHand(HandType.Idle);
+            }
             var sequence = Sequence.Create();
-            if (doLeft) sequence.Group(Tween.Position(leftHandTransform, leftHandDest, 1f, Ease.InOutQuad));
-            if (doLeft) sequence.Group(Tween.Rotation(leftHandTransform, Quaternion.identity, 1f, Ease.InOutQuad));
-            if (doRight) sequence.Group(Tween.Position(rightHandTransform, rightHandDest, 1f, Ease.InOutQuad));
-            if (doRight) sequence.Group(Tween.Rotation(rightHandTransform, Quaternion.identity, 1f, Ease.InOutQuad));
-            if (!left.HasValue) sequence.Group(Tween.Position(poolStick, transform.position + Vector3.up * 1f, 1f, Ease.InOutQuad));
-            if (!left.HasValue) sequence.Group(Tween.Rotation(poolStick, Vector3.forward * -90, 1f, Ease.OutSine));
+            if (doLeft)
+            {
+                sequence.Group(Tween.Position(leftHandTransform, leftHandDest, 1f, Ease.InOutQuad));
+                sequence.Group(Tween.Rotation(leftHandTransform, Quaternion.identity, 1f, Ease.InOutQuad));
+            }
+            if (doRight)
+            {
+                sequence.Group(Tween.Position(rightHandTransform, rightHandDest, 1f, Ease.InOutQuad));
+                sequence.Group(Tween.Rotation(rightHandTransform, Quaternion.identity, 1f, Ease.InOutQuad));
+            }
+            if (!left.HasValue)
+            {
+                ReturnPoolStick();
+            }
             yield return sequence.ToYieldInstruction();
         }
 
@@ -248,17 +279,12 @@ namespace BRJ.Bosses.Snooker
             yield return ReturnHands();
             handsIdleSine.StartMovement();
         }
-
-        #region < == IDLE STATE == >
-
-        #endregion
-
         #region < == SHOT WHITE BALL STATE == >
 
         private IEnumerator ShotWhiteBallCoroutine(CoState<string, string> state)
         {
             // Play pool shot sound
-
+            poolStick.parent = null;
             handsIdleSine.StopMovement();
             health.Defense = vulnerableDefense;
             float nextStep = 0;
@@ -448,6 +474,7 @@ namespace BRJ.Bosses.Snooker
         private IEnumerator StompPlayerCoroutine(CoState<string, string> state)
         {
             Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
+            poolStick.parent = null;
 
             leftHand.SetHand(HandType.HoldingStomp);
             rightHand.SetHand(HandType.HoldingStomp);
@@ -522,6 +549,8 @@ namespace BRJ.Bosses.Snooker
         private IEnumerator PopulateBallsCoroutine(CoState<string, string> state)
         {
             yield return ReturnHands();
+            poolStick.parent = null;
+
             leftHand.SetHand(HandType.HoldingBall);
             rightHand.SetHand(HandType.HoldingBall);
             var availableBallCount = availableBalls.Count(b => b);
