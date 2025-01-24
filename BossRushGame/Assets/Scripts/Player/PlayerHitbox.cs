@@ -20,7 +20,6 @@ namespace BRJ.Player
         {
             playerHealth.ApplyDamage(damage);
             if (playerHealth.currentHealth <= 0) return;
-            print($"kbv: {knockbackVector}");
             hitSound.Play();
             Game.Instance.World.Player.OnDamage(knockbackVector ?? Vector2.zero);
             Game.Instance.Camera.ShakeCamera(strong ? strongHitShake : weakHitShake);
@@ -40,9 +39,9 @@ namespace BRJ.Player
             _invulnerableTween.Stop();
 
             hitboxCollider.enabled = false;
-            _invulnerableTween = Tween.Delay(hitboxCollider, duration, col => 
-                { 
-                    if (col) col.enabled = true; 
+            _invulnerableTween = Tween.Delay(hitboxCollider, duration, col =>
+                {
+                    if (col) col.enabled = true;
                 }
             );
         }

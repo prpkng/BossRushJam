@@ -22,9 +22,10 @@ namespace BRJ.Bosses.Poker
 
         private async void Start()
         {
+            if (!this) return;
+            if (!gameObject) return;
             try
             {
-                if (!this) return;
                 currentCards = currentCards.Where(c => (MonoBehaviour)c).ToList();
 
                 await UniTask.WaitUntil(() => currentCards.Count > 0);

@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1409683214027594039}
   - component: {fileID: 2338245022845996370}
   - component: {fileID: 4357236074548724672}
+  - component: {fileID: 1725600692911671795}
   m_Layer: 0
-  m_Name: Boss
+  m_Name: SnookerBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +72,7 @@ MonoBehaviour:
   poolStickStompDistance: 5
   poolStickLeftHandDistance: 7
   poolStickRightHandDistance: 10
-  stickFollowDelay: 0.2
+  stickFollowDelay: 0.75
   preStompShake:
     strength: {x: 0.1, y: 0.1, z: 0}
     duration: 0.15
@@ -110,11 +111,31 @@ MonoBehaviour:
     endDelay: 0
     useUnscaledTime: 0
     useFixedUpdate: 0
+  stompTween:
+    duration: 0.11
+    ease: 2
+    customEase:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    cycles: 1
+    cycleMode: 0
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    useFixedUpdate: 0
+  stompHoverTime: 0.75
+  stompCountMin: 4
+  stompCountMax: 6
+  poolHandDistance: 3
+  stickHandDistance: 9
   stompCameraShake:
-    strength: {x: 0.5, y: 0.5, z: 0.5}
-    duration: 0.15
-    frequency: 15
-    enableFalloff: 0
+    strength: {x: 0.5, y: 0.5, z: 3}
+    duration: 0.25
+    frequency: 25
+    enableFalloff: 1
     falloffEase: 0
     strengthOverTime:
       serializedVersion: 2
@@ -129,69 +150,68 @@ MonoBehaviour:
     endDelay: 0
     useUnscaledTime: 0
     useFixedUpdate: 0
-  stompTween:
-    duration: 0
-    ease: 0
-    customEase:
+  stompStuckCameraShake:
+    strength: {x: 2.5, y: 2.5, z: 9}
+    duration: 0.25
+    frequency: 25
+    enableFalloff: 1
+    falloffEase: 0
+    strengthOverTime:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    asymmetry: 0
+    easeBetweenShakes: 0
     cycles: 1
-    cycleMode: 0
     startDelay: 0
     endDelay: 0
     useUnscaledTime: 0
     useFixedUpdate: 0
-  stompHoverTime: 0.75
-  stompCountMin: 3
-  stompCountMax: 6
-  poolHandDistance: 3
-  stickHandDistance: 9
   moveToShot:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -451432831
+      Data2: 1232673659
+      Data3: -644768099
+      Data4: -1525337875
+    Path: event:/SFX/Snooker/SFX_MoveToPlay
   poolShotEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -138986045
+      Data2: 1104700227
+      Data3: 1925006981
+      Data4: -2123107063
+    Path: event:/SFX/Snooker/SFX_PlaySnooker
   returnHandsEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1638920198
+      Data2: 1144219262
+      Data3: 315051186
+      Data4: -1766883907
+    Path: event:/SFX/Snooker/SFX_MoveFromPlay
   shotBallSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -258689673
+      Data2: 1080337970
+      Data3: 485831558
+      Data4: 635197794
+    Path: event:/SFX/Snooker/SFX_Boss01_Attack
   stompHitSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -774199870
+      Data2: 1086057916
+      Data3: -1742708851
+      Data4: 1882654016
+    Path: event:/SFX/Snooker/SFX_BallHitSides
   returnHandsMinSoundDistance: 4
   moveHandEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -650678165
+      Data2: 1119800191
+      Data3: 1773605780
+      Data4: -1617525168
+    Path: event:/SFX/Snooker/SFX_HandFloat
   ballPrefab: {fileID: 4317147210184284824, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
   health: {fileID: 2338245022845996370}
   availableBalls: []
@@ -333,6 +353,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4357236074548724672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +387,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!210 &1725600692911671795
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56063950311246133}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_SortAtRoot: 0
 --- !u!1 &992675719498475725
 GameObject:
   m_ObjectHideFlags: 0

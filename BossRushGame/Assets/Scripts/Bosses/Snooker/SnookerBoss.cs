@@ -44,7 +44,6 @@ namespace BRJ.Bosses.Snooker
 
         public ShakeSettings preStompShake;
         public ShakeSettings stickStuckShake;
-        public ShakeSettings stompCameraShake;
 
         public TweenSettings stompTween;
 
@@ -54,6 +53,10 @@ namespace BRJ.Bosses.Snooker
 
         [Header("Visual")] public float poolHandDistance = 3f;
         public float stickHandDistance = 8f;
+
+        public ShakeSettings stompCameraShake;
+        public ShakeSettings stompStuckCameraShake;
+
 
         [Header("Sound")]
         public EventReference moveToShot;
@@ -399,13 +402,16 @@ namespace BRJ.Bosses.Snooker
                 var tween = Tween
                     .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, stompTween);
                 yield return tween.ToYieldInstruction();
-                tween.Complete();
+                yield return new WaitForEndOfFrame();
                 yield return new WaitForFixedUpdate();
+                tween.Complete();
                 poolStick.position = poolStickShadow.position;
                 stompHitbox.transform.position = poolStick.position;
                 stompHitInstance.start();
 
-                Game.Instance.Camera.ShakeCamera(stompCameraShake);
+                Game.Instance.Camera.ShakeCamera(i <= 0 ? stompStuckCameraShake
+                                                                       : stompCameraShake);
+
                 stompHitbox.SetActive(true);
                 // Yield 3 frames
                 for (int j = 0; j < 3; j++) yield return null;
