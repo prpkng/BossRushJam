@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7237566024706186151}
+  - {fileID: 7043749722682258058}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7902854873566206686
@@ -109,7 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af4b624027942f3b77864d73206dc29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
   flashDuration: 0.05
 --- !u!114 &8505990715582930572
 MonoBehaviour:
@@ -126,12 +126,76 @@ MonoBehaviour:
   sortingGroup: {fileID: 447500720336439714}
   animator: {fileID: 1819194716652661090}
   flashSprite: {fileID: 196970626892064646}
+  spriteTrail: {fileID: 2344487587426105531}
   handLayers:
   - {fileID: 3547095848723603294}
   - {fileID: 8965922873738919224}
   - {fileID: 5974842607579685154}
   - {fileID: 2252164777665923728}
   <CurrentHandLayer>k__BackingField: {fileID: 0}
+--- !u!1 &7907755928048549375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7043749722682258058}
+  - component: {fileID: 2344487587426105531}
+  m_Layer: 12
+  m_Name: Trail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7043749722682258058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907755928048549375}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7167158112212107330}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2344487587426105531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907755928048549375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fb7c0e03c90fa479895552603f490b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPoolingCount: 20
+  targetRenderer: {fileID: 3547095848723603294}
+  emittingRate: 60
+  trailPrefab: {fileID: 4343414451899002839, guid: 14d5c30486fd1c4488ae40e1faad99cc, type: 3}
+  fadeOutTween:
+    duration: 0.175
+    ease: 3
+    customEase:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    cycles: 1
+    cycleMode: 0
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    useFixedUpdate: 0
 --- !u!1001 &659067249511113898
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,9 +19,10 @@ namespace BRJ.Bosses.Snooker
         [SerializeField] private SortingGroup sortingGroup;
         [SerializeField] private Animator animator;
         [SerializeField] private FlashSprite flashSprite;
+        [SerializeField] private SpriteTrail spriteTrail;
 
         [SerializeField] private SpriteRenderer[] handLayers;
-        
+
         [field: SerializeField] public SpriteRenderer CurrentHandLayer { get; private set; }
 
         private void Start()
@@ -49,9 +50,10 @@ namespace BRJ.Bosses.Snooker
         {
             for (int i = 0; i < handLayers.Length; i++)
                 handLayers[i].enabled = i == layer;
-            
+
             CurrentHandLayer = handLayers[layer];
             flashSprite.SpriteRenderer = CurrentHandLayer;
+            spriteTrail.targetRenderer = CurrentHandLayer;
         }
     }
 }

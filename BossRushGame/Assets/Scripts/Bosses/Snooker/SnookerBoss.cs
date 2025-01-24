@@ -1,22 +1,23 @@
-using System.Diagnostics;
 using System.Linq;
-using System.Numerics;
 using FMODUnity;
 using BRJ.Systems;
 using PrimeTween;
-using UnityEngine.Serialization;
+using System.Collections;
+using Cysharp.Threading.Tasks;
+using FMOD.Studio;
+using UnityEngine;
+using UnityHFSM;
 
 namespace BRJ.Bosses.Snooker
 {
-    using System.Collections;
-    using Cysharp.Threading.Tasks;
-    using FMOD.Studio;
-    using Player;
-    using UnityEngine;
-    using UnityHFSM;
-
     public class SnookerBoss : MonoBehaviour
     {
+        [System.Serializable]
+        public struct PhaseData
+        {
+            public float stickFollowSpeed;
+            public float shotAnticipationSecs;
+        }
         [Header("Common")] public float vulnerableDefense;
         public float attackingDefense;
         public int initialBallCount = 3;
@@ -74,6 +75,10 @@ namespace BRJ.Bosses.Snooker
         public PoolHand leftHand;
         public Transform rightHandTransform;
         public PoolHand rightHand;
+
+        public PhaseData phase1;
+        public PhaseData phase2;
+        public PhaseData phase3;
 
         private StateMachine fsm;
         private Rigidbody2D _currentBall;
@@ -224,6 +229,18 @@ namespace BRJ.Bosses.Snooker
             fsm.RequestStateChange(PopulateBallsState);
         }
 
+        #region < == BOSS PHASES 
+        public void Phase1() => ApplyPhase(phase1);
+        public void Phase2() => ApplyPhase(phase2);
+        public void Phase3() => ApplyPhase(phase3);
+
+        public void ApplyPhase(PhaseData phaseData)
+        {
+            shotAnticipationSecs = phaseData.shotAnticipationSecs;
+            stickFollowDelay = phaseData.stickFollowSpeed;
+        }
+
+        #endregion
         private void ReturnPoolStick()
         {
             poolStick.SetParent(leftHandTransform);
