@@ -12,6 +12,7 @@ namespace BRJ.Player
     {
         public static Vector2 currentScreenOffset;
 
+        public CinemachineCamera cinemachineCamera;
         public CinemachineTargetGroup targetGroup;
         public CinemachinePositionComposer positionComposer;
         public CinemachineCameraOffset cameraOffset;

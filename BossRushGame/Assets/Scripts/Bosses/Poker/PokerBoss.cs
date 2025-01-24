@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
+using BRJ.Bosses.Joker;
 using BRJ.Systems;
 using Cysharp.Threading.Tasks;
 using PrimeTween;
+using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityHFSM;
 
 namespace BRJ.Bosses.Poker
@@ -19,9 +22,11 @@ namespace BRJ.Bosses.Poker
             ChooseCardCooldown,
             StartState,
             PanicState,
-            ShootKingCards
+            ShootKingCards,
+            DeathState
         }
         public Transform bossSprite;
+        public BossEyes bossEyes;
         public DeckHolder deck;
         public Transform deckOffset;
         public Vector3 defendingDeckPosition;
@@ -62,6 +67,33 @@ namespace BRJ.Bosses.Poker
         [SerializedDictionary("Card Type", "Sprite")]
         public List<Sprite> kingSprites = new() { };
 
+        [Header("Death State")]
+
+        public CinemachineCamera deathCamera;
+        public CinemachineBasicMultiChannelPerlin deathCameraNoise;
+        public float deathCameraNoiseIntensity = 2.5f;
+        public float panWaitTime = 4f;
+        public TweenSettings zoomInTween;
+        public TweenSettings flashOutTween;
+        public Vector3 jokerCardSpawnLocation;
+        public GameObject jokerCardPrefab;
+        public TweenSettings revealJokerTween;
+        public float firstTwoRotation = 15f;
+        public float lastRotation = 30f;
+
+        [Space]
+        public Transform spiralCenter;
+        public float spiralRadius = 10f;
+        public TweenSettings moveJokerTween;
+
+        public float spiralAccelerationTime;
+
+        public float spiralAccelerationSpeed;
+        public float spiralDecelerationSpeed;
+
+        public float slowSpiralSpeed = 10;
+
+
         [Header("Editor")] public Card.Suits overrideCardType;
 
 
@@ -70,7 +102,7 @@ namespace BRJ.Bosses.Poker
         private StateMachine<States> fsm;
 
         private List<Card.Suits> pickedCards = new();
-        private List<Card> activeCards = new();
+        private List<GameObject> activeCards = new();
 
 
         private void Start()
@@ -114,6 +146,8 @@ namespace BRJ.Bosses.Poker
             fsm.AddState(States.PanicState, onEnter: _ =>
             {
                 Tween.LocalPosition(bossSprite, revealBossTween);
+
+                bossEyes.SetAngry();
                 Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
 
             });
@@ -124,17 +158,244 @@ namespace BRJ.Bosses.Poker
             fsm.AddState(States.ShootKingCards, new CoState<States>(this, ShootKingCards, needsExitTime: true, loop: false));
             fsm.AddTransition(States.ShootKingCards, States.RefillCards);
 
+            // Death state
+            fsm.AddState(
+                States.DeathState,
+                new CoState<States>(this, DeathStateCoroutine, loop: false, needsExitTime: true)
+            );
+
+            fsm.AddTriggerTransitionFromAny("Death", States.DeathState, forceInstantly: true);
+
             fsm.SetStartState(States.StartState);
 
             fsm.Init();
         }
 
+        public void ShakeDeathCamera()
+        {
+            Tween.Custom(
+                deathCameraNoiseIntensity,
+                0,
+                .25f,
+                f => deathCameraNoise.AmplitudeGain = f,
+                Ease.OutSine
+            );
+        }
+        public void BossDeath()
+        {
+            fsm.Trigger("Death");
+        }
+
+        public void DestroyAllCards()
+        {
+            activeCards.ForEach(c =>
+            {
+                if (c)
+                    Destroy(c);
+            });
+            activeCards.Clear();
+        }
+
+        #region == STATE ==> Death
+        private IEnumerator DeathStateCoroutine(CoState<States, string> state)
+        {
+            DestroyAllCards();
+
+            deathCamera.Priority = 10;
+
+            Tween.Custom(
+                1.5f,
+                2f,
+                zoomInTween,
+                f => Game.Instance.World.RenderTextureZoom = f
+            );
+
+            yield return new WaitForSeconds(panWaitTime);
+
+            var mat = Game.Instance.World.RenderTextureMaterial;
+            mat.SetFloat("_Force", 1);
+            mat.SetInt("_Flash", 1);
+            yield return null;
+            bossSprite.gameObject.SetActive(false);
+
+            var range = Enumerable.Range(0, 4);
+            GameObject[] jokers = (from i in range
+                                   select Instantiate(jokerCardPrefab, jokerCardSpawnLocation - Vector3.forward * i, Quaternion.identity))
+                                  .ToArray();
+
+            yield return new WaitForSeconds(.05f);
+            ShakeDeathCamera();
+
+            yield return Tween.Custom(
+                1,
+                0,
+                flashOutTween,
+                f => mat.SetFloat("_Force", f)
+            ).ToYieldInstruction();
+
+            ShakeDeathCamera();
+            var current = jokers[2].transform;
+            Tween.Rotation(
+                current,
+                current.transform.eulerAngles,
+                new Vector3(0, 0, firstTwoRotation),
+                revealJokerTween
+            );
+            yield return Tween.PositionX(
+                current,
+                current.position.x,
+                current.position.x - .8f,
+                revealJokerTween
+            ).ToYieldInstruction();
+            ShakeDeathCamera();
+
+            current = jokers[1].transform;
+            Tween.Rotation(
+                current,
+                current.transform.eulerAngles,
+                new Vector3(0, 0, -firstTwoRotation),
+                revealJokerTween
+            );
+            yield return Tween.PositionX(
+                current,
+                current.position.x,
+                current.position.x + .8f,
+                revealJokerTween
+            ).ToYieldInstruction();
+            ShakeDeathCamera();
+            deathCamera.Priority = -10;
+            Tween.Custom(
+                2f,
+                1.5f,
+                zoomInTween,
+                f => Game.Instance.World.RenderTextureZoom = f
+            );
+
+            current = jokers[0].transform;
+            Tween.Rotation(
+                current,
+                current.transform.eulerAngles,
+                new Vector3(0, 0, lastRotation),
+                revealJokerTween
+            );
+            yield return Tween.PositionX(
+                current,
+                current.position.x,
+                current.position.x - 1.6f,
+                revealJokerTween
+            ).ToYieldInstruction();
+
+            yield return new WaitForSeconds(.5f);
+
+
+
+            for (int i = 0; i < jokers.Length; i++)
+            {
+                float a = i * 90f;
+                var dest = spiralCenter.position + (Vector3)Utilities.FromDegrees(a) * spiralRadius;
+
+                Tween.Position(
+                    jokers[i].transform,
+                    dest,
+                    moveJokerTween
+                );
+
+                Tween.Rotation(
+                    jokers[i].transform,
+                    Quaternion.identity,
+                    moveJokerTween
+                );
+            }
+
+            yield return new WaitForSeconds(moveJokerTween.duration);
+
+            var jokerComponents = (from jk in jokers select jk.GetComponent<JokerCard>()).ToArray();
+
+            while (true)
+            {
+                float currentAngle = 0;
+                float currentAngleSpeed = 0;
+                float counter = 0;
+                while (true)
+                {
+                    counter += Time.deltaTime;
+
+                    if (counter < spiralAccelerationTime)
+                        currentAngleSpeed += spiralAccelerationSpeed * Time.deltaTime;
+                    else if (currentAngleSpeed > 0)
+                        currentAngleSpeed -= spiralDecelerationSpeed * Time.deltaTime;
+                    else
+                        break;
+
+                    currentAngle += currentAngleSpeed * Time.deltaTime;
+
+                    for (int i = 0; i < jokers.Length; i++)
+                        jokers[i].transform.position = spiralCenter.position +
+                        (Vector3)Utilities.FromDegrees((currentAngle + i) * 90f) * spiralRadius;
+
+                    yield return null;
+                }
+
+                print("Finished spin");
+
+                int success = 0;
+
+                var correct = jokerComponents.ChooseRandom();
+
+                foreach (var jk in jokerComponents.Where(j => j != correct))
+                    jk.OnHit += () => success = -1;
+
+                correct.OnHit += () => success = 1;
+
+                while (success == 0)
+                {
+                    currentAngle += slowSpiralSpeed * Time.deltaTime;
+
+                    for (int i = 0; i < jokers.Length; i++)
+                        jokers[i].transform.position = spiralCenter.position +
+                        (Vector3)Utilities.FromDegrees((currentAngle + i) * 90f) * spiralRadius;
+
+                    yield return null;
+                }
+
+                print($"Passed, success is {success}");
+
+                foreach (var jk in jokerComponents)
+                    jk.ClearCallbacks();
+
+                mat.SetFloat("_Force", 1);
+                mat.SetInt("_Flash", 1);
+
+                Tween.Custom(
+                    1,
+                    0,
+                    flashOutTween,
+                    f => mat.SetFloat("_Force", f)
+                );
+
+                if (success == 1)
+                    break;
+            }
+
+            print("FINISHED");
+
+            // Provisory
+            SceneManager.LoadScene("Lobby");
+
+            yield break;
+        }
+
+        #endregion
+
+        #region == STATE ==> ChooseCard
         private IEnumerator ChooseCardCoroutine(CoState<States, string> state)
         {
             yield return new WaitForSeconds(.5f);
             deckOffset.localPosition = defendingDeckPosition;
+            Game.Instance.Sound.BossMusic.With(b => b.SetKidding());
 
             var card = deck.TakeCard();
+            activeCards.Add(card.gameObject);
             if (pickedCards.Count >= 4) pickedCards.Clear();
 
             Card.Suits type;
@@ -179,21 +440,18 @@ namespace BRJ.Bosses.Poker
             yield return Tween.Position(card, positionCardTween).ToYieldInstruction();
 
             card.WithComponent((Card c) => c.Activate(this));
-            activeCards.Add(card.GetComponent<Card>());
 
             state.fsm.StateCanExit();
         }
 
+        #endregion
+
+        #region == STATE ==> ShootKingCards
         private IEnumerator ShootKingCards(CoState<States, string> state)
         {
-            // activeCards.ForEach(c => {
-            //     if (c)
-            //         Destroy(c.gameObject);
-            // });
 
             deckOffset.localPosition = openDeckPosition;
 
-            activeCards.Clear();
 
             for (int i = 0; i < 5; i++)
             {
@@ -207,6 +465,7 @@ namespace BRJ.Bosses.Poker
             for (int i = 0; i < 5; i++)
             {
                 var card = deck.TakeCard();
+                activeCards.Add(card.gameObject);
                 Destroy(card.gameObject, 10);
                 card.WithComponent((Card c) =>
                 {
@@ -235,15 +494,22 @@ namespace BRJ.Bosses.Poker
                 ).ToYieldInstruction();
 
                 yield return new WaitForSeconds(kingAttackDelay);
-                Instantiate(kingCardAttackPrefab, card).transform.localPosition = Vector3.up * 1.5f;
+                var cardAttack = Instantiate(kingCardAttackPrefab, card);
+                activeCards.Add(cardAttack);
                 yield return new WaitForSeconds(1.5f);
             }
             yield return null;
+
+            Tween.LocalPosition(bossSprite, revealBossTween.WithDirection(false));
+            bossEyes.SetNormal();
 
             state.fsm.StateCanExit();
 
 
         }
+
+        #endregion
+
         private void FixedUpdate()
         {
             fsm.OnLogic();

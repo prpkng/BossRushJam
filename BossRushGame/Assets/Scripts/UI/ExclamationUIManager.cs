@@ -37,7 +37,6 @@ namespace BRJ.UI
 
             var viewportPos = mainCamera.WorldToScreenPoint(exclamationPos.Value);
 
-            print(Screen.width);
             var pos = (Vector2)viewportPos - new Vector2(320, 180);
 
             pos *= multiplier;

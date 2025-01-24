@@ -17,7 +17,8 @@ namespace BRJ
         public static Modifier CurrentActiveModifier;
         public static int CurrentLevelId { get; set; } = 1;
         public Transform ScreenRenderTexture;
-        public static Transform PlayerTransform { get; private set;}
+        public Material RenderTextureMaterial;
+        public static Transform PlayerTransform { get; private set; }
         public static Vector3 PlayerPosition => PlayerTransform.position;
 
         private PlayerManager _player;
@@ -31,7 +32,7 @@ namespace BRJ
             }
         }
 
-        
+
         public Maybe<BossBarController> BossBarController;
 
         public float RenderTextureZoom
@@ -55,7 +56,7 @@ namespace BRJ
         {
             DeathScreenController.LastCameraPosition = Game.Instance.Camera.transform.position;
             DeathScreenController.LastPlayerPosition = PlayerPosition;
-            
+
             await SceneManager.LoadSceneAsync("DeathScreen");
 
             await UniTask.WaitForSeconds(5);

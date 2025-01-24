@@ -145,15 +145,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.00005810427
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.0000010740615
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.00000022344545
       objectReference: {fileID: 0}
     - target: {fileID: 2112586585440250438, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -167,9 +167,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4965596848115163777, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
+      propertyPath: DefaultBlend.Time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965596848115163777, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
+      propertyPath: DefaultBlend.Style
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965596848115163777, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
+      propertyPath: LensModeOverride.Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965596848115163777, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
+      propertyPath: LensModeOverride.DefaultMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5704872578517577775, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487836083093872292, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
+      propertyPath: orthographic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487836083093872292, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
       propertyPath: orthographic size
@@ -266,15 +286,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: defaultWeakShake.strength.x
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: defaultWeakShake.strength.y
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: defaultWeakShake.strength.z
-      value: 1.25
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: defaultStrongShake.frequency
@@ -303,6 +323,14 @@ PrefabInstance:
     - target: {fileID: 7303165611683896656, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: m_Name
       value: CinemachineCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884185129377218234, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: Priority.Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884185129377218234, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: Priority.m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7884185129377218234, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: Target.TrackingTarget
@@ -510,6 +538,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &327547056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327547057}
+  m_Layer: 12
+  m_Name: SpiralCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &327547057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327547056}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3125, y: -0.5625, z: 0.5804563}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2092146145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408704862
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +715,10 @@ PrefabInstance:
       propertyPath: BossBarController.<Value>k__BackingField
       value: 
       objectReference: {fileID: 725810335}
+    - target: {fileID: 1295456734425814321, guid: 5e48b931a30368649be5e8c428e4eee2, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 90cd8eb0f9b119e4d87e4dabbf10306a, type: 2}
     - target: {fileID: 4966611421119070725, guid: 5e48b931a30368649be5e8c428e4eee2, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -1467,6 +1530,112 @@ Transform:
   - {fileID: 1970873843}
   m_Father: {fileID: 1584713473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &953760609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 953760611}
+  - component: {fileID: 953760610}
+  - component: {fileID: 953760612}
+  - component: {fileID: 953760613}
+  m_Layer: 0
+  m_Name: DeathCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &953760610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953760609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 1
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 75
+    OrthographicSize: 7.84
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 1
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!4 &953760611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953760609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 12.9, z: -25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &953760612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953760609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &953760613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953760609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 1
+  m_NoiseOffsets: {x: -763.829, y: -291.8018, z: 671.15186}
 --- !u!212 &977775656 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 794674949962664471, guid: de683fe2d0c18d648be424f5dce7a1de, type: 3}
@@ -1531,7 +1700,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 3e03335de95cccb4fbd2955cf8c113de, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1670492213}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 3e03335de95cccb4fbd2955cf8c113de, type: 3}
 --- !u!4 &1005693576 stripped
 Transform:
@@ -2532,6 +2704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossSprite: {fileID: 1381104788}
+  bossEyes: {fileID: 1670492213}
   deck: {fileID: 1970873844}
   deckOffset: {fileID: 939430717}
   defendingDeckPosition: {x: 0, y: -3, z: 0}
@@ -2549,7 +2722,7 @@ MonoBehaviour:
       Value: {fileID: -4633221315021531617, guid: 95f05d45deaab234abae935024e2e722, type: 3}
   bossHealth: {fileID: 1584713478}
   heartsHealthRecover: 15
-  startCardCount: 4
+  startCardCount: 1
   pickCardTween:
     startFromCurrent: 0
     startValue: {x: 0, y: 0, z: 0}
@@ -2677,6 +2850,80 @@ MonoBehaviour:
   - {fileID: -6187882281757415052, guid: 95f05d45deaab234abae935024e2e722, type: 3}
   - {fileID: 4664581279637014425, guid: 95f05d45deaab234abae935024e2e722, type: 3}
   - {fileID: 7407628513195273817, guid: 95f05d45deaab234abae935024e2e722, type: 3}
+  deathCamera: {fileID: 953760610}
+  deathCameraNoise: {fileID: 953760613}
+  deathCameraNoiseIntensity: 2.5
+  panWaitTime: 2.5
+  zoomInTween:
+    duration: 1.5
+    ease: 7
+    customEase:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    cycles: 1
+    cycleMode: 0
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    useFixedUpdate: 0
+  flashOutTween:
+    duration: 1
+    ease: 3
+    customEase:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    cycles: 1
+    cycleMode: 0
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    useFixedUpdate: 0
+  jokerCardSpawnLocation: {x: 0, y: 13, z: 0}
+  jokerCardPrefab: {fileID: 6385103606413391240, guid: 9504067ce05536b47835936f405a3514, type: 3}
+  revealJokerTween:
+    duration: 0.75
+    ease: 15
+    customEase:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    cycles: 1
+    cycleMode: 0
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    useFixedUpdate: 0
+  firstTwoRotation: 15
+  lastRotation: 30
+  spiralCenter: {fileID: 327547057}
+  spiralRadius: 6
+  moveJokerTween:
+    duration: 2
+    ease: 18
+    customEase:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    cycles: 1
+    cycleMode: 0
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    useFixedUpdate: 0
+  spiralAccelerationTime: 5
+  spiralAccelerationSpeed: 3.5
+  spiralDecelerationSpeed: 10
+  slowSpiralSpeed: 0.1
   overrideCardType: -1
 --- !u!114 &1584713478
 MonoBehaviour:
@@ -2690,7 +2937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588dd8cf633db6c4fa17d86a36cc1b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 150
+  totalHealth: 300
   damageMultiplier: 1
   currentHealth: 0
   destroyOnDeath: 0
@@ -2703,6 +2950,21 @@ MonoBehaviour:
   onQuarterHealth:
     m_PersistentCalls:
       m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1584713474}
+        m_TargetAssemblyTypeName: BRJ.Bosses.Poker.PokerBoss, Assembly-CSharp
+        m_MethodName: BossDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1584713479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2765,6 +3027,29 @@ Transform:
   - {fileID: 868016835}
   m_Father: {fileID: 1982963566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1670492210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 3e03335de95cccb4fbd2955cf8c113de, type: 3}
+  m_PrefabInstance: {fileID: 1005693575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1670492211 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1160356261127867848, guid: 3e03335de95cccb4fbd2955cf8c113de, type: 3}
+  m_PrefabInstance: {fileID: 1005693575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1670492213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670492210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f0f7db85d81c14e9bd9daddea59a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1670492211}
 --- !u!1 &1719588707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,6 +3519,7 @@ Transform:
   m_Children:
   - {fileID: 1584713473}
   - {fileID: 1731348499}
+  - {fileID: 327547057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2133349369
@@ -3438,6 +3724,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 23482847}
   - {fileID: 68493783}
+  - {fileID: 953760611}
   - {fileID: 1156134152}
   - {fileID: 1106370047}
   - {fileID: 752078070}
