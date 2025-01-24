@@ -212,6 +212,7 @@ namespace BRJ.Bosses.Poker
                 {
                     c.frontSprite.sprite = kingSprites.ChooseRandom();
                     Destroy(c.collider);
+                    Destroy(c.cardSine);
                     Destroy(c);
                 });
 

@@ -24,6 +24,7 @@ namespace BRJ.Bosses.Poker
         public float cameraWeight = 1;
         public HealthBehavior health;
         public Transform spriteTransform;
+        public GameObject exclamationMark;
         public SpriteRenderer frontSprite;
         public new Collider2D collider;
         public SineLocalPosition cardSine;

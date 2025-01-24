@@ -30,7 +30,8 @@ namespace BRJ.Bosses.Poker
             var tokenSource = new CancellationTokenSource();
             for (int i = 0; i < currentCards.Count; i++)
             {
-                var target = (MonoBehaviour) currentCards[i];
+                var target = (MonoBehaviour)currentCards[i];
+                var card = target.GetComponent<Card>();
                 if (!target)
                     continue;
                 var startPos = target.transform.position.y;
@@ -43,9 +44,11 @@ namespace BRJ.Bosses.Poker
 
                 print($"Started attack on card: ${currentCards[i].GetType().Name}");
                 var attackDuration = currentCards[i].StartAttack();
+                card.exclamationMark.SetActive(true);
 
                 var time = Time.time;
-                while (Time.time < time + attackDuration) {
+                while (Time.time < time + attackDuration)
+                {
                     if (!target)
                         break;
                     await UniTask.WaitForEndOfFrame();
@@ -55,6 +58,7 @@ namespace BRJ.Bosses.Poker
 
                 print($"Stopped attack on card: ${currentCards[i].GetType().Name}");
                 currentCards[i].StopAttack();
+                card.exclamationMark.SetActive(false);
 
                 Tween.PositionY(
                     target.transform,

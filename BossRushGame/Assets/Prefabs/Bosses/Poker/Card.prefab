@@ -137,6 +137,7 @@ MonoBehaviour:
   cameraWeight: 0.75
   health: {fileID: 3025801405290300097}
   spriteTransform: {fileID: 6076389444724418863}
+  exclamationMark: {fileID: 1368136991313211096}
   frontSprite: {fileID: 4140845815190188555}
   collider: {fileID: 390183568194779647}
   cardSine: {fileID: 3686035720188094305}
@@ -158,6 +159,50 @@ MonoBehaviour:
   damageMultiplier: 1
   currentHealth: 0
   destroyOnDeath: 1
+--- !u!1 &1368136991313211096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3452402331140458388}
+  - component: {fileID: 2627102249803356721}
+  m_Layer: 0
+  m_Name: Exclamation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3452402331140458388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368136991313211096}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6076389444724418863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2627102249803356721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368136991313211096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0f74fc6e75bc1439bbda4abffde5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2300952148789596222
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +238,7 @@ Transform:
   m_Children:
   - {fileID: 7383613882714660322}
   - {fileID: 3946394147573284899}
+  - {fileID: 3452402331140458388}
   m_Father: {fileID: 3239751743489427745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &3178259975627424150
