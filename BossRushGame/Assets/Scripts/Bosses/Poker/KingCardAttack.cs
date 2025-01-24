@@ -1,5 +1,6 @@
 namespace BRJ.Bosses.Poker
 {
+    using BRJ.Player;
     using Cysharp.Threading.Tasks;
     using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace BRJ.Bosses.Poker
             var swords = Instantiate(swordsPrefab, transform);
             await UniTask.WaitForSeconds(attackColliderWaitTime);
 
+            Game.Instance.Camera.ShakeStrong();
             collider.enabled = true;
             await UniTask.WaitForSeconds(swordsAnimationDuration - attackColliderWaitTime);
 

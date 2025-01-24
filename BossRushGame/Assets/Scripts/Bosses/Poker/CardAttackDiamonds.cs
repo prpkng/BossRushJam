@@ -5,7 +5,7 @@ namespace BRJ.Bosses.Poker
 {
     public class CardAttackDiamonds : ShootingAttack, ICardAttack
     {
-        public override bool FaceDirection => true;
+        public override bool FaceDirection => false;
 
         public override float AttackDuration => 4f;
 

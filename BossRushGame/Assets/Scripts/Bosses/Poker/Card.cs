@@ -2,6 +2,7 @@ using System;
 using BRJ.Player;
 using BRJ.Systems;
 using BRJ.Systems.Common;
+using BRJ.Systems.Visual;
 using UnityEngine;
 
 namespace BRJ.Bosses.Poker
@@ -23,10 +24,12 @@ namespace BRJ.Bosses.Poker
         public float cameraWeight = 1;
         public HealthBehavior health;
         public Transform spriteTransform;
+        public GameObject exclamationMark;
         public SpriteRenderer frontSprite;
+        public new Collider2D collider;
+        public SineLocalPosition cardSine;
         public float moveRotationForce;
         public float spriteLerpSpeed = 10;
-        public new Collider2D collider;
 
         private Vector3 movementVel;
         private Vector3 lastPos;
@@ -71,6 +74,7 @@ namespace BRJ.Bosses.Poker
                     break;
             }
 
+            cardSine.enabled = true;
             health.enabled = true;
         }
 
