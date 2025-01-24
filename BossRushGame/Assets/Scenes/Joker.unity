@@ -244,6 +244,62 @@ PrefabInstance:
       propertyPath: targetGroup
       value: 
       objectReference: {fileID: 1156134153}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.cycles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultStrongShake.cycles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.duration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.frequency
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultStrongShake.duration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.strength.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.strength.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.strength.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultStrongShake.frequency
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultStrongShake.strength.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultStrongShake.strength.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultStrongShake.strength.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultWeakShake.enableFalloff
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314800621817340686, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
+      propertyPath: defaultStrongShake.enableFalloff
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7303165611683896656, guid: 84b1a8a5913c1f648bf7f1ff4e2ef532, type: 3}
       propertyPath: m_Name
       value: CinemachineCamera
@@ -3246,6 +3302,10 @@ PrefabInstance:
     - target: {fileID: 4445552189446378546, guid: 6b303894437803f438a2afe33cbf3a5d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153082002217327375, guid: 6b303894437803f438a2afe33cbf3a5d, type: 3}
+      propertyPath: multiplier
+      value: 0.925
       objectReference: {fileID: 0}
     - target: {fileID: 6377713237614424497, guid: 6b303894437803f438a2afe33cbf3a5d, type: 3}
       propertyPath: m_AnchorMax.y

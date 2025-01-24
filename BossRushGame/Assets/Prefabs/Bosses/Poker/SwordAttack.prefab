@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackWaitTime: 0
-  attackColliderWaitTime: 0.2
-  swordsAnimationDuration: 0.58
+  attackColliderWaitTime: 0.35
+  swordsAnimationDuration: 0.7
   swordsPrefab: {fileID: 7139822507180176040, guid: ed0a6c7de3b4c9f4aadb2b56034cea7a, type: 3}
   collider: {fileID: 3530427174288122375}
 --- !u!61 &3530427174288122375
