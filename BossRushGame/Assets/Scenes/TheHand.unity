@@ -811,17 +811,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1204671229 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-  m_PrefabInstance: {fileID: 6895901554292110501}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabc11c9c4da9474ca587bfee4ae80d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1331442443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,10 +1786,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2550022098616655586, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: bulletDamage
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1857,130 +1842,6 @@ PrefabInstance:
     - target: {fileID: 56063950311246133, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: m_Name
       value: SnookerBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: stickFollowDelay
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: phase1.stickFollowSpeed
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: phase2.stickFollowSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: phase3.stickFollowSpeed
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: phase1.shotAnticipationSecs
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: phase2.shotAnticipationSecs
-      value: 1.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: phase3.shotAnticipationSecs
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Target
-      value: 
-      objectReference: {fileID: 1204671229}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Target
-      value: 
-      objectReference: {fileID: 1204671229}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Phase2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Phase3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Target
-      value: 
-      objectReference: {fileID: 1204671229}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Phase1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_IntArgument
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_IntArgument
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
-      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7330559444157686007, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: m_LocalPosition.x

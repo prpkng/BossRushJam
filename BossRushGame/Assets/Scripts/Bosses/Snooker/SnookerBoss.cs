@@ -16,7 +16,13 @@ namespace BRJ.Bosses.Snooker
         public struct PhaseData
         {
             public float stickFollowSpeed;
+            public float shotBallWaitTime;
             public float shotAnticipationSecs;
+            public bool predictPlayerStomp;
+            public float predictSpeed;
+            public float stompHoverTime;
+            public float stompTweenDuration;
+            public int ballAddCount;
         }
         [Header("Common")] public float vulnerableDefense;
         public float attackingDefense;
@@ -27,7 +33,8 @@ namespace BRJ.Bosses.Snooker
         [Header("Idle Cooldown")] public float idleWaitTime = 4;
         public HandsIdleSine handsIdleSine;
 
-        [Header("Shot White Ball")] public float shotBallWaitTime = 5f;
+        [Header("Shot White Ball")]
+        public float shotBallWaitTime = 5f;
         public float whiteBallStopThreshold = 1f;
         [Space] public float shotForce = 25;
         public float shotAnticipationSecs = 2f;
@@ -36,8 +43,11 @@ namespace BRJ.Bosses.Snooker
 
         [Header("Freak Out")] public float freakOutWaitTime = 5f;
 
-        [Header("Stomp State")] public Transform poolStickShadow;
+        [Header("Stomp State")]
+
+        public Transform poolStickShadow;
         public GameObject stompHitbox;
+        public float stompAnticipationTime = .1f;
         public float poolStickStompDistance = 5f;
         public float poolStickLeftHandDistance = 4f;
         public float poolStickRightHandDistance = 2f;
@@ -51,6 +61,9 @@ namespace BRJ.Bosses.Snooker
         public float stompHoverTime = .5f;
         public int stompCountMin = 3;
         public int stompCountMax = 6;
+        public bool predictStomp = false;
+        public float predictOffset = .25f;
+        public float predictSpeed = 5f;
 
         [Header("Visual")] public float poolHandDistance = 3f;
         public float stickHandDistance = 8f;
@@ -223,12 +236,6 @@ namespace BRJ.Bosses.Snooker
             fsm.Init();
         }
 
-        public void IncreaseBallCount()
-        {
-            _currentBallCount++;
-            fsm.RequestStateChange(PopulateBallsState);
-        }
-
         #region < == BOSS PHASES 
         public void Phase1() => ApplyPhase(phase1);
         public void Phase2() => ApplyPhase(phase2);
@@ -238,6 +245,13 @@ namespace BRJ.Bosses.Snooker
         {
             shotAnticipationSecs = phaseData.shotAnticipationSecs;
             stickFollowDelay = phaseData.stickFollowSpeed;
+            stompTween.duration = phaseData.stompTweenDuration;
+            stompHoverTime = phaseData.stompHoverTime;
+            predictSpeed = phaseData.predictSpeed;
+            shotBallWaitTime = phaseData.shotBallWaitTime;
+
+            _currentBallCount += phaseData.ballAddCount;
+            fsm.RequestStateChange(PopulateBallsState);
         }
 
         #endregion
@@ -433,25 +447,46 @@ namespace BRJ.Bosses.Snooker
                 poolStick.right = Vector3.down;
                 leftHandTransform.SetParent(transform);
                 rightHandTransform.SetParent(transform);
-                while (Time.time < time + stompHoverTime)
+
+                var predict = Vector2.zero;
+                Vector2 p;
+                while (Time.fixedTime < time + stompHoverTime)
                 {
+                    var dest = playerTransform.position;
+
+                    if (predictStomp)
+                    {
+                        if (InputManager.MoveVector.sqrMagnitude > 0)
+                            p = Game.Instance.World.Player.movementSpeed * predictOffset * Time.fixedDeltaTime * InputManager.MoveVector;
+                        else
+                            p = Vector2.zero;
+
+                        predict = Vector2.Lerp(predict, p, Time.fixedDeltaTime * predictSpeed);
+
+                        dest += (Vector3)predict;
+                    }
+
                     poolStick.position = Vector3.Lerp(poolStick.position,
-                        playerTransform.position + Vector3.up * poolStickStompDistance, stickFollowDelay);
-                    poolStickShadow.position = Vector3.Lerp(poolStickShadow.position, playerTransform.position,
-                        stickFollowDelay);
+                        dest + Vector3.up * poolStickStompDistance, stickFollowDelay);
+                    poolStickShadow.position = Vector3.Lerp(poolStickShadow.position, dest,
+                        stickFollowDelay * 2);
                     leftHandTransform.position = Vector3.Lerp(leftHandTransform.position,
-                        playerTransform.position + Vector3.up * poolStickLeftHandDistance, stickFollowDelay);
+                        dest + Vector3.up * poolStickLeftHandDistance, stickFollowDelay);
                     rightHandTransform.position = Vector3.Lerp(rightHandTransform.position,
-                        playerTransform.position + Vector3.up * poolStickRightHandDistance, stickFollowDelay);
-                    yield return null;
+                        dest + Vector3.up * poolStickRightHandDistance, stickFollowDelay);
+                    yield return new WaitForFixedUpdate();
                 }
 
                 leftHandTransform.SetParent(poolStick);
                 rightHandTransform.SetParent(poolStick);
+                if (stompAnticipationTime > 0)
+                {
+                    yield return new WaitForSeconds(stompAnticipationTime / 2);
+                    Tween.ShakeLocalPosition(poolStick, preStompShake);
+                    yield return new WaitForSeconds(stompAnticipationTime / 2);
+                    yield return null;
+                }
 
-                yield return new WaitForSeconds(.05f);
-                Tween.ShakeLocalPosition(poolStick, preStompShake);
-                yield return new WaitForSeconds(.05f);
                 poolStickShadow.position = poolStick.position + Vector3.down * poolStickStompDistance;
                 var tween = Tween
                     .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, stompTween);

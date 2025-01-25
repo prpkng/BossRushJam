@@ -69,10 +69,11 @@ MonoBehaviour:
   freakOutWaitTime: 5
   poolStickShadow: {fileID: 1883839048920986253}
   stompHitbox: {fileID: 4267489527488037741}
+  stompAnticipationTime: 0.1
   poolStickStompDistance: 5
   poolStickLeftHandDistance: 7
   poolStickRightHandDistance: 10
-  stickFollowDelay: 0.75
+  stickFollowDelay: 0.25
   preStompShake:
     strength: {x: 0.1, y: 0.1, z: 0}
     duration: 0.15
@@ -112,7 +113,7 @@ MonoBehaviour:
     useUnscaledTime: 0
     useFixedUpdate: 0
   stompTween:
-    duration: 0.11
+    duration: 0.15
     ease: 2
     customEase:
       serializedVersion: 2
@@ -126,9 +127,12 @@ MonoBehaviour:
     endDelay: 0
     useUnscaledTime: 0
     useFixedUpdate: 0
-  stompHoverTime: 0.75
+  stompHoverTime: 0.8
   stompCountMin: 4
   stompCountMax: 6
+  predictStomp: 0
+  predictOffset: 15
+  predictSpeed: 5
   poolHandDistance: 3
   stickHandDistance: 9
   stompCameraShake:
@@ -220,6 +224,33 @@ MonoBehaviour:
   leftHand: {fileID: 7598249609894973622}
   rightHandTransform: {fileID: 7063005310955102695}
   rightHand: {fileID: 8609000956720070441}
+  phase1:
+    stickFollowSpeed: 0.35
+    shotBallWaitTime: 3
+    shotAnticipationSecs: 1.75
+    predictPlayerStomp: 0
+    predictSpeed: 0
+    stompHoverTime: 0.65
+    stompTweenDuration: 0.15
+    ballAddCount: 1
+  phase2:
+    stickFollowSpeed: 0.5
+    shotBallWaitTime: 2
+    shotAnticipationSecs: 1.35
+    predictPlayerStomp: 1
+    predictSpeed: 3
+    stompHoverTime: 0.45
+    stompTweenDuration: 0.11
+    ballAddCount: 2
+  phase3:
+    stickFollowSpeed: 0.75
+    shotBallWaitTime: 1.25
+    shotAnticipationSecs: 0.6
+    predictPlayerStomp: 1
+    predictSpeed: 6
+    stompHoverTime: 0.4
+    stompTweenDuration: 0.1
+    ballAddCount: 2
 --- !u!114 &2338245022845996370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +306,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1409683214027594039}
+        m_TargetAssemblyTypeName: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
+        m_MethodName: Phase1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHalfHealth:
     m_PersistentCalls:
       m_Calls:
@@ -314,6 +357,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1409683214027594039}
+        m_TargetAssemblyTypeName: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
+        m_MethodName: Phase2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onQuarterHealth:
     m_PersistentCalls:
       m_Calls:
@@ -345,6 +400,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
         m_MethodName: SetLayer
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1409683214027594039}
+        m_TargetAssemblyTypeName: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
+        m_MethodName: Phase3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
