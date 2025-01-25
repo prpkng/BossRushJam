@@ -7,7 +7,8 @@ namespace BRJ.Bosses
         public RectTransform rectTransform;
 
         private float startWidth;
-        private void Start() {
+        private void Start()
+        {
             startWidth = rectTransform.rect.width;
             Game.Instance.World.BossBarController.Set(this);
         }
@@ -15,6 +16,8 @@ namespace BRJ.Bosses
         public void SetHealthPercentage(float percentage)
         {
             float value = percentage / 100f;
+            if (value <= 0)
+                gameObject.SetActive(false);
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, startWidth * value);
         }
     }

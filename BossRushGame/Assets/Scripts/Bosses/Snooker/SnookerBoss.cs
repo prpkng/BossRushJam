@@ -426,9 +426,11 @@ namespace BRJ.Bosses.Snooker
                 f => mat.SetFloat("_Force", f)
             ).ToYieldInstruction();
 
+
             yield return new WaitForSeconds(4);
 
-            SceneManager.LoadScene("Lobby");
+            SceneManager.LoadSceneAsync("Lobby");
+            Game.Instance.World.RenderTextureZoom = 1.5f;
         }
 
 
