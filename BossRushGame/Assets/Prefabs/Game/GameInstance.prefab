@@ -314,6 +314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RT Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8039192019212646542, guid: 9895357cf50aea348be399fd9aea5baf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 90cd8eb0f9b119e4d87e4dabbf10306a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

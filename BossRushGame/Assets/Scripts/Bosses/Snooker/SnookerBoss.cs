@@ -7,6 +7,10 @@ using Cysharp.Threading.Tasks;
 using FMOD.Studio;
 using UnityEngine;
 using UnityHFSM;
+using Unity.Cinemachine;
+using Unity.VisualScripting.FullSerializer.Internal;
+using System.Threading;
+using UnityEngine.SceneManagement;
 
 namespace BRJ.Bosses.Snooker
 {
@@ -80,6 +84,17 @@ namespace BRJ.Bosses.Snooker
         public EventReference stompHitSound;
         public float returnHandsMinSoundDistance = 4;
         public EventReference moveHandEvent;
+        [Header("Death")]
+        public CinemachineCamera deathCamera;
+        public CinemachineBasicMultiChannelPerlin deathCameraNoise;
+        public TweenSettings deathShakeNoiseTween;
+        public float deathTimeScale;
+        public float deathCameraNoiseIntensity = 2.5f;
+        public float panWaitTime = 4f;
+        public TweenSettings zoomInTween;
+        public TweenSettings flashOutTween;
+        public GameObject handParticlesPrefab;
+        public GameObject stickParticlesPrefab;
         [Header("References")] public GameObject ballPrefab;
         public BossHealth health;
         public Rigidbody2D[] availableBalls;
@@ -105,6 +120,7 @@ namespace BRJ.Bosses.Snooker
         private const string SearchForBallsState = "SearchForBalls";
         private const string StompPlayerState = "StompPlayer";
         private const string PopulateBallsState = "PopulateBallsState";
+        private const string DeathState = "DeathState";
 
         private EventInstance shotBallInstance;
         private EventInstance stompHitInstance;
@@ -231,6 +247,12 @@ namespace BRJ.Bosses.Snooker
                 );
             fsm.AddTransition(PopulateBallsState, IdleCooldownState);
 
+            // DEATH STATE
+            fsm.AddState(DeathState, new CoState(this, DeathStateCoroutine, loop: false));
+
+            fsm.AddTriggerTransitionFromAny("Death", DeathState, forceInstantly: true);
+
+
             fsm.SetStartState(PopulateBallsState);
 
             fsm.Init();
@@ -304,12 +326,112 @@ namespace BRJ.Bosses.Snooker
             yield return sequence.ToYieldInstruction();
         }
 
-
         private IEnumerator FreakOutCoroutine()
         {
             yield return ReturnHands();
             handsIdleSine.StartMovement();
         }
+
+
+        public void BossDeath()
+        {
+            fsm.Trigger("Death");
+        }
+
+        public void ShakeDeathCamera()
+        {
+            Tween.Custom(
+                deathCameraNoise,
+                deathCameraNoiseIntensity,
+                0,
+                deathShakeNoiseTween,
+                (noise, f) => noise.AmplitudeGain = f
+            );
+        }
+
+        private IEnumerator DeathStateCoroutine()
+        {
+            Tween.StopAll(leftHandTransform);
+            Tween.StopAll(rightHandTransform);
+            Tween.StopAll(poolStick);
+            populateBallCancellationTokenSource.Cancel();
+            yield return null;
+
+            StartCoroutine(ReturnHands());
+            deathCamera.Priority = 10;
+
+            Tween.Custom(
+                1.5f,
+                2f,
+                zoomInTween,
+                f => Game.Instance.World.RenderTextureZoom = f
+            );
+
+            yield return new WaitForSeconds(panWaitTime);
+
+            var mat = Game.Instance.World.RenderTextureMaterial;
+            mat.SetFloat("_Force", 1);
+            mat.SetInt("_Flash", 1);
+            yield return null;
+
+            yield return new WaitForSeconds(.05f);
+            ShakeDeathCamera();
+
+            var stickParticles = Instantiate(stickParticlesPrefab, poolStick.position, poolStick.rotation);
+            stickParticles.transform.localScale = poolStick.lossyScale;
+            stickParticles.WithComponent((Animator anim) =>
+            {
+                Tween.Custom(
+                    anim,
+                    1,
+                    .25f,
+                    1.5f,
+                    (a, f) =>
+                    {
+                        a.speed = f;
+                    },
+                    Ease.OutCubic
+                );
+            });
+
+
+            var hands = new[] { leftHandTransform, rightHandTransform };
+            foreach (var hand in hands)
+            {
+                var particles = Instantiate(handParticlesPrefab, hand.position, hand.rotation);
+                particles.transform.localScale = hand.lossyScale;
+                particles.WithComponent((Animator anim) =>
+                {
+                    Tween.Custom(
+                        anim,
+                        1,
+                        .25f,
+                        1.5f,
+                        (a, f) =>
+                        {
+                            a.speed = f;
+                        },
+                        Ease.OutCubic
+                    );
+                });
+                Destroy(hand.gameObject);
+            }
+
+            Time.timeScale = deathTimeScale;
+
+            yield return Tween.Custom(
+                1,
+                0,
+                flashOutTween,
+                f => mat.SetFloat("_Force", f)
+            ).ToYieldInstruction();
+
+            yield return new WaitForSeconds(4);
+
+            SceneManager.LoadScene("Lobby");
+        }
+
+
         #region < == SHOT WHITE BALL STATE == >
 
         private IEnumerator ShotWhiteBallCoroutine(CoState<string, string> state)
@@ -562,6 +684,8 @@ namespace BRJ.Bosses.Snooker
 
         #region <== POPULATE BALLS STATE == >
 
+        private readonly CancellationTokenSource populateBallCancellationTokenSource = new();
+
         private async UniTask PopulateBall(Transform handTransform)
         {
             var pos = new Vector2(
@@ -592,10 +716,12 @@ namespace BRJ.Bosses.Snooker
         {
             for (var i = 0; i < count; i++)
             {
-                await PopulateBall(isLeft ? leftHandTransform : rightHandTransform);
+                await PopulateBall(isLeft ? leftHandTransform : rightHandTransform)
+                      .AttachExternalCancellation(populateBallCancellationTokenSource.Token);
             }
 
-            await ReturnHands(isLeft).ToUniTask();
+            await ReturnHands(isLeft).ToUniTask()
+                                           .AttachExternalCancellation(populateBallCancellationTokenSource.Token);
         }
 
         private IEnumerator PopulateBallsCoroutine(CoState<string, string> state)
@@ -612,9 +738,9 @@ namespace BRJ.Bosses.Snooker
             int rightCount = Mathf.CeilToInt(count);
 
             yield return UniTask.WhenAll(
-                PopulateBalls(true, leftCount),
-                PopulateBalls(false, rightCount)
-            ).ToCoroutine();
+                PopulateBalls(true, leftCount).AttachExternalCancellation(populateBallCancellationTokenSource.Token),
+                PopulateBalls(false, rightCount).AttachExternalCancellation(populateBallCancellationTokenSource.Token)
+            ).AttachExternalCancellation(populateBallCancellationTokenSource.Token).ToCoroutine();
 
             leftHand.SetHand(HandType.Idle);
             rightHand.SetHand(HandType.Idle);
