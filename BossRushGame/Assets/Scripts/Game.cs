@@ -1,6 +1,7 @@
 namespace BRJ
 {
     using BRJ.Player;
+    using BRJ.Systems;
     using LDtkUnity;
     using UnityEngine;
 
@@ -10,7 +11,8 @@ namespace BRJ
         public static Game Instance { get; private set; }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-        private static void ResetInstance() {
+        private static void ResetInstance()
+        {
             Instance = null;
         }
 
@@ -18,14 +20,17 @@ namespace BRJ
         public InputManager Input { get; private set; }
         public SoundManager Sound { get; private set; }
         public CameraManager Camera { get; private set; }
+        public TransitionManager Transition { get; private set; }
 
-        public void SetPaused(bool paused) {
+        public void SetPaused(bool paused)
+        {
             Time.timeScale = paused ? 0 : 1;
             Paused = paused;
             Sound.SetGlobalParameter(SoundManager.PauseAttenuationParam, paused ? 1 : 0);
         }
 
-        public void SetCamera(CameraManager camera) {
+        public void SetCamera(CameraManager camera)
+        {
             Camera = camera;
         }
 
@@ -45,6 +50,7 @@ namespace BRJ
             World = GetComponentInChildren<WorldManager>();
             Input = GetComponentInChildren<InputManager>();
             Sound = GetComponentInChildren<SoundManager>();
+            Transition = GetComponentInChildren<TransitionManager>();
         }
     }
 }

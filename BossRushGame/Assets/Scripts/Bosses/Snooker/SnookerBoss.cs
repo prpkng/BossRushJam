@@ -429,7 +429,7 @@ namespace BRJ.Bosses.Snooker
 
             yield return new WaitForSeconds(4);
 
-            SceneManager.LoadSceneAsync("Lobby");
+            Game.Instance.Transition.TransitionToScene("Lobby");
             Game.Instance.World.RenderTextureZoom = 1.5f;
         }
 

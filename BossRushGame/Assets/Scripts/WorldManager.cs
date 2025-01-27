@@ -63,5 +63,20 @@ namespace BRJ
 
             SceneManager.LoadScene("Spin");
         }
+
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += SceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= SceneLoaded;
+        }
+
+        private void SceneLoaded(Scene scene, LoadSceneMode _)
+        {
+            ScreenRenderTexture.gameObject.SetActive(scene.name != "Spin");
+        }
     }
 }

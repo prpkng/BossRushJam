@@ -45,7 +45,7 @@ namespace BRJ
 
         public void LoadBoss(string levelName)
         {
-            SceneManager.LoadScene(levelName);
+            Game.Instance.Transition.TransitionToScene(levelName);
 
             playerLastEnteredBoss = levelName;
             SaveManager.SetLastEnteredBoss(playerLastEnteredBoss);

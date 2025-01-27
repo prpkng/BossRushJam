@@ -17,9 +17,10 @@ namespace BRJ.Player
 
         public float bulletRecoil;
 
-        [Header("Visual")] [SerializeField] private TweenSettings<float> gunRecoilSettings;
+        [Header("Visual")][SerializeField] private TweenSettings<float> gunRecoilSettings;
 
-        [Header("References")] [SerializeField]
+        [Header("References")]
+        [SerializeField]
         private FMODUnity.StudioEventEmitter fireEventEmitter;
 
         [SerializeField] private GameObject bulletPrefab;
@@ -98,8 +99,11 @@ namespace BRJ.Player
         private Tween recoilTween;
         private Tween playerRecoilTween;
 
+        public event System.Action ShootTriggered;
+
         private void TriggerShoot()
         {
+            ShootTriggered?.Invoke();
             var direction = transform.right;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             angle += Random.Range(bulletSpreadMin, bulletSpreadMax) * (Random.value > .5f ? -1 : 1);

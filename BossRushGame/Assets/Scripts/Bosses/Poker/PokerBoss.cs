@@ -384,7 +384,7 @@ namespace BRJ.Bosses.Poker
             print("FINISHED");
 
             // Provisory
-            SceneManager.LoadScene("Lobby");
+            Game.Instance.Transition.TransitionToScene("Lobby");
 
             yield break;
         }

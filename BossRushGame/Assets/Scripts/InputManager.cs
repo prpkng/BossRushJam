@@ -16,11 +16,13 @@ namespace BRJ
         [SerializeField] private PlayerInput playerInputComponent;
 
         private static Camera mainCamera;
+        private InputAction lookAction;
 
         private void OnEnable()
         {
             mainCamera = Camera.main;
             playerInputComponent.onActionTriggered += OnActionTriggered;
+            lookAction = playerInputComponent.actions["Look"];
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
@@ -36,7 +38,7 @@ namespace BRJ
                 return;
             mainCamera = Camera.main;
 
-            
+
             // Reload player input component
             playerInputComponent.enabled = false;
             await UniTask.NextFrame();
@@ -53,6 +55,8 @@ namespace BRJ
                 SceneManager.LoadScene("Joker");
             if (Keyboard.current.f8Key.wasPressedThisFrame)
                 SceneManager.LoadScene("Lobby");
+
+            LookVector = lookAction.ReadValue<Vector2>();
         }
 
         public static Vector2 MousePosition
@@ -81,6 +85,7 @@ namespace BRJ
 
         public static bool isUsingGamepad;
 
+
         private void OnActionTriggered(InputAction.CallbackContext ctx)
         {
             isUsingGamepad = ctx.control.device is Gamepad;
@@ -89,9 +94,6 @@ namespace BRJ
             {
                 case "Move":
                     MoveVector = ctx.ReadValue<Vector2>();
-                    break;
-                case "Look":
-                    LookVector = ctx.ReadValue<Vector2>();
                     break;
                 case "Roll" when ctx.started:
                     RollPerformed?.Invoke();
