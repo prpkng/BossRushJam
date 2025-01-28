@@ -46,12 +46,6 @@ namespace BRJ
             CurrentLevelId = SceneManager.GetActiveScene().buildIndex;
         }
 
-        private void Start()
-        {
-            CurrentActiveModifier?.ApplyAdvantage();
-            CurrentActiveModifier?.ApplyDownside();
-        }
-
         public async void PlayerDeath()
         {
             DeathScreenController.LastCameraPosition = Game.Instance.Camera.transform.position;
@@ -77,6 +71,12 @@ namespace BRJ
         private void SceneLoaded(Scene scene, LoadSceneMode _)
         {
             ScreenRenderTexture.gameObject.SetActive(scene.name != "Spin");
+        }
+
+        public void ApplyModifier()
+        {
+            CurrentActiveModifier?.ApplyAdvantage();
+            CurrentActiveModifier?.ApplyDownside();
         }
     }
 }

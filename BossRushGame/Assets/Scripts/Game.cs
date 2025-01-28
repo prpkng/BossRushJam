@@ -1,9 +1,13 @@
 namespace BRJ
 {
+    using System;
     using BRJ.Player;
     using BRJ.Systems;
+    using BRJ.Systems.Saving;
+    using BRJ.Systems.Slots.Modifiers;
     using LDtkUnity;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
     public class Game : MonoBehaviour
     {
@@ -51,6 +55,44 @@ namespace BRJ
             Input = GetComponentInChildren<InputManager>();
             Sound = GetComponentInChildren<SoundManager>();
             Transition = GetComponentInChildren<TransitionManager>();
+        }
+        private void Start()
+        {
+            // #if UNITY_EDITOR
+            var currentModifierType = SaveManager.GetCurrentModifierType();
+            if (currentModifierType != null)
+            {
+                World.CurrentActiveModifier = (Modifier)Activator.CreateInstance(currentModifierType);
+                print("Current modifier type: " + World.CurrentActiveModifier.GetType());
+            }
+            // #endif
+        }
+
+        /// <summary>
+        /// This function is called when the object becomes enabled and active.
+        /// </summary>
+        void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        /// <summary>
+        /// This function is called when the behaviour becomes disabled or inactive.
+        /// </summary>
+        void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+
+        /// <summary>
+        /// Called when a new level is loaded and data should be initialized in it
+        /// </summary>
+        public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (scene.name == "Menu") { Destroy(gameObject); return; }
+
+            World.ApplyModifier();
         }
     }
 }
