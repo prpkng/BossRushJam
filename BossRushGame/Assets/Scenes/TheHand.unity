@@ -2108,10 +2108,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2550022098616655586, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
-      propertyPath: bulletDamage
-      value: 71.32
-      objectReference: {fileID: 0}
     - target: {fileID: 4922789956161484474, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2255,7 +2251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: totalHealth
-      value: 425
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
