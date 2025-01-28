@@ -615,12 +615,12 @@ namespace BRJ.Bosses.Snooker
                 var tween = Tween
                     .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, stompTween);
                 yield return tween.ToYieldInstruction();
+                stompHitInstance.start();
                 yield return new WaitForEndOfFrame();
                 yield return new WaitForFixedUpdate();
                 tween.Complete();
                 poolStick.position = poolStickShadow.position;
                 stompHitbox.transform.position = poolStick.position;
-                stompHitInstance.start();
 
                 Game.Instance.Camera.ShakeCamera(i <= 0 ? stompStuckCameraShake
                                                                        : stompCameraShake);

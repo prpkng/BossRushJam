@@ -14,7 +14,7 @@ namespace BRJ
 
     public class WorldManager : MonoBehaviour
     {
-        public static Modifier CurrentActiveModifier;
+        public Modifier CurrentActiveModifier;
         public static int CurrentLevelId { get; set; } = 1;
         public Transform ScreenRenderTexture;
         public Material RenderTextureMaterial;

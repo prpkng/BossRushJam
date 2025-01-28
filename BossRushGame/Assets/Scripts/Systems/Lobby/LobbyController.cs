@@ -38,8 +38,8 @@ namespace BRJ
             var currentModifierType = SaveManager.GetCurrentModifierType();
             if (currentModifierType != null)
             {
-                WorldManager.CurrentActiveModifier = (Modifier)Activator.CreateInstance(currentModifierType);
-                print("Current modifier type: " + WorldManager.CurrentActiveModifier.GetType());
+                Game.Instance.World.CurrentActiveModifier = (Modifier)Activator.CreateInstance(currentModifierType);
+                print("Current modifier type: " + Game.Instance.World.CurrentActiveModifier.GetType());
             }
         }
 
