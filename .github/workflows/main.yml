@@ -44,8 +44,8 @@ jobs:
       # # Cache
       - uses: actions/cache@v2
         with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          path: BossRushGame/Library
+          key: Library-${{ hashFiles('BossRushGame/Assets/**', 'BossRushGame/Packages/**', 'BossRushGame/ProjectSettings/**') }}
           restore-keys: |
             Library-
 
