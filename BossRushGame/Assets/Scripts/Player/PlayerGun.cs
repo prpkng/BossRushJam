@@ -90,7 +90,7 @@ namespace BRJ.Player
 
         public void OnPlayerFire(bool pressed)
         {
-            if (Game.Instance.Paused) return;
+            if (pressed & Game.Instance.Paused) return;
             IsHoldingFire = pressed;
             if (pressed && _fireRateCounter < 0)
                 TriggerShoot();
@@ -112,6 +112,7 @@ namespace BRJ.Player
             if (bulletRecoil > .1f)
             {
                 Game.Instance.World.Player.Rb.linearVelocity = -direction * bulletRecoil;
+                playerRecoilTween.Complete();
                 playerRecoilTween = Tween.Custom(
                     0f,
                     1f,

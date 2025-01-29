@@ -488,11 +488,11 @@ namespace BRJ.Bosses.Snooker
                 yield return null;
             }
 
-            RuntimeManager.CreateInstance(poolShotEvent).start();
             // Start pulling stick back
             nextStep += 0.25f;
             rightHandTransform.SetParent(poolStick);
             Tween.Position(poolStick, _currentBall.position - dir * 3, 0.5f, Ease.OutCubic);
+            RuntimeManager.CreateInstance(poolShotEvent).start();
 
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
