@@ -46,7 +46,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: BossRushGame/Library
-          key: Library-${{ hashFiles('BossRushGame/Assets/**', 'BossRushGame/Packages/**', 'BossRushGame/ProjectSettings/**') }}
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-
 
@@ -61,6 +61,7 @@ jobs:
           targetPlatform: ${{ vars.TARGET_PLATFORM }}
           buildsPath: ${{ vars.BUILD_PATH }}
           allowDirtyBuild: true
+          projectPath: BossRushGame
       # Output: Artifact
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3
