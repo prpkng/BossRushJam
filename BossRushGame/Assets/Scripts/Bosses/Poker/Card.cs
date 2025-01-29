@@ -3,6 +3,7 @@ using BRJ.Player;
 using BRJ.Systems;
 using BRJ.Systems.Common;
 using BRJ.Systems.Visual;
+using PrimeTween;
 using UnityEngine;
 
 namespace BRJ.Bosses.Poker
@@ -31,6 +32,8 @@ namespace BRJ.Bosses.Poker
         public float moveRotationForce;
         public float spriteLerpSpeed = 10;
 
+        public ShakeSettings hitShakeSettings;
+
         private Vector3 movementVel;
         private Vector3 lastPos;
         private Suits cardSuit;
@@ -39,6 +42,11 @@ namespace BRJ.Bosses.Poker
         {
             frontSprite.sprite = classSprite;
             cardSuit = suit;
+        }
+
+        public void BallHit()
+        {
+            Tween.ShakeLocalPosition(spriteTransform, hitShakeSettings);
         }
 
         public void Activate(PokerBoss boss)
