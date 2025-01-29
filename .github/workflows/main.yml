@@ -51,9 +51,9 @@ jobs:
       #   uses: actions/checkout@v4
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4.1.8
-        with:
+        # with:
           # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
-          name: Build # optional
+          # name: Build # optional
           # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
           # path: # optional
           # A glob pattern matching the artifacts that should be downloaded. Ignored if name is specified.
