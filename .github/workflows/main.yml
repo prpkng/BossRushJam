@@ -17,9 +17,9 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: BossRushGame/Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          key: BossRushGame/Library-${{ hashFiles('BossRushGame/Assets/**', 'BossRushGame/Packages/**', 'BossRushGame/ProjectSettings/**') }}
           restore-keys: |
-            Library-
+            BossRushGame/Library-
 
       # Build
       - name: Build project
