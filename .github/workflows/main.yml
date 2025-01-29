@@ -4,8 +4,15 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    name: Build WebGL
+    name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - StandaloneWindows64 # Build a Windows 64-bit standalone.
+          - WebGL # WebGL.
+
     steps:
       # Checkout
       - name: Checkout repository
@@ -18,7 +25,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: BossRushGame/Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          key: Library-${{ hashFiles('BossRushGame/Assets/**', 'BossRushGame/Packages/**', 'BossRushGame/ProjectSettings/**') }}-${{ matrix.targetPlatform }}
           restore-keys: |
                 Library-
 
@@ -30,48 +37,39 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          targetPlatform: WebGL
+          targetPlatform: ${{ matrix.targetPlatform }}
           projectPath: BossRushGame
 
       # Output
       - uses: actions/upload-artifact@v3
         with:
-          name: Build
-          path: build
-
-  # Single deploy job since we're just deploying
+          name: Build-${{ matrix.targetPlatform }}
+          path: build/${{ matrix.targetPlatform }}
+          
   deploy:
+    runs-on: ubuntu-latest
     needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    
     steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v4
-      - name: Download a Build Artifact
-        uses: actions/download-artifact@v4.1.8
-        # with:
-          # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
-          # name: Build # optional
-          # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
-          # path: # optional
-          # A glob pattern matching the artifacts that should be downloaded. Ignored if name is specified.
-          # pattern: # optional
-          # When multiple artifacts are matched, this changes the behavior of the destination directories. If true, the downloaded artifacts will be in the same directory specified by path. If false, the downloaded artifacts will be extracted into individual named directories within the specified path.
-          # merge-multiple: # optional, default is false
-          # The GitHub token used to authenticate with the GitHub API. This is required when downloading artifacts from a different repository or from a different workflow run. If this is not specified, the action will attempt to download artifacts from the current repository and the current workflow run.
-          # github-token: # optional
-          # The repository owner and the repository name joined together by "/". If github-token is specified, this is the repository that artifacts will be downloaded from.
-          # repository: # optional, default is ${{ github.repository }}
-          # The id of the workflow run where the desired download artifact was uploaded from. If github-token is specified, this is the run that artifacts will be downloaded from.
-          # run-id: # optional, default is ${{ github.run_id }}
-                
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: Build-WebGL
+          path: build/
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          folder: build # The folder the action should deploy.
 
