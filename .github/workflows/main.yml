@@ -1,4 +1,4 @@
-name: Build WebGL
+name: Build Multiple Platforms
 
 on: [push, pull_request, workflow_dispatch]
 
