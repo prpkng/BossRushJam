@@ -14,7 +14,7 @@ namespace BRJ
 
     public class WorldManager : MonoBehaviour
     {
-        public static Modifier CurrentActiveModifier;
+        public Modifier CurrentActiveModifier;
         public static int CurrentLevelId { get; set; } = 1;
         public Transform ScreenRenderTexture;
         public Material RenderTextureMaterial;
@@ -46,12 +46,6 @@ namespace BRJ
             CurrentLevelId = SceneManager.GetActiveScene().buildIndex;
         }
 
-        private void Start()
-        {
-            CurrentActiveModifier?.ApplyAdvantage();
-            CurrentActiveModifier?.ApplyDownside();
-        }
-
         public async void PlayerDeath()
         {
             DeathScreenController.LastCameraPosition = Game.Instance.Camera.transform.position;
@@ -62,6 +56,27 @@ namespace BRJ
             await UniTask.WaitForSeconds(5);
 
             SceneManager.LoadScene("Spin");
+        }
+
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += SceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= SceneLoaded;
+        }
+
+        private void SceneLoaded(Scene scene, LoadSceneMode _)
+        {
+            ScreenRenderTexture.gameObject.SetActive(scene.name != "Spin");
+        }
+
+        public void ApplyModifier()
+        {
+            CurrentActiveModifier?.ApplyAdvantage();
+            CurrentActiveModifier?.ApplyDownside();
         }
     }
 }

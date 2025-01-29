@@ -34,18 +34,11 @@ namespace BRJ
                         doors[playerLastEnteredBoss].transform.position + playerDoorSpawnOffset;
                 }
             }
-
-            var currentModifierType = SaveManager.GetCurrentModifierType();
-            if (currentModifierType != null)
-            {
-                WorldManager.CurrentActiveModifier = (Modifier)Activator.CreateInstance(currentModifierType);
-                print("Current modifier type: " + WorldManager.CurrentActiveModifier.GetType());
-            }
         }
 
         public void LoadBoss(string levelName)
         {
-            SceneManager.LoadScene(levelName);
+            Game.Instance.Transition.TransitionToScene(levelName);
 
             playerLastEnteredBoss = levelName;
             SaveManager.SetLastEnteredBoss(playerLastEnteredBoss);

@@ -143,6 +143,25 @@ MonoBehaviour:
   cardSine: {fileID: 3686035720188094305}
   moveRotationForce: -50
   spriteLerpSpeed: 10
+  hitShakeSettings:
+    strength: {x: 0.25, y: 0.25, z: 0}
+    duration: 0.25
+    frequency: 25
+    enableFalloff: 1
+    falloffEase: 6
+    strengthOverTime:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    asymmetry: 0
+    easeBetweenShakes: 0
+    cycles: 1
+    startDelay: 0
+    endDelay: 0
+    useUnscaledTime: 0
+    useFixedUpdate: 0
 --- !u!114 &3025801405290300097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,3 +579,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 3025801405290300097}
   flash: {fileID: 8081494265759046013}
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3998051749338274390}
+        m_TargetAssemblyTypeName: BRJ.Bosses.Poker.Card, Assembly-CSharp
+        m_MethodName: BallHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

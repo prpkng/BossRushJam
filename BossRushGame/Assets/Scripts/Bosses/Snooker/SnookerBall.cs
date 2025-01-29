@@ -26,6 +26,7 @@ namespace BRJ.Bosses.Snooker
         [SerializeField] private float ballSpeedPow = 1.1f;
         [SerializeField] private Animator ballAnimator;
         [SerializeField] private RuntimeAnimatorController[] possibleBallAnimations;
+
         private Rigidbody2D _rb;
 
         public float CurrentHue { get; private set; }
@@ -52,7 +53,6 @@ namespace BRJ.Bosses.Snooker
             isFlat = Array.IndexOf(possibleBallAnimations, ballAnimator.runtimeAnimatorController) == 0;
             CurrentHue = possibleHues.Except(isFlat ? PickedHuesFlat : PickedHuesLine).ToArray().ChooseRandom();
             ballSprite.material.SetFloat("_Shift", CurrentHue);
-
         }
 
         private void OnEnable()

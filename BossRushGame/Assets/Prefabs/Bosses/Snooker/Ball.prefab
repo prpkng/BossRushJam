@@ -1038,10 +1038,10 @@ MonoBehaviour:
   ballSprite: {fileID: 1687155812382764744}
   flash: {fileID: 3910404290296996611}
   shotShakeSettings:
-    strength: {x: 0.05, y: 0.05, z: 0}
-    duration: 0.1
+    strength: {x: 0.15, y: 0.15, z: 0}
+    duration: 0.25
     frequency: 100
-    enableFalloff: 0
+    enableFalloff: 1
     falloffEase: 0
     strengthOverTime:
       serializedVersion: 2

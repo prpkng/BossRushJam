@@ -17,9 +17,9 @@ namespace BRJ.UI.Slots
 
         public void OnClick()
         {
-            WorldManager.CurrentActiveModifier = SlotButton.CurrentSelectedSlot.CurrentModifier;
+            Game.Instance.World.CurrentActiveModifier = SlotButton.CurrentSelectedSlot.CurrentModifier;
             SaveManager.SetCurrentModifierType(SlotButton.CurrentSelectedSlot.CurrentModifier.GetType());
-            SceneManager.LoadScene("Lobby");
+            Game.Instance.Transition.TransitionToScene("Lobby");
         }
 
     }

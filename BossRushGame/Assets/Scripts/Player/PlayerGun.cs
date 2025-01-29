@@ -17,9 +17,10 @@ namespace BRJ.Player
 
         public float bulletRecoil;
 
-        [Header("Visual")] [SerializeField] private TweenSettings<float> gunRecoilSettings;
+        [Header("Visual")][SerializeField] private TweenSettings<float> gunRecoilSettings;
 
-        [Header("References")] [SerializeField]
+        [Header("References")]
+        [SerializeField]
         private FMODUnity.StudioEventEmitter fireEventEmitter;
 
         [SerializeField] private GameObject bulletPrefab;
@@ -89,7 +90,7 @@ namespace BRJ.Player
 
         public void OnPlayerFire(bool pressed)
         {
-            if (Game.Instance.Paused) return;
+            if (pressed & Game.Instance.Paused) return;
             IsHoldingFire = pressed;
             if (pressed && _fireRateCounter < 0)
                 TriggerShoot();
@@ -98,8 +99,11 @@ namespace BRJ.Player
         private Tween recoilTween;
         private Tween playerRecoilTween;
 
+        public event System.Action ShootTriggered;
+
         private void TriggerShoot()
         {
+            ShootTriggered?.Invoke();
             var direction = transform.right;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             angle += Random.Range(bulletSpreadMin, bulletSpreadMax) * (Random.value > .5f ? -1 : 1);
@@ -108,6 +112,7 @@ namespace BRJ.Player
             if (bulletRecoil > .1f)
             {
                 Game.Instance.World.Player.Rb.linearVelocity = -direction * bulletRecoil;
+                playerRecoilTween.Complete();
                 playerRecoilTween = Tween.Custom(
                     0f,
                     1f,
