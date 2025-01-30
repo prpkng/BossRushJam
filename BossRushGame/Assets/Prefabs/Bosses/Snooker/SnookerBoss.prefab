@@ -179,42 +179,42 @@ MonoBehaviour:
       Data2: 1232673659
       Data3: -644768099
       Data4: -1525337875
-    Path: event:/SFX/Snooker/SFX_MoveToPlay
+    Path: event:/BOSSES/Snooker/SFX_MoveToPlay
   poolShotEvent:
     Guid:
       Data1: -138986045
       Data2: 1104700227
       Data3: 1925006981
       Data4: -2123107063
-    Path: event:/SFX/Snooker/SFX_PlaySnooker
+    Path: event:/BOSSES/Snooker/SFX_PlaySnooker
   returnHandsEvent:
     Guid:
       Data1: 1638920198
       Data2: 1144219262
       Data3: 315051186
       Data4: -1766883907
-    Path: event:/SFX/Snooker/SFX_MoveFromPlay
+    Path: event:/BOSSES/Snooker/SFX_MoveFromPlay
   shotBallSound:
     Guid:
       Data1: -258689673
       Data2: 1080337970
       Data3: 485831558
       Data4: 635197794
-    Path: event:/SFX/Snooker/SFX_Boss01_Attack
+    Path: event:/BOSSES/Snooker/SFX_Boss01_Attack
   stompHitSound:
     Guid:
       Data1: -335680144
       Data2: 1198200796
       Data3: -1280519770
       Data4: 2039320933
-    Path: event:/SFX/Snooker/SFX_Boss01_Attack02
+    Path: event:/BOSSES/Snooker/SFX_Boss01_Attack02
   randomLaughSound:
     Guid:
       Data1: -683504455
       Data2: 1251485300
       Data3: 94745516
       Data4: 987112374
-    Path: event:/SFX/Snooker/SFX_RandomLaught
+    Path: event:/BOSSES/Snooker/SFX_RandomLaught
   returnHandsMinSoundDistance: 4
   moveHandEvent:
     Guid:
@@ -222,7 +222,7 @@ MonoBehaviour:
       Data2: 1119800191
       Data3: 1773605780
       Data4: -1617525168
-    Path: event:/SFX/Snooker/SFX_HandFloat
+    Path: event:/BOSSES/Snooker/SFX_HandFloat
   deathCamera: {fileID: 0}
   deathCameraNoise: {fileID: 0}
   deathShakeNoiseTween:

@@ -671,14 +671,14 @@ MonoBehaviour:
       Data2: 1093959967
       Data3: -1871139915
       Data4: 753170573
-    Path: event:/SFX/Snooker/SFX_BallHitBall
+    Path: event:/BOSSES/Snooker/SFX_BallHitBall
   hitWallSound:
     Guid:
       Data1: -774199870
       Data2: 1086057916
       Data3: -1742708851
       Data4: 1882654016
-    Path: event:/SFX/Snooker/SFX_BallHitSides
+    Path: event:/BOSSES/Snooker/SFX_BallHitSides
   ballHealth: {fileID: 4753292431069373674}
   ballSpeedMulti: 0.65
   ballSpeedPow: 0.75
@@ -709,7 +709,7 @@ MonoBehaviour:
       Data2: 1267375477
       Data3: 1841369017
       Data4: -1527686926
-    Path: event:/SFX/Snooker/SFX_BallExplosion
+    Path: event:/BOSSES/Snooker/SFX_BallExplosion
 --- !u!1 &4449913507445808381
 GameObject:
   m_ObjectHideFlags: 0
