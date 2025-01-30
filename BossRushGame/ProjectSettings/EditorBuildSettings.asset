@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 5777d7fb6d7e8ab46a518c231f2b108f
   - enabled: 1
-    path: Assets/Scenes/IntroCutscene.unity
+    path: Assets/Scenes/Cutscenes/IntroCutscene.unity
     guid: 911d689c75ca4d84ab712bf40f94790e
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
@@ -18,13 +18,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Spin.unity
     guid: baee90660eb943143872ece40cde0882
   - enabled: 1
-    path: Assets/Scenes/TheHand.unity
+    path: Assets/Scenes/Bosses/TheHand.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Joker.unity
+    path: Assets/Scenes/Bosses/Joker.unity
     guid: 43519528a691366459ca56019c813554
   - enabled: 1
-    path: Assets/Scenes/JokerCutscene.unity
+    path: Assets/Scenes/Cutscenes/JokerCutscene.unity
     guid: 8b58185cac456af43a793491f9080456
   - enabled: 1
     path: Assets/Scenes/DeathScreen.unity

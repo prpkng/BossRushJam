@@ -1523,7 +1523,7 @@ MonoBehaviour:
       Data2: 1324698245
       Data3: 935233215
       Data4: 618793812
-    Path: event:/MUS/MUS_Gameplay
+    Path: event:/MUS/MUS_Boss01
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 0
