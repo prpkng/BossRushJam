@@ -6,6 +6,16 @@ ScriptedImporter:
   - first:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
+      name: BackIdle
+    second: {fileID: 7400000, guid: 8e218163bab1df147b25082b85dbcc80, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: BackWalk
+    second: {fileID: 7400000, guid: 6bfff2faf744f5b4eac50cc32005db7a, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
       name: Idle
     second: {fileID: 7400000, guid: 9aceed18e3e80f74bacf64c9be279820, type: 2}
   - first:
@@ -13,6 +23,11 @@ ScriptedImporter:
       assembly: UnityEngine.AnimationModule
       name: Idle2
     second: {fileID: 7400000, guid: 47c785926ce2094458bb766248958e87, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: IdleGun
+    second: {fileID: 7400000, guid: 5cb1b3e3a3d82f94eb2d3002ef482c47, type: 2}
   - first:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
@@ -118,7 +133,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638732011370238855
+  platformSettingsDirtyTick: 638737972039482171
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -1020,6 +1035,18 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 16384
