@@ -82,6 +82,7 @@ namespace BRJ.Bosses.Snooker
         public EventReference returnHandsEvent;
         public EventReference shotBallSound;
         public EventReference stompHitSound;
+        public EventReference randomLaughSound;
         public float returnHandsMinSoundDistance = 4;
         public EventReference moveHandEvent;
         [Header("Death")]
@@ -124,12 +125,14 @@ namespace BRJ.Bosses.Snooker
 
         private EventInstance shotBallInstance;
         private EventInstance stompHitInstance;
+        private EventInstance randomLaughInstance;
 
         private void Start()
         {
             // Create sound instances
             shotBallInstance = RuntimeManager.CreateInstance(shotBallSound);
             stompHitInstance = RuntimeManager.CreateInstance(stompHitSound);
+            randomLaughInstance = RuntimeManager.CreateInstance(randomLaughSound);
 
             _currentBallCount = initialBallCount;
             fsm = new StateMachine();
@@ -256,6 +259,11 @@ namespace BRJ.Bosses.Snooker
             fsm.SetStartState(PopulateBallsState);
 
             fsm.Init();
+        }
+
+        public void PlayLaughSound()
+        {
+            randomLaughInstance.start();
         }
 
         #region < == BOSS PHASES 
@@ -471,6 +479,8 @@ namespace BRJ.Bosses.Snooker
             nextStep += 0.9f;
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
+            PlayLaughSound();
+
             //Aim pool stick to selected ball
             nextStep += shotAnticipationSecs;
             while (state.timer.Elapsed < nextStep)
@@ -555,6 +565,8 @@ namespace BRJ.Bosses.Snooker
                 yield return new WaitForFixedUpdate();
             }
 
+            PlayLaughSound();
+
             fsm.StateCanExit();
         }
 
@@ -614,8 +626,8 @@ namespace BRJ.Bosses.Snooker
                 poolStickShadow.position = poolStick.position + Vector3.down * poolStickStompDistance;
                 var tween = Tween
                     .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, stompTween);
-                yield return tween.ToYieldInstruction();
                 stompHitInstance.start();
+                yield return tween.ToYieldInstruction();
                 yield return new WaitForEndOfFrame();
                 yield return new WaitForFixedUpdate();
                 tween.Complete();
@@ -640,6 +652,7 @@ namespace BRJ.Bosses.Snooker
                 {
                     yield return Tween.ShakeLocalRotation(poolStick, stickStuckShake).ToYieldInstruction();
                     Game.Instance.Camera.ShakeCamera(stompCameraShake);
+                    PlayLaughSound();
                     yield return Tween
                         .PositionY(poolStick, poolStick.position.y + poolStickStompDistance, .5f, Ease.OutCubic)
                         .ToYieldInstruction();
@@ -743,6 +756,7 @@ namespace BRJ.Bosses.Snooker
                 PopulateBalls(true, leftCount).AttachExternalCancellation(populateBallCancellationTokenSource.Token),
                 PopulateBalls(false, rightCount).AttachExternalCancellation(populateBallCancellationTokenSource.Token)
             ).AttachExternalCancellation(populateBallCancellationTokenSource.Token).ToCoroutine();
+            PlayLaughSound();
 
             leftHand.SetHand(HandType.Idle);
             rightHand.SetHand(HandType.Idle);
