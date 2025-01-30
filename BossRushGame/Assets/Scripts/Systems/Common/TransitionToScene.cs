@@ -5,9 +5,13 @@ namespace BRJ.Systems.Common
 
     public class TransitionToScene : MonoBehaviour
     {
+        public bool animateTransition = false;
         public void Transition(string destination)
         {
-            SceneManager.LoadScene(destination);
+            if (animateTransition)
+                Game.Instance.Transition.TransitionToScene(destination);
+            else
+                SceneManager.LoadScene(destination);
         }
     }
 }

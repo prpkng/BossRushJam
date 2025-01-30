@@ -31,6 +31,7 @@ namespace BRJ
             Time.timeScale = paused ? 0 : 1;
             Paused = paused;
             Sound.SetGlobalParameter(SoundManager.PauseAttenuationParam, paused ? 1 : 0);
+            Cursor.visible = paused;
         }
 
         public void SetCamera(CameraManager camera)
