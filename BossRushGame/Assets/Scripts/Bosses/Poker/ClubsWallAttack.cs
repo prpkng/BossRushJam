@@ -20,7 +20,7 @@ namespace BRJ.Bosses.Poker
         private const float yAddIfLow = .5f;
 
         private const int WallShootingCount = 6;
-        private const float EachWallDelay = .75f;
+        private const float EachWallDelay = 1f;
         private const float TweenMoveDuration = 1.5f;
         private const float FinishDelay = .25f;
         private const int BulletCount = 7;
