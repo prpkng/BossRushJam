@@ -254,7 +254,7 @@ MonoBehaviour:
   - {fileID: 4834107255935361237}
   m_Clips:
   - m_Version: 1
-    m_Start: 0.6666666666666666
+    m_Start: 0.8615983511631687
     m_ClipIn: 0
     m_Asset: {fileID: 618966733274140954}
     m_Duration: 1.166666666666667
@@ -320,7 +320,7 @@ MonoBehaviour:
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
-    m_PreExtrapolationTime: 0.6666666666666666
+    m_PreExtrapolationTime: 0.8615983511631687
     m_DisplayName: Walk Up
   m_Markers:
     m_Objects: []
@@ -1247,7 +1247,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 673911000318612052}
-    m_Duration: 0.6666666666666666
+    m_Duration: 0.8615983511631687
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4834107255935361237}
     m_EaseInDuration: 0
@@ -1313,10 +1313,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: BackIdle
   - m_Version: 1
-    m_Start: 0.6666666666666666
+    m_Start: 0.8615983511631687
     m_ClipIn: 0
     m_Asset: {fileID: -4136698387495007720}
-    m_Duration: 2.1666666666666665
+    m_Duration: 1.166666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4834107255935361237}
     m_EaseInDuration: 0
@@ -1364,7 +1364,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: BackWalk
   - m_Version: 1
-    m_Start: 2.833333333333333
+    m_Start: 2.0282650178298356
     m_ClipIn: 0
     m_Asset: {fileID: 3775418557750535394}
     m_Duration: 0.3
@@ -1429,7 +1429,7 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 27.366666666666667
+    m_PostExtrapolationTime: 28.171734982170165
     m_PreExtrapolationTime: 0
     m_DisplayName: BackIdle
   - m_Version: 1
