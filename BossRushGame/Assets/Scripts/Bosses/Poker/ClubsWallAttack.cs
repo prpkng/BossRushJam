@@ -13,10 +13,10 @@ namespace BRJ.Bosses.Poker
     {
         private Transform bulletPrefab;
         private List<Transform> bullets;
-        
+
         private const float xPos = 16;
-        private const float yMin = -5.5f;
-        private const float yMax = 10;
+        private const float yMin = -5.65f;
+        private const float yMax = 10.15f;
         private const float yAddIfLow = .5f;
 
         private const int WallShootingCount = 6;
@@ -34,7 +34,8 @@ namespace BRJ.Bosses.Poker
             };
         }
 
-        private async void Burst() {
+        private async void Burst()
+        {
             for (int i = 0; i < WallShootingCount; i++)
             {
                 Shoot();
@@ -51,14 +52,14 @@ namespace BRJ.Bosses.Poker
             var sequence = Sequence.Create();
 
             float startX = transform.position.x > 0 ? xPos : -xPos;
-            
-            for (int i = 0; i < BulletCount+1; i++)
+
+            for (int i = 0; i < BulletCount + 1; i++)
             {
                 if (i == index) continue;
                 var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
                 if (startX > 0) bullet.right = Vector3.left;
-                
+
                 float y = Mathf.Lerp(yMin, yMax, i / (float)BulletCount);
                 if (i < index)
                     y -= yAddIfLow;
@@ -66,7 +67,7 @@ namespace BRJ.Bosses.Poker
                     y += yAddIfLow;
 
                 bullets.Add(bullet);
-                
+
                 sequence = sequence.Group(Tween.Position(
                     bullet,
                     new Vector3(
@@ -80,7 +81,7 @@ namespace BRJ.Bosses.Poker
             await sequence;
 
             bullets.ForEach(b => b.GetComponent<ClubsBullet>().enabled = true);
-            
+
         }
 
         public float StartAttack()

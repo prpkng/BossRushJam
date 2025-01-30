@@ -15,6 +15,11 @@ namespace BRJ.Bosses.Poker
 {
     public class PokerBoss : MonoBehaviour
     {
+        [System.Serializable]
+        public struct PhaseData
+        {
+            public int addCardCount;
+        }
         public enum States
         {
             RefillCards,
@@ -25,6 +30,9 @@ namespace BRJ.Bosses.Poker
             ShootKingCards,
             DeathState
         }
+        public PhaseData phase1;
+        public PhaseData phase2;
+        public PhaseData phase3;
         public Transform bossSprite;
         public BossEyes bossEyes;
         public DeckHolder deck;
@@ -186,6 +194,17 @@ namespace BRJ.Bosses.Poker
             fsm.Trigger("Death");
         }
 
+        #region < == BOSS PHASES 
+        public void Phase1() => ApplyPhase(phase1);
+        public void Phase2() => ApplyPhase(phase2);
+        public void Phase3() => ApplyPhase(phase3);
+
+        public void ApplyPhase(PhaseData phaseData)
+        {
+            startCardCount += phaseData.addCardCount;
+        }
+
+        #endregion
         public void DestroyAllCards()
         {
             activeCards.ForEach(c =>
