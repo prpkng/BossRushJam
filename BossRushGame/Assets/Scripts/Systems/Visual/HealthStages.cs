@@ -14,7 +14,7 @@ namespace BRJ.Systems.Visual
         public List<Sprite> stageSprites;
         public new SpriteRenderer renderer;
         public StudioEventEmitter soundEmitter;
-        
+
         private int lastIndex = 0;
         private void Start()
         {
@@ -22,11 +22,11 @@ namespace BRJ.Systems.Visual
             renderer.material = objectSprite.material;
         }
 
-        
+
         public void SetSprite(float _)
         {
             int i = (int)Mathf.Lerp(stageSprites.Count, 0, health.HealthPercentage);
-            if (lastIndex != i)
+            if (lastIndex != i && soundEmitter)
                 soundEmitter.Play();
             lastIndex = i;
             i = Mathf.Min(i, stageSprites.Count - 1);

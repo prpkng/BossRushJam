@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 4650696610236848566}
+  displayObject: {fileID: 5559076476254003830}
 --- !u!1 &595869368794817512
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99d5502f052637419fa0a6d872107c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossBar: {fileID: 5559076476254003830}
 --- !u!114 &681022755278971511
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -351,11 +351,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1483620887
-      Data2: 1171288325
-      Data3: 1824606134
-      Data4: -1010356126
-    Path: event:/SFX/SnookerBoss/SFX_BallShatter
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0

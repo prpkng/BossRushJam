@@ -203,11 +203,18 @@ MonoBehaviour:
     Path: event:/SFX/Snooker/SFX_Boss01_Attack
   stompHitSound:
     Guid:
-      Data1: -774199870
-      Data2: 1086057916
-      Data3: -1742708851
-      Data4: 1882654016
-    Path: event:/SFX/Snooker/SFX_BallHitSides
+      Data1: -335680144
+      Data2: 1198200796
+      Data3: -1280519770
+      Data4: 2039320933
+    Path: event:/SFX/Snooker/SFX_Boss01_Attack02
+  randomLaughSound:
+    Guid:
+      Data1: -683504455
+      Data2: 1251485300
+      Data3: 94745516
+      Data4: 987112374
+    Path: event:/SFX/Snooker/SFX_RandomLaught
   returnHandsMinSoundDistance: 4
   moveHandEvent:
     Guid:
@@ -219,8 +226,8 @@ MonoBehaviour:
   deathCamera: {fileID: 0}
   deathCameraNoise: {fileID: 0}
   deathShakeNoiseTween:
-    duration: 1
-    ease: 0
+    duration: 4
+    ease: 1
     customEase:
       serializedVersion: 2
       m_Curve: []
@@ -233,12 +240,12 @@ MonoBehaviour:
     endDelay: 0
     useUnscaledTime: 0
     useFixedUpdate: 0
-  deathTimeScale: 0
-  deathCameraNoiseIntensity: 2.5
-  panWaitTime: 4
+  deathTimeScale: 1
+  deathCameraNoiseIntensity: 10
+  panWaitTime: 2.5
   zoomInTween:
-    duration: 1
-    ease: 0
+    duration: 2
+    ease: 13
     customEase:
       serializedVersion: 2
       m_Curve: []
@@ -252,22 +259,22 @@ MonoBehaviour:
     useUnscaledTime: 0
     useFixedUpdate: 0
   flashOutTween:
-    duration: 0
-    ease: 0
+    duration: 1
+    ease: 6
     customEase:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    cycles: 0
+    cycles: 1
     cycleMode: 0
     startDelay: 0
     endDelay: 0
     useUnscaledTime: 0
     useFixedUpdate: 0
-  handParticlesPrefab: {fileID: 0}
-  stickParticlesPrefab: {fileID: 0}
+  handParticlesPrefab: {fileID: 4487202290090944705, guid: 1bb40c7e4436afc4aa98d51a29f80e8d, type: 3}
+  stickParticlesPrefab: {fileID: 5021907394299596078, guid: 0394f41f6c5cab24aab4f15ea3736807, type: 3}
   ballPrefab: {fileID: 4317147210184284824, guid: 17dc9d79649ee7b4ab4fb85ffde64db2, type: 3}
   health: {fileID: 2338245022845996370}
   availableBalls: []
@@ -315,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588dd8cf633db6c4fa17d86a36cc1b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 500
+  totalHealth: 375
   damageMultiplier: 1
   currentHealth: 0
   destroyOnDeath: 0
@@ -474,7 +481,19 @@ MonoBehaviour:
         m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1409683214027594039}
+        m_TargetAssemblyTypeName: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
+        m_MethodName: BossDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4357236074548724672
 MonoBehaviour:
   m_ObjectHideFlags: 0

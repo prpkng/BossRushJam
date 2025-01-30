@@ -1,14 +1,17 @@
 namespace BRJ.Bosses
 {
+    using Pixelplacement;
     using UnityEngine;
 
     public class BossBarController : MonoBehaviour
     {
         public RectTransform rectTransform;
+        public DisplayObject displayObject;
 
         private float startWidth;
         private void Start()
         {
+            displayObject.SetActive(true);
             startWidth = rectTransform.rect.width;
             Game.Instance.World.BossBarController.Set(this);
         }
