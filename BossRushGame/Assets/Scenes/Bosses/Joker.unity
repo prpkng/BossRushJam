@@ -2763,6 +2763,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ced8baa3fc8cc4c8546a69cd5797d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phase1:
+    addCardCount: 1
+  phase2:
+    addCardCount: 2
+  phase3:
+    addCardCount: 1
   bossSprite: {fileID: 1381104788}
   bossEyes: {fileID: 1670492213}
   deck: {fileID: 1970873844}
@@ -2782,7 +2788,7 @@ MonoBehaviour:
       Value: {fileID: -4633221315021531617, guid: 95f05d45deaab234abae935024e2e722, type: 3}
   bossHealth: {fileID: 1584713478}
   heartsHealthRecover: 15
-  startCardCount: 4
+  startCardCount: 2
   pickCardTween:
     startFromCurrent: 0
     startValue: {x: 0, y: 0, z: 0}
@@ -2867,7 +2873,7 @@ MonoBehaviour:
   - {fileID: 1719588708}
   - {fileID: 1767264979}
   - {fileID: 1494165460}
-  pickCardCooldown: 1
+  pickCardCooldown: 2
   revealBossTween:
     startFromCurrent: 0
     startValue: {x: 0, y: -3.5, z: 0}
@@ -2997,19 +3003,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588dd8cf633db6c4fa17d86a36cc1b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 265
+  totalHealth: 390
   damageMultiplier: 1
   currentHealth: 0
   destroyOnDeath: 0
   onThreeQuartersHealth:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1584713474}
+        m_TargetAssemblyTypeName: BRJ.Bosses.Poker.PokerBoss, Assembly-CSharp
+        m_MethodName: Phase1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHalfHealth:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1584713474}
+        m_TargetAssemblyTypeName: BRJ.Bosses.Poker.PokerBoss, Assembly-CSharp
+        m_MethodName: Phase2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onQuarterHealth:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1584713474}
+        m_TargetAssemblyTypeName: BRJ.Bosses.Poker.PokerBoss, Assembly-CSharp
+        m_MethodName: Phase3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeath:
     m_PersistentCalls:
       m_Calls:
