@@ -279,7 +279,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 366722766}
-  - component: {fileID: 366722768}
   - component: {fileID: 366722767}
   m_Layer: 5
   m_Name: Container
@@ -338,14 +337,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!222 &366722768
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366722765}
-  m_CullTransparentMesh: 1
 --- !u!1 &487269503
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -757,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
+  m_SendPointerHoverToParent: 0
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -1073,6 +1064,7 @@ GameObject:
   - component: {fileID: 1285032813}
   - component: {fileID: 1285032814}
   - component: {fileID: 1285032815}
+  - component: {fileID: 1285032816}
   m_Layer: 5
   m_Name: Fullscreen
   m_TagString: Untagged
@@ -1182,6 +1174,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkmark: {fileID: 797905665}
+--- !u!114 &1285032816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285032811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49fe8a15cf32ae54faae778036c3ab38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1356704342 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7156703754046259223, guid: 61150fbbed0493741a643bf5af1340eb, type: 3}
@@ -1764,7 +1768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1923,7 +1927,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5635247031376283362, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 1989716528}
   m_SourcePrefab: {fileID: 100100000, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
 --- !u!114 &3752949482484624606

@@ -15,7 +15,7 @@ namespace BRJ.Systems.Slots.Modifiers
         {
             ModifierList = new List<Type>();
             var modifiers = Assembly
-                .GetCallingAssembly()
+                .GetAssembly(typeof(Modifier))
                 .GetTypes()
                 .Where(t => t.IsSubclassOf(typeof(Modifier)))
                 .ToArray();
@@ -37,7 +37,7 @@ namespace BRJ.Systems.Slots.Modifiers
             3 => Tier3Description,
             _ => throw new ArgumentOutOfRangeException()
         };
-        
+
         public int Tier = 1;
         public abstract string SpritePath { get; }
         public abstract string Name { get; }
