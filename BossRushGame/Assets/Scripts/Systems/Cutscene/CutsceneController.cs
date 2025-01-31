@@ -35,13 +35,14 @@ namespace BRJ.Systems.Cutscene
             InputManager.RollPerformed -= Transition;
         }
 
-        private void Transition()
+        public async void Transition()
         {
             var scene = SceneManager.GetActiveScene();
             InputManager.RollPerformed -= Transition;
-            transition.Transition(destination);
+            await transition.TransitionAsync(destination);
+            Game.Instance.World.RenderTextureZoom = 1.5f;
             if (scene.isSubScene)
-                SceneManager.UnloadSceneAsync(scene);
+                await SceneManager.UnloadSceneAsync(scene);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace BRJ.Systems
         public Animator animator;
         public float fadeInDuration = 1.5f;
 
-        public async void TransitionToScene(string destination)
+        public async UniTask TransitionToScene(string destination)
         {
             CallFadeIn();
             await UniTask.WaitForSeconds(fadeInDuration);
