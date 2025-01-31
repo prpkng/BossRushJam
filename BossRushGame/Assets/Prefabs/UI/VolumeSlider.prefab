@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 6414240338219590453}
   - component: {fileID: 1300662293429686467}
   - component: {fileID: 3636239914248752991}
+  - component: {fileID: 3265046680621222013}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -219,7 +220,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -168238657384800602, guid: 05f3677a1a2854046b5b7c8c5f424892, type: 3}
+    m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: -168238657384800602, guid: 05f3677a1a2854046b5b7c8c5f424892, type: 3}
     m_SelectedSprite: {fileID: -168238657384800602, guid: 05f3677a1a2854046b5b7c8c5f424892, type: 3}
     m_DisabledSprite: {fileID: 0}
@@ -249,6 +250,18 @@ MonoBehaviour:
   key: SFX
   vcaPath: vca:/SFX
   increment: 0.05
+--- !u!114 &3265046680621222013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635247031376283362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49fe8a15cf32ae54faae778036c3ab38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6137451213697776281
 GameObject:
   m_ObjectHideFlags: 0
