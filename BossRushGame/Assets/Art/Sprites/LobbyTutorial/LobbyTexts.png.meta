@@ -1,0 +1,323 @@
+fileFormatVersion: 2
+guid: 9b8d14dd1c5aeca4a848240a2545c500
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1568158510089413008
+    second: LobbyTexts_0
+  - first:
+      213: -8912272896231396709
+    second: LobbyTexts_1
+  - first:
+      213: -1288496790572393616
+    second: LobbyTexts_2
+  - first:
+      213: -6029531297909611663
+    second: LobbyTexts_3
+  - first:
+      213: 2874574447979881045
+    second: LobbyTexts_4
+  - first:
+      213: 1421444072323467483
+    second: LobbyTexts_5
+  - first:
+      213: 3582441849560383647
+    second: LobbyTexts_6
+  - first:
+      213: -2970347948331237171
+    second: LobbyTexts_7
+  - first:
+      213: 8237070312867125961
+    second: LobbyTexts_8
+  - first:
+      213: 8867881773407922273
+    second: LobbyTexts_9
+  - first:
+      213: 1966221643986556139
+    second: LobbyTexts_10
+  - first:
+      213: -7326261314649522267
+    second: LobbyTexts_11
+  - first:
+      213: 1613226269243991816
+    second: LobbyTexts_12
+  - first:
+      213: -2608912458798455065
+    second: LobbyTexts_13
+  - first:
+      213: -1535533394904864970
+    second: LobbyTexts_14
+  - first:
+      213: -7888162227170668349
+    second: LobbyTexts_15
+  - first:
+      213: -1362902020545246289
+    second: LobbyTexts_16
+  - first:
+      213: 3399197024826946599
+    second: LobbyTexts_17
+  - first:
+      213: 8924437816194322589
+    second: LobbyTexts_18
+  - first:
+      213: -8899346721637378969
+    second: LobbyTexts_19
+  - first:
+      213: -6924311963683751372
+    second: LobbyTexts_20
+  - first:
+      213: 5383721909390825835
+    second: LobbyTexts_21
+  - first:
+      213: -685155600729461677
+    second: LobbyTexts_22
+  - first:
+      213: -7612286976138552444
+    second: LobbyTexts_23
+  - first:
+      213: -7892564595032790911
+    second: LobbyTexts_24
+  - first:
+      213: 369937427522566040
+    second: LobbyTexts_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LobbyTexts_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 80
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d76f484a716c64d9f16b7d9b587679
+      internalID: 524136199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyTexts_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 80
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b91e0de1b3a7de45a6761ac24632b53
+      internalID: 2136848047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyTexts_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 80
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8c23d818e1c3145b93f1b3fb74c022
+      internalID: 1219531169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyTexts_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 80
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639a57cd5d5b7e94c9cb05e9f18ff25f
+      internalID: -1471818680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyTexts_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48112a6e0f17ee84e9acb9d6d35d6d76
+      internalID: 1114033375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LobbyTexts_0: 524136199
+      LobbyTexts_1: 2136848047
+      LobbyTexts_2: 1219531169
+      LobbyTexts_3: -1471818680
+      LobbyTexts_4: 1114033375
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

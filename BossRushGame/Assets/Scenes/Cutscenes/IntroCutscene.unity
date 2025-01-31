@@ -705,6 +705,7 @@ GameObject:
   - component: {fileID: 1246372471}
   - component: {fileID: 1246372470}
   - component: {fileID: 1246372469}
+  - component: {fileID: 1246372474}
   m_Layer: 0
   m_Name: CinematicController
   m_TagString: Untagged
@@ -726,7 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 1246372472}
   transition: {fileID: 1246372470}
-  destination: Lobby
+  destination: 
   startDisabled: 1
 --- !u!114 &1246372470
 MonoBehaviour:
@@ -759,10 +760,10 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1246372470}
-          m_TargetAssemblyTypeName: BRJ.Systems.Common.TransitionToScene, Assembly-CSharp
+        - m_Target: {fileID: 1246372469}
+          m_TargetAssemblyTypeName: BRJ.Systems.Cutscene.CutsceneController, Assembly-CSharp
           m_MethodName: Transition
-          m_Mode: 5
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -834,6 +835,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246372474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246372468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae3636b3c6a180439696f2c4eb5a27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneController: {fileID: 1246372469}
 --- !u!1 &1667406520
 GameObject:
   m_ObjectHideFlags: 0

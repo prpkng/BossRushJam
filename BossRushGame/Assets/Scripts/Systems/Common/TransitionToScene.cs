@@ -1,5 +1,6 @@
 namespace BRJ.Systems.Common
 {
+    using Cysharp.Threading.Tasks;
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
@@ -9,9 +10,16 @@ namespace BRJ.Systems.Common
         public void Transition(string destination)
         {
             if (animateTransition)
-                Game.Instance.Transition.TransitionToScene(destination);
+                Game.Instance.Transition.TransitionToScene(destination).Forget();
             else
                 SceneManager.LoadScene(destination);
+        }
+        public async UniTask TransitionAsync(string destination)
+        {
+            if (animateTransition)
+                await Game.Instance.Transition.TransitionToScene(destination);
+            else
+                await SceneManager.LoadSceneAsync(destination);
         }
     }
 }

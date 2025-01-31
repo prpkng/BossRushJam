@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.DualShock;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -17,12 +18,14 @@ namespace BRJ
 
         private static Camera mainCamera;
         private InputAction lookAction;
+        private InputAction moveAction;
 
         private void OnEnable()
         {
             mainCamera = Camera.main;
             playerInputComponent.onActionTriggered += OnActionTriggered;
             lookAction = playerInputComponent.actions["Look"];
+            moveAction = playerInputComponent.actions["Move"];
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
@@ -56,7 +59,9 @@ namespace BRJ
             if (Keyboard.current.f8Key.wasPressedThisFrame)
                 SceneManager.LoadScene("Lobby");
 
-            LookVector = lookAction.ReadValue<Vector2>();
+            var look = lookAction.ReadValue<Vector2>();
+            var move = moveAction.ReadValue<Vector2>();
+            LookVector = look.sqrMagnitude <= 0 && move.sqrMagnitude > 0 ? move / 2.5f : look;
         }
 
         public static Vector2 MousePosition
@@ -84,11 +89,18 @@ namespace BRJ
         public static bool isHoldingShoot;
 
         public static bool isUsingGamepad;
+        public static bool isPsGamepad;
+        public static event Action InputChanged;
 
 
         private void OnActionTriggered(InputAction.CallbackContext ctx)
         {
+            var lastUsingGamepad = isUsingGamepad;
+            var lastPsGamepad = isPsGamepad;
             isUsingGamepad = ctx.control.device is Gamepad;
+            isPsGamepad = ctx.control.device is DualShockGamepad;
+            if (isUsingGamepad != lastUsingGamepad || isPsGamepad != lastPsGamepad)
+                InputChanged?.Invoke();
 
             switch (ctx.action.name)
             {
