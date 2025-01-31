@@ -10,11 +10,5 @@ namespace BRJ.UI.MainMenu
         {
             SceneManager.LoadSceneAsync("IntroCutscene", LoadSceneMode.Additive);
         }
-
-        public void StartGame()
-        {
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-            CutsceneController.StartCutscene();
-        }
     }
 }

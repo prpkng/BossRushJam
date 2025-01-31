@@ -14,6 +14,17 @@ namespace BRJ.Systems.Saving
 
         public static readonly string SavePath = Application.persistentDataPath + "/save.dat";
 
+        public static bool HasSave()
+        {
+            return File.Exists(SavePath);
+        }
+
+        public static void DeleteSave()
+        {
+            if (HasSave())
+                File.Delete(SavePath);
+        }
+
         public static void LoadData()
         {
             if (File.Exists(SavePath))
