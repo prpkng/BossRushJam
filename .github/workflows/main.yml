@@ -86,11 +86,19 @@ jobs:
           name: Build-StandaloneWindows64
           path: builds/win/
       - run: tree
+      - name: Zip Windows Build
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r windows.zip builds/win
+      - name: Zip WebGL Build
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r webgl.zip builds/webgl
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: builds/*
+          file: builds/win
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true
