@@ -12,7 +12,7 @@ namespace BRJ.UI.Slots
     public class SlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         public static SlotButton CurrentSelectedSlot { get; private set; }
-        
+
         private static List<SlotButton> buttonList = new();
         private static readonly int Enabled = Shader.PropertyToID("_Enabled");
         private List<Image> icons;
@@ -36,16 +36,16 @@ namespace BRJ.UI.Slots
                 b.attachedBGs.ForEach(bg => bg.enabled = b == CurrentSelectedSlot);
             });
         }
-        
+
         public void SetupFromModifier(Modifier mod)
         {
-            
+
             icons.ForEach(icon => icon.material = Instantiate(icon.material));
-            
+
             var op = Addressables.LoadAssetAsync<Sprite>(mod.SpritePath);
             op.Completed += result => icons.ForEach(icon => icon.sprite = result.Result);
             CurrentModifier = mod;
-            
+
             // Check if there's already a button containing this modifier
             if (buttonList.Select(b => b.CurrentModifier.GetType()).Contains(mod.GetType()))
             {
@@ -61,28 +61,29 @@ namespace BRJ.UI.Slots
             }
             buttonList.Add(this);
         }
-        
-        
+
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             eventData.selectedObject = gameObject;
             OnSelect(null);
-            SlotHoverTooltip.Instance.SetVisible(true);
-            SlotHoverTooltip.Instance.UpdateText(CurrentModifier);
         }
         public void OnPointerExit(PointerEventData _)
         {
             icons.ForEach(icon => icon.material.SetInt(Enabled, 0));
             SlotHoverTooltip.Instance.SetVisible(false);
         }
-        
+
         public void OnSelect(BaseEventData _)
         {
             icons.ForEach(icon => icon.material.SetInt(Enabled, 1));
+            SlotHoverTooltip.Instance.SetVisible(true);
+            SlotHoverTooltip.Instance.UpdateText(CurrentModifier);
         }
         public void OnDeselect(BaseEventData _)
         {
             icons.ForEach(icon => icon.material.SetInt(Enabled, 0));
+            SlotHoverTooltip.Instance.SetVisible(false);
         }
 
         private void OnDisable()
