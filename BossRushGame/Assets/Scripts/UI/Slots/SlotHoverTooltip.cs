@@ -2,6 +2,7 @@ using System;
 using BRJ.Systems.Slots.Modifiers;
 using Pixelplacement;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
@@ -14,16 +15,19 @@ namespace BRJ.UI.Slots
 
         private Label titleLabel;
         private Label descriptionLabel;
+        private Camera cam;
 
         private void Start()
         {
+            cam = Camera.main;
             document.enabled = false;
         }
+
 
         private void Update()
         {
             if (!document.enabled) return;
-            var mousePos = RuntimePanelUtils.ScreenToPanel(document.runtimePanel, Mouse.current.position.ReadValue());
+            var mousePos = RuntimePanelUtils.CameraTransformWorldToPanel(document.runtimePanel, EventSystem.current.currentSelectedGameObject.transform.position, cam);
             document.rootVisualElement.transform.position = new Vector2(mousePos.x, panelHeight - mousePos.y);
         }
 

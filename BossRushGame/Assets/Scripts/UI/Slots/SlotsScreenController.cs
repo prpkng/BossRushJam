@@ -4,6 +4,7 @@ using System.Linq;
 using BRJ.Systems.Slots;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace BRJ.UI.Slots
 {
@@ -12,7 +13,7 @@ namespace BRJ.UI.Slots
         public List<Spinner> spinners;
         public Animator slotsAnimator;
         public float spinnerToSlotSpeed;
-        
+
         public UnityEvent onSpinnersEnd;
 
         private bool waitingForSpinners = true;
@@ -22,6 +23,7 @@ namespace BRJ.UI.Slots
             if (waitingForSpinners && spinners.All(s => !s))
             {
                 onSpinnersEnd.Invoke();
+                EventSystem.current.SetSelectedGameObject(Spinner.middleSlot);
                 waitingForSpinners = false;
             }
 

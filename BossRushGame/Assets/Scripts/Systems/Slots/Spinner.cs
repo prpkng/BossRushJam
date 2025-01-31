@@ -10,6 +10,7 @@ namespace BRJ.Systems.Slots
 {
     public class Spinner : MonoBehaviour
     {
+        public static GameObject middleSlot { get; private set; } = null;
         public Canvas canvas;
         public GameObject uiSlotPrefab;
         public Texture[] slotSprites;
@@ -18,7 +19,7 @@ namespace BRJ.Systems.Slots
         public float spinAcceleration = 3f;
         public float spinDeceleration = 3f;
         public float maxSpinSpeed = 50f;
-        
+
         private float spinSpeed;
         public float CurrentSpinSpeed => spinSpeed;
         private SlotElement[] slots;
@@ -48,16 +49,17 @@ namespace BRJ.Systems.Slots
                 },
                 Ease.InOutQuad
             );
-            
+
             var selectedSlot = slots.OrderBy(s => s.transform.position.z).First();
 
             var obj = Instantiate(uiSlotPrefab, canvas.transform, false);
             obj.transform.position = new Vector3(transform.position.x, transform.position.y, -20f);
             obj.GetComponent<SlotButton>().SetupFromModifier(selectedSlot.currentModifier);
+            middleSlot = obj;
             Destroy(this);
             foreach (var slot in slots) Destroy(slot);
         }
-        
+
         private float counter = 0f;
         private void Update()
         {
