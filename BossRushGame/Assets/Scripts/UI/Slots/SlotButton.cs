@@ -42,8 +42,7 @@ namespace BRJ.UI.Slots
 
             icons.ForEach(icon => icon.material = Instantiate(icon.material));
 
-            var op = Addressables.LoadAssetAsync<Sprite>(mod.SpritePath);
-            op.Completed += result => icons.ForEach(icon => icon.sprite = result.Result);
+            icons.ForEach(icon => icon.sprite = mod.iconSprite);
             CurrentModifier = mod;
 
             // Check if there's already a button containing this modifier

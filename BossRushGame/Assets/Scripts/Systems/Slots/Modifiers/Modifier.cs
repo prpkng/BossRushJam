@@ -39,6 +39,8 @@ namespace BRJ.Systems.Slots.Modifiers
         };
 
         public int Tier = 1;
+
+        public Sprite iconSprite;
         public abstract string SpritePath { get; }
         public abstract string Name { get; }
         protected abstract string Tier1Description { get; }

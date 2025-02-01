@@ -23,11 +23,33 @@ namespace BRJ.UI.Slots
             document.enabled = false;
         }
 
+        private Vector2 lastMousePosition;
+        private GameObject lastSelectedObject;
+        private bool isUsingMouse;
 
         private void Update()
         {
             if (!document.enabled) return;
-            var mousePos = RuntimePanelUtils.CameraTransformWorldToPanel(document.runtimePanel, EventSystem.current.currentSelectedGameObject.transform.position, cam);
+            var currentMousePosition = Mouse.current.position.ReadValue();
+            var currentSelectedObject = EventSystem.current.currentSelectedGameObject;
+
+            if (lastMousePosition != currentMousePosition)
+                isUsingMouse = true;
+            else if (lastSelectedObject != currentSelectedObject)
+                isUsingMouse = false;
+
+            Vector2 mousePos;
+            if (isUsingMouse)
+            {
+                mousePos = RuntimePanelUtils.ScreenToPanel(document.runtimePanel, currentMousePosition);
+            }
+            else
+            {
+                mousePos = RuntimePanelUtils.CameraTransformWorldToPanel(document.runtimePanel, EventSystem.current.currentSelectedGameObject.transform.position, cam);
+            }
+            lastMousePosition = currentMousePosition;
+            lastSelectedObject = currentSelectedObject;
+
             document.rootVisualElement.transform.position = new Vector2(mousePos.x, panelHeight - mousePos.y);
         }
 

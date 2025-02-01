@@ -14,9 +14,10 @@ namespace BRJ.UI
         private void OnEnable()
         {
             var mod = Game.Instance.World.CurrentActiveModifier;
+            if (mod == null) return;
             titleText.text = mod.Name;
             descriptionText.text = mod.Description;
-            Addressables.LoadAssetAsync<Sprite>(mod.SpritePath).Completed += handle => iconImage.sprite = handle.Result;
+            iconImage.sprite = mod.iconSprite;
         }
 
     }

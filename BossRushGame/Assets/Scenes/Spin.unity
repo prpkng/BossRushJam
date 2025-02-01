@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 295255619}
   - component: {fileID: 295255618}
   m_Layer: 0
-  m_Name: UIController
+  m_Name: SlotsScreenController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1895,7 +1895,7 @@ GameObject:
   - component: {fileID: 1575396459}
   - component: {fileID: 1575396460}
   m_Layer: 5
-  m_Name: UIDocument
+  m_Name: HoverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

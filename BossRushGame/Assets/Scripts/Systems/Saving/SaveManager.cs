@@ -83,5 +83,11 @@ namespace BRJ.Systems.Saving
             currentSaveData.CurrentModifierType = type.FullName;
             SaveData();
         }
+
+        public static SaveData GetSaveData()
+        {
+            LoadData();
+            return currentSaveData;
+        }
     }
 }

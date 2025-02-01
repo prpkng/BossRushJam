@@ -1183,7 +1183,7 @@ MonoBehaviour:
       Slot13: 0
       Slot14: 0
       Slot15: 0
-  EventLength: Infinity
+  EventLength: 34.855
   eventName: 
   EventReference:
     Guid:
@@ -1191,7 +1191,7 @@ MonoBehaviour:
       Data2: 1212466689
       Data3: -1904203385
       Data4: -819405147
-    Path: event:/MUS/MUS_Cutscene
+    Path: event:/MUS/MUS_CutsceneJOKER
   StopType: 0
   Parameters: []
 --- !u!74 &3484252148811468544
@@ -2413,7 +2413,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: MUS_Cutscene
+    m_DisplayName: MUS_CutsceneJOKER
   m_Markers:
     m_Objects: []
   template:
