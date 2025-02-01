@@ -194,13 +194,13 @@ MonoBehaviour:
       Data3: 315051186
       Data4: -1766883907
     Path: event:/BOSSES/Snooker/SFX_MoveFromPlay
-  shotBallSound:
+  dropBallSound:
     Guid:
-      Data1: -258689673
-      Data2: 1080337970
-      Data3: 485831558
-      Data4: 635197794
-    Path: event:/BOSSES/Snooker/SFX_Boss01_Attack
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   stompHitSound:
     Guid:
       Data1: -335680144
@@ -852,6 +852,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7330559444157686007}
     m_Modifications:
+    - target: {fileID: 836776275384316141, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
+      propertyPath: onDefenseHit.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1377855932427375321, guid: c6a802a5474e5e74284cace4aa49cd0d, type: 3}
       propertyPath: m_Name
       value: Right Hand

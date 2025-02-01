@@ -195,7 +195,8 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 11.25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8810538770698719780, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1024,7 +1025,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 527443938548100427, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1676023571}
   m_SourcePrefab: {fileID: 100100000, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
 --- !u!1 &756544524
 GameObject:
@@ -2540,6 +2544,7 @@ GameObject:
   - component: {fileID: 1357457921}
   - component: {fileID: 1357457922}
   - component: {fileID: 1357457923}
+  - component: {fileID: 1357457924}
   m_Layer: 12
   m_Name: Hitbox
   m_TagString: Untagged
@@ -2633,7 +2638,53 @@ MonoBehaviour:
   flash: {fileID: 1357457922}
   onHit:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1357457924}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDefenseHit:
+    m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1357457924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357457919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1945950642
+      Data2: 1341458512
+      Data3: -844766529
+      Data4: -1335161021
+    Path: event:/SFX_BossDamages
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1381104787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,6 +2777,7 @@ GameObject:
   - component: {fileID: 1584713479}
   - component: {fileID: 1584713474}
   - component: {fileID: 1584713478}
+  - component: {fileID: 1584713480}
   m_Layer: 12
   m_Name: Boss
   m_TagString: Untagged
@@ -2990,6 +3042,21 @@ MonoBehaviour:
   spiralAccelerationSpeed: 3.5
   spiralDecelerationSpeed: 10
   slowSpiralSpeed: 0.1
+  cardShotEmitter: {fileID: 1584713480}
+  throwKingCardSound:
+    Guid:
+      Data1: -354181886
+      Data2: 1265350652
+      Data3: 1358510506
+      Data4: -620069664
+    Path: event:/BOSSES/Joker/SFX_DropCard
+  jokerLaughSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   overrideCardType: -1
 --- !u!114 &1584713478
 MonoBehaviour:
@@ -3096,6 +3163,37 @@ MonoBehaviour:
     useUnscaledTime: 0
     useFixedUpdate: 0
   cardSelectOffset: 2
+--- !u!114 &1584713480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584713472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 710805532
+      Data2: 1172494810
+      Data3: -885249610
+      Data4: -992653386
+    Path: event:/BOSSES/Joker/SFX_CardShot
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1630014979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,6 +3250,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1670492211}
+--- !u!1 &1676023564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 527443938548100427, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+  m_PrefabInstance: {fileID: 752078070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1676023571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676023564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1719588707
 GameObject:
   m_ObjectHideFlags: 0

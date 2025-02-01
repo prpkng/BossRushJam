@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7167158112212107330}
   - component: {fileID: 7902854873566206686}
-  - component: {fileID: 7167023216273660166}
+  - component: {fileID: 836776275384316141}
   - component: {fileID: 196970626892064646}
   - component: {fileID: 8505990715582930572}
+  - component: {fileID: 7071579058976041448}
   m_Layer: 12
   m_Name: Hand
   m_TagString: Untagged
@@ -83,7 +84,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 2}
   m_EdgeRadius: 0
---- !u!114 &7167023216273660166
+--- !u!114 &836776275384316141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,12 +93,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377855932427375321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75d09b3b5cde5a4fa586d60d585e0c3, type: 3}
+  m_Script: {fileID: 11500000, guid: deb6c7e4e65340e09ed20602dc8b52f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
-  flashDuration: 0.05
   flash: {fileID: 196970626892064646}
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7071579058976041448}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDefenseHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7071579058976041448}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &196970626892064646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +163,37 @@ MonoBehaviour:
   - {fileID: 5974842607579685154}
   - {fileID: 2252164777665923728}
   <CurrentHandLayer>k__BackingField: {fileID: 0}
+--- !u!114 &7071579058976041448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377855932427375321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1945950642
+      Data2: 1341458512
+      Data3: -844766529
+      Data4: -1335161021
+    Path: event:/SFX_BossDamages
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 15
+  OverrideMaxDistance: 40
 --- !u!1 &7907755928048549375
 GameObject:
   m_ObjectHideFlags: 0

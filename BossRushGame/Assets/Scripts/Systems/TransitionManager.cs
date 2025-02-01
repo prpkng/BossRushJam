@@ -1,6 +1,7 @@
 namespace BRJ.Systems
 {
     using Cysharp.Threading.Tasks;
+    using FMODUnity;
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
@@ -8,10 +9,12 @@ namespace BRJ.Systems
     {
         public Animator animator;
         public float fadeInDuration = 1.5f;
+        public EventReference transitionSound;
 
         public async UniTask TransitionToScene(string destination)
         {
             CallFadeIn();
+            RuntimeManager.PlayOneShot(transitionSound);
             await UniTask.WaitForSeconds(fadeInDuration);
             await SceneManager.LoadSceneAsync(destination);
             CallFadeOut();

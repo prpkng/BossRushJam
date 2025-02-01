@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adcbae56b0811a44ebeeebe1663bfbf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animateTransition: 0
+  animateTransition: 1
 --- !u!114 &12404649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5071abbe0406e9746bf86ffd81ce9890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  director: {fileID: 0}
+  director: {fileID: 12404647}
   transition: {fileID: 12404648}
   destination: Joker
   startDisabled: 0
@@ -1849,7 +1849,7 @@ MonoBehaviour:
       Data2: 1212466689
       Data3: -1904203385
       Data4: -819405147
-    Path: event:/MUS/MUS_Cutscene
+    Path: event:/MUS/MUS_CutsceneJOKER
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0

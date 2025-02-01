@@ -5,6 +5,8 @@ using AYellowpaper.SerializedCollections;
 using BRJ.Bosses.Joker;
 using BRJ.Systems;
 using Cysharp.Threading.Tasks;
+using FMOD.Studio;
+using FMODUnity;
 using PrimeTween;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -101,6 +103,11 @@ namespace BRJ.Bosses.Poker
 
         public float slowSpiralSpeed = 10;
 
+        [Header("Sounds")]
+        public StudioEventEmitter cardShotEmitter;
+        public EventReference throwKingCardSound;
+        public EventReference jokerLaughSound;
+
 
         [Header("Editor")] public Card.Suits overrideCardType;
 
@@ -111,7 +118,6 @@ namespace BRJ.Bosses.Poker
 
         private List<Card.Suits> pickedCards = new();
         private List<GameObject> activeCards = new();
-
 
         private void Start()
         {
@@ -436,6 +442,7 @@ namespace BRJ.Bosses.Poker
             pickedCards.Add(type);
             card.WithComponent<Card>(c => c.SetClass(type, cardSprites[type]));
 
+            cardShotEmitter.Play();
             yield return Tween.Position(card, card.position + card.up * 2f, .35f, Ease.OutCubic).ToYieldInstruction();
 
             pickCardTween.endValue = pickedCardLocation.position;
@@ -448,6 +455,7 @@ namespace BRJ.Bosses.Poker
 
             yield return new WaitForSeconds(.25f);
 
+            Tween.Delay(revealCardTween.settings.duration / 2f, () => cardShotEmitter.Play());
             yield return Tween.EulerAngles(card, revealCardTween).ToYieldInstruction();
 
             var position = possibleCardLocations
@@ -459,6 +467,8 @@ namespace BRJ.Bosses.Poker
             positionCardTween.endValue = position;
             positionCardTween.startFromCurrent = true;
             usedCardLocations.Add(position);
+
+            cardShotEmitter.Play();
 
             yield return Tween.Position(card, positionCardTween).ToYieldInstruction();
 
@@ -474,7 +484,6 @@ namespace BRJ.Bosses.Poker
         {
 
             deckOffset.localPosition = openDeckPosition;
-
 
             for (int i = 0; i < 5; i++)
             {
@@ -507,6 +516,7 @@ namespace BRJ.Bosses.Poker
 
                 dest += (Vector2)(Quaternion.Euler(destRot) * Vector3.down * 1.5f);
 
+                RuntimeManager.PlayOneShot(throwKingCardSound, dest);
 
                 Tween.Position(card, card.position, (Vector3)dest, shootCardTween);
                 yield return Tween.Rotation(

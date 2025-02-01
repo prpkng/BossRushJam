@@ -1,5 +1,7 @@
 using System.Collections;
 using BRJ.Systems;
+using FMOD.Studio;
+using FMODUnity;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -8,6 +10,8 @@ namespace BRJ.Bosses.Poker
 {
     public abstract class ShootingAttack : MonoBehaviour, ICardAttack
     {
+        public const string CardAttackSoundPath = "event:/BOSSES/Joker/SFX_CardShot";
+
         protected Transform bulletPrefab;
 
         public float rotatingSpeed = 15f;
@@ -16,8 +20,12 @@ namespace BRJ.Bosses.Poker
         public abstract bool FaceDirection { get; }
         public abstract void GetBulletPrefab();
 
+        private EventInstance cardAttackEventInstance;
+
         private void Awake()
         {
+            cardAttackEventInstance = RuntimeManager.CreateInstance(CardAttackSoundPath);
+            RuntimeManager.AttachInstanceToGameObject(cardAttackEventInstance, gameObject);
             GetBulletPrefab();
         }
 
@@ -69,6 +77,7 @@ namespace BRJ.Bosses.Poker
 
         private void Fire()
         {
+            cardAttackEventInstance.start();
             var bullet = Instantiate(bulletPrefab, transform.position + transform.up * 1.5f, Quaternion.identity);
             if (FaceDirection) bullet.right = transform.up;
             else

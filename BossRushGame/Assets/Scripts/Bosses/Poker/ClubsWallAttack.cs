@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using FMOD.Studio;
+using FMODUnity;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -13,6 +15,8 @@ namespace BRJ.Bosses.Poker
     {
         private Transform bulletPrefab;
         private List<Transform> bullets;
+
+        private const string ClubWallsAttackSfxPath = "event:/BOSSES/Joker/SFX_JokerWallAttack";
 
         private const float xPos = 16;
         private const float yMin = -5.65f;
@@ -84,13 +88,26 @@ namespace BRJ.Bosses.Poker
 
         }
 
+        private EventInstance sfxEvent;
+
         public float StartAttack()
         {
+            sfxEvent = RuntimeManager.CreateInstance(ClubWallsAttackSfxPath);
+            sfxEvent.start();
+            RuntimeManager.AttachInstanceToGameObject(sfxEvent, gameObject);
             Burst();
             return EachWallDelay * WallShootingCount + TweenMoveDuration + FinishDelay;
         }
 
         public void StopAttack()
-        { }
+        {
+            sfxEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            sfxEvent.clearHandle();
+        }
+
+        private void Update()
+        {
+            sfxEvent.setPitch(Time.timeScale);
+        }
     }
 }
