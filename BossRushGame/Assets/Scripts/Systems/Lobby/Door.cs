@@ -1,6 +1,7 @@
 namespace BRJ.Systems.Lobby
 {
     using System.Linq;
+    using BRJ.Systems.Saving;
     using LDtkUnity;
     using UnityEngine;
     using UnityEngine.SceneManagement;
@@ -29,7 +30,7 @@ namespace BRJ.Systems.Lobby
                     break;
                 case "Joker":
                     doorRenderer.sprite = jokerDoorSprite;
-                    doorDestination = "JokerCutscene";
+                    doorDestination = "Joker";
                     break;
             }
         }
@@ -40,7 +41,12 @@ namespace BRJ.Systems.Lobby
             {
                 GameObject.FindWithTag("LobbyController")
                           .GetComponent<LobbyController>()
-                          .LoadBoss(doorDestination);
+                          .LoadBoss(doorDestination, doorDestination switch
+                          {
+                              "TheHand" => SaveManager.GetSaveData().HaveSeenSnookerCutscene,
+                              "Joker" => SaveManager.GetSaveData().HaveSeenJokerCutscene,
+                              _ => true
+                          });
             }
         }
     }

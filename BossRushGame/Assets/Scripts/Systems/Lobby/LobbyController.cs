@@ -4,6 +4,7 @@ using BRJ;
 using BRJ.Systems;
 using BRJ.Systems.Saving;
 using BRJ.Systems.Slots.Modifiers;
+using Cysharp.Threading.Tasks;
 using Pixelplacement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -36,12 +37,14 @@ namespace BRJ
             }
         }
 
-        public void LoadBoss(string levelName)
+        public void LoadBoss(string levelName, bool cutscene = true)
         {
-            Game.Instance.Transition.TransitionToScene(levelName);
+            Game.Instance.Transition.TransitionToScene(
+                cutscene ? $"{levelName}Cutscene" : levelName
+            ).Forget();
 
-            playerLastEnteredBoss = levelName;
             SaveManager.SetLastEnteredBoss(playerLastEnteredBoss);
+            playerLastEnteredBoss = levelName;
         }
     }
 }

@@ -21,9 +21,15 @@ namespace BRJ.UI
         public void OnClick()
         {
             if (SaveManager.HasSave())
+            {
                 SaveManager.LoadData();
+                CutsceneController.SetDestination("Lobby");
+            }
             else
+            {
                 SaveManager.SaveData();
+                CutsceneController.SetDestination("Tutorial");
+            }
 
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
             CutsceneController.StartCutscene();

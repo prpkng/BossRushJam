@@ -28,8 +28,15 @@ namespace BRJ.Systems.Slots
             canChange = false;
             var modifier = Modifier.ModifierList.ChooseRandom();
             currentModifier = (Modifier)Activator.CreateInstance(modifier);
-            var texture = Addressables.LoadAssetAsync<Texture>(currentModifier.SpritePath);
-            texture.Completed += t => meshRenderer.material.mainTexture = t.Result;
+            var texture = Addressables.LoadAssetAsync<Texture2D>(currentModifier.SpritePath);
+            texture.Completed += t =>
+            {
+                meshRenderer.material.mainTexture = t.Result;
+                currentModifier.iconSprite = Sprite.Create(
+                    t.Result,
+                    new Rect(0, 0, t.Result.width, t.Result.height),
+                    Vector2.one * .5f);
+            };
         }
     }
 }
