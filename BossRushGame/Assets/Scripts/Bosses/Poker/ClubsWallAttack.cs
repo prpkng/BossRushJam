@@ -105,6 +105,12 @@ namespace BRJ.Bosses.Poker
             sfxEvent.clearHandle();
         }
 
+        private void OnDisable()
+        {
+            sfxEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            sfxEvent.clearHandle();
+        }
+
         private void Update()
         {
             sfxEvent.setPitch(Time.timeScale);
