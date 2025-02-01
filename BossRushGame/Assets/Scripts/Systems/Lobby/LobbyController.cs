@@ -40,7 +40,7 @@ namespace BRJ
         public void LoadBoss(string levelName, bool cutscene = true)
         {
             Game.Instance.Transition.TransitionToScene(
-                cutscene ? $"{levelName}Cutscene" : levelName
+                !cutscene ? $"{levelName}Cutscene" : levelName
             ).Forget();
 
             SaveManager.SetLastEnteredBoss(playerLastEnteredBoss);
