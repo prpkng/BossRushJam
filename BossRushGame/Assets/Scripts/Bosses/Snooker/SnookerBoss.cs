@@ -80,11 +80,13 @@ namespace BRJ.Bosses.Snooker
         public EventReference moveToShot;
         public EventReference poolShotEvent;
         public EventReference returnHandsEvent;
-        public EventReference shotBallSound;
+        public EventReference dropBallSound;
         public EventReference stompHitSound;
         public EventReference randomLaughSound;
+        public EventReference myTurnSound;
         public float returnHandsMinSoundDistance = 4;
         public EventReference moveHandEvent;
+
         [Header("Death")]
         public CinemachineCamera deathCamera;
         public CinemachineBasicMultiChannelPerlin deathCameraNoise;
@@ -123,15 +125,11 @@ namespace BRJ.Bosses.Snooker
         private const string PopulateBallsState = "PopulateBallsState";
         private const string DeathState = "DeathState";
 
-        private EventInstance shotBallInstance;
-        private EventInstance stompHitInstance;
         private EventInstance randomLaughInstance;
 
         private void Start()
         {
             // Create sound instances
-            shotBallInstance = RuntimeManager.CreateInstance(shotBallSound);
-            stompHitInstance = RuntimeManager.CreateInstance(stompHitSound);
             randomLaughInstance = RuntimeManager.CreateInstance(randomLaughSound);
 
             _currentBallCount = initialBallCount;
@@ -151,6 +149,7 @@ namespace BRJ.Bosses.Snooker
                     },
                     onExit: _ =>
                     {
+                        RuntimeManager.PlayOneShotAttached(myTurnSound, gameObject);
                         Game.Instance.Camera.ResetFocus();
                         handsIdleSine.StopMovement();
                     }
@@ -459,7 +458,7 @@ namespace BRJ.Bosses.Snooker
             // Move stick to ball
             Tween.Position(poolStick, _currentBall.position - dir * 1.6f, 1, Ease.OutCubic);
             Tween.Rotation(poolStick, Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) * Vector3.forward, 0.9f, Ease.OutCubic);
-            RuntimeManager.CreateInstance(moveToShot).start();
+            RuntimeManager.PlayOneShot(moveToShot);
 
             // Move left hand to under the stick
             Tween.Position(leftHandTransform, _currentBall.position - dir * (1.6f + poolHandDistance), 1f);
@@ -502,7 +501,6 @@ namespace BRJ.Bosses.Snooker
             nextStep += 0.25f;
             rightHandTransform.SetParent(poolStick);
             Tween.Position(poolStick, _currentBall.position - dir * 3, 0.5f, Ease.OutCubic);
-            RuntimeManager.CreateInstance(poolShotEvent).start();
 
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
 
@@ -516,8 +514,6 @@ namespace BRJ.Bosses.Snooker
             yield return new WaitWhile(() => state.timer.Elapsed < nextStep);
             Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
 
-            shotBallInstance.start();
-
             // Push the stick
             nextStep += 0.1f;
             Tween.Position(poolStick, _currentBall.position - dir * 1.45f, 0.1f, Ease.Linear);
@@ -530,6 +526,7 @@ namespace BRJ.Bosses.Snooker
                     ball.linearDamping = 0;
 
             // Apply velocity to the selected ball
+            RuntimeManager.PlayOneShot(poolShotEvent, _currentBall.position);
             _currentBall.linearVelocity = dir * shotForce;
 
             // poolShotSound.Play();
@@ -626,7 +623,8 @@ namespace BRJ.Bosses.Snooker
                 poolStickShadow.position = poolStick.position + Vector3.down * poolStickStompDistance;
                 var tween = Tween
                     .PositionY(poolStick, poolStick.position.y - poolStickStompDistance, stompTween);
-                stompHitInstance.start();
+
+                RuntimeManager.PlayOneShot(stompHitSound, poolStickShadow.position);
                 yield return tween.ToYieldInstruction();
                 yield return new WaitForEndOfFrame();
                 yield return new WaitForFixedUpdate();
@@ -652,6 +650,8 @@ namespace BRJ.Bosses.Snooker
                 {
                     yield return Tween.ShakeLocalRotation(poolStick, stickStuckShake).ToYieldInstruction();
                     Game.Instance.Camera.ShakeCamera(stompCameraShake);
+                    RuntimeManager.PlayOneShot(stompHitSound, poolStickShadow.position);
+
                     PlayLaughSound();
                     yield return Tween
                         .PositionY(poolStick, poolStick.position.y + poolStickStompDistance, .5f, Ease.OutCubic)
@@ -706,6 +706,9 @@ namespace BRJ.Bosses.Snooker
             var pos = new Vector2(
                 Random.Range(minBallPos.x, maxBallPos.x),
                 Random.Range(minBallPos.y, maxBallPos.y));
+
+            RuntimeManager.PlayOneShot(dropBallSound, pos);
+
             var ball = Instantiate(ballPrefab, handTransform);
             ball.transform.localPosition = Vector3.zero;
             var sb = ball.GetComponent<SnookerBall>();
@@ -714,7 +717,6 @@ namespace BRJ.Bosses.Snooker
 
             sb.SetShadowLocalPos(Vector2.down * 3);
 
-            RuntimeManager.CreateInstance(moveHandEvent).start();
             await Tween.Position(handTransform, pos + Vector2.up * 3, 1, Ease.InOutSine);
 
             sb.DetachShadow();

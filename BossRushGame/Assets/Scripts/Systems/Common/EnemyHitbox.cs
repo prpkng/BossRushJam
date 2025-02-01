@@ -9,12 +9,20 @@ namespace BRJ.Systems.Common
         public HealthBehavior health;
         public FlashSprite flash;
         public UnityEvent onHit;
+        public UnityEvent onDefenseHit;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (health) health.ApplyDamage(Game.Instance.World.Player.activeGun.bulletDamage);
+            if (health && health.enabled)
+            {
+                health.ApplyDamage(Game.Instance.World.Player.activeGun.bulletDamage);
+                onHit.Invoke();
+            }
+            else
+            {
+                onDefenseHit.Invoke();
+            }
             Destroy(other.gameObject);
-            onHit.Invoke();
             if (flash) flash.Flash();
         }
     }

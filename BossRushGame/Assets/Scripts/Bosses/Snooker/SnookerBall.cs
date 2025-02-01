@@ -82,9 +82,9 @@ namespace BRJ.Bosses.Snooker
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.relativeVelocity.magnitude <= impactForceThreshold) return;
-            RuntimeManager.CreateInstance(
+            RuntimeManager.PlayOneShotAttached(
                 other.gameObject.CompareTag("SnookerBall") ? hitBallSound : hitWallSound
-            ).start();
+            , gameObject);
             ballHealth.ApplyDamage(1);
         }
     }

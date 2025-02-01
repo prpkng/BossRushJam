@@ -10,7 +10,6 @@ namespace BRJ.Systems.Common
         public float currentHealth = 0;
         public bool destroyOnDeath = false;
 
-
         public event Action<float> OnHealthChanged;
 
         public float HealthPercentage => currentHealth / totalHealth;

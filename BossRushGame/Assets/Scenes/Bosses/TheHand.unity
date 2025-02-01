@@ -119,6 +119,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &329976450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+  m_PrefabInstance: {fileID: 6895901554292110501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588dd8cf633db6c4fa17d86a36cc1b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &329976451 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+  m_PrefabInstance: {fileID: 6895901554292110501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabc11c9c4da9474ca587bfee4ae80d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &408696730
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +651,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 881232002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+--- !u!1 &804753123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 527443938548100427, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+  m_PrefabInstance: {fileID: 6847132131701263847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &835954147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -804,6 +831,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8939613280120032888, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
   m_PrefabInstance: {fileID: 6895901554292110501}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1122034158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7598249609894973622, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+  m_PrefabInstance: {fileID: 6895901554292110501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131b891dfbff4b7cacb5810e5e1ea7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1171480626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1363,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7063005310955102695, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
   m_PrefabInstance: {fileID: 6895901554292110501}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1613831986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8609000956720070441, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+  m_PrefabInstance: {fileID: 6895901554292110501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131b891dfbff4b7cacb5810e5e1ea7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1625220357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,6 +2027,10 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 11.25
       objectReference: {fileID: 0}
+    - target: {fileID: 8810538770698719780, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
+      propertyPath: attenuationObject
+      value: 
+      objectReference: {fileID: 804753123}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2165,6 +2218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnookerBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 787806858954592584, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 329976450}
     - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: deathCamera
       value: 
@@ -2173,6 +2230,206 @@ PrefabInstance:
       propertyPath: deathCameraNoise
       value: 
       objectReference: {fileID: 1283301651}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: myTurnSound.Path
+      value: event:/BOSSES/Snooker/VO_SnookerMyTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: dropBallSound.Path
+      value: event:/BOSSES/Snooker/SFX_PlaySnooker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Path
+      value: event:/BOSSES/Snooker/SFX_Boss01_Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: myTurnSound.Guid.Data1
+      value: -474831993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: myTurnSound.Guid.Data2
+      value: 1248835260
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: myTurnSound.Guid.Data3
+      value: 207367828
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: myTurnSound.Guid.Data4
+      value: -977555213
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: dropBallSound.Guid.Data1
+      value: -138986045
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: dropBallSound.Guid.Data2
+      value: 1104700227
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: dropBallSound.Guid.Data3
+      value: 1925006981
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: dropBallSound.Guid.Data4
+      value: -2123107063
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Guid.Data1
+      value: -258689673
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Guid.Data2
+      value: 1080337970
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Guid.Data3
+      value: 485831558
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409683214027594039, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: poolShotEvent.Guid.Data4
+      value: 635197794
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505870409220538071, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 329976450}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: totalHealth
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1613831986}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1122034158}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 329976451}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1613831986}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1122034158}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 329976451}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Phase2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Phase3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1613831986}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1122034158}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 329976451}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Phase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onQuarterHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.Bosses.Snooker.PoolHand, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: BRJ.Bosses.Snooker.SnookerBoss, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
+      propertyPath: onThreeQuartersHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7330559444157686007, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
