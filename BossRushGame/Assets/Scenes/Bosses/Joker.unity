@@ -3415,6 +3415,13 @@ MonoBehaviour:
   cardTweenEase: 9
   addCardTweenDuration: 0.25
   addCardTweenEase: 18
+  addCardEvent:
+    Guid:
+      Data1: 2114372500
+      Data2: 1202662789
+      Data3: -1167960941
+      Data4: 1917903068
+    Path: event:/SFX_JokerFullCard
 --- !u!114 &1970873845
 MonoBehaviour:
   m_ObjectHideFlags: 0

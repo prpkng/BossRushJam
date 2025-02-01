@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BRJ.Systems;
+using FMODUnity;
 using PrimeTween;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ namespace BRJ.Bosses.Poker
         [Space] public float addCardTweenDuration;
         public Ease addCardTweenEase;
 
+        public EventReference addCardEvent;
 
         private void RecalculateCardsPosition()
         {
@@ -39,6 +41,7 @@ namespace BRJ.Bosses.Poker
 
         public void AddCard(int count = 1)
         {
+            RuntimeManager.PlayOneShotAttached(addCardEvent, gameObject);
             for (int i = 0; i < count; i++)
             {
                 var card = Instantiate(cardPrefab, transform);
@@ -52,6 +55,7 @@ namespace BRJ.Bosses.Poker
 
                 cards.Insert(0, card);
             }
+
 
             RecalculateCardsPosition();
         }
