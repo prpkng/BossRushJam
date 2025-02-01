@@ -47,6 +47,16 @@ namespace BRJ.Systems.Lobby
                               "Joker" => SaveManager.GetSaveData().HaveSeenJokerCutscene,
                               _ => true
                           });
+
+                switch (doorDestination)
+                {
+                    case "TheHand":
+                        SaveManager.SetSeenSnookerCutscene();
+                        break;
+                    case "Joker":
+                        SaveManager.SetSeenJokerCutscene();
+                        break;
+                }
             }
         }
     }

@@ -89,5 +89,17 @@ namespace BRJ.Systems.Saving
             LoadData();
             return currentSaveData;
         }
+
+        public static void SetSeenJokerCutscene()
+        {
+            currentSaveData.HaveSeenJokerCutscene = true;
+            SaveData();
+        }
+
+        public static void SetSeenSnookerCutscene()
+        {
+            currentSaveData.HaveSeenSnookerCutscene = true;
+            SaveData();
+        }
     }
 }
