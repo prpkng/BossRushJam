@@ -15,8 +15,10 @@ namespace BRJ.Systems
         {
             CallFadeIn();
             RuntimeManager.PlayOneShot(transitionSound);
-            await UniTask.WaitForSeconds(fadeInDuration);
+            await UniTask.WaitForSeconds(fadeInDuration, true);
             await SceneManager.LoadSceneAsync(destination);
+            await UniTask.WaitForSeconds(.05f, true);
+            Time.timeScale = 1f;
             CallFadeOut();
         }
 

@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 33.625
+  m_Time: 33.73631916722904
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 0689f9340d87d384b8222f0da9742288, type: 2}
@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: JokerBossCutscene
+  m_Name: SnookerBoss
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
@@ -1183,15 +1183,15 @@ MonoBehaviour:
       Slot13: 0
       Slot14: 0
       Slot15: 0
-  EventLength: 34.855
+  EventLength: Infinity
   eventName: 
   EventReference:
     Guid:
-      Data1: -478596472
-      Data2: 1212466689
-      Data3: -1904203385
-      Data4: -819405147
-    Path: event:/MUS/MUS_CutsceneJOKER
+      Data1: -305942929
+      Data2: 1081859389
+      Data3: -1819019366
+      Data4: 218742583
+    Path: event:/MUS/MUS_Cutscene
   StopType: 0
   Parameters: []
 --- !u!74 &3484252148811468544
@@ -2413,7 +2413,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: MUS_CutsceneJOKER
+    m_DisplayName: MUS_Cutscene
   m_Markers:
     m_Objects: []
   template:

@@ -17,10 +17,16 @@ namespace BRJ.Bosses.Snooker
         public float sineXSpeed = 2f;
         public float sineYSpeed = 1f;
         public float lerpSpeed = 10f;
+        public bool playOnAwake = false;
 
         private float counter;
 
         private bool isRunning = false;
+
+        private void Awake()
+        {
+            if (playOnAwake) StartMovement();
+        }
 
         public void StartMovement()
         {

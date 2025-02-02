@@ -370,7 +370,7 @@ TextureImporter:
         width: 64
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -392,7 +392,7 @@ TextureImporter:
         width: 64
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -401,6 +401,28 @@ TextureImporter:
       bones: []
       spriteID: b18875c47e4089e42bf8871441958244
       internalID: -55069322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FontTexts_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 64
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8c245015048e040bc8888b0f649329
+      internalID: -1557470457
       vertices: []
       indices: 
       edges: []
@@ -422,6 +444,7 @@ TextureImporter:
       FontTexts_0: 1927223869
       FontTexts_1: 1106864462
       FontTexts_10: -55069322
+      FontTexts_11: -1557470457
       FontTexts_2: -1866143086
       FontTexts_3: 90870134
       FontTexts_4: -1025198562
