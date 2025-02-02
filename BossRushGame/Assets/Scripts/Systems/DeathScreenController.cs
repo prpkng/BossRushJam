@@ -18,6 +18,7 @@ namespace BRJ.Systems
 
         private async void Start()
         {
+            InputManager.ShakeFadeout();
             cameraTransform.position = LastCameraPosition;
             deathCapTransform.position = LastPlayerPosition;
 

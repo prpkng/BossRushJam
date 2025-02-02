@@ -24,7 +24,7 @@ namespace BRJ.Player
         public Animator playerAnimations;
         public PlayerHitbox playerHitbox;
         public PlayerGun activeGun;
-
+        public PlayerHealth health;
 
         private Vector2 currentKnockbackVector;
         private StateMachine fsm;
@@ -115,6 +115,7 @@ namespace BRJ.Player
 
         public void OnDamage(Vector2 knockback)
         {
+            InputManager.ShakeStrong();
             playerHitbox.SetInvulnerable(damageInvulnerabilityDuration);
             fsm.Trigger("Hit");
             currentKnockbackVector = knockback;

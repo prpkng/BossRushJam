@@ -809,6 +809,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameInstance
       objectReference: {fileID: 0}
+    - target: {fileID: 7409344855587493118, guid: 5e48b931a30368649be5e8c428e4eee2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409344855587493118, guid: 5e48b931a30368649be5e8c428e4eee2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2673,7 +2681,7 @@ MonoBehaviour:
       Data2: 1341458512
       Data3: -844766529
       Data4: -1335161021
-    Path: event:/SFX_BossDamages
+    Path: event:/SFX/SFX_BossDamages
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -3421,7 +3429,7 @@ MonoBehaviour:
       Data2: 1202662789
       Data3: -1167960941
       Data4: 1917903068
-    Path: event:/SFX_JokerFullCard
+    Path: event:/SFX/SFX_JokerFullCard
 --- !u!114 &1970873845
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -358,6 +358,7 @@ namespace BRJ.Bosses.Snooker
 
         private IEnumerator DeathStateCoroutine()
         {
+            Game.Instance.World.Player.health.damageMultiplier = 0;
             Tween.StopAll(leftHandTransform);
             Tween.StopAll(rightHandTransform);
             Tween.StopAll(poolStick);
@@ -424,8 +425,10 @@ namespace BRJ.Bosses.Snooker
                 Destroy(hand.gameObject);
             }
 
+
             Time.timeScale = deathTimeScale;
 
+            InputManager.ShakeFadeout(2.5f);
             yield return Tween.Custom(
                 1,
                 0,
@@ -527,6 +530,7 @@ namespace BRJ.Bosses.Snooker
 
             // Apply velocity to the selected ball
             RuntimeManager.PlayOneShot(poolShotEvent, _currentBall.position);
+            InputManager.ShakeStrong();
             _currentBall.linearVelocity = dir * shotForce;
 
             // poolShotSound.Play();
@@ -629,6 +633,7 @@ namespace BRJ.Bosses.Snooker
                 yield return new WaitForEndOfFrame();
                 yield return new WaitForFixedUpdate();
                 tween.Complete();
+                InputManager.ShakeStrong();
                 poolStick.position = poolStickShadow.position;
                 stompHitbox.transform.position = poolStick.position;
 

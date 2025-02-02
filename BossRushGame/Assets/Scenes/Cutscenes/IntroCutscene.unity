@@ -165,10 +165,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -478596472
-      Data2: 1212466689
-      Data3: -1904203385
-      Data4: -819405147
+      Data1: -305942929
+      Data2: 1081859389
+      Data3: -1819019366
+      Data4: 218742583
     Path: event:/MUS/MUS_Cutscene
   Event: 
   EventPlayTrigger: 0
@@ -662,7 +662,7 @@ Transform:
   m_GameObject: {fileID: 1152157127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: -100}
+  m_LocalPosition: {x: -3.5, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

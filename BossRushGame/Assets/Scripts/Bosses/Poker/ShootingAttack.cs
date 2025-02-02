@@ -77,6 +77,7 @@ namespace BRJ.Bosses.Poker
 
         private void Fire()
         {
+            InputManager.ShakeWeakLeft();
             cardAttackEventInstance.start();
             var bullet = Instantiate(bulletPrefab, transform.position + transform.up * 1.5f, Quaternion.identity);
             if (FaceDirection) bullet.right = transform.up;

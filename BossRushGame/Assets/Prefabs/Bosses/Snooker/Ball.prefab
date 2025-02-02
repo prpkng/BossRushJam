@@ -551,6 +551,8 @@ GameObject:
   - component: {fileID: 4565283947866118565}
   - component: {fileID: 4299385746948494696}
   - component: {fileID: 4753292431069373674}
+  - component: {fileID: 1605990969026377774}
+  - component: {fileID: 7316755154849489985}
   m_Layer: 8
   m_Name: Ball
   m_TagString: SnookerBall
@@ -710,6 +712,49 @@ MonoBehaviour:
       Data3: 1841369017
       Data4: -1527686926
     Path: event:/BOSSES/Snooker/SFX_BallExplosion
+--- !u!114 &1605990969026377774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317147210184284824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5ab68fb55299541a49c9e9fdf8ff60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7316755154849489985}
+        m_TargetAssemblyTypeName: BRJ.Systems.Common.ShakeController, Assembly-CSharp
+        m_MethodName: Shake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7316755154849489985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317147210184284824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec0b1e808f670d40b38666923c4e378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 0
+  lowForce: 1
+  highForce: 0
+  duration: 0.1
 --- !u!1 &4449913507445808381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1090,8 @@ GameObject:
   - component: {fileID: 8262258357299464016}
   - component: {fileID: 3810184071858919342}
   - component: {fileID: 2928605311008359496}
-  - component: {fileID: 2747194178949652942}
+  - component: {fileID: 1336044432452780344}
+  - component: {fileID: 235734812302537871}
   m_Layer: 0
   m_Name: DeathParticles
   m_TagString: Untagged
@@ -1105,7 +1151,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_SortAtRoot: 0
---- !u!114 &2747194178949652942
+--- !u!114 &1336044432452780344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1114,28 +1160,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 8025742444760763849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: 123020c16a935124da935add4ee43234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1606946906
-      Data2: 1333627882
-      Data3: 1852486033
-      Data4: -1527997356
-    Path: event:/SFX/SnookerBoss/SFX_BallBreak
-  Event: 
-  EventPlayTrigger: 11
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 235734812302537871}
+        m_TargetAssemblyTypeName: BRJ.Systems.Common.ShakeController, Assembly-CSharp
+        m_MethodName: Shake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &235734812302537871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8025742444760763849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec0b1e808f670d40b38666923c4e378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 0
+  lowForce: 1
+  highForce: 1
+  duration: 0.1
 --- !u!1 &8330407823371170248
 GameObject:
   m_ObjectHideFlags: 0

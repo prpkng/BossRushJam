@@ -20,6 +20,7 @@ namespace BRJ.Bosses.Poker
             await UniTask.WaitForSeconds(attackColliderWaitTime);
 
             Game.Instance.Camera.ShakeStrong();
+            InputManager.ShakeStrong();
             collider.enabled = true;
             await UniTask.WaitForSeconds(swordsAnimationDuration - attackColliderWaitTime);
 

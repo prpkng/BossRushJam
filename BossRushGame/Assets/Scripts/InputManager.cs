@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using BRJ.Player;
 using BRJ.Systems;
 using Cysharp.Threading.Tasks;
-using Pixelplacement;
+using PrimeTween;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.DualShock;
@@ -48,16 +48,70 @@ namespace BRJ
             playerInputComponent.enabled = true;
         }
 
+        public static void ShakeWeak()
+        {
+            Shake(0f, 0.75f, .025f);
+        }
+
+        public static void ShakeWeakLeft()
+        {
+            Shake(0.45f, 0f, .025f);
+        }
+
+        public static void ShakeStrong()
+        {
+            Shake(1f, 0.5f);
+        }
+
+        private static (float l, float r) motorSpeeds = (0, 0);
+
+        public static void StartShake(float lowForce, float highForce)
+        {
+            if (!isUsingGamepad) return;
+            if (lowForce != 0) motorSpeeds.l = lowForce;
+            if (highForce != 0) motorSpeeds.r = highForce;
+            Gamepad.current.SetMotorSpeeds(motorSpeeds.l, motorSpeeds.r);
+        }
+
+        public static void StopShake()
+        {
+            Gamepad.current.SetMotorSpeeds(0, 0);
+        }
+
+        public static async void Shake(float lowForce, float highForce, float duration = .1f)
+        {
+            if (!isUsingGamepad) return;
+            if (lowForce != 0) motorSpeeds.l = lowForce;
+            if (highForce != 0) motorSpeeds.r = highForce;
+            Gamepad.current.SetMotorSpeeds(motorSpeeds.l, motorSpeeds.r);
+            await UniTask.WaitForSeconds(duration);
+            if (lowForce != 0) motorSpeeds.l = 0;
+            if (highForce != 0) motorSpeeds.r = 0;
+            Gamepad.current.SetMotorSpeeds(motorSpeeds.l, motorSpeeds.r);
+        }
+
+        public static void ShakeFadeout(float duration = 1f)
+        {
+            if (!isUsingGamepad) return;
+            Tween.Custom(
+                Gamepad.current,
+                1,
+                0,
+                duration,
+                (pad, f) =>
+                {
+                    pad.SetMotorSpeeds(1f * f, 0.5f * f);
+                },
+                Ease.OutSine
+            ).OnComplete(Gamepad.current, pad => pad.SetMotorSpeeds(0, 0));
+        }
+
         private void Update()
         {
+#if UNITY_EDITOR
             if (Keyboard.current.rKey.wasPressedThisFrame)
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            if (Keyboard.current.f6Key.wasPressedThisFrame)
-                SceneManager.LoadScene("TheHand");
-            if (Keyboard.current.f7Key.wasPressedThisFrame)
-                SceneManager.LoadScene("Joker");
-            if (Keyboard.current.f8Key.wasPressedThisFrame)
-                SceneManager.LoadScene("Lobby");
+#endif
 
             var look = lookAction.ReadValue<Vector2>();
             var move = moveAction.ReadValue<Vector2>();

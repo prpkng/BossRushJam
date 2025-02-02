@@ -14,7 +14,7 @@ namespace BRJ.Bosses.Snooker
         protected override void OnDeath()
         {
             deathParticles.Play();
-            RuntimeManager.CreateInstance(deathEvent).start();
+            RuntimeManager.PlayOneShot(deathEvent, transform.position);
             Destroy(gameObject);
             base.OnDeath();
         }

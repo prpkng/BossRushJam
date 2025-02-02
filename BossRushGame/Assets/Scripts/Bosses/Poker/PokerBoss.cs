@@ -225,6 +225,7 @@ namespace BRJ.Bosses.Poker
         private IEnumerator DeathStateCoroutine(CoState<States, string> state)
         {
             DestroyAllCards();
+            Game.Instance.World.Player.health.damageMultiplier = 0;
 
             bossEyes.SetAngry();
             Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());

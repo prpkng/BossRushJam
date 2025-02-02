@@ -182,7 +182,7 @@ MonoBehaviour:
       Data2: 1341458512
       Data3: -844766529
       Data4: -1335161021
-    Path: event:/SFX_BossDamages
+    Path: event:/SFX/SFX_BossDamages
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
