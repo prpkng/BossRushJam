@@ -9,6 +9,9 @@ namespace BRJ.UI.MainMenu
         private void Start()
         {
             SceneManager.LoadSceneAsync("IntroCutscene", LoadSceneMode.Additive);
+
+            FMODUnity.RuntimeManager.GetVCA("MUS").setVolume(PlayerPrefs.GetFloat("Music", 1f));
+            FMODUnity.RuntimeManager.GetVCA("SFX").setVolume(PlayerPrefs.GetFloat("SFX", 1f));
         }
     }
 }
