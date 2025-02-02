@@ -420,18 +420,46 @@ namespace BRJ.Bosses.Poker
                 if (attempts >= 4 || success == 1)
                     break;
             }
+            bossSprite.gameObject.SetActive(true);
+
+            bossEyes.SetAngry();
+            Game.Instance.Sound.BossMusic.With(b => b.SetAggressive());
+
+            deathCamera.Priority = 10;
+
+            Tween.Custom(
+                1.5f,
+                2f,
+                zoomInTween,
+                f => Game.Instance.World.RenderTextureZoom = f
+            );
+
+            yield return new WaitForSeconds(panWaitTime);
+
+            mat.SetFloat("_Force", 1);
+            mat.SetInt("_Flash", 1);
+            yield return null;
+            yield return Tween.Custom(
+                1,
+                0,
+                flashOutTween,
+                f => mat.SetFloat("_Force", f)
+            ).ToYieldInstruction();
+
+            ShakeDeathCamera();
+
 
             print("FINISHED");
 
+            SaveManager.SetBeatJoker();
 
             var sceneDest = "Lobby";
 
-            if (SaveManager.GetSaveData().HasBeatJoker)
+            if (SaveManager.GetSaveData().HasBeatSnooker)
             {
-                sceneDest = "MainMenu";
+                sceneDest = "Credits";
             }
 
-            SaveManager.SetBeatSnooker();
             Game.Instance.Sound.BossMusic.With(b => b.eventEmitter.Stop());
             Game.Instance.Transition.TransitionToScene(sceneDest);
             Game.Instance.World.RenderTextureZoom = 1.5f;

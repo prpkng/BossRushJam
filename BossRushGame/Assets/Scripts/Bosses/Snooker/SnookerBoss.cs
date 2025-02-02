@@ -444,7 +444,7 @@ namespace BRJ.Bosses.Snooker
 
             if (SaveManager.GetSaveData().HasBeatJoker)
             {
-                dest = "MainMenu";
+                dest = "Credits";
             }
 
             SaveManager.SetBeatSnooker();

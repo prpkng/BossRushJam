@@ -2484,7 +2484,7 @@ PrefabInstance:
       objectReference: {fileID: 329976450}
     - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: totalHealth
-      value: 300
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 2338245022845996370, guid: f0baa93f855196d4da1a5d599c2209e0, type: 3}
       propertyPath: onHalfHealth.m_PersistentCalls.m_Calls.Array.size

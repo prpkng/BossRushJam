@@ -324,6 +324,10 @@ PrefabInstance:
       propertyPath: event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8119252425043635247, guid: 0a1c9c0e0f250c84ebe46d850446376f, type: 3}
+      propertyPath: m_Color.a
+      value: 0.09803922
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2988801317518293715, guid: 0a1c9c0e0f250c84ebe46d850446376f, type: 3}
     m_RemovedGameObjects: []
