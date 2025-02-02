@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 8233413966282584824}
   - component: {fileID: 5985811015114615239}
   - component: {fileID: 5564884328320156995}
+  - component: {fileID: 6175610597726807131}
   m_Layer: 5
   m_Name: UIButton
   m_TagString: Untagged
@@ -200,10 +201,10 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BRJ.UI.PauseManager, Assembly-CSharp
         m_MethodName: GiveUp
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -221,3 +222,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fe8a15cf32ae54faae778036c3ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6175610597726807131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625807598504501771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a002b62977cb6741bad39a6b032b869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound:
+    Guid:
+      Data1: -1262150600
+      Data2: 1155212724
+      Data3: 1431859386
+      Data4: -1486108235
+    Path: event:/UI/UI_MenuHover
+  clickSound:
+    Guid:
+      Data1: -1095245823
+      Data2: 1310704515
+      Data3: 1988888194
+      Data4: 714105541
+    Path: event:/UI/UI_MenuClick

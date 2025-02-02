@@ -122,8 +122,14 @@ namespace BRJ
         {
             get
             {
-                Vector2 viewportPos = Mouse.current.position.ReadValue() /
-                         new Vector2(Screen.width, Screen.height);
+                float w = Screen.width;
+                float h = Screen.height;
+                if (w / 16f > h / 9f)
+                    w = h / 9f * 16f;
+                else
+                    h = w / 16f * 9f;
+                Vector2 viewportPos = (Mouse.current.position.ReadValue() - new Vector2((Screen.width - w) / 2f, (Screen.height - h) / 2f)) /
+                    new Vector2(w, h);
                 float scale = Game.Instance.World.ScreenRenderTexture.localScale.x;
                 var range = new Vector2(0.5f - 0.5f / scale, 0.5f + 0.5f / scale);
                 viewportPos = new Vector2(

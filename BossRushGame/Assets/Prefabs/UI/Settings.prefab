@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 4381954678063784787}
   - component: {fileID: 7126699733837658883}
   - component: {fileID: 7704112839146776378}
+  - component: {fileID: 3177273764885714138}
   m_Layer: 5
   m_Name: Fullscreen
   m_TagString: Untagged
@@ -351,6 +352,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fe8a15cf32ae54faae778036c3ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3177273764885714138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391079156197637314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a002b62977cb6741bad39a6b032b869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound:
+    Guid:
+      Data1: -1262150600
+      Data2: 1155212724
+      Data3: 1431859386
+      Data4: -1486108235
+    Path: event:/UI/UI_MenuHover
+  clickSound:
+    Guid:
+      Data1: -1095245823
+      Data2: 1310704515
+      Data3: 1988888194
+      Data4: 714105541
+    Path: event:/UI/UI_MenuClick
 --- !u!1 &6940463381736760904
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,6 +1022,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5635247031376283362, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
       insertIndex: 3
       addedObject: {fileID: 2206528789728955929}
+    - targetCorrespondingSourceObject: {fileID: 5635247031376283362, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5319753211765104101}
   m_SourcePrefab: {fileID: 100100000, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
 --- !u!1 &576464426220916486 stripped
 GameObject:
@@ -1028,6 +1058,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5319753211765104101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576464426220916486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a002b62977cb6741bad39a6b032b869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound:
+    Guid:
+      Data1: -1262150600
+      Data2: 1155212724
+      Data3: 1431859386
+      Data4: -1486108235
+    Path: event:/UI/UI_MenuHover
+  clickSound:
+    Guid:
+      Data1: -1095245823
+      Data2: 1310704515
+      Data3: 1988888194
+      Data4: 714105541
+    Path: event:/UI/UI_MenuClick
 --- !u!224 &2249439834110257873 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6414240338219590453, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
@@ -1144,6 +1200,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5635247031376283362, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8783694293146096274}
+    - targetCorrespondingSourceObject: {fileID: 5635247031376283362, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8017660752459512676}
   m_SourcePrefab: {fileID: 100100000, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
 --- !u!1 &269011623074580518 stripped
 GameObject:
@@ -1177,6 +1236,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8017660752459512676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269011623074580518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a002b62977cb6741bad39a6b032b869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound:
+    Guid:
+      Data1: -1262150600
+      Data2: 1155212724
+      Data3: 1431859386
+      Data4: -1486108235
+    Path: event:/UI/UI_MenuHover
+  clickSound:
+    Guid:
+      Data1: -1095245823
+      Data2: 1310704515
+      Data3: 1988888194
+      Data4: 714105541
+    Path: event:/UI/UI_MenuClick
 --- !u!224 &1480600632737050097 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6414240338219590453, guid: 968c5d450cf602348a3fbd4f4438b178, type: 3}
