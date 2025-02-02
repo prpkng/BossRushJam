@@ -50,7 +50,7 @@ namespace BRJ
 
         public static void ShakeWeak()
         {
-            Shake(0f, 0.75f, .025f);
+            Shake(0f, 1f, .025f);
         }
 
         public static void ShakeWeakLeft()

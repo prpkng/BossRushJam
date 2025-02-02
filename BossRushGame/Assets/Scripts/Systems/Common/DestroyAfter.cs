@@ -7,11 +7,18 @@ namespace BRJ.Systems.Common
     public class DestroyAfter : MonoBehaviour
     {
         public float seconds;
+        public bool runOnAwake;
 
-        private IEnumerator Start()
+        private void Start()
         {
-            yield return new WaitForSeconds(seconds);
-            Destroy(gameObject);
+            if (runOnAwake)
+                Destroy(gameObject, seconds);
+        }
+
+        public void Destroy() => Destroy(seconds);
+        public void Destroy(float seconds)
+        {
+            Destroy(gameObject, seconds);
         }
     }
 }
