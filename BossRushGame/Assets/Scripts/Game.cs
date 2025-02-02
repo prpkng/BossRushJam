@@ -7,6 +7,7 @@ namespace BRJ
     using BRJ.Systems.Slots.Modifiers;
     using LDtkUnity;
     using UnityEngine;
+    using UnityEngine.AddressableAssets;
     using UnityEngine.SceneManagement;
 
     public class Game : MonoBehaviour
@@ -64,6 +65,15 @@ namespace BRJ
             if (currentModifierType != null)
             {
                 World.CurrentActiveModifier = (Modifier)Activator.CreateInstance(currentModifierType);
+                if (World.CurrentActiveModifier == null) return;
+                var texture = Addressables.LoadAssetAsync<Texture2D>(World.CurrentActiveModifier.SpritePath);
+                texture.Completed += t =>
+                {
+                    World.CurrentActiveModifier.iconSprite = Sprite.Create(
+                        t.Result,
+                        new Rect(0, 0, t.Result.width, t.Result.height),
+                        Vector2.one * .5f);
+                };
                 print("Current modifier type: " + World.CurrentActiveModifier.GetType());
             }
             // #endif

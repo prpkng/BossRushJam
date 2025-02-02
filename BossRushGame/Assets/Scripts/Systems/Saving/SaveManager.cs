@@ -23,6 +23,9 @@ namespace BRJ.Systems.Saving
         {
             if (HasSave())
                 File.Delete(SavePath);
+            currentSaveData = default;
+            if (Game.Instance.World)
+                Game.Instance.World.CurrentActiveModifier = null;
         }
 
         public static void LoadData()
