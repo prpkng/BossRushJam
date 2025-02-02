@@ -1,4 +1,4 @@
-const cacheName = "Casiverse-Casiland-0.0.35";
+const cacheName = "Casiverse-Casiland-1.0.0";
 const contentToCache = [
     "Build/BossRushGame.loader.js",
     "Build/BossRushGame.framework.js",
