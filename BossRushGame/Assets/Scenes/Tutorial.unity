@@ -30137,14 +30137,14 @@ Tilemap:
       e33: 1
   - m_RefCount: 0
     m_Data:
-      e00: 1.2580975e+26
+      e00: -3244496
       e01: 4.022e-42
       e02: 0
       e03: 2.19e-43
-      e10: 4.88e-43
+      e10: 4.83e-43
       e11: 0
       e12: 0
-      e13: 4.83e-43
+      e13: 0
       e20: 1.47e-43
       e21: 8.043e-42
       e22: 1.5492073e+20
@@ -32687,6 +32687,11 @@ Transform:
 --- !u!212 &1004491294 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7476110915833379268, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
+  m_PrefabInstance: {fileID: 1004491291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1004491295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 527443938548100427, guid: 008132bf9422d574eab9ac5cfe158ee3, type: 3}
   m_PrefabInstance: {fileID: 1004491291}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1015581174
@@ -50838,6 +50843,10 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 11.25
       objectReference: {fileID: 0}
+    - target: {fileID: 8810538770698719780, guid: 520c7a3b9e0303b49ae85359d582bd85, type: 3}
+      propertyPath: attenuationObject
+      value: 
+      objectReference: {fileID: 1004491295}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
