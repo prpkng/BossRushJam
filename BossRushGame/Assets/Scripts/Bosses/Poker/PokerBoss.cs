@@ -4,6 +4,7 @@ using System.Linq;
 using AYellowpaper.SerializedCollections;
 using BRJ.Bosses.Joker;
 using BRJ.Systems;
+using BRJ.Systems.Saving;
 using Cysharp.Threading.Tasks;
 using FMOD.Studio;
 using FMODUnity;
@@ -391,7 +392,20 @@ namespace BRJ.Bosses.Poker
                 print($"Passed, success is {success}");
 
                 foreach (var jk in jokerComponents)
+                {
                     jk.ClearCallbacks();
+                    jk.gameObject.SetActive(false);
+                }
+                foreach (var jk in jokers)
+                    jk.SetActive(false);
+                correct.gameObject.SetActive(true);
+
+                Tween.Delay(.1f, () =>
+                    {
+                        foreach (var jk in jokers)
+                            jk.SetActive(true);
+                    }
+                );
 
                 mat.SetFloat("_Force", 1);
                 mat.SetInt("_Flash", 1);
@@ -409,8 +423,18 @@ namespace BRJ.Bosses.Poker
 
             print("FINISHED");
 
-            // Provisory
-            Game.Instance.Transition.TransitionToScene("Lobby");
+
+            var sceneDest = "Lobby";
+
+            if (SaveManager.GetSaveData().HasBeatJoker)
+            {
+                sceneDest = "MainMenu";
+            }
+
+            SaveManager.SetBeatSnooker();
+            Game.Instance.Sound.BossMusic.With(b => b.eventEmitter.Stop());
+            Game.Instance.Transition.TransitionToScene(sceneDest);
+            Game.Instance.World.RenderTextureZoom = 1.5f;
 
             yield break;
         }

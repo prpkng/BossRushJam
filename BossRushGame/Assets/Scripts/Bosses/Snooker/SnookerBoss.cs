@@ -11,6 +11,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting.FullSerializer.Internal;
 using System.Threading;
 using UnityEngine.SceneManagement;
+using BRJ.Systems.Saving;
 
 namespace BRJ.Bosses.Snooker
 {
@@ -439,7 +440,17 @@ namespace BRJ.Bosses.Snooker
 
             yield return new WaitForSeconds(4);
 
-            Game.Instance.Transition.TransitionToScene("Lobby");
+            var dest = "Lobby";
+
+            if (SaveManager.GetSaveData().HasBeatJoker)
+            {
+                dest = "MainMenu";
+            }
+
+            SaveManager.SetBeatSnooker();
+            Game.Instance.Sound.BossMusic.With(b => b.eventEmitter.Stop());
+
+            Game.Instance.Transition.TransitionToScene(dest);
             Game.Instance.World.RenderTextureZoom = 1.5f;
         }
 

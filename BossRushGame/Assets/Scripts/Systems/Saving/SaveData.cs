@@ -11,5 +11,8 @@ namespace BRJ.Systems.Saving
 
         public bool HaveSeenJokerCutscene;
         public bool HaveSeenSnookerCutscene;
+
+        public bool HasBeatJoker;
+        public bool HasBeatSnooker;
     }
 }

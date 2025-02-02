@@ -104,5 +104,17 @@ namespace BRJ.Systems.Saving
             currentSaveData.HaveSeenSnookerCutscene = true;
             SaveData();
         }
+
+        public static void SetBeatJoker()
+        {
+            currentSaveData.HasBeatJoker = true;
+            SaveData();
+        }
+
+        public static void SetBeatSnooker()
+        {
+            currentSaveData.HasBeatSnooker = true;
+            SaveData();
+        }
     }
 }
