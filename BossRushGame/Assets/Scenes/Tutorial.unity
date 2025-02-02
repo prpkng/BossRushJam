@@ -30155,18 +30155,18 @@ Tilemap:
       e33: 1
   - m_RefCount: 0
     m_Data:
-      e00: 1.5344165e-23
+      e00: 2.3898723e+30
       e01: 4.023e-42
       e02: 0
       e03: 2.19e-43
-      e10: 8.2e-43
+      e10: 7.86e-43
       e11: 0
       e12: 0
-      e13: 0
+      e13: 171
       e20: 1.47e-43
       e21: 8.046e-42
-      e22: 3.5650108e+19
-      e23: 6.673883e+17
+      e22: 5.2091666e+31
+      e23: 9.566304e+29
       e30: NaN
       e31: 0
       e32: 4.5908e-41
@@ -50389,6 +50389,69 @@ MonoBehaviour:
   - {fileID: 385485525}
   - {fileID: 1264984681}
   doorCollider: {fileID: 20206319}
+--- !u!1 &1561113460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561113462}
+  - component: {fileID: 1561113461}
+  m_Layer: 0
+  m_Name: LobbyBGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1561113461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561113460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -313354299
+      Data2: 1216042881
+      Data3: -217773674
+      Data4: -907010103
+    Path: event:/MUS/MUS_BackgroundJazzFloor
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1561113462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561113460}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1567829881
 GameObject:
   m_ObjectHideFlags: 0
@@ -51296,3 +51359,4 @@ SceneRoots:
   - {fileID: 622665145}
   - {fileID: 419744356}
   - {fileID: 113492756}
+  - {fileID: 1561113462}

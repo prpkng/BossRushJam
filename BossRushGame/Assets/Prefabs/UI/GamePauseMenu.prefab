@@ -1866,26 +1866,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: BRJ.UI.GUIManager, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 6175610597726807131, guid: 61150fbbed0493741a643bf5af1340eb, type: 3}
-      propertyPath: clickSound.Path
-      value: event:/UI/UI_MenuResume
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175610597726807131, guid: 61150fbbed0493741a643bf5af1340eb, type: 3}
-      propertyPath: clickSound.Guid.Data1
-      value: -1241676108
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175610597726807131, guid: 61150fbbed0493741a643bf5af1340eb, type: 3}
-      propertyPath: clickSound.Guid.Data2
-      value: 1257773504
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175610597726807131, guid: 61150fbbed0493741a643bf5af1340eb, type: 3}
-      propertyPath: clickSound.Guid.Data3
-      value: -1226334551
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175610597726807131, guid: 61150fbbed0493741a643bf5af1340eb, type: 3}
-      propertyPath: clickSound.Guid.Data4
-      value: 441205535
-      objectReference: {fileID: 0}
     - target: {fileID: 6401622278098526590, guid: 61150fbbed0493741a643bf5af1340eb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
