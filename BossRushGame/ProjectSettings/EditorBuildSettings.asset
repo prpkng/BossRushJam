@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/WaitForInput.unity
+    guid: e7a0fc14f21755a459d49e9d57a4c20d
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 5777d7fb6d7e8ab46a518c231f2b108f
   - enabled: 1
@@ -35,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathScreen.unity
     guid: b5931f73e6d9a25479462a71f6476f14
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: a8c1bdc067037dd4e804ba819affa3d3
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 05dc6cf873938c34a8bfa391f3a89847, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 3eeecacd694583c41a32576800bf7381, type: 2}
