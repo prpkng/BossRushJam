@@ -93,6 +93,7 @@ MonoBehaviour:
   playerAnimations: {fileID: 5012356460373697768}
   playerHitbox: {fileID: 2212418656940548027}
   activeGun: {fileID: 2550022098616655586}
+  health: {fileID: 6698519441522588061}
 --- !u!58 &2760835209528523545
 CircleCollider2D:
   m_ObjectHideFlags: 0
