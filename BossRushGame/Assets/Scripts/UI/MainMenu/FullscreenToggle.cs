@@ -1,10 +1,11 @@
 namespace BRJ.UI.MainMenu
 {
+    using Cysharp.Threading.Tasks;
     using UnityEngine;
     using UnityEngine.EventSystems;
     using UnityEngine.UI;
 
-    public class FullscreenToggle : MonoBehaviour, ISubmitHandler
+    public class FullscreenToggle : MonoBehaviour, ISubmitHandler, IPointerClickHandler
     {
         public Image checkmark;
 
@@ -13,18 +14,38 @@ namespace BRJ.UI.MainMenu
             UpdateCheckbox();
         }
 
-        public void UpdateCheckbox()
+        public bool IsFullscreen
         {
-            checkmark.enabled = Screen.fullScreen;
+            get
+            {
+                return Screen.fullScreen;
+            }
+
+            set
+            {
+                Screen.fullScreen = value;
+            }
         }
 
-        public void ToggleFullscreen()
+        public void UpdateCheckbox()
         {
-            Screen.fullScreen = !Screen.fullScreen;
+            checkmark.enabled = IsFullscreen;
+        }
+
+        public async void ToggleFullscreen()
+        {
+            IsFullscreen = !IsFullscreen;
+            print($"Fullscreen toggled to {IsFullscreen}");
+            await UniTask.NextFrame();
             UpdateCheckbox();
         }
 
         public void OnSubmit(BaseEventData eventData)
+        {
+            ToggleFullscreen();
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
         {
             ToggleFullscreen();
         }

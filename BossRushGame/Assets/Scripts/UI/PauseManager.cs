@@ -1,21 +1,30 @@
-namespace BRJ.UI {
+namespace BRJ.UI
+{
     using Pixelplacement;
     using UnityEngine;
     using UnityEngine.EventSystems;
 
-    public class PauseManager : MonoBehaviour {
+    public class PauseManager : MonoBehaviour
+    {
         public GameObject resumeButton;
 
-        public void ResetPause() {
+        private void OnEnable()
+        {
             EventSystem.current.SetSelectedGameObject(resumeButton);
         }
 
+        public void ResetPause()
+        {
+        }
 
-        public void OpenSettings() {
+
+        public void OpenSettings()
+        {
 
         }
 
-        public void GiveUp() {
+        public void GiveUp()
+        {
             Game.Instance.SetPaused(false);
             Game.Instance.World.PlayerDeath();
         }
